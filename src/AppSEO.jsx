@@ -1292,21 +1292,27 @@ const LOAPage = () => {
             </CardContent>
           </Card>
 
-          {/* Embedded Form */}
-          <div className="w-full rounded-xl overflow-hidden border border-slate-800">
-            <iframe
-              src="https://www.watt.co.uk/loa/"
-              title="Letter of Authority Form"
-              className="w-full bg-white"
-              style={{ 
-                minHeight: '1200px',
-                height: '100vh',
-                maxHeight: '1500px'
-              }}
-              frameBorder="0"
-              scrolling="yes"
-            />
-          </div>
+          {/* Embedded Signable Form - Direct from watt.co.uk */}
+          <Card className="border-0 bg-white ring-1 ring-slate-800">
+            <CardHeader>
+              <CardTitle className="text-xl text-slate-800">Complete Your Letter of Authority</CardTitle>
+            </CardHeader>
+            <CardContent className="p-4">
+              <iframe
+                src="https://app.signable.co.uk/widget/embed/MzAhAFky4F?company=&name=&address="
+                title="Letter of Authority Form"
+                className="w-full"
+                style={{ 
+                  minHeight: '900px',
+                  border: 'none',
+                  backgroundColor: 'white'
+                }}
+                frameBorder="0"
+                scrolling="yes"
+                allowFullScreen
+              />
+            </CardContent>
+          </Card>
 
           {/* What happens next */}
           <Card className="border-0 bg-slate-900/60 ring-1 ring-slate-800">
