@@ -393,18 +393,18 @@ function Navbar(){
   
   return (
     <nav className="sticky top-0 z-50 border-b border-slate-800/60 bg-slate-950/80 backdrop-blur" role="navigation" aria-label="Main navigation">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-2">
         <Link to="/" className="flex items-center gap-3" aria-label="Watt Utilities home">
           <img 
             src="https://i.ibb.co/7dywXhNK/watt-utilities-white-logo-1-1.png" 
             alt="Watt Utilities - Business Energy Consultants" 
-            className="h-24 w-auto md:h-32" 
+            className="h-6 w-auto md:h-8" 
             width="200"
             height="80"
           />
         </Link>
         
-        <div className="hidden items-center gap-6 text-sm text-slate-300 md:flex">
+        <div className="hidden items-center gap-4 text-xs text-slate-300 md:flex">
           <div className="relative">
             <button 
               onClick={()=>setServicesOpen(!servicesOpen)} 
@@ -412,7 +412,7 @@ function Navbar(){
               aria-expanded={servicesOpen}
               aria-haspopup="true"
             >
-              Services <ChevronDown className={`h-4 w-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`}/>
+              Services <ChevronDown className={`h-3 w-3 transition-transform ${servicesOpen ? 'rotate-180' : ''}`}/>
             </button>
             <AnimatePresence>
               {servicesOpen && (
@@ -420,42 +420,42 @@ function Navbar(){
                   initial={{opacity:0, y:8}} 
                   animate={{opacity:1, y:0}} 
                   exit={{opacity:0, y:8}} 
-                  className="absolute left-0 mt-3 w-[560px] rounded-xl border border-slate-800 bg-slate-900/95 p-4 shadow-2xl"
+                  className="absolute left-0 mt-2 w-[480px] rounded-xl border border-slate-800 bg-slate-900/95 p-3 shadow-2xl"
                 >
-                  <div className="grid grid-cols-2 gap-3 text-slate-200">
-                    <NavLink to="/business-electricity" onClick={()=>setServicesOpen(false)} className="rounded-lg p-3 hover:bg-slate-800">
-                      <div className="mb-1 flex items-center gap-2 text-white">
-                        <Zap className="h-4 w-4 text-emerald-400"/> Business Electricity
+                  <div className="grid grid-cols-2 gap-2 text-slate-200">
+                    <NavLink to="/business-electricity" onClick={()=>setServicesOpen(false)} className="rounded-lg p-2 hover:bg-slate-800">
+                      <div className="mb-1 flex items-center gap-2 text-white text-xs">
+                        <Zap className="h-3 w-3 text-emerald-400"/> Business Electricity
                       </div>
                       <div className="text-xs text-slate-400">Save up to 45% on rates</div>
                     </NavLink>
-                    <NavLink to="/business-gas" onClick={()=>setServicesOpen(false)} className="rounded-lg p-3 hover:bg-slate-800">
-                      <div className="mb-1 flex items-center gap-2 text-white">
-                        <Leaf className="h-4 w-4 text-emerald-400"/> Business Gas
+                    <NavLink to="/business-gas" onClick={()=>setServicesOpen(false)} className="rounded-lg p-2 hover:bg-slate-800">
+                      <div className="mb-1 flex items-center gap-2 text-white text-xs">
+                        <Leaf className="h-3 w-3 text-emerald-400"/> Business Gas
                       </div>
                       <div className="text-xs text-slate-400">Fixed & flexible contracts</div>
                     </NavLink>
-                    <NavLink to="/business-water" onClick={()=>setServicesOpen(false)} className="rounded-lg p-3 hover:bg-slate-800">
-                      <div className="mb-1 flex items-center gap-2 text-white">
-                        <Droplet className="h-4 w-4 text-emerald-400"/> Business Water
+                    <NavLink to="/business-water" onClick={()=>setServicesOpen(false)} className="rounded-lg p-2 hover:bg-slate-800">
+                      <div className="mb-1 flex items-center gap-2 text-white text-xs">
+                        <Droplet className="h-3 w-3 text-emerald-400"/> Business Water
                       </div>
                       <div className="text-xs text-slate-400">20% average savings</div>
                     </NavLink>
-                    <NavLink to="/business-broadband" onClick={()=>setServicesOpen(false)} className="rounded-lg p-3 hover:bg-slate-800">
-                      <div className="mb-1 flex items-center gap-2 text-white">
-                        <Globe2 className="h-4 w-4 text-emerald-400"/> Broadband
+                    <NavLink to="/business-broadband" onClick={()=>setServicesOpen(false)} className="rounded-lg p-2 hover:bg-slate-800">
+                      <div className="mb-1 flex items-center gap-2 text-white text-xs">
+                        <Globe2 className="h-3 w-3 text-emerald-400"/> Broadband
                       </div>
                       <div className="text-xs text-slate-400">Fibre & leased lines</div>
                     </NavLink>
-                    <NavLink to="/business-telecoms" onClick={()=>setServicesOpen(false)} className="rounded-lg p-3 hover:bg-slate-800">
-                      <div className="mb-1 flex items-center gap-2 text-white">
-                        <Phone className="h-4 w-4 text-emerald-400"/> Telecoms
+                    <NavLink to="/business-telecoms" onClick={()=>setServicesOpen(false)} className="rounded-lg p-2 hover:bg-slate-800">
+                      <div className="mb-1 flex items-center gap-2 text-white text-xs">
+                        <Phone className="h-3 w-3 text-emerald-400"/> Telecoms
                       </div>
                       <div className="text-xs text-slate-400">VOIP & unified comms</div>
                     </NavLink>
-                    <NavLink to="/large-business" onClick={()=>setServicesOpen(false)} className="rounded-lg p-3 hover:bg-slate-800">
-                      <div className="mb-1 flex items-center gap-2 text-white">
-                        <Layers className="h-4 w-4 text-emerald-400"/> Multi-site
+                    <NavLink to="/large-business" onClick={()=>setServicesOpen(false)} className="rounded-lg p-2 hover:bg-slate-800">
+                      <div className="mb-1 flex items-center gap-2 text-white text-xs">
+                        <Layers className="h-3 w-3 text-emerald-400"/> Multi-site
                       </div>
                       <div className="text-xs text-slate-400">Portfolio management</div>
                     </NavLink>
@@ -473,7 +473,7 @@ function Navbar(){
         
         <div className="flex items-center gap-3">
           <Link to="/get-a-quote">
-            <Button className="bg-emerald-500 text-emerald-950 hover:bg-emerald-400 font-semibold">
+            <Button className="bg-emerald-500 text-emerald-950 hover:bg-emerald-400 px-3 py-1.5 text-xs">
               Get Quotes
             </Button>
           </Link>
@@ -483,7 +483,7 @@ function Navbar(){
             aria-label="Toggle menu"
             aria-expanded={open}
           >
-            <Menu className="h-6 w-6 text-slate-200"/>
+            <Menu className="h-5 w-5 text-slate-200"/>
           </button>
         </div>
       </div>
@@ -491,7 +491,7 @@ function Navbar(){
       <AnimatePresence>
         {open && (
           <motion.div initial={{height:0}} animate={{height:"auto"}} exit={{height:0}} className="md:hidden overflow-hidden">
-            <div className="space-y-2 border-t border-slate-800 bg-slate-900 px-6 py-4 text-slate-200">
+            <div className="space-y-1 border-t border-slate-800 bg-slate-900 px-6 py-3 text-xs text-slate-200">
               <NavLink to="/business-electricity" onClick={()=>setOpen(false)} className="block py-2 hover:text-emerald-400">Business Electricity</NavLink>
               <NavLink to="/business-gas" onClick={()=>setOpen(false)} className="block py-2 hover:text-emerald-400">Business Gas</NavLink>
               <NavLink to="/business-water" onClick={()=>setOpen(false)} className="block py-2 hover:text-emerald-400">Business Water</NavLink>
