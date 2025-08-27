@@ -21,17 +21,20 @@ import {
   Droplet,
   Search,
   Loader2,
-  Shield
+  Shield,
+  ChevronDown
 } from 'lucide-react';
 
 const BusinessQuoteForm = ({ onClose }) => {
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState('postcode'); // postcode, utility, address, business, energy, spend, contact, review
   const [isLoadingAddress, setIsLoadingAddress] = useState(false);
-  const [addressSuggestions, setAddressSuggestions] = useState([]);
+  const [addresses, setAddresses] = useState([]);
+  const [showAddressDropdown, setShowAddressDropdown] = useState(false);
   const [formData, setFormData] = useState({
     // Initial Step - Postcode & Utility
     postcode: '',
     utilityType: '', // electric, gas, gas-electric, water
+    selectedAddress: '',
     
     // Business Details
     businessName: '',
@@ -64,52 +67,73 @@ const BusinessQuoteForm = ({ onClose }) => {
     additionalNotes: ''
   });
 
-  const totalSteps = 6; // Added initial step
-
-  // Fetch address from postcode using Postcodes.io (free UK postcode API)
-  const fetchAddressFromPostcode = async (postcode) => {
+  // Enhanced address lookup with multiple address results
+  const fetchAddressesFromPostcode = async (postcode) => {
     setIsLoadingAddress(true);
     try {
-      // Clean the postcode
       const cleanPostcode = postcode.replace(/\s/g, '').toUpperCase();
       
-      // Fetch postcode data
-      const response = await fetch(`https://api.postcodes.io/postcodes/${cleanPostcode}`);
-      const data = await response.json();
+      // First get the postcode details
+      const postcodeResponse = await fetch(`https://api.postcodes.io/postcodes/${cleanPostcode}`);
+      const postcodeData = await postcodeResponse.json();
       
-      if (data.status === 200 && data.result) {
-        const result = data.result;
-        // Format the address
-        const formattedAddress = `${result.admin_ward || ''}, ${result.parliamentary_constituency || ''}, ${result.admin_district}, ${result.country}`.replace(/^, /, '');
+      if (postcodeData.status === 200 && postcodeData.result) {
+        // For demonstration, we'll create mock addresses based on the postcode
+        // In production, you'd use a proper address API like getAddress.io
+        const result = postcodeData.result;
+        const baseAddresses = [
+          `1 ${result.admin_ward || 'High'} Street`,
+          `2 ${result.admin_ward || 'High'} Street`, 
+          `3 ${result.admin_ward || 'High'} Street`,
+          `Unit 1, Business Park`,
+          `Unit 2, Business Park`,
+          `Suite A, Office Building`,
+          `Suite B, Office Building`,
+          `The Old Mill`,
+          `Enterprise House`,
+          `Innovation Centre`
+        ];
         
-        setFormData(prev => ({
-          ...prev,
-          businessAddress: formattedAddress
-        }));
+        const formattedAddresses = baseAddresses.map(addr => 
+          `${addr}, ${result.admin_district}, ${result.postcode}`
+        );
         
-        // You could also store additional data like:
-        // - result.latitude, result.longitude for mapping
-        // - result.region for regional pricing
-        // - result.admin_district for local suppliers
+        setAddresses(formattedAddresses);
+        setShowAddressDropdown(true);
+      } else {
+        // If postcode not found, show error
+        setAddresses(['Address not found - please enter manually']);
+        setShowAddressDropdown(true);
       }
     } catch (error) {
-      console.error('Error fetching address:', error);
+      console.error('Error fetching addresses:', error);
+      setAddresses(['Error loading addresses - please enter manually']);
+      setShowAddressDropdown(true);
     } finally {
       setIsLoadingAddress(false);
     }
   };
 
-  const handlePostcodeChange = (e) => {
-    const value = e.target.value.toUpperCase();
-    setFormData(prev => ({ ...prev, postcode: value }));
-    
-    // UK postcodes are typically 6-8 characters
-    if (value.length >= 6) {
-      // Add a small delay to avoid too many API calls
-      setTimeout(() => {
-        fetchAddressFromPostcode(value);
-      }, 500);
+  const handlePostcodeSubmit = () => {
+    if (formData.postcode.length >= 5) {
+      fetchAddressesFromPostcode(formData.postcode);
+      setCurrentStep('address');
     }
+  };
+
+  const handleAddressSelect = (address) => {
+    setFormData(prev => ({
+      ...prev,
+      selectedAddress: address,
+      businessAddress: address
+    }));
+    setShowAddressDropdown(false);
+    setCurrentStep('utility');
+  };
+
+  const handleUtilitySelect = (utility) => {
+    setFormData(prev => ({ ...prev, utilityType: utility }));
+    setTimeout(() => setCurrentStep('business'), 300);
   };
 
   const handleInputChange = (e) => {
@@ -120,34 +144,58 @@ const BusinessQuoteForm = ({ onClose }) => {
     }));
   };
 
-  const handleUtilitySelect = (utility) => {
-    setFormData(prev => ({ ...prev, utilityType: utility }));
-  };
-
   const handleNext = () => {
-    if (currentStep < totalSteps) {
-      setCurrentStep(currentStep + 1);
-    }
+    const stepFlow = {
+      'postcode': 'address',
+      'address': 'utility',
+      'utility': 'business',
+      'business': 'energy',
+      'energy': 'spend',
+      'spend': 'contact',
+      'contact': 'review',
+      'review': 'success'
+    };
+    setCurrentStep(stepFlow[currentStep]);
   };
 
   const handleBack = () => {
-    if (currentStep > 0) {
-      setCurrentStep(currentStep - 1);
+    const stepFlowBack = {
+      'address': 'postcode',
+      'utility': 'address',
+      'business': 'utility',
+      'energy': 'business',
+      'spend': 'energy',
+      'contact': 'spend',
+      'review': 'contact'
+    };
+    if (stepFlowBack[currentStep]) {
+      setCurrentStep(stepFlowBack[currentStep]);
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    setCurrentStep(totalSteps + 1); // Show success message
+    setCurrentStep('success');
   };
 
-  const progressPercentage = currentStep === 0 ? 0 : ((currentStep - 1) / (totalSteps - 2)) * 100;
+  const getStepNumber = () => {
+    const stepNumbers = {
+      'postcode': 0,
+      'address': 0,
+      'utility': 0,
+      'business': 1,
+      'energy': 2,
+      'spend': 3,
+      'contact': 4,
+      'review': 5
+    };
+    return stepNumbers[currentStep] || 0;
+  };
 
   const renderStep = () => {
     switch(currentStep) {
-      case 0:
-        // Initial step - Postcode and Utility Selection
+      case 'postcode':
         return (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -165,7 +213,6 @@ const BusinessQuoteForm = ({ onClose }) => {
             </div>
 
             <div className="space-y-6">
-              {/* Postcode Input */}
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">
                   Enter your business postcode
@@ -173,119 +220,172 @@ const BusinessQuoteForm = ({ onClose }) => {
                 <div className="relative">
                   <input
                     type="text"
-                    name="postcode"
                     value={formData.postcode}
-                    onChange={handlePostcodeChange}
-                    className="w-full px-4 py-4 pr-12 bg-slate-800 border-2 border-slate-700 rounded-lg text-white text-lg focus:border-emerald-500 focus:outline-none transition-colors"
+                    onChange={(e) => setFormData(prev => ({ ...prev, postcode: e.target.value.toUpperCase() }))}
+                    onKeyPress={(e) => e.key === 'Enter' && handlePostcodeSubmit()}
+                    className="w-full px-4 py-4 pr-12 bg-slate-800 border-2 border-slate-700 rounded-lg text-white text-lg focus:border-emerald-500 focus:outline-none transition-colors uppercase"
                     placeholder="e.g., M2 7LP"
-                    required
+                    autoFocus
                   />
-                  {isLoadingAddress ? (
-                    <Loader2 className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-emerald-400 animate-spin" />
-                  ) : (
-                    <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" />
-                  )}
-                </div>
-                {formData.businessAddress && (
-                  <motion.p
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    className="mt-2 text-sm text-emerald-400"
-                  >
-                    📍 {formData.businessAddress}
-                  </motion.p>
-                )}
-              </div>
-
-              {/* Utility Selection */}
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-4">
-                  I want to get prices for...
-                </label>
-                <div className="grid grid-cols-2 gap-4">
-                  <motion.button
-                    type="button"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => handleUtilitySelect('electric')}
-                    className={`p-6 rounded-lg border-2 transition-all ${
-                      formData.utilityType === 'electric'
-                        ? 'border-emerald-500 bg-emerald-500/10'
-                        : 'border-slate-700 bg-slate-800 hover:border-slate-600'
-                    }`}
-                  >
-                    <Zap className="w-8 h-8 text-yellow-400 mx-auto mb-2" />
-                    <p className="text-white font-semibold">Electric</p>
-                  </motion.button>
-
-                  <motion.button
-                    type="button"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => handleUtilitySelect('gas')}
-                    className={`p-6 rounded-lg border-2 transition-all ${
-                      formData.utilityType === 'gas'
-                        ? 'border-emerald-500 bg-emerald-500/10'
-                        : 'border-slate-700 bg-slate-800 hover:border-slate-600'
-                    }`}
-                  >
-                    <Flame className="w-8 h-8 text-orange-400 mx-auto mb-2" />
-                    <p className="text-white font-semibold">Gas</p>
-                  </motion.button>
-
-                  <motion.button
-                    type="button"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => handleUtilitySelect('gas-electric')}
-                    className={`p-6 rounded-lg border-2 transition-all ${
-                      formData.utilityType === 'gas-electric'
-                        ? 'border-emerald-500 bg-emerald-500/10'
-                        : 'border-slate-700 bg-slate-800 hover:border-slate-600'
-                    }`}
-                  >
-                    <div className="flex justify-center gap-1 mb-2">
-                      <Flame className="w-6 h-6 text-orange-400" />
-                      <Zap className="w-6 h-6 text-yellow-400" />
-                    </div>
-                    <p className="text-white font-semibold">Gas & Electric</p>
-                  </motion.button>
-
-                  <motion.button
-                    type="button"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => handleUtilitySelect('water')}
-                    className={`p-6 rounded-lg border-2 transition-all ${
-                      formData.utilityType === 'water'
-                        ? 'border-emerald-500 bg-emerald-500/10'
-                        : 'border-slate-700 bg-slate-800 hover:border-slate-600'
-                    }`}
-                  >
-                    <Droplet className="w-8 h-8 text-blue-400 mx-auto mb-2" />
-                    <p className="text-white font-semibold">Water</p>
-                  </motion.button>
+                  <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" />
                 </div>
               </div>
 
-              {/* Trust Indicators */}
-              <div className="bg-slate-800/50 rounded-lg p-4">
-                <div className="flex items-center justify-between text-sm">
-                  <div className="flex items-center gap-2">
-                    <Shield className="w-4 h-4 text-emerald-400" />
-                    <span className="text-gray-300">Compare top UK suppliers</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-emerald-400" />
-                    <span className="text-gray-300">Get quotes in minutes</span>
-                  </div>
-                </div>
-              </div>
+              <motion.button
+                onClick={handlePostcodeSubmit}
+                disabled={formData.postcode.length < 5}
+                whileHover={formData.postcode.length >= 5 ? { scale: 1.02 } : {}}
+                whileTap={formData.postcode.length >= 5 ? { scale: 0.98 } : {}}
+                className={`w-full py-4 rounded-lg font-bold text-lg transition-all flex items-center justify-center gap-2 ${
+                  formData.postcode.length >= 5
+                    ? 'bg-emerald-500 hover:bg-emerald-600 text-white'
+                    : 'bg-slate-700 text-gray-500 cursor-not-allowed'
+                }`}
+              >
+                Find Address <ArrowRight className="w-5 h-5" />
+              </motion.button>
             </div>
           </motion.div>
         );
 
-      case 1:
+      case 'address':
+        return (
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="space-y-6"
+          >
+            <div className="text-center">
+              <h2 className="text-2xl font-bold text-white mb-2">Select Your Address</h2>
+              <p className="text-gray-400">Choose your business address from the list below</p>
+              <div className="mt-2 inline-flex items-center gap-2 px-3 py-1 bg-emerald-900/30 rounded-full">
+                <MapPin className="w-4 h-4 text-emerald-400" />
+                <span className="text-emerald-400 text-sm font-medium">{formData.postcode}</span>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              {isLoadingAddress ? (
+                <div className="flex items-center justify-center py-8">
+                  <Loader2 className="w-8 h-8 text-emerald-400 animate-spin" />
+                </div>
+              ) : (
+                <>
+                  <div className="max-h-[300px] overflow-y-auto space-y-2 border border-slate-700 rounded-lg p-2">
+                    {addresses.map((address, index) => (
+                      <motion.button
+                        key={index}
+                        type="button"
+                        onClick={() => handleAddressSelect(address)}
+                        whileHover={{ scale: 1.01 }}
+                        whileTap={{ scale: 0.99 }}
+                        className="w-full text-left px-4 py-3 bg-slate-800 hover:bg-slate-700 rounded-lg transition-all group"
+                      >
+                        <div className="flex items-start justify-between">
+                          <span className="text-white group-hover:text-emerald-400 transition-colors">
+                            {address}
+                          </span>
+                          <ChevronDown className="w-4 h-4 text-gray-500 transform -rotate-90 mt-1" />
+                        </div>
+                      </motion.button>
+                    ))}
+                  </div>
+                  
+                  <div className="relative">
+                    <div className="absolute inset-0 flex items-center">
+                      <div className="w-full border-t border-slate-700"></div>
+                    </div>
+                    <div className="relative flex justify-center text-sm">
+                      <span className="px-3 bg-slate-900 text-gray-500">Or</span>
+                    </div>
+                  </div>
+                  
+                  <button
+                    onClick={() => {
+                      setFormData(prev => ({ ...prev, selectedAddress: 'manual' }));
+                      setCurrentStep('utility');
+                    }}
+                    className="w-full py-3 border border-slate-700 rounded-lg text-gray-400 hover:text-white hover:border-slate-600 transition-all"
+                  >
+                    Enter address manually
+                  </button>
+                </>
+              )}
+            </div>
+          </motion.div>
+        );
+
+      case 'utility':
+        return (
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="space-y-6"
+          >
+            <div className="text-center">
+              <h2 className="text-2xl font-bold text-white mb-2">Select Your Utility</h2>
+              <p className="text-gray-400">What would you like to get prices for?</p>
+              {formData.selectedAddress && formData.selectedAddress !== 'manual' && (
+                <div className="mt-2 text-sm text-emerald-400">
+                  📍 {formData.selectedAddress.split(',')[0]}
+                </div>
+              )}
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <motion.button
+                type="button"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => handleUtilitySelect('electric')}
+                className="p-6 rounded-lg border-2 border-slate-700 bg-slate-800 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all group"
+              >
+                <Zap className="w-10 h-10 text-yellow-400 mx-auto mb-3" />
+                <p className="text-white font-semibold text-lg">Electric</p>
+              </motion.button>
+
+              <motion.button
+                type="button"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => handleUtilitySelect('gas')}
+                className="p-6 rounded-lg border-2 border-slate-700 bg-slate-800 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all group"
+              >
+                <Flame className="w-10 h-10 text-orange-400 mx-auto mb-3" />
+                <p className="text-white font-semibold text-lg">Gas</p>
+              </motion.button>
+
+              <motion.button
+                type="button"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => handleUtilitySelect('gas-electric')}
+                className="p-6 rounded-lg border-2 border-slate-700 bg-slate-800 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all group"
+              >
+                <div className="flex justify-center gap-2 mb-3">
+                  <Flame className="w-8 h-8 text-orange-400" />
+                  <Zap className="w-8 h-8 text-yellow-400" />
+                </div>
+                <p className="text-white font-semibold text-lg">Gas & Electric</p>
+              </motion.button>
+
+              <motion.button
+                type="button"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => handleUtilitySelect('water')}
+                className="p-6 rounded-lg border-2 border-slate-700 bg-slate-800 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all group"
+              >
+                <Droplet className="w-10 h-10 text-blue-400 mx-auto mb-3" />
+                <p className="text-white font-semibold text-lg">Water</p>
+              </motion.button>
+            </div>
+          </motion.div>
+        );
+
+      case 'business':
         return (
           <motion.div
             initial={{ opacity: 0, x: 20 }}
@@ -310,24 +410,25 @@ const BusinessQuoteForm = ({ onClose }) => {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
                   placeholder="Your Company Ltd"
-                  required
+                  autoFocus
                 />
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Business Address
-                </label>
-                <textarea
-                  name="businessAddress"
-                  value={formData.businessAddress}
-                  onChange={handleInputChange}
-                  rows={2}
-                  className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
-                  placeholder="Address will be auto-filled from postcode"
-                />
-                <p className="text-xs text-gray-500 mt-1">Auto-populated from postcode - you can edit if needed</p>
-              </div>
+              {formData.selectedAddress === 'manual' && (
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    Business Address *
+                  </label>
+                  <textarea
+                    name="businessAddress"
+                    value={formData.businessAddress}
+                    onChange={handleInputChange}
+                    rows={3}
+                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
+                    placeholder="Enter your full business address"
+                  />
+                </div>
+              )}
 
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">
@@ -338,7 +439,6 @@ const BusinessQuoteForm = ({ onClose }) => {
                   value={formData.businessType}
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
-                  required
                 >
                   <option value="">Select your business type</option>
                   <option value="retail">Retail</option>
@@ -352,17 +452,16 @@ const BusinessQuoteForm = ({ onClose }) => {
                 </select>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2">
-                    Number of Employees *
+                    Number of Employees
                   </label>
                   <select
                     name="businessSize"
                     value={formData.businessSize}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
-                    required
                   >
                     <option value="">Select size</option>
                     <option value="1-10">1-10</option>
@@ -375,14 +474,13 @@ const BusinessQuoteForm = ({ onClose }) => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2">
-                    Years Trading *
+                    Years Trading
                   </label>
                   <select
                     name="tradingYears"
                     value={formData.tradingYears}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
-                    required
                   >
                     <option value="">Select years</option>
                     <option value="0-1">Less than 1 year</option>
@@ -393,11 +491,18 @@ const BusinessQuoteForm = ({ onClose }) => {
                   </select>
                 </div>
               </div>
+
+              <button
+                onClick={handleNext}
+                className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+              >
+                Continue <ArrowRight className="w-5 h-5" />
+              </button>
             </div>
           </motion.div>
         );
 
-      case 2:
+      case 'energy':
         return (
           <motion.div
             initial={{ opacity: 0, x: 20 }}
@@ -448,27 +553,8 @@ const BusinessQuoteForm = ({ onClose }) => {
                 <p className="text-xs text-gray-500 mt-1">Leave blank if you're not sure</p>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Meter Type
-                </label>
-                <select
-                  name="meterType"
-                  value={formData.meterType}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
-                >
-                  <option value="">Select meter type</option>
-                  <option value="single-rate">Single Rate</option>
-                  <option value="day-night">Day/Night</option>
-                  <option value="smart">Smart Meter</option>
-                  <option value="half-hourly">Half Hourly</option>
-                  <option value="not-sure">Not Sure</option>
-                </select>
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
+              <div className="space-y-3">
+                <label className="flex items-center space-x-3 cursor-pointer">
                   <input
                     type="checkbox"
                     name="greenEnergy"
@@ -476,12 +562,10 @@ const BusinessQuoteForm = ({ onClose }) => {
                     onChange={handleInputChange}
                     className="w-5 h-5 bg-slate-800 border-slate-700 rounded text-emerald-500 focus:ring-emerald-500"
                   />
-                  <label className="text-gray-300">
-                    I'm interested in green energy options
-                  </label>
-                </div>
+                  <span className="text-gray-300">I'm interested in green energy options</span>
+                </label>
 
-                <div className="flex items-center space-x-3">
+                <label className="flex items-center space-x-3 cursor-pointer">
                   <input
                     type="checkbox"
                     name="multiSite"
@@ -489,33 +573,21 @@ const BusinessQuoteForm = ({ onClose }) => {
                     onChange={handleInputChange}
                     className="w-5 h-5 bg-slate-800 border-slate-700 rounded text-emerald-500 focus:ring-emerald-500"
                   />
-                  <label className="text-gray-300">
-                    We have multiple sites
-                  </label>
-                </div>
-
-                {formData.multiSite && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    className="ml-8"
-                  >
-                    <input
-                      type="number"
-                      name="numberOfSites"
-                      value={formData.numberOfSites}
-                      onChange={handleInputChange}
-                      placeholder="Number of sites"
-                      className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
-                    />
-                  </motion.div>
-                )}
+                  <span className="text-gray-300">We have multiple sites</span>
+                </label>
               </div>
+
+              <button
+                onClick={handleNext}
+                className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+              >
+                Continue <ArrowRight className="w-5 h-5" />
+              </button>
             </div>
           </motion.div>
         );
 
-      case 3:
+      case 'spend':
         return (
           <motion.div
             initial={{ opacity: 0, x: 20 }}
@@ -525,13 +597,13 @@ const BusinessQuoteForm = ({ onClose }) => {
           >
             <div>
               <h2 className="text-2xl font-bold text-white mb-2">Energy Usage & Spend</h2>
-              <p className="text-gray-400">This helps us find the most suitable tariffs</p>
+              <p className="text-gray-400">This helps us find the best tariffs for you</p>
             </div>
 
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Annual {formData.utilityType === 'water' ? 'Water' : 'Energy'} Spend (Approximate)
+                  Annual {formData.utilityType === 'water' ? 'Water' : 'Energy'} Spend
                 </label>
                 <select
                   name="annualSpend"
@@ -551,50 +623,36 @@ const BusinessQuoteForm = ({ onClose }) => {
                 </select>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Annual Usage (kWh) - Optional
-                </label>
-                <input
-                  type="text"
-                  name="annualUsage"
-                  value={formData.annualUsage}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
-                  placeholder="e.g., 50000"
-                />
-                <p className="text-xs text-gray-500 mt-1">You can find this on your bill</p>
-              </div>
-
-              <div className="bg-gradient-to-br from-emerald-900/20 to-slate-800/50 border border-emerald-500/30 rounded-lg p-4">
-                <h3 className="text-white font-semibold mb-2 flex items-center gap-2">
-                  <TrendingUp className="w-5 h-5 text-emerald-400" />
-                  Your Potential Savings
-                </h3>
-                {formData.annualSpend && formData.annualSpend !== 'not-sure' && (
-                  <div className="space-y-2">
-                    <p className="text-gray-400 text-sm">
-                      Based on your annual spend, you could save:
-                    </p>
-                    <p className="text-3xl font-bold text-emerald-400">
-                      Up to £{Math.round(parseInt(formData.annualSpend.split('-')[0]) * 0.45).toLocaleString()}
-                    </p>
-                    <p className="text-xs text-gray-500">
-                      *Based on average savings of 45% for businesses switching with Watt Utilities
-                    </p>
-                  </div>
-                )}
-                {(!formData.annualSpend || formData.annualSpend === 'not-sure') && (
-                  <p className="text-gray-500 text-sm">
-                    Select your annual spend to see potential savings
+              {formData.annualSpend && formData.annualSpend !== 'not-sure' && (
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-gradient-to-br from-emerald-900/20 to-slate-800/50 border border-emerald-500/30 rounded-lg p-4"
+                >
+                  <h3 className="text-white font-semibold mb-2 flex items-center gap-2">
+                    <TrendingUp className="w-5 h-5 text-emerald-400" />
+                    Your Potential Savings
+                  </h3>
+                  <p className="text-3xl font-bold text-emerald-400 mb-1">
+                    Up to £{Math.round(parseInt(formData.annualSpend.split('-')[0]) * 0.45).toLocaleString()}
                   </p>
-                )}
-              </div>
+                  <p className="text-xs text-gray-500">
+                    *Based on average savings of 45%
+                  </p>
+                </motion.div>
+              )}
+
+              <button
+                onClick={handleNext}
+                className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+              >
+                Continue <ArrowRight className="w-5 h-5" />
+              </button>
             </div>
           </motion.div>
         );
 
-      case 4:
+      case 'contact':
         return (
           <motion.div
             initial={{ opacity: 0, x: 20 }}
@@ -608,35 +666,20 @@ const BusinessQuoteForm = ({ onClose }) => {
             </div>
 
             <div className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
-                    Your Name *
-                  </label>
-                  <input
-                    type="text"
-                    name="contactName"
-                    value={formData.contactName}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
-                    placeholder="John Smith"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
-                    Position
-                  </label>
-                  <input
-                    type="text"
-                    name="position"
-                    value={formData.position}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
-                    placeholder="Operations Manager"
-                  />
-                </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  Your Name *
+                </label>
+                <input
+                  type="text"
+                  name="contactName"
+                  value={formData.contactName}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
+                  placeholder="John Smith"
+                  autoFocus
+                  required
+                />
               </div>
 
               <div>
@@ -686,29 +729,17 @@ const BusinessQuoteForm = ({ onClose }) => {
                 </select>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  How did you hear about us?
-                </label>
-                <select
-                  name="howDidYouHear"
-                  value={formData.howDidYouHear}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
-                >
-                  <option value="">Please select</option>
-                  <option value="google">Google Search</option>
-                  <option value="referral">Referral</option>
-                  <option value="social">Social Media</option>
-                  <option value="email">Email</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
+              <button
+                onClick={handleNext}
+                className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+              >
+                Review Details <ArrowRight className="w-5 h-5" />
+              </button>
             </div>
           </motion.div>
         );
 
-      case 5:
+      case 'review':
         return (
           <motion.div
             initial={{ opacity: 0, x: 20 }}
@@ -717,95 +748,49 @@ const BusinessQuoteForm = ({ onClose }) => {
             className="space-y-6"
           >
             <div>
-              <h2 className="text-2xl font-bold text-white mb-2">Review Your Information</h2>
-              <p className="text-gray-400">Please check everything is correct before submitting</p>
+              <h2 className="text-2xl font-bold text-white mb-2">Review & Submit</h2>
+              <p className="text-gray-400">Please check your information is correct</p>
             </div>
 
-            <div className="space-y-4">
-              {/* Utility Type Selected */}
-              <div className="bg-emerald-900/20 border border-emerald-500/30 rounded-lg p-4">
-                <h3 className="font-semibold text-white mb-3 flex items-center gap-2">
-                  {formData.utilityType === 'electric' && <Zap className="w-5 h-5 text-yellow-400" />}
-                  {formData.utilityType === 'gas' && <Flame className="w-5 h-5 text-orange-400" />}
-                  {formData.utilityType === 'water' && <Droplet className="w-5 h-5 text-blue-400" />}
-                  {formData.utilityType === 'gas-electric' && (
-                    <>
-                      <Flame className="w-4 h-4 text-orange-400" />
-                      <Zap className="w-4 h-4 text-yellow-400" />
-                    </>
-                  )}
-                  Selected Utility: {formData.utilityType === 'gas-electric' ? 'Gas & Electric' : formData.utilityType}
-                </h3>
-              </div>
-
+            <div className="space-y-3">
               <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
                 <h3 className="font-semibold text-white mb-3 flex items-center gap-2">
-                  <Building2 className="w-5 h-5 text-emerald-400" />
-                  Business Details
+                  <MapPin className="w-4 h-4 text-emerald-400" />
+                  Location & Utility
                 </h3>
-                <div className="grid grid-cols-2 gap-2 text-sm">
-                  <div className="text-gray-400">Business:</div>
-                  <div className="text-white">{formData.businessName || 'Not provided'}</div>
-                  <div className="text-gray-400">Postcode:</div>
-                  <div className="text-white">{formData.postcode}</div>
-                  <div className="text-gray-400">Address:</div>
-                  <div className="text-white">{formData.businessAddress || 'Not provided'}</div>
-                  <div className="text-gray-400">Type:</div>
-                  <div className="text-white">{formData.businessType || 'Not provided'}</div>
+                <div className="space-y-1 text-sm">
+                  <p className="text-gray-300">{formData.businessAddress}</p>
+                  <p className="text-emerald-400">
+                    {formData.utilityType === 'gas-electric' ? 'Gas & Electric' : 
+                     formData.utilityType.charAt(0).toUpperCase() + formData.utilityType.slice(1)}
+                  </p>
                 </div>
               </div>
 
               <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
                 <h3 className="font-semibold text-white mb-3 flex items-center gap-2">
-                  <Zap className="w-5 h-5 text-emerald-400" />
-                  Energy Information
+                  <Building2 className="w-4 h-4 text-emerald-400" />
+                  Business
                 </h3>
-                <div className="grid grid-cols-2 gap-2 text-sm">
-                  <div className="text-gray-400">Current Supplier:</div>
-                  <div className="text-white">{formData.currentSupplier || 'Not provided'}</div>
-                  <div className="text-gray-400">Annual Spend:</div>
-                  <div className="text-white">{formData.annualSpend || 'Not provided'}</div>
-                  <div className="text-gray-400">Green Energy:</div>
-                  <div className="text-white">{formData.greenEnergy ? 'Yes' : 'No'}</div>
-                  {formData.multiSite && (
-                    <>
-                      <div className="text-gray-400">Multi-site:</div>
-                      <div className="text-white">{formData.numberOfSites} sites</div>
-                    </>
-                  )}
+                <div className="space-y-1 text-sm">
+                  <p className="text-gray-300">{formData.businessName || 'Not provided'}</p>
+                  <p className="text-gray-400">{formData.businessType || 'Type not specified'}</p>
                 </div>
               </div>
 
               <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
                 <h3 className="font-semibold text-white mb-3 flex items-center gap-2">
-                  <User className="w-5 h-5 text-emerald-400" />
-                  Contact Details
+                  <User className="w-4 h-4 text-emerald-400" />
+                  Contact
                 </h3>
-                <div className="grid grid-cols-2 gap-2 text-sm">
-                  <div className="text-gray-400">Name:</div>
-                  <div className="text-white">{formData.contactName || 'Not provided'}</div>
-                  <div className="text-gray-400">Email:</div>
-                  <div className="text-white">{formData.email || 'Not provided'}</div>
-                  <div className="text-gray-400">Phone:</div>
-                  <div className="text-white">{formData.phone || 'Not provided'}</div>
+                <div className="space-y-1 text-sm">
+                  <p className="text-gray-300">{formData.contactName}</p>
+                  <p className="text-gray-400">{formData.email}</p>
+                  <p className="text-gray-400">{formData.phone}</p>
                 </div>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Additional Notes (Optional)
-                </label>
-                <textarea
-                  name="additionalNotes"
-                  value={formData.additionalNotes}
-                  onChange={handleInputChange}
-                  rows={3}
-                  className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
-                  placeholder="Any specific requirements or questions?"
-                />
-              </div>
-
-              <div className="flex items-start space-x-3">
+              <div className="flex items-start space-x-3 pt-2">
                 <input
                   type="checkbox"
                   required
@@ -816,12 +801,18 @@ const BusinessQuoteForm = ({ onClose }) => {
                   We will not share your information with third parties.
                 </label>
               </div>
+
+              <button
+                onClick={handleSubmit}
+                className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+              >
+                Get My Quotes <CheckCircle className="w-5 h-5" />
+              </button>
             </div>
           </motion.div>
         );
 
-      default:
-        // Success message
+      case 'success':
         return (
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
@@ -834,25 +825,19 @@ const BusinessQuoteForm = ({ onClose }) => {
             <h2 className="text-3xl font-bold text-white">Thank You!</h2>
             <div className="space-y-4">
               <p className="text-xl text-gray-300">
-                Your quote request has been received successfully.
+                Your quote request has been received.
               </p>
               <div className="bg-emerald-900/20 border border-emerald-500/30 rounded-lg p-6 max-w-md mx-auto">
                 <Clock className="w-8 h-8 text-emerald-400 mx-auto mb-3" />
                 <p className="text-white font-semibold mb-2">What Happens Next?</p>
                 <p className="text-gray-300 text-sm mb-4">
-                  One of our expert energy consultants will contact you within the next 2 hours 
-                  (during business hours) to discuss your requirements and provide personalized quotes 
-                  for your {formData.utilityType === 'gas-electric' ? 'gas and electricity' : formData.utilityType} needs.
+                  One of our expert energy consultants will contact you within 2 hours 
+                  to provide personalized quotes.
                 </p>
-                <div className="bg-slate-800/50 rounded-lg p-3 text-left">
+                <div className="bg-slate-800/50 rounded-lg p-3">
                   <p className="text-xs text-gray-400 mb-1">Your reference:</p>
                   <p className="text-emerald-400 font-mono">#{Date.now().toString(36).toUpperCase()}</p>
                 </div>
-              </div>
-              <div className="space-y-2 text-sm text-gray-400">
-                <p>Expected callback time: Within 2 hours</p>
-                <p>Direct line: 0161 833 8661</p>
-                <p>Email: hello@wattutilities.co.uk</p>
               </div>
             </div>
             <button
@@ -863,26 +848,39 @@ const BusinessQuoteForm = ({ onClose }) => {
             </button>
           </motion.div>
         );
+
+      default:
+        return null;
     }
   };
 
-  if (currentStep > totalSteps) {
-    return renderStep();
-  }
+  // Don't show progress bar on initial screens
+  const showProgress = !['postcode', 'address', 'utility', 'success'].includes(currentStep);
+  const stepNumber = getStepNumber();
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden border border-slate-800"
+        className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-hidden border border-slate-800"
       >
-        {/* Header with Progress */}
+        {/* Header */}
         <div className="bg-slate-800/50 px-6 py-4 border-b border-slate-700">
-          <div className="flex items-center justify-between mb-3">
-            <h1 className="text-xl font-bold text-white">
-              {currentStep === 0 ? 'Quick Quote' : 'Get Your Free Quote'}
-            </h1>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              {!['postcode', 'success'].includes(currentStep) && (
+                <button
+                  onClick={handleBack}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  <ArrowLeft className="w-5 h-5" />
+                </button>
+              )}
+              <h1 className="text-lg font-bold text-white">
+                {currentStep === 'postcode' ? 'Quick Quote' : 'Get Your Free Quote'}
+              </h1>
+            </div>
             <button
               onClick={onClose}
               className="text-gray-400 hover:text-white transition-colors text-2xl leading-none"
@@ -891,27 +889,19 @@ const BusinessQuoteForm = ({ onClose }) => {
             </button>
           </div>
           
-          {/* Progress Bar (only show after initial step) */}
-          {currentStep > 0 && (
-            <div className="relative">
-              <div className="flex justify-between mb-2">
-                {[1, 2, 3, 4, 5].map((step) => (
-                  <div
-                    key={step}
-                    className={`flex items-center justify-center w-8 h-8 rounded-full text-sm font-semibold transition-all ${
-                      step <= currentStep
-                        ? 'bg-emerald-500 text-white'
-                        : 'bg-slate-700 text-gray-500'
-                    }`}
-                  >
-                    {step < currentStep ? '✓' : step}
-                  </div>
-                ))}
+          {/* Progress Bar */}
+          {showProgress && (
+            <div className="mt-3">
+              <div className="flex justify-between text-xs text-gray-500 mb-1">
+                <span>Step {stepNumber} of 5</span>
+                <span>{Math.round((stepNumber / 5) * 100)}% Complete</span>
               </div>
-              <div className="absolute top-4 left-0 right-0 h-0.5 bg-slate-700 -z-10">
-                <div
-                  className="h-full bg-emerald-500 transition-all duration-300"
-                  style={{ width: `${progressPercentage}%` }}
+              <div className="h-1 bg-slate-700 rounded-full overflow-hidden">
+                <motion.div
+                  className="h-full bg-emerald-500"
+                  initial={{ width: 0 }}
+                  animate={{ width: `${(stepNumber / 5) * 100}%` }}
+                  transition={{ duration: 0.3 }}
                 />
               </div>
             </div>
@@ -919,67 +909,11 @@ const BusinessQuoteForm = ({ onClose }) => {
         </div>
 
         {/* Form Content */}
-        <div className="p-6 overflow-y-auto max-h-[calc(90vh-200px)]">
+        <div className="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
           <AnimatePresence mode="wait">
             {renderStep()}
           </AnimatePresence>
         </div>
-
-        {/* Footer with Navigation */}
-        {currentStep <= totalSteps && (
-          <div className="bg-slate-800/50 px-6 py-4 border-t border-slate-700">
-            <div className="flex justify-between items-center">
-              {currentStep > 0 ? (
-                <button
-                  onClick={handleBack}
-                  className="flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all bg-slate-700 text-white hover:bg-slate-600"
-                >
-                  <ArrowLeft className="w-4 h-4" />
-                  Back
-                </button>
-              ) : (
-                <div />
-              )}
-
-              {currentStep > 0 && (
-                <span className="text-gray-400 text-sm">
-                  Step {currentStep} of {totalSteps - 1}
-                </span>
-              )}
-
-              {currentStep === 0 ? (
-                <button
-                  onClick={handleNext}
-                  disabled={!formData.postcode || !formData.utilityType}
-                  className={`flex items-center gap-2 font-bold px-8 py-3 rounded-lg transition-all ${
-                    formData.postcode && formData.utilityType
-                      ? 'bg-emerald-500 hover:bg-emerald-600 text-white'
-                      : 'bg-slate-700 text-gray-500 cursor-not-allowed'
-                  }`}
-                >
-                  Compare Prices Now
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              ) : currentStep < totalSteps - 1 ? (
-                <button
-                  onClick={handleNext}
-                  className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-medium px-6 py-3 rounded-lg transition-all"
-                >
-                  Next
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              ) : (
-                <button
-                  onClick={handleSubmit}
-                  className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3 rounded-lg transition-all"
-                >
-                  Get My Quotes
-                  <CheckCircle className="w-4 h-4" />
-                </button>
-              )}
-            </div>
-          </div>
-        )}
       </motion.div>
     </div>
   );
