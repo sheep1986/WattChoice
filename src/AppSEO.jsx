@@ -467,6 +467,7 @@ function Navbar(){
           
           <NavLink to="/case-studies" className={({isActive})=>cx(isActive?"text-white":"","hover:text-white")}>Case Studies</NavLink>
           <NavLink to="/knowledge" className={({isActive})=>cx(isActive?"text-white":"","hover:text-white")}>Knowledge</NavLink>
+          <NavLink to="/loa" className={({isActive})=>cx(isActive?"text-white":"","hover:text-white")}>LOA</NavLink>
           <NavLink to="/company" className={({isActive})=>cx(isActive?"text-white":"","hover:text-white")}>About</NavLink>
           <NavLink to="/contact" className={({isActive})=>cx(isActive?"text-white":"","hover:text-white")}>Contact</NavLink>
         </div>
@@ -500,6 +501,7 @@ function Navbar(){
               <NavLink to="/large-business" onClick={()=>setOpen(false)} className="block py-2 hover:text-emerald-400">Multi-site</NavLink>
               <NavLink to="/case-studies" onClick={()=>setOpen(false)} className="block py-2 hover:text-emerald-400">Case Studies</NavLink>
               <NavLink to="/knowledge" onClick={()=>setOpen(false)} className="block py-2 hover:text-emerald-400">Knowledge</NavLink>
+              <NavLink to="/loa" onClick={()=>setOpen(false)} className="block py-2 hover:text-emerald-400">LOA</NavLink>
               <NavLink to="/company" onClick={()=>setOpen(false)} className="block py-2 hover:text-emerald-400">About Us</NavLink>
               <NavLink to="/contact" onClick={()=>setOpen(false)} className="block py-2 hover:text-emerald-400">Contact</NavLink>
             </div>
