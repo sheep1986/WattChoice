@@ -396,11 +396,11 @@ function Navbar(){
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
         <Link to="/" className="flex items-center gap-3" aria-label="Watt Utilities home">
           <img 
-            src="https://i.ibb.co/7dywXhNK/watt-utilities-white-logo-1-1.png" 
+            src="https://i.ibb.co/qHwXPDS/watt-utilities-white-logo-1-500-x-200-px-500-x-100-px.png" 
             alt="Watt Utilities - Business Energy Consultants" 
             className="h-10 w-auto md:h-12" 
-            width="200"
-            height="80"
+            width="500"
+            height="100"
           />
         </Link>
         
@@ -517,7 +517,7 @@ function Footer(){
       <div className="mx-auto grid max-w-6xl gap-8 px-6 py-12 md:grid-cols-5">
         <div className="space-y-4 md:col-span-2">
           <img 
-            src="https://i.ibb.co/7dywXhNK/watt-utilities-white-logo-1-1.png" 
+            src="https://i.ibb.co/qHwXPDS/watt-utilities-white-logo-1-500-x-200-px-500-x-100-px.png" 
             alt="Watt Utilities" 
             className="h-16 w-auto" 
             width="150"
@@ -936,6 +936,337 @@ function HomePage(){
   );
 }
 
+// RichLander component for simple pages
+function RichLander({ title, intro, children }){
+  return (
+    <main>
+      <header className="border-b border-slate-800 bg-slate-950/60"><div className="mx-auto max-w-6xl px-6 py-12"><h1 className="text-3xl font-bold md:text-4xl">{title}</h1>{intro && <p className="mt-2 max-w-3xl text-slate-300">{intro}</p>}</div></header>
+      <div className="mx-auto max-w-6xl px-6 py-10">{children}</div>
+    </main>
+  );
+}
+
+// Careers Page
+const CareersPage = () => {
+  const [selectedJob, setSelectedJob] = useState(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    position: "",
+    message: "",
+    cvFileName: ""
+  });
+  
+  const jobs = [
+    { id: 1, role: "Renewals Agent", type: "Full-time", loc: "Manchester", desc: "Join our renewals team to help businesses secure the best utility deals." },
+    { id: 2, role: "Business Development Manager", type: "Hybrid", loc: "UK", desc: "Drive growth by building relationships with new business clients." },
+    { id: 3, role: "Energy Consultant", type: "Full-time", loc: "London", desc: "Provide expert advice on energy procurement strategies." }
+  ];
+
+  const handleFileChange = (e) => {
+    if (e.target.files[0]) {
+      setFormData({ ...formData, cvFileName: e.target.files[0].name });
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Application submitted successfully! We'll be in touch soon.");
+    setSelectedJob(null);
+    setFormData({ name: "", email: "", phone: "", position: "", message: "", cvFileName: "" });
+  };
+
+  return (
+    <RichLander title="Careers" intro="Join a team that values transparency, results and customer care.">
+      <div className="space-y-8">
+        <Card className="border-0 bg-slate-900/60 ring-1 ring-slate-800 overflow-hidden">
+          <div className="relative h-64 md:h-80 bg-gradient-to-br from-emerald-500/20 to-cyan-500/20">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-center">
+                <Building2 className="h-16 w-16 text-emerald-400 mx-auto mb-4" />
+                <h3 className="text-2xl font-bold text-white mb-2">Our Team</h3>
+                <p className="text-slate-300 max-w-md mx-auto px-6">
+                  A diverse team of energy experts, consultants, and customer success specialists working together to deliver exceptional service.
+                </p>
+              </div>
+            </div>
+          </div>
+        </Card>
+
+        <div className="grid gap-4 md:grid-cols-3">
+          <Card className="border-0 bg-slate-900/60 ring-1 ring-slate-800">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Star className="h-5 w-5 text-emerald-400" /> Growth Opportunities
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="text-slate-300">
+              Career progression paths and continuous professional development.
+            </CardContent>
+          </Card>
+          <Card className="border-0 bg-slate-900/60 ring-1 ring-slate-800">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <ShieldCheck className="h-5 w-5 text-emerald-400" /> Great Benefits
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="text-slate-300">
+              Competitive salary, pension, healthcare, and flexible working options.
+            </CardContent>
+          </Card>
+          <Card className="border-0 bg-slate-900/60 ring-1 ring-slate-800">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Leaf className="h-5 w-5 text-emerald-400" /> Positive Culture
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="text-slate-300">
+              Collaborative environment focused on innovation and sustainability.
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="space-y-4">
+          <h2 className="text-2xl font-bold text-white">Open Positions</h2>
+          <div className="grid gap-4">
+            {jobs.map((job) => (
+              <Card key={job.id} className="border-0 bg-slate-900/60 ring-1 ring-slate-800">
+                <CardContent className="p-6">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div className="flex-1">
+                      <div className="text-xl font-semibold text-white mb-2">{job.role}</div>
+                      <div className="text-sm text-slate-400 mb-2">{job.type} • {job.loc}</div>
+                      <p className="text-slate-300">{job.desc}</p>
+                    </div>
+                    <Button 
+                      onClick={() => {
+                        setSelectedJob(job.role);
+                        setFormData({ ...formData, position: job.role });
+                        setTimeout(() => {
+                          document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' });
+                        }, 100);
+                      }}
+                      className="bg-emerald-500 text-emerald-950 hover:bg-emerald-400 whitespace-nowrap"
+                    >
+                      Apply Now <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        <Card id="application-form" className="border-0 bg-slate-900/60 ring-1 ring-slate-800">
+          <CardHeader>
+            <CardTitle className="text-2xl">
+              {selectedJob ? `Apply for ${selectedJob}` : "Submit Your Application"}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid gap-4 md:grid-cols-2">
+                <div>
+                  <label className="mb-2 block text-sm text-slate-300">Full Name *</label>
+                  <Input
+                    required
+                    placeholder="John Smith"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="bg-slate-900/60 border-slate-800"
+                  />
+                </div>
+                <div>
+                  <label className="mb-2 block text-sm text-slate-300">Email Address *</label>
+                  <Input
+                    required
+                    type="email"
+                    placeholder="john@example.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="bg-slate-900/60 border-slate-800"
+                  />
+                </div>
+                <div>
+                  <label className="mb-2 block text-sm text-slate-300">Phone Number</label>
+                  <Input
+                    type="tel"
+                    placeholder="+44 7700 900000"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="bg-slate-900/60 border-slate-800"
+                  />
+                </div>
+                <div>
+                  <label className="mb-2 block text-sm text-slate-300">Position *</label>
+                  <select
+                    required
+                    value={formData.position}
+                    onChange={(e) => setFormData({ ...formData, position: e.target.value })}
+                    className="w-full rounded-md border border-slate-800 bg-slate-900/60 px-3 py-2 text-slate-200"
+                  >
+                    <option value="">Select a position</option>
+                    {jobs.map(job => (
+                      <option key={job.id} value={job.role}>{job.role}</option>
+                    ))}
+                    <option value="General Application">General Application</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label className="mb-2 block text-sm text-slate-300">Upload Your CV *</label>
+                <div className="relative">
+                  <input
+                    type="file"
+                    required
+                    accept=".pdf,.doc,.docx"
+                    onChange={handleFileChange}
+                    className="hidden"
+                    id="cv-upload"
+                  />
+                  <label
+                    htmlFor="cv-upload"
+                    className="flex items-center justify-between rounded-md border border-slate-800 bg-slate-900/60 px-3 py-2 cursor-pointer hover:bg-slate-800/60 transition"
+                  >
+                    <span className="text-slate-200">
+                      {formData.cvFileName || "Choose file (PDF, DOC, DOCX)"}
+                    </span>
+                    <FileSignature className="h-4 w-4 text-slate-400" />
+                  </label>
+                </div>
+              </div>
+
+              <div>
+                <label className="mb-2 block text-sm text-slate-300">Cover Letter / Additional Information</label>
+                <Textarea
+                  placeholder="Tell us why you'd be a great fit for this role..."
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="min-h-[120px] bg-slate-900/60 border-slate-800"
+                />
+              </div>
+
+              <div className="flex items-center justify-between">
+                <p className="text-xs text-slate-400">
+                  * Required fields. We'll process your application in accordance with our privacy policy.
+                </p>
+                <Button type="submit" className="bg-emerald-500 text-emerald-950 hover:bg-emerald-400">
+                  Submit Application
+                </Button>
+              </div>
+            </form>
+          </CardContent>
+        </Card>
+      </div>
+    </RichLander>
+  );
+};
+
+// Case Studies Page
+const CaseStudiesPage = () => (
+  <RichLander title="Case Studies" intro="Savings and outcomes we've delivered for UK businesses.">
+    <div className="grid gap-6 md:grid-cols-3">
+      {[
+        { title:"Multi‑site retailer", saving:"£18,240/yr", desc:"Basket deal across 12 sites. Fixed contract secured ahead of market rise." },
+        { title:"Food manufacturer", saving:"£11,930/yr", desc:"Flexible contract with cap & collar to smooth volatility risk." },
+        { title:"Hotel group", saving:"£7,680/yr", desc:"Green electricity with REGO certificates and simplified billing." }
+      ].map((c,i)=> (
+        <Card key={i} className="border-0 bg-slate-900/60 ring-1 ring-slate-800">
+          <CardHeader><CardTitle>{c.title}</CardTitle></CardHeader>
+          <CardContent>
+            <div className="mb-2 text-2xl font-bold text-emerald-400">{c.saving}</div>
+            <p className="text-slate-300">{c.desc}</p>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  </RichLander>
+);
+
+// Knowledge Page
+const KnowledgePage = () => (
+  <RichLander title="Knowledge Hub" intro="Guides, explainers and market updates to help you buy better.">
+    <div className="grid gap-6 md:grid-cols-3">
+      {[
+        { title:"Business Electricity: Fixed vs Flexible (2025)", blurb:"When each contract type wins — and how to decide based on usage & risk.", tag:"Guide" },
+        { title:"What is a Letter of Authority?", blurb:"Why brokers need LOAs and what we actually do with them.", tag:"Explainer" },
+        { title:"Green Tariffs & REGOs", blurb:"How to go greener without breaking the budget.", tag:"Sustainability" }
+      ].map((a,i)=> (
+        <Card key={i} className="border-0 bg-slate-900/60 ring-1 ring-slate-800">
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <CardTitle className="text-lg">{a.title}</CardTitle>
+              <span className="rounded-full bg-emerald-500/10 px-2 py-1 text-xs text-emerald-300">{a.tag}</span>
+            </div>
+          </CardHeader>
+          <CardContent className="text-slate-300">{a.blurb}</CardContent>
+        </Card>
+      ))}
+    </div>
+  </RichLander>
+);
+
+// Compliance Page
+const CompliancePage = () => (
+  <RichLander title="Compliance" intro="Our regulatory compliance and industry standards.">
+    <div className="space-y-6">
+      <Card className="border-0 bg-slate-900/60 ring-1 ring-slate-800">
+        <CardHeader><CardTitle>Regulatory Compliance</CardTitle></CardHeader>
+        <CardContent className="space-y-3 text-slate-300">
+          <p>Watt Utilities operates in full compliance with UK energy regulations and industry standards.</p>
+          <ul className="list-disc space-y-2 pl-5">
+            <li>Registered with the relevant regulatory bodies</li>
+            <li>Adherent to the TPI Code of Practice</li>
+            <li>UK GDPR compliant data handling</li>
+            <li>FCA conduct standards where applicable</li>
+          </ul>
+        </CardContent>
+      </Card>
+      <Card className="border-0 bg-slate-900/60 ring-1 ring-slate-800">
+        <CardHeader><CardTitle>Our Standards</CardTitle></CardHeader>
+        <CardContent className="text-slate-300">
+          <p>We maintain the highest standards of transparency, fairness and professional conduct in all our business dealings.</p>
+        </CardContent>
+      </Card>
+    </div>
+  </RichLander>
+);
+
+// FAQs Page
+const FAQsPage = () => (
+  <RichLander title="Frequently Asked Questions" intro="Common questions about switching business utilities and our services.">
+    <div className="space-y-6">
+      <Card className="border-0 bg-slate-900/60 ring-1 ring-slate-800">
+        <CardHeader><CardTitle>How long does switching take?</CardTitle></CardHeader>
+        <CardContent className="text-slate-300">
+          <p>Typically 4-8 weeks for electricity and gas, 2-4 weeks for water. We handle the entire process to ensure zero downtime.</p>
+        </CardContent>
+      </Card>
+      <Card className="border-0 bg-slate-900/60 ring-1 ring-slate-800">
+        <CardHeader><CardTitle>Are there any fees?</CardTitle></CardHeader>
+        <CardContent className="text-slate-300">
+          <p>We're typically paid commission by suppliers. Any fees are disclosed upfront before you commit to anything.</p>
+        </CardContent>
+      </Card>
+      <Card className="border-0 bg-slate-900/60 ring-1 ring-slate-800">
+        <CardHeader><CardTitle>Can I switch mid-contract?</CardTitle></CardHeader>
+        <CardContent className="text-slate-300">
+          <p>Usually not without exit fees, but we can review your current terms and prepare quotes for when your contract ends.</p>
+        </CardContent>
+      </Card>
+    </div>
+  </RichLander>
+);
+
+// Simple footer pages
+const TermsPage = () => (<RichLander title="Terms & Conditions"><p className="text-slate-300">Standard website and service terms.</p></RichLander>);
+const PrivacyPage = () => (<RichLander title="Privacy Policy"><p className="text-slate-300">Your data is handled in accordance with UK GDPR. We only process what's necessary to obtain and present quotes.</p></RichLander>);
+const ComplaintsPage = () => (<RichLander title="Complaints Procedure" intro="We aim to resolve issues quickly and fairly. Here's how it works."><ol className="list-decimal space-y-2 pl-6 text-slate-300"><li>Contact our team with details</li><li>We acknowledge within 2 working days</li><li>Resolution plan and timescales provided</li></ol></RichLander>);
+const TPIPage = () => (<RichLander title="TPI Code of Conduct"><p className="text-slate-300">Our commitments as a Third Party Intermediary (TPI) covering transparency, consent and fair treatment.</p></RichLander>);
+const NotFound = () => (<RichLander title="Page not found"><p className="text-slate-300">Sorry, we can't find that page. Try our <Link to="/" className="text-emerald-300 underline">home page</Link>.</p></RichLander>);
+
 // Export the enhanced App
 export default function WattUtilitiesSEO(){
   return (
@@ -958,10 +1289,20 @@ export default function WattUtilitiesSEO(){
               <Route path="/business-telecoms" element={<BusinessTelecoms />} />
               <Route path="/solar-energy" element={<SolarEnergy />} />
               <Route path="/large-business" element={<LargeBusiness />} />
+              <Route path="/careers" element={<CareersPage />} />
+              <Route path="/case-studies" element={<CaseStudiesPage />} />
+              <Route path="/knowledge" element={<KnowledgePage />} />
+              <Route path="/compliance" element={<CompliancePage />} />
+              <Route path="/faqs" element={<FAQsPage />} />
+              <Route path="/terms" element={<TermsPage />} />
+              <Route path="/privacy" element={<PrivacyPage />} />
+              <Route path="/complaints" element={<ComplaintsPage />} />
+              <Route path="/tpi-code" element={<TPIPage />} />
               <Route path="/get-a-quote" element={<GetQuote />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/company" element={<CompanyPage />} />
               <Route path="/about" element={<CompanyPage />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
           <Footer />
