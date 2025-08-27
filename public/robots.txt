@@ -1,0 +1,127 @@
+# Robots.txt for Watt Utilities
+# Business Energy & Utility Switching Experts
+# Last updated: 2025
+
+# Default - Allow all legitimate search engines
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /*?*
+Allow: /*?page=
+Allow: /*?service=
+Crawl-delay: 1
+
+# Sitemap locations
+Sitemap: https://www.wattutilities.co.uk/sitemap.xml
+Sitemap: https://www.wattutilities.co.uk/sitemap-pages.xml
+Sitemap: https://www.wattutilities.co.uk/sitemap-services.xml
+
+# Google - Priority access
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.png
+Allow: /*.webp
+
+# Bing - Priority access
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+User-agent: BingPreview
+Allow: /
+
+# Other major search engines
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+# Social media bots - Allow for link previews
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+# SEO Analysis Tools - Limited access
+User-agent: AhrefsBot
+Crawl-delay: 10
+Disallow: /api/
+Disallow: /admin/
+
+User-agent: SemrushBot
+Crawl-delay: 10
+Disallow: /api/
+Disallow: /admin/
+
+User-agent: Moz
+Crawl-delay: 10
+Disallow: /api/
+Disallow: /admin/
+
+# Block malicious/unwanted bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: SerpstatBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: LinkpadBot
+Disallow: /
+
+# GPTBot and AI crawlers - Allow for better AI understanding
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+Crawl-delay: 2
+
+# Performance optimization
+User-agent: *
+Disallow: /cdn-cgi/
+Disallow: /_next/
+Disallow: /node_modules/

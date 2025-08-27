@@ -1,0 +1,410 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Droplet, Wifi, Phone, Building2, FileText, Users, Mail, MapPin, ArrowRight, CheckCircle, Shield, Clock, PoundSterling, Award } from 'lucide-react';
+
+// Business Water Page
+export const BusinessWater = () => {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+      <section className="relative py-20 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-blue-500/5"></div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="container mx-auto max-w-6xl"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <Droplet className="w-12 h-12 text-blue-400" />
+            <h1 className="text-5xl md:text-6xl font-bold text-white">Business Water</h1>
+          </div>
+          
+          <p className="text-xl text-gray-300 mb-8 max-w-3xl">
+            Save up to 20% on business water rates. Since deregulation, you can switch suppliers and save thousands.
+          </p>
+
+          <div className="flex flex-wrap gap-4 mb-12">
+            <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg">
+              Compare Water Rates <ArrowRight className="inline ml-2" />
+            </button>
+            <a href="tel:01618338661" className="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-8 rounded-lg border border-slate-700">
+              <Phone className="inline mr-2" /> 0161 833 8661
+            </a>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mt-12">
+            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+              <CheckCircle className="w-8 h-8 text-blue-400 mb-3" />
+              <h3 className="text-white font-bold mb-2">Bill Validation</h3>
+              <p className="text-gray-400">We check for overcharging and billing errors</p>
+            </div>
+            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+              <Shield className="w-8 h-8 text-blue-400 mb-3" />
+              <h3 className="text-white font-bold mb-2">Leak Detection</h3>
+              <p className="text-gray-400">Identify and fix costly water leaks</p>
+            </div>
+            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+              <PoundSterling className="w-8 h-8 text-blue-400 mb-3" />
+              <h3 className="text-white font-bold mb-2">20% Savings</h3>
+              <p className="text-gray-400">Average savings on water bills</p>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="py-20 px-4 bg-gradient-to-t from-blue-900/20 to-transparent">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h2 className="text-4xl font-bold text-white mb-6">Ready to Switch Water Supplier?</h2>
+          <p className="text-xl text-gray-300 mb-8">Free switching service • No interruption to supply</p>
+          <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg text-lg">
+            Get Free Water Quote <ArrowRight className="inline ml-2" />
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+// Business Broadband Page
+export const BusinessBroadband = () => {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+      <section className="relative py-20 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-purple-500/5"></div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="container mx-auto max-w-6xl"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <Wifi className="w-12 h-12 text-purple-400" />
+            <h1 className="text-5xl md:text-6xl font-bold text-white">Business Broadband</h1>
+          </div>
+          
+          <p className="text-xl text-gray-300 mb-8 max-w-3xl">
+            Ultra-fast business broadband with guaranteed uptime. Leased lines, FTTP, and dedicated support.
+          </p>
+
+          <div className="flex flex-wrap gap-4 mb-12">
+            <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg">
+              Check Availability <ArrowRight className="inline ml-2" />
+            </button>
+            <a href="tel:01618338661" className="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-8 rounded-lg border border-slate-700">
+              <Phone className="inline mr-2" /> Speak to Expert
+            </a>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-6">
+            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4 text-center">
+              <div className="text-2xl font-bold text-purple-400">1Gbps</div>
+              <div className="text-sm text-gray-400">Speeds Available</div>
+            </div>
+            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4 text-center">
+              <div className="text-2xl font-bold text-purple-400">99.9%</div>
+              <div className="text-sm text-gray-400">Uptime SLA</div>
+            </div>
+            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4 text-center">
+              <div className="text-2xl font-bold text-purple-400">24/7</div>
+              <div className="text-sm text-gray-400">UK Support</div>
+            </div>
+            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4 text-center">
+              <div className="text-2xl font-bold text-purple-400">4hr</div>
+              <div className="text-sm text-gray-400">Fix Time</div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="py-16 px-4 bg-slate-900/50">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl font-bold text-white text-center mb-8">Connectivity Solutions</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-6 border border-slate-700">
+              <h3 className="text-xl font-bold text-white mb-2">Leased Lines</h3>
+              <p className="text-gray-400">Dedicated symmetric connection with guaranteed speeds</p>
+            </div>
+            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-6 border border-slate-700">
+              <h3 className="text-xl font-bold text-white mb-2">FTTP/FTTC</h3>
+              <p className="text-gray-400">Fibre broadband solutions for every business size</p>
+            </div>
+            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-6 border border-slate-700">
+              <h3 className="text-xl font-bold text-white mb-2">SD-WAN</h3>
+              <p className="text-gray-400">Software-defined networking for multi-site businesses</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-4 bg-gradient-to-t from-purple-900/20 to-transparent">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h2 className="text-4xl font-bold text-white mb-6">Upgrade Your Business Connectivity</h2>
+          <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg text-lg">
+            Get Broadband Quote <ArrowRight className="inline ml-2" />
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+// Business Telecoms Page
+export const BusinessTelecoms = () => {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+      <section className="relative py-20 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 via-transparent to-green-500/5"></div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="container mx-auto max-w-6xl"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <Phone className="w-12 h-12 text-green-400" />
+            <h1 className="text-5xl md:text-6xl font-bold text-white">Business Telecoms</h1>
+          </div>
+          
+          <p className="text-xl text-gray-300 mb-8 max-w-3xl">
+            Complete business phone systems. VoIP, SIP trunks, mobile packages, and unified communications.
+          </p>
+
+          <div className="flex flex-wrap gap-4 mb-12">
+            <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg">
+              Get Telecoms Quote <ArrowRight className="inline ml-2" />
+            </button>
+            <a href="tel:01618338661" className="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-8 rounded-lg border border-slate-700">
+              <Phone className="inline mr-2" /> 0161 833 8661
+            </a>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-6">
+            {['VoIP Systems', 'SIP Trunks', 'Mobile Plans', 'Call Recording'].map((service) => (
+              <div key={service} className="bg-slate-800/50 border border-slate-700 rounded-lg p-4 text-center">
+                <CheckCircle className="w-6 h-6 text-green-400 mx-auto mb-2" />
+                <p className="text-white font-medium">{service}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="py-20 px-4 bg-gradient-to-t from-green-900/20 to-transparent">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h2 className="text-4xl font-bold text-white mb-6">Modernise Your Business Communications</h2>
+          <p className="text-xl text-gray-300 mb-8">Save up to 50% compared to traditional phone lines</p>
+          <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg text-lg">
+            Start Saving Today <ArrowRight className="inline ml-2" />
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+// Large Business Page
+export const LargeBusiness = () => {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+      <section className="relative py-20 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-amber-500/5"></div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="container mx-auto max-w-6xl"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <Building2 className="w-12 h-12 text-amber-400" />
+            <h1 className="text-5xl md:text-6xl font-bold text-white">Large Business & Corporate</h1>
+          </div>
+          
+          <p className="text-xl text-gray-300 mb-8 max-w-3xl">
+            Specialist energy management for large businesses. Multi-site portfolios, flexible purchasing, and dedicated account management.
+          </p>
+
+          <div className="flex flex-wrap gap-4 mb-12">
+            <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg">
+              Schedule Consultation <ArrowRight className="inline ml-2" />
+            </button>
+            <a href="tel:01618338661" className="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-8 rounded-lg border border-slate-700">
+              <Phone className="inline mr-2" /> Corporate Team
+            </a>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-6">
+            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4 text-center">
+              <div className="text-2xl font-bold text-amber-400">1000+</div>
+              <div className="text-sm text-gray-400">Sites Managed</div>
+            </div>
+            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4 text-center">
+              <div className="text-2xl font-bold text-amber-400">£10M+</div>
+              <div className="text-sm text-gray-400">Annual Savings</div>
+            </div>
+            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4 text-center">
+              <div className="text-2xl font-bold text-amber-400">HH</div>
+              <div className="text-sm text-gray-400">Meter Specialist</div>
+            </div>
+            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4 text-center">
+              <div className="text-2xl font-bold text-amber-400">24/7</div>
+              <div className="text-sm text-gray-400">Account Support</div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="py-16 px-4 bg-slate-900/50">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl font-bold text-white text-center mb-8">Corporate Services</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-6 border border-slate-700">
+              <h3 className="text-xl font-bold text-white mb-2">Flexible Purchasing</h3>
+              <p className="text-gray-400">Risk management strategies and market timing</p>
+            </div>
+            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-6 border border-slate-700">
+              <h3 className="text-xl font-bold text-white mb-2">Portfolio Management</h3>
+              <p className="text-gray-400">Consolidated billing and multi-site optimization</p>
+            </div>
+            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-6 border border-slate-700">
+              <h3 className="text-xl font-bold text-white mb-2">Energy Reporting</h3>
+              <p className="text-gray-400">Consumption analytics and carbon reporting</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-4 bg-gradient-to-t from-amber-900/20 to-transparent">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h2 className="text-4xl font-bold text-white mb-6">Enterprise Energy Management</h2>
+          <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg text-lg">
+            Book Strategic Review <ArrowRight className="inline ml-2" />
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+// Contact Page
+export const ContactPage = () => {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+      <section className="relative py-20 px-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="container mx-auto max-w-6xl"
+        >
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Contact Us</h1>
+          <p className="text-xl text-gray-300 mb-12 max-w-3xl">
+            Get in touch with our energy experts. We're here to help you save on business utilities.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-8 border border-slate-700">
+                <h2 className="text-2xl font-bold text-white mb-6">Contact Information</h2>
+                
+                <div className="space-y-4">
+                  <div className="flex items-start gap-4">
+                    <Phone className="w-6 h-6 text-emerald-400 mt-1" />
+                    <div>
+                      <p className="text-white font-semibold">Call Us</p>
+                      <p className="text-gray-400">0161 833 8661</p>
+                      <p className="text-sm text-gray-500">Mon-Fri 9am-5:30pm</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <Mail className="w-6 h-6 text-emerald-400 mt-1" />
+                    <div>
+                      <p className="text-white font-semibold">Email</p>
+                      <p className="text-gray-400">hello@wattutilities.co.uk</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <MapPin className="w-6 h-6 text-emerald-400 mt-1" />
+                    <div>
+                      <p className="text-white font-semibold">Office</p>
+                      <p className="text-gray-400">St Ann's House, 5th Floor</p>
+                      <p className="text-gray-400">St Ann's Square</p>
+                      <p className="text-gray-400">Manchester, M2 7LP</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-8 border border-slate-700">
+                <h2 className="text-2xl font-bold text-white mb-6">Quick Enquiry</h2>
+                <form className="space-y-4">
+                  <input type="text" placeholder="Your Name" className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white" />
+                  <input type="email" placeholder="Email Address" className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white" />
+                  <input type="tel" placeholder="Phone Number" className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white" />
+                  <textarea placeholder="How can we help?" rows="4" className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white"></textarea>
+                  <button className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-lg">
+                    Send Message <ArrowRight className="inline ml-2" />
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+    </div>
+  );
+};
+
+// Company Page
+export const CompanyPage = () => {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+      <section className="relative py-20 px-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="container mx-auto max-w-6xl"
+        >
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">About Watt Utilities</h1>
+          <p className="text-xl text-gray-300 mb-12 max-w-3xl">
+            Trusted business energy consultants since 2000. We've helped over 900,000 UK businesses save £150 million on their utility bills.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-6 border border-slate-700 text-center">
+              <div className="text-4xl font-bold text-emerald-400 mb-2">23+</div>
+              <p className="text-gray-300">Years Experience</p>
+            </div>
+            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-6 border border-slate-700 text-center">
+              <div className="text-4xl font-bold text-emerald-400 mb-2">900k+</div>
+              <p className="text-gray-300">Businesses Helped</p>
+            </div>
+            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-6 border border-slate-700 text-center">
+              <div className="text-4xl font-bold text-emerald-400 mb-2">£150M</div>
+              <p className="text-gray-300">Total Savings</p>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-8 border border-slate-700">
+            <h2 className="text-3xl font-bold text-white mb-6">Our Mission</h2>
+            <p className="text-gray-300 mb-4">
+              We believe every business deserves access to fair energy prices. Our mission is to level the playing field 
+              by giving businesses of all sizes access to wholesale rates previously reserved for large corporations.
+            </p>
+            <p className="text-gray-300">
+              Through our extensive supplier network and expert negotiation, we've consistently delivered savings of 20-45% 
+              for our clients, from small shops to large multi-site operations.
+            </p>
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="py-20 px-4 bg-gradient-to-t from-emerald-900/20 to-transparent">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h2 className="text-4xl font-bold text-white mb-6">Ready to Join 900,000+ Businesses Saving?</h2>
+          <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg text-lg">
+            Get Started Today <ArrowRight className="inline ml-2" />
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+};
