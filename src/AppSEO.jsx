@@ -396,7 +396,7 @@ function Navbar(){
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
         <Link to="/" className="flex items-center gap-3" aria-label="Watt Utilities home">
           <img 
-            src="https://i.ibb.co/qHwXPDS/watt-utilities-white-logo-1-500-x-200-px-500-x-100-px.png" 
+            src="https://i.ibb.co/svkXRLBk/watt-utilities-white-logo-1-500-x-200-px-500-x-100-px-2.png" 
             alt="Watt Utilities - Business Energy Consultants" 
             className="h-10 w-auto md:h-12" 
             width="500"
@@ -517,7 +517,7 @@ function Footer(){
       <div className="mx-auto grid max-w-6xl gap-8 px-6 py-12 md:grid-cols-5">
         <div className="space-y-4 md:col-span-2">
           <img 
-            src="https://i.ibb.co/qHwXPDS/watt-utilities-white-logo-1-500-x-200-px-500-x-100-px.png" 
+            src="https://i.ibb.co/svkXRLBk/watt-utilities-white-logo-1-500-x-200-px-500-x-100-px-2.png" 
             alt="Watt Utilities" 
             className="h-16 w-auto" 
             width="150"
@@ -1260,6 +1260,222 @@ const FAQsPage = () => (
   </RichLander>
 );
 
+// LOA Page with exact form submission
+const LOAPage = () => {
+  const [formData, setFormData] = useState({
+    companyName: '',
+    contactName: '',
+    email: '',
+    phone: '',
+    mpan: '',
+    mprn: '',
+    postcode: '',
+    supplier: '',
+    contractEnd: '',
+    agree: false
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    // Create form data to match original site submission
+    const form = new FormData();
+    Object.keys(formData).forEach(key => {
+      form.append(key, formData[key]);
+    });
+    
+    // Submit to same endpoint as watt.co.uk (you may need to update this URL)
+    fetch('https://www.watt.co.uk/api/loa-submit', {
+      method: 'POST',
+      body: form
+    }).then(response => {
+      if (response.ok) {
+        alert('Letter of Authority submitted successfully. We will be in touch shortly.');
+        setFormData({
+          companyName: '',
+          contactName: '',
+          email: '',
+          phone: '',
+          mpan: '',
+          mprn: '',
+          postcode: '',
+          supplier: '',
+          contractEnd: '',
+          agree: false
+        });
+      } else {
+        alert('There was an error submitting your LOA. Please try again or contact us directly.');
+      }
+    }).catch(error => {
+      alert('There was an error submitting your LOA. Please try again or contact us directly.');
+    });
+  };
+
+  return (
+    <RichLander title="Letter of Authority (LOA)" intro="Authorise us to manage your business energy switch">
+      <div className="space-y-8">
+        <Card className="border-0 bg-slate-900/60 ring-1 ring-slate-800">
+          <CardHeader>
+            <CardTitle className="text-xl">What is a Letter of Authority?</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4 text-slate-300">
+            <p>A Letter of Authority (LOA) gives us permission to:</p>
+            <ul className="list-disc space-y-2 pl-5">
+              <li>Contact your current supplier on your behalf</li>
+              <li>Obtain your current contract details and usage data</li>
+              <li>Negotiate better rates with multiple suppliers</li>
+              <li>Handle the switch process from start to finish</li>
+            </ul>
+            <div className="mt-4 rounded-lg bg-emerald-500/10 border border-emerald-500/30 p-4">
+              <p className="text-sm"><strong>Important:</strong> An LOA does NOT commit you to switching. You remain in full control and we'll present you with options before making any changes.</p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="border-0 bg-slate-900/60 ring-1 ring-slate-800">
+          <CardHeader>
+            <CardTitle className="text-xl">Complete Your Letter of Authority</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid gap-4 md:grid-cols-2">
+                <div>
+                  <label className="mb-2 block text-sm text-slate-300">Company Name *</label>
+                  <Input
+                    required
+                    placeholder="Your company name"
+                    value={formData.companyName}
+                    onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                    className="bg-slate-900/60 border-slate-800"
+                  />
+                </div>
+                <div>
+                  <label className="mb-2 block text-sm text-slate-300">Contact Name *</label>
+                  <Input
+                    required
+                    placeholder="Your full name"
+                    value={formData.contactName}
+                    onChange={(e) => setFormData({ ...formData, contactName: e.target.value })}
+                    className="bg-slate-900/60 border-slate-800"
+                  />
+                </div>
+                <div>
+                  <label className="mb-2 block text-sm text-slate-300">Email Address *</label>
+                  <Input
+                    required
+                    type="email"
+                    placeholder="your@email.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="bg-slate-900/60 border-slate-800"
+                  />
+                </div>
+                <div>
+                  <label className="mb-2 block text-sm text-slate-300">Phone Number *</label>
+                  <Input
+                    required
+                    type="tel"
+                    placeholder="Your phone number"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="bg-slate-900/60 border-slate-800"
+                  />
+                </div>
+                <div>
+                  <label className="mb-2 block text-sm text-slate-300">MPAN (Electricity) <span className="text-xs text-slate-400">- if known</span></label>
+                  <Input
+                    placeholder="Your MPAN number"
+                    value={formData.mpan}
+                    onChange={(e) => setFormData({ ...formData, mpan: e.target.value })}
+                    className="bg-slate-900/60 border-slate-800"
+                  />
+                </div>
+                <div>
+                  <label className="mb-2 block text-sm text-slate-300">MPRN (Gas) <span className="text-xs text-slate-400">- if known</span></label>
+                  <Input
+                    placeholder="Your MPRN number"
+                    value={formData.mprn}
+                    onChange={(e) => setFormData({ ...formData, mprn: e.target.value })}
+                    className="bg-slate-900/60 border-slate-800"
+                  />
+                </div>
+                <div>
+                  <label className="mb-2 block text-sm text-slate-300">Business Postcode *</label>
+                  <Input
+                    required
+                    placeholder="Your business postcode"
+                    value={formData.postcode}
+                    onChange={(e) => setFormData({ ...formData, postcode: e.target.value.toUpperCase() })}
+                    className="bg-slate-900/60 border-slate-800"
+                  />
+                </div>
+                <div>
+                  <label className="mb-2 block text-sm text-slate-300">Current Supplier</label>
+                  <Input
+                    placeholder="Your current energy supplier"
+                    value={formData.supplier}
+                    onChange={(e) => setFormData({ ...formData, supplier: e.target.value })}
+                    className="bg-slate-900/60 border-slate-800"
+                  />
+                </div>
+                <div className="md:col-span-2">
+                  <label className="mb-2 block text-sm text-slate-300">Contract End Date <span className="text-xs text-slate-400">- if known</span></label>
+                  <Input
+                    type="date"
+                    value={formData.contractEnd}
+                    onChange={(e) => setFormData({ ...formData, contractEnd: e.target.value })}
+                    className="bg-slate-900/60 border-slate-800"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    id="agree"
+                    required
+                    checked={formData.agree}
+                    onChange={(e) => setFormData({ ...formData, agree: e.target.checked })}
+                    className="mt-1 h-4 w-4 rounded border-slate-600 bg-slate-900 text-emerald-500 focus:ring-emerald-500"
+                  />
+                  <label htmlFor="agree" className="text-sm text-slate-300">
+                    I authorise Watt Utilities to act on my behalf to obtain information about my current energy contracts and negotiate new contracts. I understand this does not commit me to switching suppliers.
+                  </label>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between">
+                <p className="text-xs text-slate-400">
+                  We'll use this information solely to find you better energy deals.
+                </p>
+                <Button type="submit" className="bg-emerald-500 text-emerald-950 hover:bg-emerald-400">
+                  Submit LOA
+                </Button>
+              </div>
+            </form>
+          </CardContent>
+        </Card>
+
+        <Card className="border-0 bg-slate-900/60 ring-1 ring-slate-800">
+          <CardHeader>
+            <CardTitle className="text-lg">What happens next?</CardTitle>
+          </CardHeader>
+          <CardContent className="text-slate-300">
+            <ol className="list-decimal space-y-2 pl-5">
+              <li>We'll contact your current supplier to get your usage data</li>
+              <li>We'll tender your requirements to our panel of suppliers</li>
+              <li>We'll present you with the best quotes (usually within 24-48 hours)</li>
+              <li>You decide if you want to switch - no obligation</li>
+              <li>If you proceed, we handle everything else</li>
+            </ol>
+          </CardContent>
+        </Card>
+      </div>
+    </RichLander>
+  );
+};
+
 // Simple footer pages
 const TermsPage = () => (<RichLander title="Terms & Conditions"><p className="text-slate-300">Standard website and service terms.</p></RichLander>);
 const PrivacyPage = () => (<RichLander title="Privacy Policy"><p className="text-slate-300">Your data is handled in accordance with UK GDPR. We only process what's necessary to obtain and present quotes.</p></RichLander>);
@@ -1298,6 +1514,7 @@ export default function WattUtilitiesSEO(){
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/complaints" element={<ComplaintsPage />} />
               <Route path="/tpi-code" element={<TPIPage />} />
+              <Route path="/loa" element={<LOAPage />} />
               <Route path="/get-a-quote" element={<GetQuote />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/company" element={<CompanyPage />} />
