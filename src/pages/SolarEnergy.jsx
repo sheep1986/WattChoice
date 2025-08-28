@@ -77,6 +77,22 @@ const SolarEnergy = () => {
         </motion.div>
       </section>
 
+      {/* Featured Image Section */}
+      <section className="relative py-0">
+        <div className="h-96 relative">
+          <img 
+            src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2340&auto=format&fit=crop"
+            alt="Solar panels on commercial building roof"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-950" />
+          <div className="absolute bottom-8 left-8 right-8 text-center">
+            <h2 className="text-4xl font-bold text-white mb-2">Clean Energy Future</h2>
+            <p className="text-xl text-gray-200">Reduce carbon emissions by 40% while saving money</p>
+          </div>
+        </div>
+      </section>
+
       {/* How Fully Funded Works */}
       <section className="py-16 px-4 bg-slate-900/50">
         <div className="container mx-auto max-w-6xl">

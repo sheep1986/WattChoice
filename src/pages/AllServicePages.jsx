@@ -59,6 +59,18 @@ export const BusinessWater = () => {
         </motion.div>
       </section>
 
+      {/* Featured Image Section */}
+      <section className="relative py-0">
+        <div className="h-96 relative">
+          <img 
+            src="https://images.unsplash.com/photo-1538300342682-cf57afb97285?q=80&w=2340&auto=format&fit=crop"
+            alt="Water treatment facility"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-950" />
+        </div>
+      </section>
+
       <section className="py-20 px-4 bg-gradient-to-t from-blue-900/20 to-transparent">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Ready to Switch Water Supplier?</h2>
@@ -141,6 +153,18 @@ export const BusinessBroadband = () => {
             </div>
           </div>
         </motion.div>
+      </section>
+
+      {/* Featured Image Section */}
+      <section className="relative py-0">
+        <div className="h-96 relative">
+          <img 
+            src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2340&auto=format&fit=crop"
+            alt="Network cables and data center"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-950" />
+        </div>
       </section>
 
       <section className="py-16 px-4 bg-slate-900/50">
@@ -229,6 +253,18 @@ export const BusinessTelecoms = () => {
             ))}
           </div>
         </motion.div>
+      </section>
+
+      {/* Featured Image Section */}
+      <section className="relative py-0">
+        <div className="h-96 relative">
+          <img 
+            src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2340&auto=format&fit=crop"
+            alt="Business professional using phone system"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-950" />
+        </div>
       </section>
 
       <section className="py-20 px-4 bg-gradient-to-t from-green-900/20 to-transparent">

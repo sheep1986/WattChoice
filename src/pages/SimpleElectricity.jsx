@@ -91,6 +91,18 @@ const SimpleElectricity = () => {
         </motion.div>
       </section>
 
+      {/* Featured Image Section */}
+      <section className="relative py-0">
+        <div className="h-96 relative">
+          <img 
+            src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2340&auto=format&fit=crop"
+            alt="Electric power lines at sunset"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-950" />
+        </div>
+      </section>
+
       {/* Why Choose Us Section */}
       <section className="py-16 px-4 bg-slate-900/50">
         <div className="container mx-auto max-w-6xl">
