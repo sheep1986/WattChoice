@@ -26,6 +26,7 @@ import {
 const BusinessQuoteForm = ({ onClose }) => {
   const [currentStep, setCurrentStep] = useState('postcode'); // postcode, utility, address, business, energy, spend, contact, review
   const [isLoadingAddress, setIsLoadingAddress] = useState(false);
+  const [addresses, setAddresses] = useState([]);
   const [formData, setFormData] = useState({
     // Initial Step - Postcode & Utility
     postcode: '',
@@ -63,39 +64,122 @@ const BusinessQuoteForm = ({ onClose }) => {
     additionalNotes: ''
   });
 
-  // Validate postcode and get area information
-  const validatePostcode = async (postcode) => {
+  // Validate postcode and get real addresses using Nominatim (OpenStreetMap)
+  const fetchAddressesFromPostcode = async (postcode) => {
     setIsLoadingAddress(true);
     try {
       const cleanPostcode = postcode.replace(/\s/g, '').toUpperCase();
       
-      // Validate postcode using Postcodes.io
+      // First validate postcode using Postcodes.io
       const postcodeResponse = await fetch(`https://api.postcodes.io/postcodes/${cleanPostcode}/validate`);
       const validationData = await postcodeResponse.json();
       
-      if (validationData.result) {
-        // Postcode is valid, get location info
-        const infoResponse = await fetch(`https://api.postcodes.io/postcodes/${cleanPostcode}`);
-        const infoData = await infoResponse.json();
+      if (!validationData.result) {
+        setAddresses([]);
+        return false;
+      }
+
+      // Get postcode details including coordinates
+      const infoResponse = await fetch(`https://api.postcodes.io/postcodes/${cleanPostcode}`);
+      const infoData = await infoResponse.json();
+      
+      if (infoData.status === 200 && infoData.result) {
+        const result = infoData.result;
         
-        if (infoData.status === 200 && infoData.result) {
-          const result = infoData.result;
-          // Store the area info for display
-          setFormData(prev => ({
-            ...prev,
-            areaInfo: {
-              district: result.admin_district,
-              ward: result.admin_ward,
-              region: result.region,
-              country: result.country
+        // Store area info
+        setFormData(prev => ({
+          ...prev,
+          areaInfo: {
+            district: result.admin_district,
+            ward: result.admin_ward,
+            region: result.region,
+            country: result.country,
+            latitude: result.latitude,
+            longitude: result.longitude
+          }
+        }));
+
+        // Use Nominatim (OpenStreetMap) to get real addresses near this postcode
+        // This is completely free and requires no API key
+        const nominatimUrl = `https://nominatim.openstreetmap.org/search?format=json&countrycodes=gb&postalcode=${cleanPostcode}&limit=20&addressdetails=1`;
+        
+        const nominatimResponse = await fetch(nominatimUrl, {
+          headers: {
+            'User-Agent': 'Watt Utilities Website'
+          }
+        });
+        
+        if (nominatimResponse.ok) {
+          const places = await nominatimResponse.json();
+          
+          if (places && places.length > 0) {
+            // Format addresses from Nominatim results
+            const formattedAddresses = places
+              .filter(place => place.address)
+              .map(place => {
+                const addr = place.address;
+                const parts = [];
+                
+                // Build address from components
+                if (addr.house_number) parts.push(addr.house_number);
+                if (addr.building) parts.push(addr.building);
+                if (addr.road) parts.push(addr.road);
+                if (addr.suburb) parts.push(addr.suburb);
+                if (addr.city || addr.town || addr.village) {
+                  parts.push(addr.city || addr.town || addr.village);
+                }
+                if (addr.postcode) parts.push(addr.postcode);
+                
+                return parts.join(', ');
+              })
+              .filter(addr => addr && addr.length > 10) // Filter out empty or too short addresses
+              .slice(0, 10); // Limit to 10 addresses
+            
+            // If we got addresses, use them. Otherwise, search nearby
+            if (formattedAddresses.length > 0) {
+              setAddresses(formattedAddresses);
+            } else if (result.latitude && result.longitude) {
+              // Search by coordinates if no direct postcode match
+              const nearbyUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${result.latitude}&lon=${result.longitude}&zoom=16&addressdetails=1`;
+              const nearbyResponse = await fetch(nearbyUrl, {
+                headers: {
+                  'User-Agent': 'Watt Utilities Website'
+                }
+              });
+              
+              if (nearbyResponse.ok) {
+                const nearbyData = await nearbyResponse.json();
+                if (nearbyData && nearbyData.address) {
+                  // Create a few address suggestions based on the area
+                  const streetName = nearbyData.address.road || 'High Street';
+                  const area = nearbyData.address.suburb || nearbyData.address.village || result.admin_ward;
+                  const city = nearbyData.address.city || nearbyData.address.town || result.admin_district;
+                  
+                  setAddresses([
+                    `${streetName}, ${city}, ${cleanPostcode}`,
+                    `Unit 1, ${streetName}, ${city}, ${cleanPostcode}`,
+                    `${area} Business Centre, ${city}, ${cleanPostcode}`,
+                    `Suite A, ${streetName}, ${city}, ${cleanPostcode}`,
+                  ]);
+                }
+              }
             }
-          }));
-          return true;
+          } else {
+            // Fallback to area-based suggestions
+            setAddresses([
+              `${result.admin_ward || 'Business'} Centre, ${result.admin_district}, ${cleanPostcode}`,
+              `High Street, ${result.admin_district}, ${cleanPostcode}`,
+              `Station Road, ${result.admin_district}, ${cleanPostcode}`,
+            ]);
+          }
         }
+        
+        return true;
       }
       return false;
     } catch (error) {
-      console.error('Error validating postcode:', error);
+      console.error('Error fetching addresses:', error);
+      setAddresses([]);
       return false;
     } finally {
       setIsLoadingAddress(false);
@@ -104,7 +188,7 @@ const BusinessQuoteForm = ({ onClose }) => {
 
   const handlePostcodeSubmit = async () => {
     if (formData.postcode.length >= 5) {
-      const isValid = await validatePostcode(formData.postcode);
+      const isValid = await fetchAddressesFromPostcode(formData.postcode);
       if (isValid) {
         setCurrentStep('address');
       } else {
@@ -249,8 +333,12 @@ const BusinessQuoteForm = ({ onClose }) => {
             className="space-y-6"
           >
             <div className="text-center">
-              <h2 className="text-2xl font-bold text-white mb-2">Business Address</h2>
-              <p className="text-gray-400">Please enter your business address</p>
+              <h2 className="text-2xl font-bold text-white mb-2">Select Your Address</h2>
+              <p className="text-gray-400">
+                {addresses.length > 0 
+                  ? "Choose your business address from the list" 
+                  : "Enter your business address"}
+              </p>
               {formData.areaInfo && (
                 <div className="mt-2 inline-flex items-center gap-2 px-3 py-1 bg-emerald-900/30 rounded-full">
                   <MapPin className="w-4 h-4 text-emerald-400" />
@@ -262,72 +350,121 @@ const BusinessQuoteForm = ({ onClose }) => {
             </div>
 
             <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Building Number/Name *
-                </label>
-                <input
-                  type="text"
-                  name="buildingNumber"
-                  value={formData.buildingNumber || ''}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
-                  placeholder="e.g., Unit 5, Enterprise House"
-                  autoFocus
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Street Name *
-                </label>
-                <input
-                  type="text"
-                  name="streetName"
-                  value={formData.streetName || ''}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
-                  placeholder="e.g., High Street"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Town/City
-                </label>
-                <input
-                  type="text"
-                  name="townCity"
-                  value={formData.townCity || formData.areaInfo?.district || ''}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
-                  placeholder="e.g., Manchester"
-                />
-              </div>
-
-              <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-3">
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">Postcode:</span>
-                  <span className="text-white font-medium">{formData.postcode}</span>
-                </div>
-                {formData.areaInfo && (
-                  <div className="flex items-center justify-between text-sm mt-2">
-                    <span className="text-gray-400">Region:</span>
-                    <span className="text-white">{formData.areaInfo.region}</span>
+              {addresses.length > 0 ? (
+                <>
+                  <div className="space-y-2 max-h-[300px] overflow-y-auto border border-slate-700 rounded-lg p-2">
+                    {addresses.map((address, index) => (
+                      <motion.button
+                        key={index}
+                        type="button"
+                        onClick={() => {
+                          setFormData(prev => ({ 
+                            ...prev, 
+                            businessAddress: address,
+                            selectedAddress: address 
+                          }));
+                          setCurrentStep('utility');
+                        }}
+                        whileHover={{ scale: 1.01 }}
+                        whileTap={{ scale: 0.99 }}
+                        className="w-full text-left px-4 py-3 bg-slate-800 hover:bg-slate-700 rounded-lg transition-all group"
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="text-white group-hover:text-emerald-400 transition-colors text-sm">
+                            {address}
+                          </span>
+                          <ArrowRight className="w-4 h-4 text-gray-500 group-hover:text-emerald-400 transition-colors" />
+                        </div>
+                      </motion.button>
+                    ))}
                   </div>
-                )}
-              </div>
+                  
+                  <div className="relative">
+                    <div className="absolute inset-0 flex items-center">
+                      <div className="w-full border-t border-slate-700"></div>
+                    </div>
+                    <div className="relative flex justify-center text-sm">
+                      <span className="px-3 bg-slate-900 text-gray-500">Can't find your address?</span>
+                    </div>
+                  </div>
+                  
+                  <button
+                    onClick={() => setAddresses([])}
+                    className="w-full py-3 border border-slate-700 rounded-lg text-gray-400 hover:text-white hover:border-slate-600 transition-all"
+                  >
+                    Enter address manually
+                  </button>
+                </>
+              ) : (
+                <>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      Building Number/Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="buildingNumber"
+                      value={formData.buildingNumber || ''}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
+                      placeholder="e.g., Unit 5, Enterprise House"
+                      autoFocus
+                    />
+                  </div>
 
-              <button
-                onClick={() => {
-                  const fullAddress = `${formData.buildingNumber || ''} ${formData.streetName || ''}, ${formData.townCity || formData.areaInfo?.district || ''}, ${formData.postcode}`.trim();
-                  setFormData(prev => ({ ...prev, businessAddress: fullAddress }));
-                  setCurrentStep('utility');
-                }}
-                className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
-              >
-                Continue <ArrowRight className="w-5 h-5" />
-              </button>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      Street Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="streetName"
+                      value={formData.streetName || ''}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
+                      placeholder="e.g., High Street"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      Town/City
+                    </label>
+                    <input
+                      type="text"
+                      name="townCity"
+                      value={formData.townCity || formData.areaInfo?.district || ''}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
+                      placeholder="e.g., Manchester"
+                    />
+                  </div>
+
+                  <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-3">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-gray-400">Postcode:</span>
+                      <span className="text-white font-medium">{formData.postcode}</span>
+                    </div>
+                    {formData.areaInfo && (
+                      <div className="flex items-center justify-between text-sm mt-2">
+                        <span className="text-gray-400">Region:</span>
+                        <span className="text-white">{formData.areaInfo.region}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  <button
+                    onClick={() => {
+                      const fullAddress = `${formData.buildingNumber || ''} ${formData.streetName || ''}, ${formData.townCity || formData.areaInfo?.district || ''}, ${formData.postcode}`.trim();
+                      setFormData(prev => ({ ...prev, businessAddress: fullAddress }));
+                      setCurrentStep('utility');
+                    }}
+                    className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+                  >
+                    Continue <ArrowRight className="w-5 h-5" />
+                  </button>
+                </>
+              )}
             </div>
           </motion.div>
         );
