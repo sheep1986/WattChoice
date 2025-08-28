@@ -566,14 +566,16 @@ export const CompanyPage = () => {
       <section className="py-20 px-4 bg-gradient-to-t from-emerald-900/20 to-transparent">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Ready to Join 900,000+ Businesses Saving?</h2>
-          <motion.button 
-            onClick={() => setShowQuoteForm(true)}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center justify-center gap-2"
-          >
-            Get Started Today <ArrowRight className="w-6 h-6" />
-          </motion.button>
+          <div className="flex justify-center">
+            <motion.button 
+              onClick={() => setShowQuoteForm(true)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg shadow-lg text-lg inline-flex items-center gap-2"
+            >
+              Get Started Today <ArrowRight className="w-6 h-6" />
+            </motion.button>
+          </div>
         </div>
       </section>
 
