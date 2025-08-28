@@ -902,8 +902,24 @@ function HomePage(){
             ))}
           </div>
           
+          {/* Trustpilot Logo Divider */}
+          <div className="mt-12 mb-8 text-center">
+            <a 
+              href="https://www.trustpilot.com/review/watt.co.uk" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block hover:opacity-80 transition-opacity"
+            >
+              <img 
+                src="https://i.ibb.co/7YFr5KQc/trust-piolet-logo-white.png" 
+                alt="Trustpilot Reviews" 
+                className="h-8"
+              />
+            </a>
+          </div>
+          
           {/* Trustpilot Stats and Reviews Combined */}
-          <div className="mt-12">
+          <div>
             <div className="bg-slate-900/60 border border-slate-800 rounded-lg p-6 max-w-4xl mx-auto">
               <div className="flex items-center justify-center gap-2 mb-4">
                 <span className="text-lg text-white font-semibold">Excellent</span>
@@ -918,12 +934,6 @@ function HomePage(){
               <div className="flex items-center justify-center gap-2 mb-4">
                 <span className="text-sm text-slate-400">Based on</span>
                 <span className="text-sm text-white font-bold">709 reviews</span>
-                <span className="text-sm text-slate-400">on</span>
-                <img 
-                  src="https://i.ibb.co/7YFr5KQc/trust-piolet-logo-white.png" 
-                  alt="Trustpilot" 
-                  className="h-5 inline-block"
-                />
               </div>
               
               <div className="grid grid-cols-3 gap-6 text-center mb-6">
