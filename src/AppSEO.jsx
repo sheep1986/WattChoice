@@ -16,6 +16,7 @@ import GetQuote from './pages/GetQuote';
 import FAQ from './pages/FAQ';
 import Testimonials from './pages/Testimonials';
 import TrustpilotReviews from './pages/TrustpilotReviews';
+import TrustpilotWidget from './components/TrustpilotWidget';
 import NotFound from './pages/NotFound';
 
 // Import all icons and components from original App
@@ -538,7 +539,13 @@ function Footer(){
           <p className="text-sm text-slate-400">
             Trusted business energy consultants since 2000. 900,000+ businesses saved £150M.
           </p>
-          <div className="flex gap-4">
+          
+          {/* Trustpilot Mini Widget */}
+          <div className="mt-4">
+            <TrustpilotWidget type="mini" />
+          </div>
+          
+          <div className="flex gap-4 mt-4">
             <a href="https://twitter.com/wattutilities" aria-label="Twitter" className="text-slate-400 hover:text-white">
               <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/></svg>
             </a>
@@ -647,7 +654,7 @@ function HomePage(){
                 {[
                   { icon: Users, label: "900K+ Businesses", value: "Served" },
                   { icon: PoundSterling, label: "£150M", value: "Saved" },
-                  { icon: Star, label: "4.4★", value: "Trustpilot" },
+                  { icon: Star, label: "4.6★", value: "Trustpilot" },
                   { icon: Clock, label: "5 Min", value: "Quote Time" },
                 ].map((stat, i) => (
                   <div key={i} className="text-center">
@@ -911,6 +918,34 @@ function HomePage(){
                 <div className="text-sm text-slate-400">5-Star Reviews</div>
               </div>
             </div>
+          </div>
+        </Section>
+
+        {/* Trustpilot Reviews Section */}
+        <Section 
+          kicker="Customer Reviews" 
+          className="bg-slate-950 py-16"
+        >
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-white mb-4">
+              Trusted by Thousands of UK Businesses
+            </h2>
+            <p className="text-lg text-slate-300">
+              See what our customers say about our service
+            </p>
+          </div>
+          
+          {/* Trustpilot Carousel Widget */}
+          <div className="max-w-4xl mx-auto">
+            <TrustpilotWidget type="carousel" />
+          </div>
+          
+          <div className="text-center mt-8">
+            <Link to="/reviews">
+              <Button variant="outline" className="border-slate-700 bg-slate-900/40 text-slate-200 hover:bg-slate-800">
+                View All Reviews
+              </Button>
+            </Link>
           </div>
         </Section>
 
