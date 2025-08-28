@@ -919,7 +919,11 @@ function HomePage(){
                 <span className="text-sm text-slate-400">Based on</span>
                 <span className="text-sm text-white font-bold">709 reviews</span>
                 <span className="text-sm text-slate-400">on</span>
-                <span className="text-sm text-green-500 font-bold">Trustpilot</span>
+                <img 
+                  src="https://i.ibb.co/7YFr5KQc/trust-piolet-logo-white.png" 
+                  alt="Trustpilot" 
+                  className="h-5 inline-block"
+                />
               </div>
               
               <div className="grid grid-cols-3 gap-6 text-center mb-6">
