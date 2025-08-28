@@ -714,7 +714,9 @@ const BusinessQuoteForm = ({ onClose }) => {
                 <>
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
-                      Current {formData.utilityType === 'gas-electric' ? 'Supplier (Both Gas & Electric)' : 'Supplier'}
+                      Current {formData.utilityType === 'gas-electric' ? 'Supplier (Both Gas & Electric)' : 
+                               formData.utilityType === 'water' ? 'Water Supplier' : 
+                               formData.utilityType === 'gas' ? 'Gas Supplier' : 'Electricity Supplier'}
                     </label>
                     <select
                       name="currentSupplier"
@@ -722,16 +724,50 @@ const BusinessQuoteForm = ({ onClose }) => {
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
                     >
-                      <option value="">Select supplier</option>
-                      <option value="british-gas">British Gas</option>
-                      <option value="edf">EDF Energy</option>
-                      <option value="eon">E.ON</option>
-                      <option value="scottish-power">Scottish Power</option>
-                      <option value="sse">SSE</option>
-                      <option value="opus">Opus Energy</option>
-                      <option value="total">Total Energies</option>
-                      <option value="other">Other</option>
-                      <option value="not-sure">Not Sure</option>
+                      <option value="">✓ I Don't Know</option>
+                      {formData.utilityType === 'water' ? (
+                        <>
+                          <option value="anglian-water">Anglian Water</option>
+                          <option value="dwr-cymru">Dŵr Cymru - Welsh Water</option>
+                          <option value="northumbrian-water">Northumbrian Water</option>
+                          <option value="severn-trent">Severn Trent Water</option>
+                          <option value="south-west-water">South West Water</option>
+                          <option value="southern-water">Southern Water</option>
+                          <option value="thames-water">Thames Water</option>
+                          <option value="united-utilities">United Utilities</option>
+                          <option value="wessex-water">Wessex Water</option>
+                          <option value="yorkshire-water">Yorkshire Water</option>
+                          <option value="other">Other</option>
+                        </>
+                      ) : formData.utilityType === 'gas' ? (
+                        <>
+                          <option value="british-gas">British Gas / British Gas Lite</option>
+                          <option value="drax">Drax</option>
+                          <option value="edf">EDF</option>
+                          <option value="eon-next">Eon Next</option>
+                          <option value="opus">Opus</option>
+                          <option value="scottish-power">Scottish Power</option>
+                          <option value="sse">SSE</option>
+                          <option value="valda">Valda Energy</option>
+                          <option value="yge">YGP</option>
+                          <option value="yu-energy">Yu Energy</option>
+                          <option value="other">Other</option>
+                        </>
+                      ) : (
+                        <>
+                          <option value="british-gas">British Gas / British Gas Lite</option>
+                          <option value="drax">Drax</option>
+                          <option value="edf">EDF</option>
+                          <option value="eon-next">Eon Next</option>
+                          <option value="opus">Opus</option>
+                          <option value="scottish-power">Scottish Power</option>
+                          <option value="sse">SSE</option>
+                          <option value="valda">Valda Energy</option>
+                          <option value="yge">YGP</option>
+                          <option value="yu-energy">Yu Energy</option>
+                          <option value="other">Other</option>
+                        </>
+                      )}
                     </select>
                   </div>
 
@@ -769,16 +805,18 @@ const BusinessQuoteForm = ({ onClose }) => {
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
                       >
-                        <option value="">Select electricity supplier</option>
-                        <option value="british-gas">British Gas</option>
-                        <option value="edf">EDF Energy</option>
-                        <option value="eon">E.ON</option>
+                        <option value="">✓ I Don't Know</option>
+                        <option value="british-gas">British Gas / British Gas Lite</option>
+                        <option value="drax">Drax</option>
+                        <option value="edf">EDF</option>
+                        <option value="eon-next">Eon Next</option>
+                        <option value="opus">Opus</option>
                         <option value="scottish-power">Scottish Power</option>
                         <option value="sse">SSE</option>
-                        <option value="opus">Opus Energy</option>
-                        <option value="total">Total Energies</option>
+                        <option value="valda">Valda Energy</option>
+                        <option value="yge">YGP</option>
+                        <option value="yu-energy">Yu Energy</option>
                         <option value="other">Other</option>
-                        <option value="not-sure">Not Sure</option>
                       </select>
                     </div>
 
@@ -811,16 +849,18 @@ const BusinessQuoteForm = ({ onClose }) => {
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
                       >
-                        <option value="">Select gas supplier</option>
-                        <option value="british-gas">British Gas</option>
-                        <option value="edf">EDF Energy</option>
-                        <option value="eon">E.ON</option>
+                        <option value="">✓ I Don't Know</option>
+                        <option value="british-gas">British Gas / British Gas Lite</option>
+                        <option value="drax">Drax</option>
+                        <option value="edf">EDF</option>
+                        <option value="eon-next">Eon Next</option>
+                        <option value="opus">Opus</option>
                         <option value="scottish-power">Scottish Power</option>
                         <option value="sse">SSE</option>
-                        <option value="centrica">Centrica</option>
-                        <option value="total">Total Energies</option>
+                        <option value="valda">Valda Energy</option>
+                        <option value="yge">YGP</option>
+                        <option value="yu-energy">Yu Energy</option>
                         <option value="other">Other</option>
-                        <option value="not-sure">Not Sure</option>
                       </select>
                     </div>
 
