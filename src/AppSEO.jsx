@@ -888,6 +888,21 @@ function HomePage(){
                   </div>
                 </CardHeader>
                 <CardContent>
+                  {/* Trustpilot Stars */}
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="flex gap-0.5">
+                      {[1,2,3,4,5].map((star) => (
+                        <Star key={star} className="w-5 h-5 text-green-500 fill-current" />
+                      ))}
+                    </div>
+                    <span className="text-xs text-slate-400">Verified on</span>
+                    <img 
+                      src="https://cdn.trustpilot.net/brand-assets/4.1.0/logo-white.svg" 
+                      alt="Trustpilot" 
+                      className="h-4" 
+                    />
+                  </div>
+                  
                   <p className="mb-4 text-slate-300 italic">"{testimonial.quote}"</p>
                   <div className="flex flex-wrap gap-2">
                     {testimonial.services.map((service, j) => (
@@ -902,20 +917,41 @@ function HomePage(){
           </div>
           
           <div className="mt-12 text-center">
-            <div className="inline-flex items-center gap-8">
-              <div>
-                <div className="text-3xl font-bold text-white">4.6★</div>
-                <div className="text-sm text-slate-400">Trustpilot Rating</div>
+            <div className="bg-slate-900/60 border border-slate-800 rounded-lg p-6 inline-block">
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <span className="text-lg text-white font-semibold">Excellent</span>
+                <div className="flex gap-0.5">
+                  {[1,2,3,4,5].map((star) => (
+                    <Star key={star} className={`w-6 h-6 ${star <= 4 ? 'text-green-500' : 'text-gray-600'} fill-current`} />
+                  ))}
+                </div>
+                <span className="text-lg text-white font-semibold">4.6 out of 5</span>
               </div>
-              <div className="h-12 w-px bg-slate-700" />
-              <div>
-                <div className="text-3xl font-bold text-white">709</div>
-                <div className="text-sm text-slate-400">Verified Reviews</div>
+              
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <span className="text-sm text-slate-400">Based on</span>
+                <span className="text-sm text-white font-bold">709 reviews</span>
+                <span className="text-sm text-slate-400">on</span>
+                <img 
+                  src="https://cdn.trustpilot.net/brand-assets/4.1.0/logo-white.svg" 
+                  alt="Trustpilot" 
+                  className="h-5" 
+                />
               </div>
-              <div className="h-12 w-px bg-slate-700" />
-              <div>
-                <div className="text-3xl font-bold text-white">89%</div>
-                <div className="text-sm text-slate-400">5-Star Reviews</div>
+              
+              <div className="grid grid-cols-3 gap-6 text-center">
+                <div>
+                  <div className="text-2xl font-bold text-white">4.6★</div>
+                  <div className="text-xs text-slate-400">TrustScore</div>
+                </div>
+                <div className="border-x border-slate-700">
+                  <div className="text-2xl font-bold text-white">709</div>
+                  <div className="text-xs text-slate-400">Total Reviews</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-white">89%</div>
+                  <div className="text-xs text-slate-400">5-Star</div>
+                </div>
               </div>
             </div>
           </div>
