@@ -616,11 +616,6 @@ function HomePage(){
           
           <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-20 md:grid-cols-2 md:py-28">
             <motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.6}}>
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-300">
-                <TrendingDown className="h-4 w-4"/>
-                Average savings: 28% | Record saving: £58,000/year
-              </div>
-              
               <h1 className="mb-4 text-4xl font-extrabold leading-tight text-white md:text-6xl">
                 We help businesses 
                 <span className="block bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text text-transparent">
