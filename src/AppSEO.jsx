@@ -939,12 +939,6 @@ function HomePage(){
               
               {/* Trustpilot Carousel Widget */}
               <div className="border-t border-slate-700 pt-6">
-                <h3 className="text-xl font-bold text-white text-center mb-4">
-                  Customer Reviews
-                </h3>
-                <p className="text-sm text-slate-300 text-center mb-6">
-                  See what our customers say about our service
-                </p>
                 <TrustpilotWidget type="carousel" />
                 
                 <div className="text-center mt-6">
