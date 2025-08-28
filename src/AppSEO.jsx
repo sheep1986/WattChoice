@@ -869,40 +869,24 @@ function HomePage(){
         {/* Social Proof */}
         <Section 
           id="testimonials" 
-          kicker="Client Success Stories" 
-          title="Real Results for Real Businesses"
+          kicker="What Our Clients Say" 
+          title="Success Stories"
         >
           <div className="grid gap-6 md:grid-cols-3">
             {companyContent.testimonials.featured.slice(0, 3).map((testimonial, i) => (
               <Card key={i} className="border-0 bg-slate-900/60 ring-1 ring-slate-800">
                 <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <div className="text-lg font-semibold text-white">{testimonial.company}</div>
-                      <div className="text-sm text-slate-400">{testimonial.contact}</div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-2xl font-bold text-emerald-400">{testimonial.saving}</div>
-                      <div className="text-xs text-slate-400">saved/year</div>
-                    </div>
+                  <div>
+                    <div className="text-lg font-semibold text-white">{testimonial.company}</div>
+                    <div className="text-sm text-slate-400">{testimonial.contact}</div>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  {/* Trustpilot Stars */}
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="flex gap-0.5">
-                      {[1,2,3,4,5].map((star) => (
-                        <Star key={star} className="w-5 h-5 text-green-500 fill-current" />
-                      ))}
-                    </div>
-                    <span className="text-xs text-slate-400">Verified on</span>
-                    <span className="bg-white px-1 rounded">
-                      <img 
-                        src="https://cdn.trustpilot.net/brand-assets/4.1.0/logo-green.svg" 
-                        alt="Trustpilot" 
-                        className="h-3" 
-                      />
-                    </span>
+                  {/* 5 Star Rating */}
+                  <div className="flex gap-0.5 mb-3">
+                    {[1,2,3,4,5].map((star) => (
+                      <Star key={star} className="w-5 h-5 text-yellow-400 fill-current" />
+                    ))}
                   </div>
                   
                   <p className="mb-4 text-slate-300 italic">"{testimonial.quote}"</p>
@@ -934,13 +918,7 @@ function HomePage(){
                 <span className="text-sm text-slate-400">Based on</span>
                 <span className="text-sm text-white font-bold">709 reviews</span>
                 <span className="text-sm text-slate-400">on</span>
-                <span className="bg-white px-2 py-0.5 rounded">
-                  <img 
-                    src="https://cdn.trustpilot.net/brand-assets/4.1.0/logo-green.svg" 
-                    alt="Trustpilot" 
-                    className="h-4" 
-                  />
-                </span>
+                <span className="text-sm text-green-500 font-bold">Trustpilot</span>
               </div>
               
               <div className="grid grid-cols-3 gap-6 text-center">
