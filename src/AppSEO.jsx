@@ -396,9 +396,9 @@ function Navbar(){
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
         <Link to="/" className="flex items-center gap-3" aria-label="Watt Utilities home">
           <img 
-            src="https://i.ibb.co/svkXRLBk/watt-utilities-white-logo-1-500-x-200-px-500-x-100-px-2.png" 
+            src="https://i.ibb.co/9m5w9tMJ/watt-utilities-white-logo-1-500-x-200-px-500-x-100-px-5.png" 
             alt="Watt Utilities - Business Energy Consultants" 
-            className="h-10 w-auto md:h-12" 
+            className="h-8 w-auto md:h-10" 
             width="500"
             height="100"
           />
@@ -525,7 +525,7 @@ function Footer(){
       <div className="mx-auto grid max-w-6xl gap-8 px-6 py-12 md:grid-cols-5">
         <div className="space-y-4 md:col-span-2">
           <img 
-            src="https://i.ibb.co/svkXRLBk/watt-utilities-white-logo-1-500-x-200-px-500-x-100-px-2.png" 
+            src="https://i.ibb.co/9m5w9tMJ/watt-utilities-white-logo-1-500-x-200-px-500-x-100-px-5.png" 
             alt="Watt Utilities" 
             className="h-16 w-auto" 
             width="150"

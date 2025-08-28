@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Droplet, Wifi, Phone, Building2, FileText, Users, Mail, MapPin, ArrowRight, CheckCircle, Shield, Clock, PoundSterling, Award } from 'lucide-react';
+import BusinessQuoteForm from '../components/BusinessQuoteForm';
+import SimpleQuoteForm from '../components/SimpleQuoteForm';
 
 // Business Water Page
 export const BusinessWater = () => {
+  const [showQuoteForm, setShowQuoteForm] = useState(false);
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       <section className="relative py-20 px-4 overflow-hidden">
@@ -23,7 +26,7 @@ export const BusinessWater = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 mb-12">
-            <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg">
+            <button onClick={() => setShowQuoteForm(true)} className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg">
               Compare Water Rates <ArrowRight className="inline ml-2" />
             </button>
             <a href="tel:01618338661" className="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-8 rounded-lg border border-slate-700">
@@ -55,17 +58,23 @@ export const BusinessWater = () => {
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Ready to Switch Water Supplier?</h2>
           <p className="text-xl text-gray-300 mb-8">Free switching service • No interruption to supply</p>
-          <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg text-lg">
+          <button onClick={() => setShowQuoteForm(true)} className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg text-lg">
             Get Free Water Quote <ArrowRight className="inline ml-2" />
           </button>
         </div>
       </section>
+
+      {/* Quote Form Modal - Simpler form for water */}
+      {showQuoteForm && (
+        <SimpleQuoteForm onClose={() => setShowQuoteForm(false)} serviceType="water" />
+      )}
     </div>
   );
 };
 
 // Business Broadband Page
 export const BusinessBroadband = () => {
+  const [showQuoteForm, setShowQuoteForm] = useState(false);
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       <section className="relative py-20 px-4 overflow-hidden">
@@ -85,7 +94,7 @@ export const BusinessBroadband = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 mb-12">
-            <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg">
+            <button onClick={() => setShowQuoteForm(true)} className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg">
               Check Availability <ArrowRight className="inline ml-2" />
             </button>
             <a href="tel:01618338661" className="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-8 rounded-lg border border-slate-700">
@@ -137,17 +146,23 @@ export const BusinessBroadband = () => {
       <section className="py-20 px-4 bg-gradient-to-t from-purple-900/20 to-transparent">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Upgrade Your Business Connectivity</h2>
-          <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg text-lg">
+          <button onClick={() => setShowQuoteForm(true)} className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg text-lg">
             Get Broadband Quote <ArrowRight className="inline ml-2" />
           </button>
         </div>
       </section>
+
+      {/* Quote Form Modal - Simpler form for broadband */}
+      {showQuoteForm && (
+        <SimpleQuoteForm onClose={() => setShowQuoteForm(false)} serviceType="broadband" />
+      )}
     </div>
   );
 };
 
 // Business Telecoms Page
 export const BusinessTelecoms = () => {
+  const [showQuoteForm, setShowQuoteForm] = useState(false);
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       <section className="relative py-20 px-4 overflow-hidden">
@@ -167,7 +182,7 @@ export const BusinessTelecoms = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 mb-12">
-            <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg">
+            <button onClick={() => setShowQuoteForm(true)} className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg">
               Get Telecoms Quote <ArrowRight className="inline ml-2" />
             </button>
             <a href="tel:01618338661" className="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-8 rounded-lg border border-slate-700">
@@ -190,11 +205,16 @@ export const BusinessTelecoms = () => {
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Modernise Your Business Communications</h2>
           <p className="text-xl text-gray-300 mb-8">Save up to 50% compared to traditional phone lines</p>
-          <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg text-lg">
+          <button onClick={() => setShowQuoteForm(true)} className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg text-lg">
             Start Saving Today <ArrowRight className="inline ml-2" />
           </button>
         </div>
       </section>
+
+      {/* Quote Form Modal - Simpler form for telecoms */}
+      {showQuoteForm && (
+        <SimpleQuoteForm onClose={() => setShowQuoteForm(false)} serviceType="telecoms" />
+      )}
     </div>
   );
 };
