@@ -26,9 +26,14 @@ export const BusinessWater = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 mb-12">
-            <button onClick={() => setShowQuoteForm(true)} className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg">
-              Compare Water Rates <ArrowRight className="inline ml-2" />
-            </button>
+            <motion.button 
+              onClick={() => setShowQuoteForm(true)} 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
+            >
+              Compare Water Rates <ArrowRight className="w-5 h-5" />
+            </motion.button>
             <a href="tel:01618338661" className="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-8 rounded-lg border border-slate-700">
               <Phone className="inline mr-2" /> 0161 833 8661
             </a>
@@ -58,9 +63,14 @@ export const BusinessWater = () => {
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Ready to Switch Water Supplier?</h2>
           <p className="text-xl text-gray-300 mb-8">Free switching service • No interruption to supply</p>
-          <button onClick={() => setShowQuoteForm(true)} className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg text-lg">
-            Get Free Water Quote <ArrowRight className="inline ml-2" />
-          </button>
+          <motion.button 
+            onClick={() => setShowQuoteForm(true)} 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center justify-center gap-2"
+          >
+            Get Free Water Quote <ArrowRight className="w-6 h-6" />
+          </motion.button>
         </div>
       </section>
 
@@ -94,12 +104,22 @@ export const BusinessBroadband = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 mb-12">
-            <button onClick={() => setShowQuoteForm(true)} className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg">
-              Check Availability <ArrowRight className="inline ml-2" />
-            </button>
-            <a href="tel:01618338661" className="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-8 rounded-lg border border-slate-700">
-              <Phone className="inline mr-2" /> Speak to Expert
-            </a>
+            <motion.button 
+              onClick={() => setShowQuoteForm(true)} 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
+            >
+              Check Availability <ArrowRight className="w-5 h-5" />
+            </motion.button>
+            <motion.a 
+              href="tel:01618338661" 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2 border border-slate-700"
+            >
+              <Phone className="w-5 h-5" /> Speak to Expert
+            </motion.a>
           </div>
 
           <div className="grid md:grid-cols-4 gap-6">
@@ -146,9 +166,14 @@ export const BusinessBroadband = () => {
       <section className="py-20 px-4 bg-gradient-to-t from-purple-900/20 to-transparent">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Upgrade Your Business Connectivity</h2>
-          <button onClick={() => setShowQuoteForm(true)} className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg text-lg">
-            Get Broadband Quote <ArrowRight className="inline ml-2" />
-          </button>
+          <motion.button 
+            onClick={() => setShowQuoteForm(true)} 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center justify-center gap-2"
+          >
+            Get Broadband Quote <ArrowRight className="w-6 h-6" />
+          </motion.button>
         </div>
       </section>
 
@@ -182,9 +207,14 @@ export const BusinessTelecoms = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 mb-12">
-            <button onClick={() => setShowQuoteForm(true)} className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg">
-              Get Telecoms Quote <ArrowRight className="inline ml-2" />
-            </button>
+            <motion.button 
+              onClick={() => setShowQuoteForm(true)} 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
+            >
+              Get Telecoms Quote <ArrowRight className="w-5 h-5" />
+            </motion.button>
             <a href="tel:01618338661" className="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-8 rounded-lg border border-slate-700">
               <Phone className="inline mr-2" /> 0161 833 8661
             </a>
@@ -205,9 +235,14 @@ export const BusinessTelecoms = () => {
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Modernise Your Business Communications</h2>
           <p className="text-xl text-gray-300 mb-8">Save up to 50% compared to traditional phone lines</p>
-          <button onClick={() => setShowQuoteForm(true)} className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg text-lg">
-            Start Saving Today <ArrowRight className="inline ml-2" />
-          </button>
+          <motion.button 
+            onClick={() => setShowQuoteForm(true)} 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center justify-center gap-2"
+          >
+            Start Saving Today <ArrowRight className="w-6 h-6" />
+          </motion.button>
         </div>
       </section>
 
