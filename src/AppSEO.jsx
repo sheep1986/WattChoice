@@ -13,6 +13,9 @@ import SimpleGas from './pages/SimpleGas';
 import SolarEnergy from './pages/SolarEnergy';
 import { BusinessWater, BusinessBroadband, BusinessTelecoms, LargeBusiness, ContactPage, CompanyPage } from './pages/AllServicePages';
 import GetQuote from './pages/GetQuote';
+import FAQ from './pages/FAQ';
+import Testimonials from './pages/Testimonials';
+import NotFound from './pages/NotFound';
 
 // Import all icons and components from original App
 import {
@@ -602,7 +605,7 @@ function HomePage(){
         title="Business Energy Comparison & Switching | Save up to 45%"
         description="UK's trusted business utility consultants. Compare electricity, gas, water rates from 20+ suppliers. 900,000+ businesses saved £150M. Get quotes in 5 minutes."
         keywords="business energy comparison, business electricity, business gas, utility switching, energy broker UK"
-        canonical="https://www.wattutilities.co.uk"
+        canonical="https://wattutilities001.netlify.app"
         structuredData={organizationSchema}
       />
       
@@ -1381,13 +1384,17 @@ export default function WattUtilitiesSEO(){
               <Route path="/case-studies" element={<CaseStudiesPage />} />
               <Route path="/knowledge" element={<KnowledgePage />} />
               <Route path="/compliance" element={<CompliancePage />} />
-              <Route path="/faqs" element={<FAQsPage />} />
+              <Route path="/faqs" element={<FAQ />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/testimonials" element={<Testimonials />} />
+              <Route path="/reviews" element={<Testimonials />} />
               <Route path="/terms" element={<TermsPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/complaints" element={<ComplaintsPage />} />
               <Route path="/tpi-code" element={<TPIPage />} />
               <Route path="/loa" element={<LOAPage />} />
               <Route path="/get-a-quote" element={<GetQuote />} />
+              <Route path="/get-quote" element={<GetQuote />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/company" element={<CompanyPage />} />
               <Route path="/about" element={<CompanyPage />} />

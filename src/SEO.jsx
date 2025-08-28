@@ -1,7 +1,16 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-export const SEOHead = ({ title, description, keywords, canonical, structuredData }) => {
+export const SEOHead = ({ 
+  title, 
+  description, 
+  keywords, 
+  canonical, 
+  structuredData,
+  ogImage,
+  ogType = "website",
+  article = null 
+}) => {
   const baseTitle = "Watt Utilities - Business Energy & Utility Switching Experts";
   const fullTitle = title ? `${title} | ${baseTitle}` : baseTitle;
   
@@ -10,6 +19,8 @@ export const SEOHead = ({ title, description, keywords, canonical, structuredDat
   
   const defaultKeywords = "business electricity, business gas, commercial energy, utility switching, energy procurement, business water, business broadband, energy comparison, utility broker, UK energy suppliers";
   const metaKeywords = keywords ? `${keywords}, ${defaultKeywords}` : defaultKeywords;
+  
+  const ogImageUrl = ogImage || "https://i.ibb.co/9m5w9tMJ/watt-utilities-white-logo-1-500-x-200-px-500-x-100-px-5.png";
 
   return (
     <Helmet>
@@ -23,12 +34,24 @@ export const SEOHead = ({ title, description, keywords, canonical, structuredDat
       <meta name="googlebot" content="index, follow" />
       
       {/* Open Graph / Facebook */}
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={ogType} />
+      <meta property="og:url" content={canonical || "https://wattutilities001.netlify.app"} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={metaDescription} />
-      <meta property="og:image" content="https://i.ibb.co/7dywXhNK/watt-utilities-white-logo-1-1.png" />
+      <meta property="og:image" content={ogImageUrl} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
       <meta property="og:site_name" content="Watt Utilities" />
       <meta property="og:locale" content="en_GB" />
+      
+      {/* Article specific tags */}
+      {article && (
+        <>
+          <meta property="article:published_time" content={article.publishedTime} />
+          <meta property="article:modified_time" content={article.modifiedTime} />
+          <meta property="article:author" content={article.author} />
+        </>
+      )}
       
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -154,6 +177,52 @@ export const localBusinessSchema = {
       }
     ]
   }
+};
+
+// Breadcrumb schema generator
+export const createBreadcrumbSchema = (items) => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": items.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": item.name,
+      "item": item.url
+    }))
+  };
+};
+
+// Review/Testimonial schema
+export const createReviewSchema = (reviews) => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Watt Utilities Business Energy Switching Service",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "1247",
+      "reviewCount": "892"
+    },
+    "review": reviews.map(review => ({
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": review.rating,
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "author": {
+        "@type": "Person",
+        "name": review.author
+      },
+      "datePublished": review.date,
+      "reviewBody": review.text
+    }))
+  };
 };
 
 export const faqSchema = {
