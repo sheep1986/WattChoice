@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Star, Quote, Building2, CheckCircle, TrendingUp } from 'lucide-react';
 import { SEOHead, createReviewSchema } from '../SEO';
@@ -236,14 +237,15 @@ const Testimonials = () => {
           </p>
           
           <div className="flex flex-wrap justify-center gap-4">
-            <motion.a
-              href="/get-quote"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg"
-            >
-              Get Your Free Quote
-            </motion.a>
+            <Link to="/get-quote">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg"
+              >
+                Get Your Free Quote
+              </motion.button>
+            </Link>
             <motion.a
               href="tel:01618338661"
               whileHover={{ scale: 1.05 }}

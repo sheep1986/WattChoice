@@ -482,7 +482,7 @@ function Navbar(){
         </div>
         
         <div className="flex items-center gap-3">
-          <Link to="/get-a-quote">
+          <Link to="/get-quote">
             <Button className="bg-emerald-500 text-emerald-950 hover:bg-emerald-400 px-4 py-2 text-sm font-medium">
               Get Quotes
             </Button>
@@ -630,16 +630,16 @@ function HomePage(){
               </p>
               
               <div className="flex flex-wrap gap-3">
-                <Link to="/get-a-quote">
+                <Link to="/get-quote">
                   <Button className="h-12 rounded-xl bg-emerald-500 px-8 text-base font-semibold text-emerald-950 hover:bg-emerald-400">
                     Get Free Quotes <ArrowRight className="ml-2 h-5 w-5"/>
                   </Button>
                 </Link>
-                <Link to="/business-electricity">
+                <a href="#services">
                   <Button variant="outline" className="h-12 rounded-xl border-slate-700 bg-slate-900/40 px-8 text-base text-slate-200 hover:bg-slate-800">
                     View Services
                   </Button>
-                </Link>
+                </a>
               </div>
               
               <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -923,7 +923,7 @@ function HomePage(){
               Join 900,000+ businesses saving millions on utilities
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/get-a-quote">
+              <Link to="/get-quote">
                 <Button className="h-12 rounded-xl bg-emerald-500 px-8 text-base font-semibold text-emerald-950 hover:bg-emerald-400">
                   Get Free Quotes Now
                 </Button>
