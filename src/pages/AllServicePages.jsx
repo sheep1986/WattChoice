@@ -292,6 +292,7 @@ export const BusinessTelecoms = () => {
 
 // Large Business Page
 export const LargeBusiness = () => {
+  const [showQuoteForm, setShowQuoteForm] = useState(false);
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       <section className="relative py-20 px-4 overflow-hidden">
@@ -311,9 +312,14 @@ export const LargeBusiness = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 mb-12">
-            <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg">
-              Schedule Consultation <ArrowRight className="inline ml-2" />
-            </button>
+            <motion.button 
+              onClick={() => setShowQuoteForm(true)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
+            >
+              Schedule Consultation <ArrowRight className="w-5 h-5" />
+            </motion.button>
             <a href="tel:01618338661" className="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-8 rounded-lg border border-slate-700">
               <Phone className="inline mr-2" /> Corporate Team
             </a>
@@ -363,17 +369,48 @@ export const LargeBusiness = () => {
       <section className="py-20 px-4 bg-gradient-to-t from-amber-900/20 to-transparent">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Enterprise Energy Management</h2>
-          <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg text-lg">
-            Book Strategic Review <ArrowRight className="inline ml-2" />
-          </button>
+          <motion.button 
+            onClick={() => setShowQuoteForm(true)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center justify-center gap-2"
+          >
+            Book Strategic Review <ArrowRight className="w-6 h-6" />
+          </motion.button>
         </div>
       </section>
+
+      {/* Quote Form Modal */}
+      {showQuoteForm && (
+        <BusinessQuoteForm onClose={() => setShowQuoteForm(false)} />
+      )}
     </div>
   );
 };
 
 // Contact Page
 export const ContactPage = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // For now, just show an alert. In production, this would send to a backend
+    alert('Thank you for your enquiry! We will contact you within 24 hours.');
+    setFormData({ name: '', email: '', phone: '', message: '' });
+  };
+  
+  const handleChange = (e) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
+  
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       <section className="relative py-20 px-4">
@@ -426,14 +463,51 @@ export const ContactPage = () => {
             <div>
               <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-8 border border-slate-700">
                 <h2 className="text-2xl font-bold text-white mb-6">Quick Enquiry</h2>
-                <form className="space-y-4">
-                  <input type="text" placeholder="Your Name" className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white" />
-                  <input type="email" placeholder="Email Address" className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white" />
-                  <input type="tel" placeholder="Phone Number" className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white" />
-                  <textarea placeholder="How can we help?" rows="4" className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white"></textarea>
-                  <button className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-lg">
-                    Send Message <ArrowRight className="inline ml-2" />
-                  </button>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <input 
+                    type="text" 
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your Name" 
+                    required
+                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white" 
+                  />
+                  <input 
+                    type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Email Address" 
+                    required
+                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white" 
+                  />
+                  <input 
+                    type="tel" 
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="Phone Number" 
+                    required
+                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white" 
+                  />
+                  <textarea 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="How can we help?" 
+                    rows="4" 
+                    required
+                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white"
+                  ></textarea>
+                  <motion.button 
+                    type="submit"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2"
+                  >
+                    Send Message <ArrowRight className="w-5 h-5" />
+                  </motion.button>
                 </form>
               </div>
             </div>
@@ -446,6 +520,7 @@ export const ContactPage = () => {
 
 // Company Page
 export const CompanyPage = () => {
+  const [showQuoteForm, setShowQuoteForm] = useState(false);
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       <section className="relative py-20 px-4">
@@ -491,11 +566,21 @@ export const CompanyPage = () => {
       <section className="py-20 px-4 bg-gradient-to-t from-emerald-900/20 to-transparent">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Ready to Join 900,000+ Businesses Saving?</h2>
-          <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg text-lg">
-            Get Started Today <ArrowRight className="inline ml-2" />
-          </button>
+          <motion.button 
+            onClick={() => setShowQuoteForm(true)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center justify-center gap-2"
+          >
+            Get Started Today <ArrowRight className="w-6 h-6" />
+          </motion.button>
         </div>
       </section>
+
+      {/* Quote Form Modal */}
+      {showQuoteForm && (
+        <BusinessQuoteForm onClose={() => setShowQuoteForm(false)} />
+      )}
     </div>
   );
 };
