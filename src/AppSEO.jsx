@@ -594,10 +594,10 @@ function Footer(){
       
       <div className="border-t border-slate-800/60 py-6">
         <div className="mx-auto max-w-6xl px-6 text-center text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} Watt Utilities UK Ltd. All rights reserved. Company No. 12345678.</p>
+          <p>© {new Date().getFullYear()} Watt Utilities UK Ltd. All rights reserved.</p>
           <p className="mt-2">
             <Award className="inline h-3 w-3 mr-1"/>
-            Investors in People | ICO Registered | TPI Code of Practice | Trustpilot 4.4★
+            Investors in People | ICO Registered | TPI Code of Practice | Trustpilot 4.6★
           </p>
         </div>
       </div>
