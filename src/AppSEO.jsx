@@ -921,14 +921,20 @@ function HomePage(){
           {/* Trustpilot Stats and Reviews Combined */}
           <div>
             <div className="bg-slate-900/60 border border-slate-800 rounded-lg p-6 max-w-4xl mx-auto">
-              <div className="flex items-center justify-center gap-2 mb-4">
-                <span className="text-lg text-white font-semibold">Excellent</span>
-                <div className="flex gap-0.5">
-                  {[1,2,3,4,5].map((star) => (
-                    <Star key={star} className={`w-6 h-6 ${star <= 4 ? 'text-green-500' : 'text-gray-600'} fill-current`} />
-                  ))}
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <img 
+                  src="https://i.ibb.co/7YFr5KQc/trust-piolet-logo-white.png" 
+                  alt="Trustpilot" 
+                  className="h-8"
+                />
+                <div className="border-l border-slate-700 pl-3">
+                  <div className="flex gap-0.5 mb-1">
+                    {[1,2,3,4,5].map((star) => (
+                      <Star key={star} className={`w-6 h-6 ${star <= 4 ? 'text-[#00b67a]' : 'text-gray-600'} fill-current`} />
+                    ))}
+                  </div>
+                  <span className="text-sm text-white">Excellent 4.6 out of 5</span>
                 </div>
-                <span className="text-lg text-white font-semibold">4.6 out of 5</span>
               </div>
               
               <div className="flex items-center justify-center gap-2 mb-4">
