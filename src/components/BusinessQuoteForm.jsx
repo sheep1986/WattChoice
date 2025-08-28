@@ -5,6 +5,8 @@ import {
   ArrowLeft, 
   Building2, 
   Zap, 
+  Flame,
+  Droplet,
   Phone, 
   Mail, 
   User, 
@@ -17,8 +19,6 @@ import {
   Users,
   MapPin,
   Briefcase,
-  Flame,
-  Droplet,
   Search,
   Loader2
 } from 'lucide-react';
@@ -42,7 +42,12 @@ const BusinessQuoteForm = ({ onClose }) => {
     
     // Energy Usage
     currentSupplier: '',
+    currentGasSupplier: '',
+    currentElectricSupplier: '',
+    sameSupplier: true, // For gas-electric combo
     contractEndDate: '',
+    gasContractEndDate: '',
+    electricContractEndDate: '',
     annualSpend: '',
     annualUsage: '',
     meterType: '',
@@ -665,46 +670,175 @@ const BusinessQuoteForm = ({ onClose }) => {
           >
             <div>
               <h2 className="text-2xl font-bold text-white mb-2">Current Energy Setup</h2>
-              <p className="text-gray-400">Tell us about your current {formData.utilityType} arrangement</p>
+              <p className="text-gray-400">
+                Tell us about your current {formData.utilityType === 'gas-electric' ? 'gas and electricity' : formData.utilityType} arrangement
+              </p>
             </div>
 
             <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Current Supplier
-                </label>
-                <select
-                  name="currentSupplier"
-                  value={formData.currentSupplier}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
-                >
-                  <option value="">Select supplier</option>
-                  <option value="british-gas">British Gas</option>
-                  <option value="edf">EDF Energy</option>
-                  <option value="eon">E.ON</option>
-                  <option value="scottish-power">Scottish Power</option>
-                  <option value="sse">SSE</option>
-                  <option value="opus">Opus Energy</option>
-                  <option value="total">Total Energies</option>
-                  <option value="other">Other</option>
-                  <option value="not-sure">Not Sure</option>
-                </select>
-              </div>
+              {/* For Gas & Electric - ask if same supplier */}
+              {formData.utilityType === 'gas-electric' && (
+                <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
+                  <label className="block text-sm font-medium text-gray-300 mb-3">
+                    Do you have the same supplier for both gas and electricity?
+                  </label>
+                  <div className="flex gap-4">
+                    <button
+                      type="button"
+                      onClick={() => setFormData(prev => ({ ...prev, sameSupplier: true }))}
+                      className={`flex-1 py-2 px-4 rounded-lg border transition-all ${
+                        formData.sameSupplier 
+                          ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400' 
+                          : 'bg-slate-800 border-slate-700 text-gray-400 hover:border-slate-600'
+                      }`}
+                    >
+                      Yes, same supplier
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setFormData(prev => ({ ...prev, sameSupplier: false }))}
+                      className={`flex-1 py-2 px-4 rounded-lg border transition-all ${
+                        !formData.sameSupplier 
+                          ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400' 
+                          : 'bg-slate-800 border-slate-700 text-gray-400 hover:border-slate-600'
+                      }`}
+                    >
+                      No, different suppliers
+                    </button>
+                  </div>
+                </div>
+              )}
 
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Contract End Date
-                </label>
-                <input
-                  type="date"
-                  name="contractEndDate"
-                  value={formData.contractEndDate}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
-                />
-                <p className="text-xs text-gray-500 mt-1">Leave blank if you're not sure</p>
-              </div>
+              {/* Single supplier for single fuel or combined */}
+              {(formData.utilityType !== 'gas-electric' || formData.sameSupplier) && (
+                <>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      Current {formData.utilityType === 'gas-electric' ? 'Supplier (Both Gas & Electric)' : 'Supplier'}
+                    </label>
+                    <select
+                      name="currentSupplier"
+                      value={formData.currentSupplier}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
+                    >
+                      <option value="">Select supplier</option>
+                      <option value="british-gas">British Gas</option>
+                      <option value="edf">EDF Energy</option>
+                      <option value="eon">E.ON</option>
+                      <option value="scottish-power">Scottish Power</option>
+                      <option value="sse">SSE</option>
+                      <option value="opus">Opus Energy</option>
+                      <option value="total">Total Energies</option>
+                      <option value="other">Other</option>
+                      <option value="not-sure">Not Sure</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      Contract End Date
+                    </label>
+                    <input
+                      type="date"
+                      name="contractEndDate"
+                      value={formData.contractEndDate}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
+                    />
+                    <p className="text-xs text-gray-500 mt-1">Leave blank if you're not sure</p>
+                  </div>
+                </>
+              )}
+
+              {/* Separate suppliers for gas and electric */}
+              {formData.utilityType === 'gas-electric' && !formData.sameSupplier && (
+                <>
+                  <div className="space-y-4 border-l-4 border-yellow-500/30 pl-4">
+                    <h3 className="text-white font-medium flex items-center gap-2">
+                      <Zap className="w-4 h-4 text-yellow-400" />
+                      Electricity Supplier
+                    </h3>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        Current Electricity Supplier
+                      </label>
+                      <select
+                        name="currentElectricSupplier"
+                        value={formData.currentElectricSupplier}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
+                      >
+                        <option value="">Select electricity supplier</option>
+                        <option value="british-gas">British Gas</option>
+                        <option value="edf">EDF Energy</option>
+                        <option value="eon">E.ON</option>
+                        <option value="scottish-power">Scottish Power</option>
+                        <option value="sse">SSE</option>
+                        <option value="opus">Opus Energy</option>
+                        <option value="total">Total Energies</option>
+                        <option value="other">Other</option>
+                        <option value="not-sure">Not Sure</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        Electricity Contract End Date
+                      </label>
+                      <input
+                        type="date"
+                        name="electricContractEndDate"
+                        value={formData.electricContractEndDate}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-4 border-l-4 border-orange-500/30 pl-4">
+                    <h3 className="text-white font-medium flex items-center gap-2">
+                      <Flame className="w-4 h-4 text-orange-400" />
+                      Gas Supplier
+                    </h3>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        Current Gas Supplier
+                      </label>
+                      <select
+                        name="currentGasSupplier"
+                        value={formData.currentGasSupplier}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
+                      >
+                        <option value="">Select gas supplier</option>
+                        <option value="british-gas">British Gas</option>
+                        <option value="edf">EDF Energy</option>
+                        <option value="eon">E.ON</option>
+                        <option value="scottish-power">Scottish Power</option>
+                        <option value="sse">SSE</option>
+                        <option value="centrica">Centrica</option>
+                        <option value="total">Total Energies</option>
+                        <option value="other">Other</option>
+                        <option value="not-sure">Not Sure</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        Gas Contract End Date
+                      </label>
+                      <input
+                        type="date"
+                        name="gasContractEndDate"
+                        value={formData.gasContractEndDate}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
+                      />
+                    </div>
+                  </div>
+                </>
+              )}
 
               <div className="space-y-3">
                 <label className="flex items-center space-x-3 cursor-pointer">
