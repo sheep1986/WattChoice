@@ -15,6 +15,7 @@ import { BusinessWater, BusinessBroadband, BusinessTelecoms, LargeBusiness, Cont
 import GetQuote from './pages/GetQuote';
 import FAQ from './pages/FAQ';
 import Testimonials from './pages/Testimonials';
+import TrustpilotReviews from './pages/TrustpilotReviews';
 import NotFound from './pages/NotFound';
 
 // Import all icons and components from original App
@@ -896,18 +897,18 @@ function HomePage(){
           <div className="mt-12 text-center">
             <div className="inline-flex items-center gap-8">
               <div>
-                <div className="text-3xl font-bold text-white">4.4★</div>
+                <div className="text-3xl font-bold text-white">4.6★</div>
                 <div className="text-sm text-slate-400">Trustpilot Rating</div>
               </div>
               <div className="h-12 w-px bg-slate-700" />
               <div>
-                <div className="text-3xl font-bold text-white">94%</div>
-                <div className="text-sm text-slate-400">Satisfaction Rate</div>
+                <div className="text-3xl font-bold text-white">709</div>
+                <div className="text-sm text-slate-400">Verified Reviews</div>
               </div>
               <div className="h-12 w-px bg-slate-700" />
               <div>
-                <div className="text-3xl font-bold text-white">87%</div>
-                <div className="text-sm text-slate-400">Renewal Rate</div>
+                <div className="text-3xl font-bold text-white">89%</div>
+                <div className="text-sm text-slate-400">5-Star Reviews</div>
               </div>
             </div>
           </div>
@@ -1380,8 +1381,9 @@ export default function WattUtilitiesSEO(){
               <Route path="/compliance" element={<CompliancePage />} />
               <Route path="/faqs" element={<FAQ />} />
               <Route path="/faq" element={<FAQ />} />
-              <Route path="/testimonials" element={<Testimonials />} />
-              <Route path="/reviews" element={<Testimonials />} />
+              <Route path="/testimonials" element={<TrustpilotReviews />} />
+              <Route path="/reviews" element={<TrustpilotReviews />} />
+              <Route path="/trustpilot" element={<TrustpilotReviews />} />
               <Route path="/terms" element={<TermsPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/complaints" element={<ComplaintsPage />} />
