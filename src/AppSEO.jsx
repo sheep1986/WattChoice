@@ -1351,7 +1351,6 @@ const TermsPage = () => (<RichLander title="Terms & Conditions"><p className="te
 const PrivacyPage = () => (<RichLander title="Privacy Policy"><p className="text-slate-300">Your data is handled in accordance with UK GDPR. We only process what's necessary to obtain and present quotes.</p></RichLander>);
 const ComplaintsPage = () => (<RichLander title="Complaints Procedure" intro="We aim to resolve issues quickly and fairly. Here's how it works."><ol className="list-decimal space-y-2 pl-6 text-slate-300"><li>Contact our team with details</li><li>We acknowledge within 2 working days</li><li>Resolution plan and timescales provided</li></ol></RichLander>);
 const TPIPage = () => (<RichLander title="TPI Code of Conduct"><p className="text-slate-300">Our commitments as a Third Party Intermediary (TPI) covering transparency, consent and fair treatment.</p></RichLander>);
-const NotFound = () => (<RichLander title="Page not found"><p className="text-slate-300">Sorry, we can't find that page. Try our <Link to="/" className="text-emerald-300 underline">home page</Link>.</p></RichLander>);
 
 // Export the enhanced App
 export default function WattUtilitiesSEO(){
