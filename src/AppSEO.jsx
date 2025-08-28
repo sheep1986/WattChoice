@@ -902,8 +902,9 @@ function HomePage(){
             ))}
           </div>
           
-          <div className="mt-12 text-center">
-            <div className="bg-slate-900/60 border border-slate-800 rounded-lg p-6 inline-block">
+          {/* Trustpilot Stats and Reviews Combined */}
+          <div className="mt-12">
+            <div className="bg-slate-900/60 border border-slate-800 rounded-lg p-6 max-w-4xl mx-auto">
               <div className="flex items-center justify-center gap-2 mb-4">
                 <span className="text-lg text-white font-semibold">Excellent</span>
                 <div className="flex gap-0.5">
@@ -921,7 +922,7 @@ function HomePage(){
                 <span className="text-sm text-green-500 font-bold">Trustpilot</span>
               </div>
               
-              <div className="grid grid-cols-3 gap-6 text-center">
+              <div className="grid grid-cols-3 gap-6 text-center mb-6">
                 <div>
                   <div className="text-2xl font-bold text-white">4.6★</div>
                   <div className="text-xs text-slate-400">TrustScore</div>
@@ -935,35 +936,26 @@ function HomePage(){
                   <div className="text-xs text-slate-400">5-Star</div>
                 </div>
               </div>
+              
+              {/* Trustpilot Carousel Widget */}
+              <div className="border-t border-slate-700 pt-6">
+                <h3 className="text-xl font-bold text-white text-center mb-4">
+                  Customer Reviews
+                </h3>
+                <p className="text-sm text-slate-300 text-center mb-6">
+                  See what our customers say about our service
+                </p>
+                <TrustpilotWidget type="carousel" />
+                
+                <div className="text-center mt-6">
+                  <Link to="/reviews">
+                    <Button variant="outline" className="border-slate-700 bg-slate-800/40 text-slate-200 hover:bg-slate-700">
+                      View All Reviews
+                    </Button>
+                  </Link>
+                </div>
+              </div>
             </div>
-          </div>
-        </Section>
-
-        {/* Trustpilot Reviews Section */}
-        <Section 
-          kicker="Customer Reviews" 
-          className="bg-slate-950 py-16"
-        >
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Trusted by Thousands of UK Businesses
-            </h2>
-            <p className="text-lg text-slate-300">
-              See what our customers say about our service
-            </p>
-          </div>
-          
-          {/* Trustpilot Carousel Widget */}
-          <div className="max-w-4xl mx-auto">
-            <TrustpilotWidget type="carousel" />
-          </div>
-          
-          <div className="text-center mt-8">
-            <Link to="/reviews">
-              <Button variant="outline" className="border-slate-700 bg-slate-900/40 text-slate-200 hover:bg-slate-800">
-                View All Reviews
-              </Button>
-            </Link>
           </div>
         </Section>
 
