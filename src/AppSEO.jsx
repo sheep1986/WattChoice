@@ -609,15 +609,6 @@ function HomePage(){
       <main>
         {/* Hero Section */}
         <header className="relative isolate overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-900">
-          {/* Hero Background Image */}
-          <div className="absolute inset-0">
-            <img 
-              src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=2340&auto=format&fit=crop"
-              alt="Modern office building with glass windows"
-              className="h-full w-full object-cover opacity-20"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/90 to-slate-950/70" />
-          </div>
           <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-cyan-500/10" />
           
           <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-20 md:grid-cols-2 md:py-28">
@@ -670,34 +661,29 @@ function HomePage(){
             </motion.div>
             
             <motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.6, delay:0.15}}>
-              <Card className="border-0 bg-slate-900/60 shadow-xl ring-1 ring-slate-800 overflow-hidden">
-                <div className="relative h-64">
-                  <img 
-                    src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=2340&auto=format&fit=crop"
-                    alt="Business team reviewing energy savings"
-                    className="h-full w-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="text-2xl font-bold text-white mb-2">Market Intelligence</h3>
-                    <p className="text-slate-300">We monitor energy markets 24/7 to secure the best rates</p>
+              <Card className="border-0 bg-slate-900/60 shadow-xl ring-1 ring-slate-800">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-xl text-white">
+                    <LineChartIcon className="h-5 w-5 text-emerald-400"/> 
+                    Live Energy Market Trends
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="h-48 w-full">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <ReLineChart data={trendData} margin={{ top:10, right:10, left:0, bottom:0 }}>
+                        <CartesianGrid strokeDasharray="3 3" stroke="#0f172a" />
+                        <XAxis dataKey="name" stroke="#94a3b8" tickLine={false} axisLine={false} />
+                        <YAxis stroke="#94a3b8" tickLine={false} axisLine={false} />
+                        <Tooltip contentStyle={{ background: "#0f172a", border: "1px solid #1f2937", color: "#e2e8f0" }} />
+                        <Line type="monotone" dataKey="price" stroke="#10b981" strokeWidth={2} dot={false} />
+                      </ReLineChart>
+                    </ResponsiveContainer>
                   </div>
-                </div>
-                <CardContent className="pt-6">
-                  <div className="grid grid-cols-3 gap-4 text-center">
-                    <div>
-                      <div className="text-2xl font-bold text-emerald-400">28%</div>
-                      <div className="text-xs text-slate-400">Avg. Savings</div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-emerald-400">£58k</div>
-                      <div className="text-xs text-slate-400">Record Saving</div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-emerald-400">24/7</div>
-                      <div className="text-xs text-slate-400">Monitoring</div>
-                    </div>
-                  </div>
+                  <p className="mt-3 text-sm text-slate-400">
+                    <AlertCircle className="inline h-3 w-3 mr-1"/>
+                    Market intelligence helps us time your switch for maximum savings
+                  </p>
                 </CardContent>
               </Card>
             </motion.div>
