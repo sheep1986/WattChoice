@@ -896,11 +896,13 @@ function HomePage(){
                       ))}
                     </div>
                     <span className="text-xs text-slate-400">Verified on</span>
-                    <img 
-                      src="https://cdn.trustpilot.net/brand-assets/4.1.0/logo-white.svg" 
-                      alt="Trustpilot" 
-                      className="h-4" 
-                    />
+                    <span className="bg-white px-1 rounded">
+                      <img 
+                        src="https://cdn.trustpilot.net/brand-assets/4.1.0/logo-green.svg" 
+                        alt="Trustpilot" 
+                        className="h-3" 
+                      />
+                    </span>
                   </div>
                   
                   <p className="mb-4 text-slate-300 italic">"{testimonial.quote}"</p>
@@ -932,11 +934,13 @@ function HomePage(){
                 <span className="text-sm text-slate-400">Based on</span>
                 <span className="text-sm text-white font-bold">709 reviews</span>
                 <span className="text-sm text-slate-400">on</span>
-                <img 
-                  src="https://cdn.trustpilot.net/brand-assets/4.1.0/logo-white.svg" 
-                  alt="Trustpilot" 
-                  className="h-5" 
-                />
+                <span className="bg-white px-2 py-0.5 rounded">
+                  <img 
+                    src="https://cdn.trustpilot.net/brand-assets/4.1.0/logo-green.svg" 
+                    alt="Trustpilot" 
+                    className="h-4" 
+                  />
+                </span>
               </div>
               
               <div className="grid grid-cols-3 gap-6 text-center">
