@@ -1305,19 +1305,15 @@ const LOAPage = () => {
               <CardTitle className="text-xl text-slate-800">Complete Your Letter of Authority</CardTitle>
             </CardHeader>
             <CardContent className="p-4">
-              <div className="relative w-full" style={{ height: '1600px', overflow: 'auto' }}>
+              <div className="relative w-full" style={{ height: '100vh', overflow: 'auto' }}>
                 <iframe
-                  src="https://www.watt.co.uk/loa/"
+                  src="https://app.signable.co.uk/widget/url/MzAhAFky4F?company=&amp;name=&amp;address="
                   title="Letter of Authority Form"
                   className="w-full"
                   style={{ 
-                    height: '2000px',
-                    border: 'none',
-                    backgroundColor: 'white',
-                    marginTop: '-180px',
-                    position: 'absolute',
-                    left: '0',
-                    right: '0'
+                    border: '0',
+                    width: '100%',
+                    height: '100vh'
                   }}
                   frameBorder="0"
                   scrolling="yes"
