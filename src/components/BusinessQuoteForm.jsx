@@ -20,16 +20,12 @@ import {
   Flame,
   Droplet,
   Search,
-  Loader2,
-  Shield,
-  ChevronDown
+  Loader2
 } from 'lucide-react';
 
 const BusinessQuoteForm = ({ onClose }) => {
   const [currentStep, setCurrentStep] = useState('postcode'); // postcode, utility, address, business, energy, spend, contact, review
   const [isLoadingAddress, setIsLoadingAddress] = useState(false);
-  const [addresses, setAddresses] = useState([]);
-  const [showAddressDropdown, setShowAddressDropdown] = useState(false);
   const [formData, setFormData] = useState({
     // Initial Step - Postcode & Utility
     postcode: '',
@@ -67,69 +63,56 @@ const BusinessQuoteForm = ({ onClose }) => {
     additionalNotes: ''
   });
 
-  // Enhanced address lookup with multiple address results
-  const fetchAddressesFromPostcode = async (postcode) => {
+  // Validate postcode and get area information
+  const validatePostcode = async (postcode) => {
     setIsLoadingAddress(true);
     try {
       const cleanPostcode = postcode.replace(/\s/g, '').toUpperCase();
       
-      // First get the postcode details
-      const postcodeResponse = await fetch(`https://api.postcodes.io/postcodes/${cleanPostcode}`);
-      const postcodeData = await postcodeResponse.json();
+      // Validate postcode using Postcodes.io
+      const postcodeResponse = await fetch(`https://api.postcodes.io/postcodes/${cleanPostcode}/validate`);
+      const validationData = await postcodeResponse.json();
       
-      if (postcodeData.status === 200 && postcodeData.result) {
-        // For demonstration, we'll create mock addresses based on the postcode
-        // In production, you'd use a proper address API like getAddress.io
-        const result = postcodeData.result;
-        const baseAddresses = [
-          `1 ${result.admin_ward || 'High'} Street`,
-          `2 ${result.admin_ward || 'High'} Street`, 
-          `3 ${result.admin_ward || 'High'} Street`,
-          `Unit 1, Business Park`,
-          `Unit 2, Business Park`,
-          `Suite A, Office Building`,
-          `Suite B, Office Building`,
-          `The Old Mill`,
-          `Enterprise House`,
-          `Innovation Centre`
-        ];
+      if (validationData.result) {
+        // Postcode is valid, get location info
+        const infoResponse = await fetch(`https://api.postcodes.io/postcodes/${cleanPostcode}`);
+        const infoData = await infoResponse.json();
         
-        const formattedAddresses = baseAddresses.map(addr => 
-          `${addr}, ${result.admin_district}, ${result.postcode}`
-        );
-        
-        setAddresses(formattedAddresses);
-        setShowAddressDropdown(true);
-      } else {
-        // If postcode not found, show error
-        setAddresses(['Address not found - please enter manually']);
-        setShowAddressDropdown(true);
+        if (infoData.status === 200 && infoData.result) {
+          const result = infoData.result;
+          // Store the area info for display
+          setFormData(prev => ({
+            ...prev,
+            areaInfo: {
+              district: result.admin_district,
+              ward: result.admin_ward,
+              region: result.region,
+              country: result.country
+            }
+          }));
+          return true;
+        }
       }
+      return false;
     } catch (error) {
-      console.error('Error fetching addresses:', error);
-      setAddresses(['Error loading addresses - please enter manually']);
-      setShowAddressDropdown(true);
+      console.error('Error validating postcode:', error);
+      return false;
     } finally {
       setIsLoadingAddress(false);
     }
   };
 
-  const handlePostcodeSubmit = () => {
+  const handlePostcodeSubmit = async () => {
     if (formData.postcode.length >= 5) {
-      fetchAddressesFromPostcode(formData.postcode);
-      setCurrentStep('address');
+      const isValid = await validatePostcode(formData.postcode);
+      if (isValid) {
+        setCurrentStep('address');
+      } else {
+        alert('Please enter a valid UK postcode');
+      }
     }
   };
 
-  const handleAddressSelect = (address) => {
-    setFormData(prev => ({
-      ...prev,
-      selectedAddress: address,
-      businessAddress: address
-    }));
-    setShowAddressDropdown(false);
-    setCurrentStep('utility');
-  };
 
   const handleUtilitySelect = (utility) => {
     setFormData(prev => ({ ...prev, utilityType: utility }));
@@ -222,27 +205,36 @@ const BusinessQuoteForm = ({ onClose }) => {
                     type="text"
                     value={formData.postcode}
                     onChange={(e) => setFormData(prev => ({ ...prev, postcode: e.target.value.toUpperCase() }))}
-                    onKeyPress={(e) => e.key === 'Enter' && handlePostcodeSubmit()}
+                    onKeyPress={(e) => e.key === 'Enter' && !isLoadingAddress && handlePostcodeSubmit()}
                     className="w-full px-4 py-4 pr-12 bg-slate-800 border-2 border-slate-700 rounded-lg text-white text-lg focus:border-emerald-500 focus:outline-none transition-colors uppercase"
                     placeholder="e.g., M2 7LP"
                     autoFocus
+                    disabled={isLoadingAddress}
                   />
-                  <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" />
+                  {isLoadingAddress ? (
+                    <Loader2 className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-emerald-400 animate-spin" />
+                  ) : (
+                    <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" />
+                  )}
                 </div>
               </div>
 
               <motion.button
                 onClick={handlePostcodeSubmit}
-                disabled={formData.postcode.length < 5}
-                whileHover={formData.postcode.length >= 5 ? { scale: 1.02 } : {}}
-                whileTap={formData.postcode.length >= 5 ? { scale: 0.98 } : {}}
+                disabled={formData.postcode.length < 5 || isLoadingAddress}
+                whileHover={formData.postcode.length >= 5 && !isLoadingAddress ? { scale: 1.02 } : {}}
+                whileTap={formData.postcode.length >= 5 && !isLoadingAddress ? { scale: 0.98 } : {}}
                 className={`w-full py-4 rounded-lg font-bold text-lg transition-all flex items-center justify-center gap-2 ${
-                  formData.postcode.length >= 5
+                  formData.postcode.length >= 5 && !isLoadingAddress
                     ? 'bg-emerald-500 hover:bg-emerald-600 text-white'
                     : 'bg-slate-700 text-gray-500 cursor-not-allowed'
                 }`}
               >
-                Find Address <ArrowRight className="w-5 h-5" />
+                {isLoadingAddress ? (
+                  <>Validating... <Loader2 className="w-5 h-5 animate-spin" /></>
+                ) : (
+                  <>Find Address <ArrowRight className="w-5 h-5" /></>
+                )}
               </motion.button>
             </div>
           </motion.div>
@@ -257,61 +249,85 @@ const BusinessQuoteForm = ({ onClose }) => {
             className="space-y-6"
           >
             <div className="text-center">
-              <h2 className="text-2xl font-bold text-white mb-2">Select Your Address</h2>
-              <p className="text-gray-400">Choose your business address from the list below</p>
-              <div className="mt-2 inline-flex items-center gap-2 px-3 py-1 bg-emerald-900/30 rounded-full">
-                <MapPin className="w-4 h-4 text-emerald-400" />
-                <span className="text-emerald-400 text-sm font-medium">{formData.postcode}</span>
-              </div>
+              <h2 className="text-2xl font-bold text-white mb-2">Business Address</h2>
+              <p className="text-gray-400">Please enter your business address</p>
+              {formData.areaInfo && (
+                <div className="mt-2 inline-flex items-center gap-2 px-3 py-1 bg-emerald-900/30 rounded-full">
+                  <MapPin className="w-4 h-4 text-emerald-400" />
+                  <span className="text-emerald-400 text-sm font-medium">
+                    {formData.postcode} • {formData.areaInfo.district}
+                  </span>
+                </div>
+              )}
             </div>
 
-            <div className="space-y-3">
-              {isLoadingAddress ? (
-                <div className="flex items-center justify-center py-8">
-                  <Loader2 className="w-8 h-8 text-emerald-400 animate-spin" />
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  Building Number/Name *
+                </label>
+                <input
+                  type="text"
+                  name="buildingNumber"
+                  value={formData.buildingNumber || ''}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
+                  placeholder="e.g., Unit 5, Enterprise House"
+                  autoFocus
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  Street Name *
+                </label>
+                <input
+                  type="text"
+                  name="streetName"
+                  value={formData.streetName || ''}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
+                  placeholder="e.g., High Street"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-300 mb-2">
+                  Town/City
+                </label>
+                <input
+                  type="text"
+                  name="townCity"
+                  value={formData.townCity || formData.areaInfo?.district || ''}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-emerald-500 focus:outline-none transition-colors"
+                  placeholder="e.g., Manchester"
+                />
+              </div>
+
+              <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-3">
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-gray-400">Postcode:</span>
+                  <span className="text-white font-medium">{formData.postcode}</span>
                 </div>
-              ) : (
-                <>
-                  <div className="max-h-[300px] overflow-y-auto space-y-2 border border-slate-700 rounded-lg p-2">
-                    {addresses.map((address, index) => (
-                      <motion.button
-                        key={index}
-                        type="button"
-                        onClick={() => handleAddressSelect(address)}
-                        whileHover={{ scale: 1.01 }}
-                        whileTap={{ scale: 0.99 }}
-                        className="w-full text-left px-4 py-3 bg-slate-800 hover:bg-slate-700 rounded-lg transition-all group"
-                      >
-                        <div className="flex items-start justify-between">
-                          <span className="text-white group-hover:text-emerald-400 transition-colors">
-                            {address}
-                          </span>
-                          <ChevronDown className="w-4 h-4 text-gray-500 transform -rotate-90 mt-1" />
-                        </div>
-                      </motion.button>
-                    ))}
+                {formData.areaInfo && (
+                  <div className="flex items-center justify-between text-sm mt-2">
+                    <span className="text-gray-400">Region:</span>
+                    <span className="text-white">{formData.areaInfo.region}</span>
                   </div>
-                  
-                  <div className="relative">
-                    <div className="absolute inset-0 flex items-center">
-                      <div className="w-full border-t border-slate-700"></div>
-                    </div>
-                    <div className="relative flex justify-center text-sm">
-                      <span className="px-3 bg-slate-900 text-gray-500">Or</span>
-                    </div>
-                  </div>
-                  
-                  <button
-                    onClick={() => {
-                      setFormData(prev => ({ ...prev, selectedAddress: 'manual' }));
-                      setCurrentStep('utility');
-                    }}
-                    className="w-full py-3 border border-slate-700 rounded-lg text-gray-400 hover:text-white hover:border-slate-600 transition-all"
-                  >
-                    Enter address manually
-                  </button>
-                </>
-              )}
+                )}
+              </div>
+
+              <button
+                onClick={() => {
+                  const fullAddress = `${formData.buildingNumber || ''} ${formData.streetName || ''}, ${formData.townCity || formData.areaInfo?.district || ''}, ${formData.postcode}`.trim();
+                  setFormData(prev => ({ ...prev, businessAddress: fullAddress }));
+                  setCurrentStep('utility');
+                }}
+                className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+              >
+                Continue <ArrowRight className="w-5 h-5" />
+              </button>
             </div>
           </motion.div>
         );
