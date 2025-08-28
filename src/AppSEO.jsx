@@ -405,9 +405,13 @@ function Navbar(){
         </Link>
         
         <div className="hidden items-center gap-5 text-sm text-slate-300 md:flex">
-          <div className="relative">
+          <div 
+            className="relative"
+            onMouseLeave={() => setServicesOpen(false)}
+          >
             <button 
               onClick={()=>setServicesOpen(!servicesOpen)} 
+              onMouseEnter={()=>setServicesOpen(true)}
               className="inline-flex items-center gap-1 hover:text-white"
               aria-expanded={servicesOpen}
               aria-haspopup="true"
@@ -421,6 +425,8 @@ function Navbar(){
                   animate={{opacity:1, y:0}} 
                   exit={{opacity:0, y:8}} 
                   className="absolute left-0 mt-2 w-[520px] rounded-xl border border-slate-800 bg-slate-900/95 p-3 shadow-2xl"
+                  onMouseEnter={()=>setServicesOpen(true)}
+                  onMouseLeave={()=>setServicesOpen(false)}
                 >
                   <div className="grid grid-cols-2 gap-2 text-slate-200">
                     <NavLink to="/business-electricity" onClick={()=>setServicesOpen(false)} className="rounded-lg p-2 hover:bg-slate-800">
