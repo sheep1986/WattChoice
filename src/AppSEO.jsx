@@ -589,21 +589,53 @@ function Footer(){
       </div>
       
       <div className="border-t border-slate-800/60 py-6">
-        <div className="mx-auto max-w-6xl px-6 text-center text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} Watt Utilities UK Ltd. All rights reserved.</p>
-          <div className="mt-2 flex items-center justify-center gap-3 text-slate-500">
-            <span className="flex items-center">
-              <Award className="inline h-3 w-3 mr-1"/>
-              Investors in People | ICO Registered | TPI Code of Practice
-            </span>
-            <span className="text-slate-600">|</span>
-            <a href="https://www.trustpilot.com/review/watt.co.uk" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:opacity-80">
+        <div className="mx-auto max-w-6xl px-6 relative">
+          <div className="text-center text-xs text-slate-500">
+            <p>© {new Date().getFullYear()} Watt Utilities UK Ltd. All rights reserved.</p>
+            <div className="mt-2 flex items-center justify-center gap-3 text-slate-500">
+              <span className="flex items-center">
+                <Award className="inline h-3 w-3 mr-1"/>
+                TPI Code of Practice
+              </span>
+              <span className="text-slate-600">|</span>
+              <a href="https://www.trustpilot.com/review/watt.co.uk" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:opacity-80">
+                <img 
+                  src="https://i.ibb.co/6JbTMXgr/trust-piolet-logo-white.png" 
+                  alt="Trustpilot" 
+                  className="h-4 inline-block"
+                />
+                <span>4.6★</span>
+              </a>
+            </div>
+          </div>
+          
+          {/* Certification Logos - Bottom Right on Desktop, Below on Mobile */}
+          <div className="md:absolute md:bottom-0 md:right-6 flex items-center justify-center md:justify-end gap-4 mt-4 md:mt-0">
+            <a 
+              href="https://www.investorsinpeople.com/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:opacity-80 transition-opacity"
+              aria-label="Investors in People Certification"
+            >
               <img 
-                src="https://i.ibb.co/6JbTMXgr/trust-piolet-logo-white.png" 
-                alt="Trustpilot" 
-                className="h-4 inline-block"
+                src="https://i.ibb.co/DgDXHDm/investors-people-watt-001.png" 
+                alt="Investors in People" 
+                className="h-10 md:h-12"
               />
-              <span>4.6★</span>
+            </a>
+            <a 
+              href="https://ico.org.uk/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:opacity-80 transition-opacity"
+              aria-label="ICO Registration"
+            >
+              <img 
+                src="https://i.ibb.co/4nzmkKMY/ICO-001-Watt.png" 
+                alt="ICO Registered" 
+                className="h-10 md:h-12"
+              />
             </a>
           </div>
         </div>
