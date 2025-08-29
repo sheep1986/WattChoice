@@ -589,10 +589,21 @@ function Footer(){
       <div className="border-t border-slate-800/60 py-6">
         <div className="mx-auto max-w-6xl px-6 text-center text-xs text-slate-500">
           <p>© {new Date().getFullYear()} Watt Utilities UK Ltd. All rights reserved.</p>
-          <p className="mt-2">
-            <Award className="inline h-3 w-3 mr-1"/>
-            Investors in People | ICO Registered | TPI Code of Practice | Trustpilot 4.6★
-          </p>
+          <div className="mt-2 flex items-center justify-center gap-3 text-slate-500">
+            <span className="flex items-center">
+              <Award className="inline h-3 w-3 mr-1"/>
+              Investors in People | ICO Registered | TPI Code of Practice
+            </span>
+            <span className="text-slate-600">|</span>
+            <a href="https://www.trustpilot.com/review/watt.co.uk" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:opacity-80">
+              <img 
+                src="https://i.ibb.co/6JbTMXgr/trust-piolet-logo-white.png" 
+                alt="Trustpilot" 
+                className="h-4 inline-block"
+              />
+              <span>4.6★</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
@@ -872,7 +883,7 @@ function HomePage(){
               <img 
                 src="https://i.ibb.co/6JbTMXgr/trust-piolet-logo-white.png" 
                 alt="Trustpilot" 
-                className="h-10 mx-auto"
+                className="h-16 mx-auto"
               />
             </a>
           </div>
