@@ -883,7 +883,7 @@ function HomePage(){
               <img 
                 src="https://i.ibb.co/6JbTMXgr/trust-piolet-logo-white.png" 
                 alt="Trustpilot" 
-                className="h-16 mx-auto"
+                className="h-32 mx-auto"
               />
             </a>
           </div>
