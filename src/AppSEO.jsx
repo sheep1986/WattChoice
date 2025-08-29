@@ -593,7 +593,22 @@ function Navbar(){
               <NavLink to="/business-telecoms" onClick={()=>setOpen(false)} className="block py-2 hover:text-emerald-400">Telecoms</NavLink>
               <NavLink to="/large-business" onClick={()=>setOpen(false)} className="block py-2 hover:text-emerald-400">Multi-site</NavLink>
               <NavLink to="/case-studies" onClick={()=>setOpen(false)} className="block py-2 hover:text-emerald-400">Case Studies</NavLink>
-              <NavLink to="/knowledge" onClick={()=>setOpen(false)} className="block py-2 hover:text-emerald-400">Knowledge</NavLink>
+              
+              {/* Business Benefits Section */}
+              <div className="py-2">
+                <div className="text-xs uppercase tracking-wider text-slate-400 mb-2">Business Benefits</div>
+                <div className="space-y-1 ml-2">
+                  <NavLink to="/business-energy-guides" onClick={()=>setOpen(false)} className="block py-1.5 text-sm hover:text-emerald-400">Energy Guides</NavLink>
+                  <NavLink to="/energy-saving-tips" onClick={()=>setOpen(false)} className="block py-1.5 text-sm hover:text-emerald-400">Energy Saving Tips</NavLink>
+                  <NavLink to="/contract-types" onClick={()=>setOpen(false)} className="block py-1.5 text-sm hover:text-emerald-400">Contract Types</NavLink>
+                  <NavLink to="/switching-process" onClick={()=>setOpen(false)} className="block py-1.5 text-sm hover:text-emerald-400">Switching Process</NavLink>
+                  <NavLink to="/green-energy" onClick={()=>setOpen(false)} className="block py-1.5 text-sm hover:text-emerald-400">Green Energy</NavLink>
+                  <NavLink to="/multi-site-energy" onClick={()=>setOpen(false)} className="block py-1.5 text-sm hover:text-emerald-400">Multi-Site Energy</NavLink>
+                  <NavLink to="/market-insights" onClick={()=>setOpen(false)} className="block py-1.5 text-sm hover:text-emerald-400">Market Insights</NavLink>
+                  <NavLink to="/bill-validation" onClick={()=>setOpen(false)} className="block py-1.5 text-sm hover:text-emerald-400">Bill Validation</NavLink>
+                </div>
+              </div>
+              
               <NavLink to="/loa" onClick={()=>setOpen(false)} className="block py-2 hover:text-emerald-400">LOA</NavLink>
               <NavLink to="/company" onClick={()=>setOpen(false)} className="block py-2 hover:text-emerald-400">About Us</NavLink>
               <NavLink to="/contact" onClick={()=>setOpen(false)} className="block py-2 hover:text-emerald-400">Contact</NavLink>
