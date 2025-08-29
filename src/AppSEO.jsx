@@ -619,7 +619,7 @@ function Footer(){
               aria-label="Investors in People Certification"
             >
               <img 
-                src="https://i.ibb.co/DgDXHDm/investors-people-watt-001.png" 
+                src="https://i.ibb.co/DgDXHDm1/investors-people-watt-001.png" 
                 alt="Investors in People" 
                 className="h-10 md:h-12"
               />
