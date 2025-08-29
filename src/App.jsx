@@ -1031,6 +1031,7 @@ const CareersPage = () => {
   );
 };
 
+// Force rebuild - Case Studies page with Trustpilot reviews
 const CaseStudiesPage = CaseStudies;
 
 const KnowledgePage = () => (
