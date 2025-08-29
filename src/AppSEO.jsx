@@ -709,6 +709,7 @@ function Footer(){
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center text-xs text-slate-500">
             <p>© {new Date().getFullYear()} Watt Utilities UK Ltd. All rights reserved.</p>
+            <p className="mt-1">WATT UTILITIES LIMITED - Company number 06702949</p>
             <div className="mt-2 flex items-center justify-center gap-3 text-slate-500">
               <span className="flex items-center">
                 <Award className="inline h-3 w-3 mr-1"/>
