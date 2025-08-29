@@ -593,7 +593,7 @@ function Footer(){
           </div>
           
           {/* Certification Logos - Spans 3 columns */}
-          <div className="md:col-span-3 flex items-end justify-end gap-4">
+          <div className="md:col-span-3 flex items-end justify-end gap-3">
             <a 
               href="https://www.investorsinpeople.com/" 
               target="_blank" 
@@ -604,7 +604,7 @@ function Footer(){
               <img 
                 src="https://i.ibb.co/DgDXHDm1/investors-people-watt-001.png" 
                 alt="Investors in People" 
-                className="h-14"
+                className="h-8"
               />
             </a>
             <a 
@@ -617,7 +617,7 @@ function Footer(){
               <img 
                 src="https://i.ibb.co/4nzmkKMY/ICO-001-Watt.png" 
                 alt="ICO Registered" 
-                className="h-14"
+                className="h-8"
               />
             </a>
           </div>
