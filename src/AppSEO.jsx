@@ -124,7 +124,13 @@ const cx = (...classes) => classes.filter(Boolean).join(" ");
 
 function ScrollToTop(){
   const { pathname } = useLocation();
-  useEffect(()=>{ window.scrollTo({ top:0, behavior:"smooth" }); }, [pathname]);
+  useEffect(() => { 
+    // Instantly scroll to top when route changes
+    window.scrollTo(0, 0);
+    // Also try the documentElement in case window doesn't work
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0; // For Safari
+  }, [pathname]);
   return null;
 }
 
