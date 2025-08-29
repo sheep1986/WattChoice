@@ -876,7 +876,7 @@ function HomePage(){
             {/* Centered Trustpilot logo */}
             <a href="https://www.trustpilot.com/review/watt.co.uk" target="_blank" rel="noopener noreferrer" className="inline-block">
               <img 
-                src="https://i.ibb.co/7YFr5KQc/trust-piolet-logo-white.png" 
+                src="https://i.ibb.co/6JbTMXg/trust-piolet-logo-white.png" 
                 alt="Trustpilot" 
                 className="h-10 mx-auto"
               />
@@ -924,7 +924,7 @@ function HomePage(){
                   className="inline-block hover:opacity-80 transition-opacity"
                 >
                   <img 
-                    src="https://i.ibb.co/7YFr5KQc/trust-piolet-logo-white.png" 
+                    src="https://i.ibb.co/6JbTMXg/trust-piolet-logo-white.png" 
                     alt="Trustpilot" 
                     className="h-8"
                   />
