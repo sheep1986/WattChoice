@@ -484,7 +484,7 @@ function Navbar(){
         
         <div className="flex items-center gap-3">
           <Link to="/get-quote">
-            <Button className="bg-emerald-500 text-emerald-950 hover:bg-emerald-400 px-4 py-2 text-sm font-medium">
+            <Button className="bg-white text-slate-950 hover:bg-gray-100 px-4 py-2 text-sm font-medium">
               Get Quotes
             </Button>
           </Link>
@@ -644,7 +644,7 @@ function HomePage(){
               
               <div className="flex flex-wrap gap-3">
                 <Link to="/get-quote">
-                  <Button className="h-12 rounded-xl bg-emerald-500 px-8 text-base font-semibold text-emerald-950 hover:bg-emerald-400">
+                  <Button className="h-12 rounded-xl bg-white px-8 text-base font-semibold text-slate-950 hover:bg-gray-100">
                     Get Free Quotes <ArrowRight className="ml-2 h-5 w-5"/>
                   </Button>
                 </Link>
@@ -991,7 +991,7 @@ function HomePage(){
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link to="/get-quote">
-                <Button className="h-12 rounded-xl bg-emerald-500 px-8 text-base font-semibold text-emerald-950 hover:bg-emerald-400">
+                <Button className="h-12 rounded-xl bg-white px-8 text-base font-semibold text-slate-950 hover:bg-gray-100">
                   Get Free Quotes Now
                 </Button>
               </Link>
@@ -1120,7 +1120,7 @@ const CareersPage = () => {
                           document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' });
                         }, 100);
                       }}
-                      className="bg-emerald-500 text-emerald-950 hover:bg-emerald-400 whitespace-nowrap"
+                      className="bg-white text-slate-950 hover:bg-gray-100 whitespace-nowrap"
                     >
                       Apply Now <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -1225,7 +1225,7 @@ const CareersPage = () => {
                 <p className="text-xs text-slate-400">
                   * Required fields. We'll process your application in accordance with our privacy policy.
                 </p>
-                <Button type="submit" className="bg-emerald-500 text-emerald-950 hover:bg-emerald-400">
+                <Button type="submit" className="bg-white text-slate-950 hover:bg-gray-100">
                   Submit Application
                 </Button>
               </div>

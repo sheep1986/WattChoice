@@ -464,7 +464,7 @@ const BusinessQuoteForm = ({ onClose }) => {
                       setFormData(prev => ({ ...prev, businessAddress: fullAddress }));
                       setCurrentStep('utility');
                     }}
-                    className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+                    className="w-full bg-white hover:bg-gray-100 text-slate-950 font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
                   >
                     Continue <ArrowRight className="w-5 h-5" />
                   </button>
@@ -652,7 +652,7 @@ const BusinessQuoteForm = ({ onClose }) => {
 
               <button
                 onClick={handleNext}
-                className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+                className="w-full bg-white hover:bg-gray-100 text-slate-950 font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
               >
                 Continue <ArrowRight className="w-5 h-5" />
               </button>
@@ -906,7 +906,7 @@ const BusinessQuoteForm = ({ onClose }) => {
 
               <button
                 onClick={handleNext}
-                className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+                className="w-full bg-white hover:bg-gray-100 text-slate-950 font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
               >
                 Continue <ArrowRight className="w-5 h-5" />
               </button>
@@ -971,7 +971,7 @@ const BusinessQuoteForm = ({ onClose }) => {
 
               <button
                 onClick={handleNext}
-                className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+                className="w-full bg-white hover:bg-gray-100 text-slate-950 font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
               >
                 Continue <ArrowRight className="w-5 h-5" />
               </button>
@@ -1058,7 +1058,7 @@ const BusinessQuoteForm = ({ onClose }) => {
 
               <button
                 onClick={handleNext}
-                className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+                className="w-full bg-white hover:bg-gray-100 text-slate-950 font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
               >
                 Review Details <ArrowRight className="w-5 h-5" />
               </button>
@@ -1131,7 +1131,7 @@ const BusinessQuoteForm = ({ onClose }) => {
 
               <button
                 onClick={handleSubmit}
-                className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+                className="w-full bg-white hover:bg-gray-100 text-slate-950 font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
               >
                 Get My Quotes <CheckCircle className="w-5 h-5" />
               </button>
@@ -1169,7 +1169,7 @@ const BusinessQuoteForm = ({ onClose }) => {
             </div>
             <button
               onClick={onClose}
-              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-8 rounded-lg transition-colors"
+              className="bg-white hover:bg-gray-100 text-slate-950 font-bold py-3 px-8 rounded-lg transition-colors"
             >
               Close
             </button>
