@@ -729,8 +729,7 @@ function Footer(){
       <div className="border-t border-slate-800/60 py-6">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center text-xs text-slate-500">
-            <p>© {new Date().getFullYear()} Watt Utilities UK Ltd. All rights reserved.</p>
-            <p className="mt-1">WATT UTILITIES LIMITED - Company number 06702949</p>
+            <p>© {new Date().getFullYear()} WATT UTILITIES LIMITED - Company number 06702949. All rights reserved.</p>
             <div className="mt-2 flex items-center justify-center gap-3 text-slate-500">
               <span className="flex items-center">
                 <Award className="inline h-3 w-3 mr-1"/>
