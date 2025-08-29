@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Deployment Test</title>
+    <style>
+        body {
+            background: #000;
+            color: #0f0;
+            font-family: monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .test-box {
+            border: 3px solid #0f0;
+            padding: 20px;
+            text-align: center;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .timestamp {
+            color: #ff0;
+            margin-top: 20px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-box">
+        <h1>NETLIFY DEPLOYMENT TEST</h1>
+        <p>If you can see this page at:</p>
+        <p><strong>wattutilities001.netlify.app/deployment-test.html</strong></p>
+        <p>Then Netlify deployment is WORKING!</p>
+        <div class="timestamp">
+            Deployed: 2025-08-29 - Version 4
+        </div>
+    </div>
+    <script>
+        document.querySelector('.timestamp').innerHTML += '<br>Current Time: ' + new Date().toISOString();
+    </script>
+</body>
+</html>
