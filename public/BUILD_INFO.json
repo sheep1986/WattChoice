@@ -1,0 +1,24 @@
+{
+  "version": "6",
+  "buildDate": "2025-08-29T14:00:00Z",
+  "features": {
+    "redTestDot": true,
+    "businessBenefitsMenu": true,
+    "caseStudiesPage": true,
+    "newPages": [
+      "business-energy-guides",
+      "energy-saving-tips",
+      "contract-types",
+      "switching-process",
+      "green-energy",
+      "multi-site-energy",
+      "market-insights",
+      "bill-validation"
+    ]
+  },
+  "testUrls": {
+    "versionFile": "/VERSION.txt",
+    "buildInfo": "/BUILD_INFO.json",
+    "deploymentTest": "/deployment-test.html"
+  }
+}

@@ -1116,6 +1116,26 @@ export default function WattUtilitiesSite(){
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context":"https://schema.org", "@type":"Organization", name:"Watt Utilities", url:"https://www.wattutilities.co.uk", logo:"https://i.ibb.co/7dywXhNK/watt-utilities-white-logo-1-1.png" }) }} />
       <ScrollToTop />
       <div className="min-h-screen scroll-smooth bg-slate-950 text-slate-100">
+        {/* GIANT TEST BANNER - VERSION 6 */}
+        <div style={{
+          position: 'fixed',
+          top: '0',
+          left: '0',
+          right: '0',
+          height: '100px',
+          backgroundColor: '#FF0000',
+          color: 'white',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: '36px',
+          fontWeight: 'bold',
+          zIndex: 999999,
+          boxShadow: '0 10px 50px rgba(255,0,0,0.5)'
+        }}>
+          🚨 DEPLOYMENT TEST V6 - IF YOU SEE THIS, IT'S WORKING! 🚨
+        </div>
+        
         {/* TEST RED DOT - DEPLOYMENT VERIFICATION */}
         <div style={{
           position: 'fixed',
