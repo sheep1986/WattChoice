@@ -17,6 +17,7 @@ import FAQ from './pages/FAQ';
 import Testimonials from './pages/Testimonials';
 import TrustpilotReviews from './pages/TrustpilotReviews';
 import NotFound from './pages/NotFound';
+import ServicesPage from './pages/ServicesPage';
 
 // Import all icons and components from original App
 import {
@@ -648,11 +649,11 @@ function HomePage(){
                     Get Free Quotes <ArrowRight className="ml-2 h-5 w-5"/>
                   </Button>
                 </Link>
-                <a href="#services" className="inline-block">
+                <Link to="/services" className="inline-block">
                   <Button variant="outline" className="h-12 rounded-xl border-slate-700 bg-slate-900/40 px-8 text-base text-slate-200 hover:bg-slate-800 cursor-pointer">
                     View Services
                   </Button>
-                </a>
+                </Link>
               </div>
               
               <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -1430,6 +1431,7 @@ export default function WattUtilitiesSEO(){
           }>
             <Routes>
               <Route path="/" element={<HomePage/>} />
+              <Route path="/services" element={<ServicesPage />} />
               <Route path="/business-electricity" element={<SimpleElectricity />} />
               <Route path="/business-gas" element={<SimpleGas />} />
               <Route path="/business-water" element={<BusinessWater />} />
