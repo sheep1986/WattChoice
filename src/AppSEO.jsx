@@ -948,17 +948,17 @@ function HomePage(){
                 </div>
               </div>
               
-              {/* Trustpilot Carousel Widget */}
-              <div className="border-t border-slate-700 pt-6">
-                <TrustpilotWidget type="carousel" />
-                
-                <div className="text-center mt-6">
-                  <Link to="/reviews">
-                    <Button variant="outline" className="border-slate-700 bg-slate-800/40 text-slate-200 hover:bg-slate-700">
-                      View All Reviews
-                    </Button>
-                  </Link>
-                </div>
+              {/* View Reviews Button */}
+              <div className="text-center mt-6">
+                <a 
+                  href="https://www.trustpilot.com/review/watt.co.uk" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="outline" className="border-slate-700 bg-slate-800/40 text-slate-200 hover:bg-slate-700">
+                    View All Reviews on Trustpilot
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
