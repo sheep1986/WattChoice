@@ -2,6 +2,14 @@ import React, { useMemo, useState, useEffect, useRef } from "react";
 import { HashRouter as Router, Routes, Route, NavLink, useLocation, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import CaseStudies from './pages/CaseStudies';
+import BusinessEnergyGuides from './pages/BusinessEnergyGuides';
+import EnergySavingTips from './pages/EnergySavingTips';
+import ContractTypesExplained from './pages/ContractTypesExplained';
+import SwitchingProcess from './pages/SwitchingProcess';
+import GreenEnergyOptions from './pages/GreenEnergyOptions';
+import MultiSiteEnergy from './pages/MultiSiteEnergy';
+import EnergyMarketInsights from './pages/EnergyMarketInsights';
+import BillValidation from './pages/BillValidation';
 // Lightweight UI primitives (replace if you have shadcn/ui installed)
 function Card({ className = "", children }) {
   return <div className={`rounded-2xl ${className}`}>{children}</div>;
@@ -237,8 +245,10 @@ const services = [
 function Navbar() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [benefitsOpen, setBenefitsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const servicesRef = useRef(null);
+  const benefitsRef = useRef(null);
   const mobileRef = useRef(null);
   const location = useLocation();
 
@@ -246,6 +256,7 @@ function Navbar() {
   useEffect(() => {
     setOpen(false);
     setServicesOpen(false);
+    setBenefitsOpen(false);
   }, [location.pathname]);
 
   // shadow on scroll
@@ -267,6 +278,13 @@ function Navbar() {
         setServicesOpen(false);
       }
       if (
+        benefitsOpen &&
+        benefitsRef.current &&
+        !benefitsRef.current.contains(e.target)
+      ) {
+        setBenefitsOpen(false);
+      }
+      if (
         open &&
         mobileRef.current &&
         !mobileRef.current.contains(e.target)
@@ -278,13 +296,14 @@ function Navbar() {
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
-  }, [servicesOpen, open]);
+  }, [servicesOpen, benefitsOpen, open]);
 
   // esc to close
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === "Escape") {
         setServicesOpen(false);
+        setBenefitsOpen(false);
         setOpen(false);
       }
     };
@@ -381,10 +400,59 @@ function Navbar() {
             </AnimatePresence>
           </div>
 
+          {/* Business Benefits Dropdown */}
+          <div className="relative" ref={benefitsRef}>
+            <button
+              onClick={() => setBenefitsOpen(!benefitsOpen)}
+              className={cx(
+                "flex items-center gap-1 rounded-lg px-2 py-1.5 transition",
+                "hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/50",
+                benefitsOpen && "text-white"
+              )}
+            >
+              Business Benefits
+              <ChevronDown className={cx("h-3 w-3 transition-transform", benefitsOpen && "rotate-180")} />
+            </button>
+            
+            <AnimatePresence>
+              {benefitsOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.15 }}
+                  className="absolute left-0 top-full z-50 mt-2 w-64 origin-top-left"
+                >
+                  <div className="rounded-xl border border-slate-800 bg-slate-900/95 p-2 shadow-xl backdrop-blur">
+                    {[
+                      { to: "/business-energy-guides", title: "Energy Guides", sub: "Expert advice & strategies" },
+                      { to: "/energy-saving-tips", title: "Saving Tips", sub: "Reduce consumption 20-45%" },
+                      { to: "/contract-types", title: "Contract Types", sub: "Fixed vs flexible explained" },
+                      { to: "/switching-process", title: "Switching Process", sub: "7-step guide" },
+                      { to: "/green-energy", title: "Green Energy", sub: "Renewable options" },
+                      { to: "/multi-site-energy", title: "Multi-Site", sub: "Portfolio management" },
+                      { to: "/market-insights", title: "Market Insights", sub: "Trends & forecasts" },
+                      { to: "/bill-validation", title: "Bill Validation", sub: "Error recovery" },
+                    ].map((item) => (
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        onClick={() => setBenefitsOpen(false)}
+                        className="block rounded-lg px-3 py-2 hover:bg-slate-800/70"
+                      >
+                        <div className="text-sm font-medium text-slate-100">{item.title}</div>
+                        <div className="text-xs text-slate-400">{item.sub}</div>
+                      </Link>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
           {/* Simple links */}
           {[
             { to: "/case-studies", label: "Case Studies" },
-            { to: "/knowledge", label: "Knowledge" },
             { to: "/company", label: "Company" },
             { to: "/compliance", label: "Compliance" },
             { to: "/contact", label: "Contact" },
@@ -457,13 +525,42 @@ function Navbar() {
                   </NavLink>
                 ))}
 
+                {/* Business Benefits */}
+                <div className="px-1 pt-3 text-[11px] uppercase tracking-wide text-slate-400">
+                  Business Benefits
+                </div>
+                {[
+                  { to: "/business-energy-guides", label: "Energy Guides" },
+                  { to: "/energy-saving-tips", label: "Saving Tips" },
+                  { to: "/contract-types", label: "Contract Types" },
+                  { to: "/switching-process", label: "Switching Process" },
+                  { to: "/green-energy", label: "Green Energy" },
+                  { to: "/multi-site-energy", label: "Multi-Site Management" },
+                  { to: "/market-insights", label: "Market Insights" },
+                  { to: "/bill-validation", label: "Bill Validation" },
+                ].map((item) => (
+                  <NavLink
+                    key={item.to}
+                    to={item.to}
+                    onClick={() => setOpen(false)}
+                    className={({ isActive }) =>
+                      cx(
+                        "block rounded-lg px-2 py-2",
+                        "hover:bg-slate-800/70",
+                        isActive && "bg-slate-800/60"
+                      )
+                    }
+                  >
+                    {item.label}
+                  </NavLink>
+                ))}
+
                 {/* Secondary */}
                 <div className="px-1 pt-3 text-[11px] uppercase tracking-wide text-slate-400">
                   Company
                 </div>
                 {[
                   { to: "/case-studies", label: "Case Studies" },
-                  { to: "/knowledge", label: "Knowledge" },
                   { to: "/company", label: "Company" },
                   { to: "/compliance", label: "Compliance" },
                   { to: "/contact", label: "Contact" },
@@ -1039,7 +1136,14 @@ export default function WattUtilitiesSite(){
           <Route path="/company" element={<CompanyPage/>} />
           <Route path="/careers" element={<CareersPage/>} />
           <Route path="/case-studies" element={<CaseStudiesPage/>} />
-          <Route path="/knowledge" element={<KnowledgePage/>} />
+          <Route path="/business-energy-guides" element={<BusinessEnergyGuides/>} />
+          <Route path="/energy-saving-tips" element={<EnergySavingTips/>} />
+          <Route path="/contract-types" element={<ContractTypesExplained/>} />
+          <Route path="/switching-process" element={<SwitchingProcess/>} />
+          <Route path="/green-energy" element={<GreenEnergyOptions/>} />
+          <Route path="/multi-site-energy" element={<MultiSiteEnergy/>} />
+          <Route path="/market-insights" element={<EnergyMarketInsights/>} />
+          <Route path="/bill-validation" element={<BillValidation/>} />
           <Route path="/contact" element={<ContactPage/>} />
           <Route path="/compliance" element={<CompliancePage/>} />
           <Route path="/faqs" element={<FAQsPage/>} />
