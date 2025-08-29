@@ -1,0 +1,8 @@
+# Netlify redirects file
+# Test comment added: 2025-08-29 - If this appears in deployed site, Netlify is working
+
+# Handle React Router - all routes go to index.html
+/*    /index.html   200
+
+# Test redirect to verify deployments
+/test-redirect    https://www.google.com    302
