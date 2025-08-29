@@ -30,7 +30,7 @@ export const BusinessWater = () => {
               onClick={() => setShowQuoteForm(true)} 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white hover:bg-gray-100 text-slate-950 font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
+              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
             >
               Compare Water Rates <ArrowRight className="w-5 h-5" />
             </motion.button>
@@ -79,7 +79,7 @@ export const BusinessWater = () => {
             onClick={() => setShowQuoteForm(true)} 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-white hover:bg-gray-100 text-slate-950 font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center justify-center gap-2"
+            className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center justify-center gap-2"
           >
             Get Free Water Quote <ArrowRight className="w-6 h-6" />
           </motion.button>
@@ -120,7 +120,7 @@ export const BusinessBroadband = () => {
               onClick={() => setShowQuoteForm(true)} 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white hover:bg-gray-100 text-slate-950 font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
+              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
             >
               Check Availability <ArrowRight className="w-5 h-5" />
             </motion.button>
@@ -194,7 +194,7 @@ export const BusinessBroadband = () => {
             onClick={() => setShowQuoteForm(true)} 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-white hover:bg-gray-100 text-slate-950 font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center justify-center gap-2"
+            className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center justify-center gap-2"
           >
             Get Broadband Quote <ArrowRight className="w-6 h-6" />
           </motion.button>
@@ -235,7 +235,7 @@ export const BusinessTelecoms = () => {
               onClick={() => setShowQuoteForm(true)} 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white hover:bg-gray-100 text-slate-950 font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
+              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
             >
               Get Telecoms Quote <ArrowRight className="w-5 h-5" />
             </motion.button>
@@ -275,7 +275,7 @@ export const BusinessTelecoms = () => {
             onClick={() => setShowQuoteForm(true)} 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-white hover:bg-gray-100 text-slate-950 font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center justify-center gap-2"
+            className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center justify-center gap-2"
           >
             Start Saving Today <ArrowRight className="w-6 h-6" />
           </motion.button>
@@ -316,7 +316,7 @@ export const LargeBusiness = () => {
               onClick={() => setShowQuoteForm(true)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white hover:bg-gray-100 text-slate-950 font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
+              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
             >
               Schedule Consultation <ArrowRight className="w-5 h-5" />
             </motion.button>
@@ -373,7 +373,7 @@ export const LargeBusiness = () => {
             onClick={() => setShowQuoteForm(true)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-white hover:bg-gray-100 text-slate-950 font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center justify-center gap-2"
+            className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center justify-center gap-2"
           >
             Book Strategic Review <ArrowRight className="w-6 h-6" />
           </motion.button>
@@ -504,7 +504,7 @@ export const ContactPage = () => {
                     type="submit"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full bg-white hover:bg-gray-100 text-slate-950 font-bold py-3 rounded-lg flex items-center justify-center gap-2"
+                    className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2"
                   >
                     Send Message <ArrowRight className="w-5 h-5" />
                   </motion.button>
@@ -571,7 +571,7 @@ export const CompanyPage = () => {
               onClick={() => setShowQuoteForm(true)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white hover:bg-gray-100 text-slate-950 font-bold py-5 px-10 rounded-lg shadow-lg text-lg inline-flex items-center gap-2"
+              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg shadow-lg text-lg inline-flex items-center gap-2"
             >
               Get Started Today <ArrowRight className="w-6 h-6" />
             </motion.button>

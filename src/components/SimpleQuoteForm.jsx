@@ -298,7 +298,7 @@ const SimpleQuoteForm = ({ onClose, serviceType = 'water' }) => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="flex-1 bg-white hover:bg-gray-100 disabled:bg-gray-300 text-slate-950 font-bold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+              className="flex-1 bg-emerald-500 hover:bg-emerald-600 disabled:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
             >
               {isSubmitting ? (
                 <>
