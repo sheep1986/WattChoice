@@ -1116,6 +1116,30 @@ export default function WattUtilitiesSite(){
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context":"https://schema.org", "@type":"Organization", name:"Watt Utilities", url:"https://www.wattutilities.co.uk", logo:"https://i.ibb.co/7dywXhNK/watt-utilities-white-logo-1-1.png" }) }} />
       <ScrollToTop />
       <div className="min-h-screen scroll-smooth bg-slate-950 text-slate-100">
+        {/* TEST RED DOT - DEPLOYMENT VERIFICATION */}
+        <div style={{
+          position: 'fixed',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: '150px',
+          height: '150px',
+          backgroundColor: '#FF0000',
+          borderRadius: '50%',
+          zIndex: 99999,
+          boxShadow: '0 0 100px #FF0000',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
+          <div style={{color: 'white', textAlign: 'center', fontWeight: 'bold', fontSize: '20px'}}>
+            TEST DOT
+          </div>
+          <div style={{color: 'white', textAlign: 'center', fontSize: '12px'}}>
+            v3 - {new Date().toISOString().slice(11, 19)}
+          </div>
+        </div>
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage/>} />
