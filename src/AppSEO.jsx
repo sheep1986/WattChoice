@@ -7,6 +7,17 @@ import { serviceContent } from "./content/ServiceContent";
 import { companyContent } from "./content/CompanyContent";
 import { knowledgeContent } from "./content/KnowledgeContent";
 
+// Import all new pages
+import CaseStudies from './pages/CaseStudies';
+import BusinessEnergyGuides from './pages/BusinessEnergyGuides';
+import EnergySavingTips from './pages/EnergySavingTips';
+import ContractTypesExplained from './pages/ContractTypesExplained';
+import SwitchingProcess from './pages/SwitchingProcess';
+import GreenEnergyOptions from './pages/GreenEnergyOptions';
+import MultiSiteEnergy from './pages/MultiSiteEnergy';
+import EnergyMarketInsights from './pages/EnergyMarketInsights';
+import BillValidation from './pages/BillValidation';
+
 // Import all service pages
 import SimpleElectricity from './pages/SimpleElectricity';
 import SimpleGas from './pages/SimpleGas';
@@ -402,6 +413,7 @@ function Section({ id, kicker, title, children, className = "", as: Component = 
 function Navbar(){
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [benefitsOpen, setBenefitsOpen] = useState(false);
   
   return (
     <nav className="sticky top-0 z-50 border-b border-slate-800/60 bg-slate-950/80 backdrop-blur" role="navigation" aria-label="Main navigation">
@@ -484,7 +496,70 @@ function Navbar(){
           </div>
           
           <NavLink to="/case-studies" className={({isActive})=>cx(isActive?"text-white":"","hover:text-white")}>Case Studies</NavLink>
-          <NavLink to="/knowledge" className={({isActive})=>cx(isActive?"text-white":"","hover:text-white")}>Knowledge</NavLink>
+          
+          {/* Business Benefits Dropdown */}
+          <div 
+            className="relative"
+            onMouseLeave={() => setBenefitsOpen(false)}
+          >
+            <button 
+              onClick={()=>setBenefitsOpen(!benefitsOpen)} 
+              onMouseEnter={()=>setBenefitsOpen(true)}
+              className="inline-flex items-center gap-1 hover:text-white"
+              aria-expanded={benefitsOpen}
+              aria-haspopup="true"
+            >
+              Business Benefits <ChevronDown className={`h-4 w-4 transition-transform ${benefitsOpen ? 'rotate-180' : ''}`}/>
+            </button>
+            <AnimatePresence>
+              {benefitsOpen && (
+                <motion.div 
+                  initial={{opacity:0, y:8}} 
+                  animate={{opacity:1, y:0}} 
+                  exit={{opacity:0, y:8}} 
+                  className="absolute left-0 mt-2 w-[280px] rounded-xl border border-slate-800 bg-slate-900/95 p-3 shadow-2xl"
+                  onMouseEnter={()=>setBenefitsOpen(true)}
+                  onMouseLeave={()=>setBenefitsOpen(false)}
+                >
+                  <div className="space-y-1">
+                    <NavLink to="/business-energy-guides" onClick={()=>setBenefitsOpen(false)} className="block rounded-lg px-3 py-2 hover:bg-slate-800 text-sm">
+                      <div className="text-white font-medium">Energy Guides</div>
+                      <div className="text-xs text-slate-400">Expert advice & strategies</div>
+                    </NavLink>
+                    <NavLink to="/energy-saving-tips" onClick={()=>setBenefitsOpen(false)} className="block rounded-lg px-3 py-2 hover:bg-slate-800 text-sm">
+                      <div className="text-white font-medium">Energy Saving Tips</div>
+                      <div className="text-xs text-slate-400">Reduce consumption 20-45%</div>
+                    </NavLink>
+                    <NavLink to="/contract-types" onClick={()=>setBenefitsOpen(false)} className="block rounded-lg px-3 py-2 hover:bg-slate-800 text-sm">
+                      <div className="text-white font-medium">Contract Types</div>
+                      <div className="text-xs text-slate-400">Fixed vs flexible explained</div>
+                    </NavLink>
+                    <NavLink to="/switching-process" onClick={()=>setBenefitsOpen(false)} className="block rounded-lg px-3 py-2 hover:bg-slate-800 text-sm">
+                      <div className="text-white font-medium">Switching Process</div>
+                      <div className="text-xs text-slate-400">7-step guide</div>
+                    </NavLink>
+                    <NavLink to="/green-energy" onClick={()=>setBenefitsOpen(false)} className="block rounded-lg px-3 py-2 hover:bg-slate-800 text-sm">
+                      <div className="text-white font-medium">Green Energy</div>
+                      <div className="text-xs text-slate-400">Renewable options</div>
+                    </NavLink>
+                    <NavLink to="/multi-site-energy" onClick={()=>setBenefitsOpen(false)} className="block rounded-lg px-3 py-2 hover:bg-slate-800 text-sm">
+                      <div className="text-white font-medium">Multi-Site Energy</div>
+                      <div className="text-xs text-slate-400">Portfolio management</div>
+                    </NavLink>
+                    <NavLink to="/market-insights" onClick={()=>setBenefitsOpen(false)} className="block rounded-lg px-3 py-2 hover:bg-slate-800 text-sm">
+                      <div className="text-white font-medium">Market Insights</div>
+                      <div className="text-xs text-slate-400">Trends & analysis</div>
+                    </NavLink>
+                    <NavLink to="/bill-validation" onClick={()=>setBenefitsOpen(false)} className="block rounded-lg px-3 py-2 hover:bg-slate-800 text-sm">
+                      <div className="text-white font-medium">Bill Validation</div>
+                      <div className="text-xs text-slate-400">Error recovery service</div>
+                    </NavLink>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+          
           <NavLink to="/loa" className={({isActive})=>cx(isActive?"text-white":"","hover:text-white")}>LOA</NavLink>
           <NavLink to="/company" className={({isActive})=>cx(isActive?"text-white":"","hover:text-white")}>About</NavLink>
           <NavLink to="/contact" className={({isActive})=>cx(isActive?"text-white":"","hover:text-white")}>Contact</NavLink>
@@ -1283,26 +1358,8 @@ const CareersPage = () => {
   );
 };
 
-// Case Studies Page
-const CaseStudiesPage = () => (
-  <RichLander title="Case Studies" intro="Savings and outcomes we've delivered for UK businesses.">
-    <div className="grid gap-6 md:grid-cols-3">
-      {[
-        { title:"Multi‑site retailer", saving:"£18,240/yr", desc:"Basket deal across 12 sites. Fixed contract secured ahead of market rise." },
-        { title:"Food manufacturer", saving:"£11,930/yr", desc:"Flexible contract with cap & collar to smooth volatility risk." },
-        { title:"Hotel group", saving:"£7,680/yr", desc:"Green electricity with REGO certificates and simplified billing." }
-      ].map((c,i)=> (
-        <Card key={i} className="border-0 bg-slate-900/60 ring-1 ring-slate-800">
-          <CardHeader><CardTitle>{c.title}</CardTitle></CardHeader>
-          <CardContent>
-            <div className="mb-2 text-2xl font-bold text-emerald-400">{c.saving}</div>
-            <p className="text-slate-300">{c.desc}</p>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
-  </RichLander>
-);
+// Case Studies Page - Using the new amazing version with Trustpilot reviews
+const CaseStudiesPage = CaseStudies;
 
 // Knowledge Page
 const KnowledgePage = () => (
@@ -1464,28 +1521,6 @@ export default function WattUtilitiesSEO(){
       <Router>
         <ScrollToTop />
         <div className="min-h-screen scroll-smooth bg-slate-950 text-slate-100">
-          {/* VERSION 10 - THIS IS THE CORRECT FILE! */}
-          <div style={{
-            position: 'fixed',
-            top: '0',
-            left: '0',
-            width: '100%',
-            height: '200px',
-            background: 'linear-gradient(45deg, #FF00FF, #00FFFF, #FFFF00)',
-            color: 'black',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '72px',
-            fontWeight: '900',
-            zIndex: 2147483647,
-            textShadow: '0 0 10px white',
-            border: '10px solid red'
-          }}>
-            <div>🎉 VERSION 10 FINALLY WORKING! 🎉</div>
-            <div style={{fontSize: '36px', color: 'red'}}>THIS IS AppSEO.jsx!</div>
-          </div>
           <Navbar />
           <Suspense fallback={
             <div className="min-h-screen bg-slate-900 flex items-center justify-center">
@@ -1504,6 +1539,18 @@ export default function WattUtilitiesSEO(){
               <Route path="/large-business" element={<LargeBusiness />} />
               <Route path="/careers" element={<CareersPage />} />
               <Route path="/case-studies" element={<CaseStudiesPage />} />
+              
+              {/* Business Benefits Pages */}
+              <Route path="/business-energy-guides" element={<BusinessEnergyGuides />} />
+              <Route path="/energy-saving-tips" element={<EnergySavingTips />} />
+              <Route path="/contract-types" element={<ContractTypesExplained />} />
+              <Route path="/switching-process" element={<SwitchingProcess />} />
+              <Route path="/green-energy" element={<GreenEnergyOptions />} />
+              <Route path="/multi-site-energy" element={<MultiSiteEnergy />} />
+              <Route path="/market-insights" element={<EnergyMarketInsights />} />
+              <Route path="/bill-validation" element={<BillValidation />} />
+              
+              {/* Keep old Knowledge route for backward compatibility */}
               <Route path="/knowledge" element={<KnowledgePage />} />
               <Route path="/compliance" element={<CompliancePage />} />
               <Route path="/faqs" element={<FAQ />} />
