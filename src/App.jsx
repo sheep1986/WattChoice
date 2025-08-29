@@ -166,12 +166,12 @@ function QuoteForm(){
         <div className="flex gap-2">
           {step>1 && (<Button type="button" variant="outline" className="border-slate-700 text-slate-200 hover:bg-slate-800" onClick={()=>setStep(step-1)}>Back</Button>)}
           {step<3 && (
-            <Button type="button" className="bg-emerald-500 text-emerald-950 hover:bg-emerald-400" onClick={()=>setStep(step+1)} disabled={(step===1 && disabledStep1) || (step===2 && disabledStep2)}>
+            <Button type="button" className="bg-emerald-500 text-white hover:bg-emerald-400" onClick={()=>setStep(step+1)} disabled={(step===1 && disabledStep1) || (step===2 && disabledStep2)}>
               Continue <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           )}
           {step===3 && (
-            <Button type="submit" className="bg-emerald-500 text-emerald-950 hover:bg-emerald-400" disabled={submitting || disabledStep3}>{submitting?"Submitting…":"Get my quotes"}</Button>
+            <Button type="submit" className="bg-emerald-500 text-white hover:bg-emerald-400" disabled={submitting || disabledStep3}>{submitting?"Submitting…":"Get my quotes"}</Button>
           )}
         </div>
       </div>
@@ -407,7 +407,7 @@ function Navbar() {
         {/* Right actions */}
         <div className="flex items-center gap-2">
           <Link to="/get-a-quote" className="hidden md:inline-flex">
-            <Button className="bg-emerald-500 text-emerald-950 hover:bg-emerald-400 px-3 py-1.5 text-xs">Get a quote</Button>
+            <Button className="bg-emerald-500 text-white hover:bg-emerald-400 px-3 py-1.5 text-xs">Get a quote</Button>
           </Link>
           <button
             data-nav-toggle
@@ -486,7 +486,7 @@ function Navbar() {
                 {/* Primary CTA */}
                 <div className="sticky bottom-2 mt-3">
                   <Link to="/get-a-quote" onClick={() => setOpen(false)}>
-                    <Button className="w-full justify-center bg-emerald-500 text-emerald-950 hover:bg-emerald-400 text-sm">
+                    <Button className="w-full justify-center bg-emerald-500 text-white hover:bg-emerald-400 text-sm">
                       Get a quote
                     </Button>
                   </Link>
@@ -551,7 +551,7 @@ function HomePage(){
             <h1 className="mb-4 text-4xl font-extrabold leading-tight text-white md:text-6xl">Smarter business utility deals — <span className="block bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text text-transparent">fast, transparent, tailored.</span></h1>
             <p className="mb-6 max-w-prose text-lg text-slate-300">Watt Utilities finds and negotiates the right tariffs for your business. Fixed, flexible, or basket contracts — single site or nationwide portfolios.</p>
             <div className="flex flex-wrap gap-3">
-              <Link to="/get-a-quote"><Button className="h-11 rounded-xl bg-emerald-500 px-6 text-emerald-950 hover:bg-emerald-400">Get my quotes <ArrowRight className="ml-2 h-4 w-4"/></Button></Link>
+              <Link to="/get-a-quote"><Button className="h-11 rounded-xl bg-emerald-500 px-6 text-white hover:bg-emerald-400">Get my quotes <ArrowRight className="ml-2 h-4 w-4"/></Button></Link>
               <Link to="/business-electricity"><Button variant="outline" className="h-11 rounded-xl border-slate-700 bg-slate-900/40 px-6 text-slate-200 hover:bg-slate-800">Explore services</Button></Link>
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-slate-400">
@@ -709,7 +709,7 @@ const GlossaryPage = () => (
 );
 
 const CompanyPage = () => (
-  <RichLander title="About Watt Utilities" intro="Founded to make utility procurement transparent, efficient and genuinely helpful for UK businesses."><div className="grid gap-6 md:grid-cols-3"><Card className="border-0 bg-slate-900/60 ring-1 ring-slate-800 md:col-span-2"><CardHeader><CardTitle>Who we are</CardTitle></CardHeader><CardContent className="space-y-3 text-slate-300"><p>Independent consultancy with expert account managers and access to a broad supplier panel.</p></CardContent></Card><Card className="border-0 bg-slate-900/60 ring-1 ring-slate-800"><CardHeader><CardTitle>Talk to us</CardTitle></CardHeader><CardContent><Link to="/contact"><Button className="w-full bg-emerald-500 text-emerald-950 hover:bg-emerald-400">Contact</Button></Link></CardContent></Card></div></RichLander>
+  <RichLander title="About Watt Utilities" intro="Founded to make utility procurement transparent, efficient and genuinely helpful for UK businesses."><div className="grid gap-6 md:grid-cols-3"><Card className="border-0 bg-slate-900/60 ring-1 ring-slate-800 md:col-span-2"><CardHeader><CardTitle>Who we are</CardTitle></CardHeader><CardContent className="space-y-3 text-slate-300"><p>Independent consultancy with expert account managers and access to a broad supplier panel.</p></CardContent></Card><Card className="border-0 bg-slate-900/60 ring-1 ring-slate-800"><CardHeader><CardTitle>Talk to us</CardTitle></CardHeader><CardContent><Link to="/contact"><Button className="w-full bg-emerald-500 text-white hover:bg-emerald-400">Contact</Button></Link></CardContent></Card></div></RichLander>
 );
 
 const CareersPage = () => {
