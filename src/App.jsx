@@ -1133,11 +1133,14 @@ export default function WattUtilitiesSite(){
           alignItems: 'center',
           justifyContent: 'center'
         }}>
-          <div style={{color: 'white', textAlign: 'center', fontWeight: 'bold', fontSize: '20px'}}>
-            TEST DOT
+          <div style={{color: 'white', textAlign: 'center', fontWeight: 'bold', fontSize: '24px'}}>
+            DEPLOY TEST
           </div>
-          <div style={{color: 'white', textAlign: 'center', fontSize: '12px'}}>
-            v3 - {new Date().toISOString().slice(11, 19)}
+          <div style={{color: 'white', textAlign: 'center', fontSize: '16px'}}>
+            v4 - {new Date().toISOString()}
+          </div>
+          <div style={{color: 'yellow', textAlign: 'center', fontSize: '14px', marginTop: '10px'}}>
+            If you see this, deployment works!
           </div>
         </div>
         <Navbar />
