@@ -1,0 +1,20 @@
+DEPLOYMENT VERSION: 5
+DATE: 2025-08-29
+TIME: Current
+STATUS: Testing Netlify deployment from GitHub
+
+If you can access this file at:
+https://wattutilities001.netlify.app/VERSION.txt
+
+Then Netlify IS deploying from GitHub.
+
+Recent changes:
+- Red test dot in center of screen
+- Business Benefits dropdown menu
+- 8 new comprehensive pages
+- Case Studies with Trustpilot reviews
+
+TEST URLS:
+- /deployment-test.html (should show green test page)
+- /test-redirect (should redirect to Google)
+- View page source (should show VERSION 5 comments)
