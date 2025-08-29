@@ -815,7 +815,7 @@ const CareersPage = () => {
                           document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' });
                         }, 100);
                       }}
-                      className="bg-emerald-500 text-emerald-950 hover:bg-emerald-400 whitespace-nowrap"
+                      className="bg-emerald-500 text-white hover:bg-emerald-400 whitespace-nowrap"
                     >
                       Apply Now <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -921,7 +921,7 @@ const CareersPage = () => {
                 <p className="text-xs text-slate-400">
                   * Required fields. We'll process your application in accordance with our privacy policy.
                 </p>
-                <Button type="submit" className="bg-emerald-500 text-emerald-950 hover:bg-emerald-400">
+                <Button type="submit" className="bg-emerald-500 text-white hover:bg-emerald-400">
                   Submit Application
                 </Button>
               </div>
@@ -942,7 +942,7 @@ const KnowledgePage = () => (
 );
 
 const ContactPage = () => (
-  <RichLander title="Contact" intro="Talk to a utilities specialist — we'll get you sorted."><div className="grid gap-8 md:grid-cols-2"><Card className="border-0 bg-slate-900/60 ring-1 ring-slate-800"><CardContent className="space-y-4 pt-6 text-slate-300"><div className="text-2xl font-semibold text-white">+44 161 123 4567</div><div>Mon–Fri, 9:00–17:30 (UK)</div><div className="text-sm text-slate-400">Prefer email? hello@wattutilities.co.uk</div><div className="text-sm text-slate-400">Or leave a message and we'll call you back.</div></CardContent></Card><Card className="border-0 bg-slate-900/60 ring-1 ring-slate-800"><CardContent className="pt-6"><form className="grid gap-4"><div className="grid gap-2 md:grid-cols-2"><Input placeholder="Your name" className="bg-slate-900/60 border-slate-800" /><Input placeholder="Email" type="email" className="bg-slate-900/60 border-slate-800" /></div><Input placeholder="Company" className="bg-slate-900/60 border-slate-800" /><Textarea placeholder="How can we help?" className="min-h-[120px] bg-slate-900/60 border-slate-800" /><div className="flex justify-end"><Button className="bg-emerald-500 text-emerald-950 hover:bg-emerald-400">Send message</Button></div></form></CardContent></Card></div></RichLander>
+  <RichLander title="Contact" intro="Talk to a utilities specialist — we'll get you sorted."><div className="grid gap-8 md:grid-cols-2"><Card className="border-0 bg-slate-900/60 ring-1 ring-slate-800"><CardContent className="space-y-4 pt-6 text-slate-300"><div className="text-2xl font-semibold text-white">+44 161 123 4567</div><div>Mon–Fri, 9:00–17:30 (UK)</div><div className="text-sm text-slate-400">Prefer email? hello@wattutilities.co.uk</div><div className="text-sm text-slate-400">Or leave a message and we'll call you back.</div></CardContent></Card><Card className="border-0 bg-slate-900/60 ring-1 ring-slate-800"><CardContent className="pt-6"><form className="grid gap-4"><div className="grid gap-2 md:grid-cols-2"><Input placeholder="Your name" className="bg-slate-900/60 border-slate-800" /><Input placeholder="Email" type="email" className="bg-slate-900/60 border-slate-800" /></div><Input placeholder="Company" className="bg-slate-900/60 border-slate-800" /><Textarea placeholder="How can we help?" className="min-h-[120px] bg-slate-900/60 border-slate-800" /><div className="flex justify-end"><Button className="bg-emerald-500 text-white hover:bg-emerald-400">Send message</Button></div></form></CardContent></Card></div></RichLander>
 );
 
 const CompliancePage = () => (
@@ -1052,7 +1052,7 @@ export default function WattUtilitiesSite(){
         {/* Mobile sticky CTA */}
         <div className="fixed inset-x-0 bottom-3 z-40 mx-auto flex max-w-xl items-center justify-center px-4 md:hidden">
           <div className="w-full rounded-2xl border border-emerald-500/30 bg-slate-900/80 p-2 shadow-2xl backdrop-blur">
-            <Link to="/get-a-quote" className="flex w-full items-center justify-center rounded-xl bg-emerald-500 px-4 py-3 text-sm font-semibold text-emerald-950 hover:bg-emerald-400">
+            <Link to="/get-a-quote" className="flex w-full items-center justify-center rounded-xl bg-emerald-500 px-4 py-3 text-sm font-semibold text-white hover:bg-emerald-400">
               Get quotes <ArrowRight className="ml-2 h-4 w-4"/>
             </Link>
           </div>

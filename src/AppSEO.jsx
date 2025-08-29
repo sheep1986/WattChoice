@@ -902,6 +902,11 @@ function HomePage(){
             ))}
           </div>
           
+          {/* TEST RED DOT */}
+          <div className="flex justify-center my-8">
+            <div className="w-20 h-20 bg-red-500 rounded-full animate-pulse"></div>
+          </div>
+          
           {/* Trustpilot Stats and Reviews Combined */}
           <div className="mt-12">
             <div className="bg-slate-900/60 border border-slate-800 rounded-lg p-6 max-w-4xl mx-auto">
