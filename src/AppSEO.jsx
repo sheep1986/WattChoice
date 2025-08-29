@@ -528,68 +528,104 @@ function Navbar(){
 function Footer(){
   return (
     <footer className="border-t border-slate-800/60 bg-slate-950" role="contentinfo">
-      <div className="mx-auto grid max-w-6xl gap-8 px-6 py-12 md:grid-cols-5">
-        <div className="space-y-4 md:col-span-2">
-          <img 
-            src="https://i.ibb.co/9m5w9tMJ/watt-utilities-white-logo-1-500-x-200-px-500-x-100-px-5.png" 
-            alt="Watt Utilities" 
-            className="h-16 w-auto" 
-            width="150"
-            height="60"
-          />
-          <p className="text-sm text-slate-400">
-            Trusted business energy consultants since 2000. 900,000+ businesses saved £150M.
-          </p>
+      <div className="mx-auto max-w-7xl px-6 py-12">
+        <div className="grid gap-8 md:grid-cols-12">
+          {/* Company Info - Spans 3 columns */}
+          <div className="space-y-4 md:col-span-3">
+            <img 
+              src="https://i.ibb.co/9m5w9tMJ/watt-utilities-white-logo-1-500-x-200-px-500-x-100-px-5.png" 
+              alt="Watt Utilities" 
+              className="h-16 w-auto" 
+              width="150"
+              height="60"
+            />
+            <p className="text-sm text-slate-400">
+              Trusted business energy consultants since 2000. 900,000+ businesses saved £150M.
+            </p>
+            
+            <div className="flex gap-4 mt-4">
+              <a href="https://twitter.com/wattutilities" aria-label="Twitter" className="text-slate-400 hover:text-white">
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/></svg>
+              </a>
+              <a href="https://linkedin.com/company/watt-utilities-uk-ltd" aria-label="LinkedIn" className="text-slate-400 hover:text-white">
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61579724950206" aria-label="Facebook" className="text-slate-400 hover:text-white">
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+            </div>
+          </div>
           
-          <div className="flex gap-4 mt-4">
-            <a href="https://twitter.com/wattutilities" aria-label="Twitter" className="text-slate-400 hover:text-white">
-              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/></svg>
+          {/* Services - Spans 2 columns */}
+          <div className="md:col-span-2">
+            <h3 className="mb-3 text-sm font-semibold text-white">Services</h3>
+            <ul className="space-y-2 text-sm text-slate-300">
+              <li><Link to="/business-electricity" className="hover:text-emerald-400">Electricity</Link></li>
+              <li><Link to="/business-gas" className="hover:text-emerald-400">Gas</Link></li>
+              <li><Link to="/business-water" className="hover:text-emerald-400">Water</Link></li>
+              <li><Link to="/business-broadband" className="hover:text-emerald-400">Broadband</Link></li>
+              <li><Link to="/large-business" className="hover:text-emerald-400">Multi-site</Link></li>
+            </ul>
+          </div>
+          
+          {/* Company - Spans 2 columns */}
+          <div className="md:col-span-2">
+            <h3 className="mb-3 text-sm font-semibold text-white">Company</h3>
+            <ul className="space-y-2 text-sm text-slate-300">
+              <li><Link to="/company" className="hover:text-emerald-400">About Us</Link></li>
+              <li><Link to="/case-studies" className="hover:text-emerald-400">Case Studies</Link></li>
+              <li><Link to="/careers" className="hover:text-emerald-400">Careers</Link></li>
+              <li><Link to="/contact" className="hover:text-emerald-400">Contact</Link></li>
+              <li><Link to="/complaints" className="hover:text-emerald-400">Complaints</Link></li>
+            </ul>
+          </div>
+          
+          {/* Legal - Spans 2 columns */}
+          <div className="md:col-span-2">
+            <h3 className="mb-3 text-sm font-semibold text-white">Legal</h3>
+            <ul className="space-y-2 text-sm text-slate-300">
+              <li><Link to="/terms" className="hover:text-emerald-400">Terms</Link></li>
+              <li><Link to="/privacy" className="hover:text-emerald-400">Privacy</Link></li>
+              <li><Link to="/compliance" className="hover:text-emerald-400">Compliance</Link></li>
+              <li><Link to="/tpi-code" className="hover:text-emerald-400">TPI Code</Link></li>
+              <li><Link to="/how-we-get-paid" className="hover:text-emerald-400">Commission</Link></li>
+            </ul>
+          </div>
+          
+          {/* Certification Logos - Spans 3 columns */}
+          <div className="md:col-span-3 flex items-end justify-end gap-4">
+            <a 
+              href="https://www.investorsinpeople.com/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:opacity-80 transition-opacity"
+              aria-label="Investors in People Certification"
+            >
+              <img 
+                src="https://i.ibb.co/DgDXHDm1/investors-people-watt-001.png" 
+                alt="Investors in People" 
+                className="h-14"
+              />
             </a>
-            <a href="https://linkedin.com/company/watt-utilities-uk-ltd" aria-label="LinkedIn" className="text-slate-400 hover:text-white">
-              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61579724950206" aria-label="Facebook" className="text-slate-400 hover:text-white">
-              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <a 
+              href="https://ico.org.uk/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:opacity-80 transition-opacity"
+              aria-label="ICO Registration"
+            >
+              <img 
+                src="https://i.ibb.co/4nzmkKMY/ICO-001-Watt.png" 
+                alt="ICO Registered" 
+                className="h-14"
+              />
             </a>
           </div>
-        </div>
-        
-        <div>
-          <h3 className="mb-3 text-sm font-semibold text-white">Services</h3>
-          <ul className="space-y-2 text-sm text-slate-300">
-            <li><Link to="/business-electricity" className="hover:text-emerald-400">Electricity</Link></li>
-            <li><Link to="/business-gas" className="hover:text-emerald-400">Gas</Link></li>
-            <li><Link to="/business-water" className="hover:text-emerald-400">Water</Link></li>
-            <li><Link to="/business-broadband" className="hover:text-emerald-400">Broadband</Link></li>
-            <li><Link to="/large-business" className="hover:text-emerald-400">Multi-site</Link></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h3 className="mb-3 text-sm font-semibold text-white">Company</h3>
-          <ul className="space-y-2 text-sm text-slate-300">
-            <li><Link to="/company" className="hover:text-emerald-400">About Us</Link></li>
-            <li><Link to="/case-studies" className="hover:text-emerald-400">Case Studies</Link></li>
-            <li><Link to="/careers" className="hover:text-emerald-400">Careers</Link></li>
-            <li><Link to="/contact" className="hover:text-emerald-400">Contact</Link></li>
-            <li><Link to="/complaints" className="hover:text-emerald-400">Complaints</Link></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h3 className="mb-3 text-sm font-semibold text-white">Legal</h3>
-          <ul className="space-y-2 text-sm text-slate-300">
-            <li><Link to="/terms" className="hover:text-emerald-400">Terms</Link></li>
-            <li><Link to="/privacy" className="hover:text-emerald-400">Privacy</Link></li>
-            <li><Link to="/compliance" className="hover:text-emerald-400">Compliance</Link></li>
-            <li><Link to="/tpi-code" className="hover:text-emerald-400">TPI Code</Link></li>
-            <li><Link to="/how-we-get-paid" className="hover:text-emerald-400">Commission</Link></li>
-          </ul>
         </div>
       </div>
       
       <div className="border-t border-slate-800/60 py-6">
-        <div className="mx-auto max-w-6xl px-6 relative">
+        <div className="mx-auto max-w-7xl px-6">
           <div className="text-center text-xs text-slate-500">
             <p>© {new Date().getFullYear()} Watt Utilities UK Ltd. All rights reserved.</p>
             <div className="mt-2 flex items-center justify-center gap-3 text-slate-500">
@@ -607,36 +643,6 @@ function Footer(){
                 <span>4.6★</span>
               </a>
             </div>
-          </div>
-          
-          {/* Certification Logos - Bottom Right on Desktop, Below on Mobile */}
-          <div className="md:absolute md:bottom-0 md:right-6 flex items-center justify-center md:justify-end gap-4 mt-4 md:mt-0">
-            <a 
-              href="https://www.investorsinpeople.com/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="hover:opacity-80 transition-opacity"
-              aria-label="Investors in People Certification"
-            >
-              <img 
-                src="https://i.ibb.co/DgDXHDm1/investors-people-watt-001.png" 
-                alt="Investors in People" 
-                className="h-10 md:h-12"
-              />
-            </a>
-            <a 
-              href="https://ico.org.uk/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="hover:opacity-80 transition-opacity"
-              aria-label="ICO Registration"
-            >
-              <img 
-                src="https://i.ibb.co/4nzmkKMY/ICO-001-Watt.png" 
-                alt="ICO Registered" 
-                className="h-10 md:h-12"
-              />
-            </a>
           </div>
         </div>
       </div>
