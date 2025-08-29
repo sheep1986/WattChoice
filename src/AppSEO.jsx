@@ -902,31 +902,22 @@ function HomePage(){
             ))}
           </div>
           
-          {/* Trustpilot Logo Divider */}
-          <div className="mt-12 mb-8 text-center">
-            <a 
-              href="https://www.trustpilot.com/review/watt.co.uk" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-block hover:opacity-80 transition-opacity"
-            >
-              <img 
-                src="https://i.ibb.co/7YFr5KQc/trust-piolet-logo-white.png" 
-                alt="Trustpilot Reviews" 
-                className="h-8"
-              />
-            </a>
-          </div>
-          
           {/* Trustpilot Stats and Reviews Combined */}
-          <div>
+          <div className="mt-12">
             <div className="bg-slate-900/60 border border-slate-800 rounded-lg p-6 max-w-4xl mx-auto">
               <div className="flex items-center justify-center gap-3 mb-4">
-                <img 
-                  src="https://i.ibb.co/7YFr5KQc/trust-piolet-logo-white.png" 
-                  alt="Trustpilot" 
-                  className="h-8"
-                />
+                <a 
+                  href="https://www.trustpilot.com/review/watt.co.uk" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block hover:opacity-80 transition-opacity"
+                >
+                  <img 
+                    src="https://i.ibb.co/7YFr5KQc/trust-piolet-logo-white.png" 
+                    alt="Trustpilot" 
+                    className="h-8"
+                  />
+                </a>
                 <div className="border-l border-slate-700 pl-3">
                   <div className="flex gap-0.5 mb-1">
                     {[1,2,3,4,5].map((star) => (
