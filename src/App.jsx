@@ -1,6 +1,7 @@
 import React, { useMemo, useState, useEffect, useRef } from "react";
 import { HashRouter as Router, Routes, Route, NavLink, useLocation, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import CaseStudies from './pages/CaseStudies';
 // Lightweight UI primitives (replace if you have shadcn/ui installed)
 function Card({ className = "", children }) {
   return <div className={`rounded-2xl ${className}`}>{children}</div>;
@@ -933,9 +934,7 @@ const CareersPage = () => {
   );
 };
 
-const CaseStudiesPage = () => (
-  <RichLander title="Case Studies" intro="Savings and outcomes we’ve delivered for UK businesses."><div className="grid gap-6 md:grid-cols-3">{[{ title:"Multi‑site retailer", saving:"£18,240/yr", desc:"Basket deal across 12 sites. Fixed contract secured ahead of market rise." },{ title:"Food manufacturer", saving:"£11,930/yr", desc:"Flexible contract with cap & collar to smooth volatility risk." },{ title:"Hotel group", saving:"£7,680/yr", desc:"Green electricity with REGO certificates and simplified billing." }].map((c,i)=> (<Card key={i} className="border-0 bg-slate-900/60 ring-1 ring-slate-800"><CardHeader><CardTitle>{c.title}</CardTitle></CardHeader><CardContent><div className="mb-2 text-2xl font-bold text-emerald-400">{c.saving}</div><p className="text-slate-300">{c.desc}</p></CardContent></Card>))}</div></RichLander>
-);
+const CaseStudiesPage = CaseStudies;
 
 const KnowledgePage = () => (
   <RichLander title="Knowledge Hub" intro="Guides, explainers and market updates to help you buy better."><div className="grid gap-6 md:grid-cols-3">{[{ title:"Business Electricity: Fixed vs Flexible (2025)", blurb:"When each contract type wins — and how to decide based on usage & risk.", tag:"Guide" },{ title:"What is a Letter of Authority?", blurb:"Why brokers need LOAs and what we actually do with them.", tag:"Explainer" },{ title:"Green Tariffs & REGOs", blurb:"How to go greener without breaking the budget.", tag:"Sustainability" }].map((a,i)=> (<Card key={i} className="border-0 bg-slate-900/60 ring-1 ring-slate-800"><CardHeader><div className="flex items-center justify-between"><CardTitle className="text-lg">{a.title}</CardTitle><span className="rounded-full bg-emerald-500/10 px-2 py-1 text-xs text-emerald-300">{a.tag}</span></div></CardHeader><CardContent className="text-slate-300">{a.blurb}</CardContent></Card>))}</div></RichLander>
