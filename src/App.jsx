@@ -1116,28 +1116,27 @@ export default function WattUtilitiesSite(){
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context":"https://schema.org", "@type":"Organization", name:"Watt Utilities", url:"https://www.wattutilities.co.uk", logo:"https://i.ibb.co/7dywXhNK/watt-utilities-white-logo-1-1.png" }) }} />
       <ScrollToTop />
       <div className="min-h-screen scroll-smooth bg-slate-950 text-slate-100">
-        {/* VERSION 8 - UNMISSABLE DEPLOYMENT TEST */}
+        {/* VERSION 9 - FINAL TEST */}
         <div style={{
           position: 'fixed',
           top: '0',
           left: '0',
-          right: '0',
-          height: '150px',
-          backgroundColor: '#FF00FF',
+          width: '100%',
+          height: '200px',
+          background: 'linear-gradient(45deg, #FF0000, #00FF00, #0000FF)',
           color: 'white',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          fontSize: '48px',
-          fontWeight: 'bold',
-          zIndex: 999999,
-          boxShadow: '0 10px 50px rgba(255,0,255,0.8)',
-          animation: 'pulse 1s infinite'
+          fontSize: '60px',
+          fontWeight: '900',
+          zIndex: 2147483647,
+          textShadow: '0 0 20px black'
         }}>
-          <div>🚨 VERSION 8 - DEPLOYMENT WORKING! 🚨</div>
-          <div style={{fontSize: '24px'}}>If you see this PURPLE banner, Netlify is updated!</div>
-          <div style={{fontSize: '18px'}}>{new Date().toLocaleString()}</div>
+          <div>VERSION 9 WORKING!</div>
+          <div style={{fontSize: '30px', color: 'yellow'}}>NETLIFY IS UPDATED!</div>
+          <div style={{fontSize: '20px', color: 'white'}}>Build Time: {new Date().toISOString()}</div>
         </div>
         
         {/* TEST RED DOT - DEPLOYMENT VERIFICATION */}
