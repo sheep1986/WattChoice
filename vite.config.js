@@ -10,7 +10,8 @@ export default defineConfig({
   build: {
     minify: 'esbuild',
     esbuildOptions: {
-      drop: ['console', 'debugger']
+      // Temporarily disabled to see deployment markers
+      // drop: ['console', 'debugger']
     },
     rollupOptions: {
       output: {
@@ -20,9 +21,10 @@ export default defineConfig({
           'motion-vendor': ['framer-motion'],
           'utils': ['lucide-react']
         },
-        assetFileNames: 'assets/[name]-[hash][extname]',
-        chunkFileNames: 'assets/js/[name]-[hash].js',
-        entryFileNames: 'assets/js/[name]-[hash].js'
+        // Force cache busting with v7 prefix
+        assetFileNames: 'assets/[name]-v7-[hash][extname]',
+        chunkFileNames: 'assets/js/[name]-v7-[hash].js',
+        entryFileNames: 'assets/js/[name]-v7-[hash].js'
       }
     },
     cssCodeSplit: true,
