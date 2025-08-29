@@ -869,9 +869,20 @@ function HomePage(){
         {/* Social Proof */}
         <Section 
           id="testimonials" 
-          kicker="What Our Clients Say" 
-          title="Success Stories"
         >
+          {/* Centered "What Our Clients Say" text */}
+          <div className="text-center mb-8">
+            <p className="mb-6 text-sm font-semibold uppercase tracking-widest text-emerald-400">What Our Clients Say</p>
+            {/* Centered Trustpilot logo */}
+            <a href="https://www.trustpilot.com/review/watt.co.uk" target="_blank" rel="noopener noreferrer" className="inline-block">
+              <img 
+                src="https://i.ibb.co/7YFr5KQc/trust-piolet-logo-white.png" 
+                alt="Trustpilot" 
+                className="h-10 mx-auto"
+              />
+            </a>
+          </div>
+          
           <div className="grid gap-6 md:grid-cols-3">
             {companyContent.testimonials.featured.slice(0, 3).map((testimonial, i) => (
               <Card key={i} className="border-0 bg-slate-900/60 ring-1 ring-slate-800">
