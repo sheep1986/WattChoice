@@ -11,13 +11,14 @@ import { knowledgeContent } from "./content/KnowledgeContent";
 import SimpleElectricity from './pages/SimpleElectricity';
 import SimpleGas from './pages/SimpleGas';
 import SolarEnergy from './pages/SolarEnergy';
-import { BusinessWater, BusinessBroadband, BusinessTelecoms, LargeBusiness, ContactPage, CompanyPage } from './pages/AllServicePages';
+import { BusinessWater, BusinessBroadband, BusinessTelecoms, LargeBusiness, ContactPage } from './pages/AllServicePages';
 import GetQuote from './pages/GetQuote';
 import FAQ from './pages/FAQ';
 import Testimonials from './pages/Testimonials';
 import TrustpilotReviews from './pages/TrustpilotReviews';
 import NotFound from './pages/NotFound';
 import ServicesPage from './pages/ServicesPage';
+import AboutPage from './pages/AboutPage';
 
 // Import all icons and components from original App
 import {
@@ -1456,8 +1457,8 @@ export default function WattUtilitiesSEO(){
               <Route path="/get-a-quote" element={<GetQuote />} />
               <Route path="/get-quote" element={<GetQuote />} />
               <Route path="/contact" element={<ContactPage />} />
-              <Route path="/company" element={<CompanyPage />} />
-              <Route path="/about" element={<CompanyPage />} />
+              <Route path="/company" element={<AboutPage />} />
+              <Route path="/about" element={<AboutPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
