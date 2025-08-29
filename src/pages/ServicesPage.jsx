@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { 
   Zap, 
   Flame, 
@@ -76,6 +77,55 @@ const ServicesPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+      <Helmet>
+        <title>Business Utility Services | Electricity, Gas, Water & More | Watt Utilities</title>
+        <meta name="description" content="Complete business utility management services. Compare electricity, gas, water, broadband and telecoms from 30+ suppliers. Save up to 45% with expert procurement." />
+        <meta name="keywords" content="business utilities, business energy, commercial electricity, business gas, water supplier switch, business broadband, telecoms, utility management" />
+        <link rel="canonical" href="https://www.wattutilities.co.uk/services" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Business Utility Services | Save up to 45% | Watt Utilities" />
+        <meta property="og:description" content="One provider for all your business utilities. Expert procurement across electricity, gas, water, broadband and telecoms. Free service, maximum savings." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.wattutilities.co.uk/services" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Business Utility Services | Watt Utilities" />
+        <meta name="twitter:description" content="Compare and switch all business utilities in one place. Save up to 45% with expert procurement." />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Business Utility Management Services",
+            "provider": {
+              "@type": "Organization",
+              "name": "Watt Utilities",
+              "url": "https://www.wattutilities.co.uk"
+            },
+            "serviceType": [
+              "Business Electricity Supply",
+              "Business Gas Supply",
+              "Business Water Supply",
+              "Business Broadband",
+              "Business Telecoms",
+              "Corporate Energy Management"
+            ],
+            "areaServed": {
+              "@type": "Country",
+              "name": "United Kingdom"
+            },
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "GBP",
+              "price": "0",
+              "description": "Free utility comparison and switching service"
+            }
+          })}
+        </script>
+      </Helmet>
       {/* Hero Section */}
       <section className="relative py-20 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-emerald-500/5 pointer-events-none"></div>

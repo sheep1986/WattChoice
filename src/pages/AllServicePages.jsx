@@ -75,14 +75,16 @@ export const BusinessWater = () => {
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Ready to Switch Water Supplier?</h2>
           <p className="text-xl text-gray-300 mb-8">Free switching service • No interruption to supply</p>
-          <motion.button 
+          <div className="flex justify-center">
+            <motion.button 
             onClick={() => setShowQuoteForm(true)} 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center justify-center gap-2"
           >
             Get Free Water Quote <ArrowRight className="w-6 h-6" />
-          </motion.button>
+            </motion.button>
+          </div>
         </div>
       </section>
 
@@ -190,14 +192,16 @@ export const BusinessBroadband = () => {
       <section className="py-20 px-4 bg-gradient-to-t from-purple-900/20 to-transparent">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Upgrade Your Business Connectivity</h2>
-          <motion.button 
+          <div className="flex justify-center">
+            <motion.button 
             onClick={() => setShowQuoteForm(true)} 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center justify-center gap-2"
           >
             Get Broadband Quote <ArrowRight className="w-6 h-6" />
-          </motion.button>
+            </motion.button>
+          </div>
         </div>
       </section>
 
@@ -271,14 +275,16 @@ export const BusinessTelecoms = () => {
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Modernise Your Business Communications</h2>
           <p className="text-xl text-gray-300 mb-8">Save up to 50% compared to traditional phone lines</p>
-          <motion.button 
+          <div className="flex justify-center">
+            <motion.button 
             onClick={() => setShowQuoteForm(true)} 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center justify-center gap-2"
           >
             Start Saving Today <ArrowRight className="w-6 h-6" />
-          </motion.button>
+            </motion.button>
+          </div>
         </div>
       </section>
 
@@ -369,14 +375,16 @@ export const LargeBusiness = () => {
       <section className="py-20 px-4 bg-gradient-to-t from-amber-900/20 to-transparent">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Enterprise Energy Management</h2>
-          <motion.button 
+          <div className="flex justify-center">
+            <motion.button 
             onClick={() => setShowQuoteForm(true)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center justify-center gap-2"
           >
             Book Strategic Review <ArrowRight className="w-6 h-6" />
-          </motion.button>
+            </motion.button>
+          </div>
         </div>
       </section>
 

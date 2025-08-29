@@ -1,106 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Main Services Page -->
+  <url>
+    <loc>https://www.wattutilities.co.uk/services</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  
+  <!-- Energy Services -->
   <url>
     <loc>https://www.wattutilities.co.uk/business-electricity</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://i.ibb.co/7dywXhNK/watt-utilities-white-logo-1-1.png</image:loc>
-      <image:title>Business Electricity Switching Services</image:title>
-      <image:caption>Save up to 45% on business electricity costs with Watt Utilities</image:caption>
-    </image:image>
+    <priority>0.9</priority>
   </url>
+  
   <url>
     <loc>https://www.wattutilities.co.uk/business-gas</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://i.ibb.co/7dywXhNK/watt-utilities-white-logo-1-1.png</image:loc>
-      <image:title>Business Gas Procurement</image:title>
-      <image:caption>Expert business gas contract negotiation and switching</image:caption>
-    </image:image>
+    <priority>0.9</priority>
   </url>
+  
+  <url>
+    <loc>https://www.wattutilities.co.uk/solar-energy</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Water Services -->
   <url>
     <loc>https://www.wattutilities.co.uk/business-water</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://i.ibb.co/7dywXhNK/watt-utilities-white-logo-1-1.png</image:loc>
-      <image:title>Business Water Switching</image:title>
-      <image:caption>Water deregulation experts - save up to 20% on water bills</image:caption>
-    </image:image>
+    <priority>0.85</priority>
   </url>
+  
+  <!-- Connectivity Services -->
   <url>
     <loc>https://www.wattutilities.co.uk/business-broadband</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://i.ibb.co/7dywXhNK/watt-utilities-white-logo-1-1.png</image:loc>
-      <image:title>Business Broadband Services</image:title>
-      <image:caption>High-speed business broadband and connectivity solutions</image:caption>
-    </image:image>
   </url>
+  
   <url>
     <loc>https://www.wattutilities.co.uk/business-telecoms</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://i.ibb.co/7dywXhNK/watt-utilities-white-logo-1-1.png</image:loc>
-      <image:title>Business Telecoms Solutions</image:title>
-      <image:caption>Complete business phone and telecoms packages</image:caption>
-    </image:image>
   </url>
+  
+  <!-- Corporate Services -->
   <url>
     <loc>https://www.wattutilities.co.uk/large-business</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://i.ibb.co/7dywXhNK/watt-utilities-white-logo-1-1.png</image:loc>
-      <image:title>Large Business Energy Management</image:title>
-      <image:caption>Corporate energy procurement and portfolio management</image:caption>
-    </image:image>
   </url>
+  
+  <!-- Quote Pages -->
   <url>
-    <loc>https://www.wattutilities.co.uk/energy-management</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.wattutilities.co.uk/green-energy</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.wattutilities.co.uk/half-hourly-meters</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.wattutilities.co.uk/smart-meters</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.wattutilities.co.uk/energy-audits</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.wattutilities.co.uk/bill-validation</loc>
-    <lastmod>2025-01-15T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://www.wattutilities.co.uk/get-quote</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
 </urlset>
