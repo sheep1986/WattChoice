@@ -1116,24 +1116,28 @@ export default function WattUtilitiesSite(){
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context":"https://schema.org", "@type":"Organization", name:"Watt Utilities", url:"https://www.wattutilities.co.uk", logo:"https://i.ibb.co/7dywXhNK/watt-utilities-white-logo-1-1.png" }) }} />
       <ScrollToTop />
       <div className="min-h-screen scroll-smooth bg-slate-950 text-slate-100">
-        {/* GIANT TEST BANNER - VERSION 6 */}
+        {/* VERSION 8 - UNMISSABLE DEPLOYMENT TEST */}
         <div style={{
           position: 'fixed',
           top: '0',
           left: '0',
           right: '0',
-          height: '100px',
-          backgroundColor: '#FF0000',
+          height: '150px',
+          backgroundColor: '#FF00FF',
           color: 'white',
           display: 'flex',
+          flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          fontSize: '36px',
+          fontSize: '48px',
           fontWeight: 'bold',
           zIndex: 999999,
-          boxShadow: '0 10px 50px rgba(255,0,0,0.5)'
+          boxShadow: '0 10px 50px rgba(255,0,255,0.8)',
+          animation: 'pulse 1s infinite'
         }}>
-          🚨 DEPLOYMENT TEST V6 - IF YOU SEE THIS, IT'S WORKING! 🚨
+          <div>🚨 VERSION 8 - DEPLOYMENT WORKING! 🚨</div>
+          <div style={{fontSize: '24px'}}>If you see this PURPLE banner, Netlify is updated!</div>
+          <div style={{fontSize: '18px'}}>{new Date().toLocaleString()}</div>
         </div>
         
         {/* TEST RED DOT - DEPLOYMENT VERIFICATION */}

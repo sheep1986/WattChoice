@@ -1,4 +1,4 @@
-DEPLOYMENT VERSION: 5
+DEPLOYMENT VERSION: 8
 DATE: 2025-08-29
 TIME: Current
 STATUS: Testing Netlify deployment from GitHub
