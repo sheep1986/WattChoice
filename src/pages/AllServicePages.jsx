@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Droplet, Wifi, Phone, Building2, FileText, Users, Mail, MapPin, ArrowRight, CheckCircle, Shield, Clock, PoundSterling, Award } from 'lucide-react';
-import BusinessQuoteForm from '../components/BusinessQuoteForm';
 import SimpleQuoteForm from '../components/SimpleQuoteForm';
+import BusinessQuoteForm from '../components/BusinessQuoteForm';
 
 // Business Water Page
 export const BusinessWater = () => {
@@ -26,14 +27,15 @@ export const BusinessWater = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 mb-12">
-            <motion.button 
-              onClick={() => setShowQuoteForm(true)} 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
-            >
-              Compare Water Rates <ArrowRight className="w-5 h-5" />
-            </motion.button>
+            <Link to="/contact">
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
+              >
+                Compare Water Rates <ArrowRight className="w-5 h-5" />
+              </motion.button>
+            </Link>
             <a href="tel:01618338661" className="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-8 rounded-lg border border-slate-700">
               <Phone className="inline mr-2" /> 0161 833 8661
             </a>
