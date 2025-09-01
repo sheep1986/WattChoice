@@ -56,10 +56,10 @@ const BusinessElectricityPage = () => {
 
       {/* Hero Section with Background Image */}
       <section className="relative min-h-[600px] bg-gradient-to-br from-blue-900 via-slate-800 to-blue-900 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1920')] bg-cover bg-center opacity-20"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1920')] bg-cover bg-center opacity-20 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent pointer-events-none"></div>
         
-        <div className="relative container mx-auto px-4 py-20">
+        <div className="relative container mx-auto px-4 py-20 z-10">
           {/* <BreadcrumbLinks 
             items={[
               { name: 'Services', href: '/services' },
@@ -72,7 +72,7 @@ const BusinessElectricityPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-4xl"
+            className="max-w-4xl relative z-10"
           >
             <div className="flex items-center gap-3 mb-6">
               <Zap className="w-12 h-12 text-yellow-400" />

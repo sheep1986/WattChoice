@@ -11,11 +11,11 @@ export const BusinessWater = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       <section className="relative py-20 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-blue-500/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-blue-500/5 pointer-events-none"></div>
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="container mx-auto max-w-6xl"
+          className="container mx-auto max-w-6xl relative z-10"
         >
           <div className="flex items-center gap-3 mb-6">
             <Droplet className="w-12 h-12 text-blue-400" />
@@ -68,7 +68,7 @@ export const BusinessWater = () => {
             alt="Water treatment facility"
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-950 pointer-events-none" />
         </div>
       </section>
 
@@ -103,11 +103,11 @@ export const BusinessBroadband = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       <section className="relative py-20 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-purple-500/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-purple-500/5 pointer-events-none"></div>
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="container mx-auto max-w-6xl"
+          className="container mx-auto max-w-6xl relative z-10"
         >
           <div className="flex items-center gap-3 mb-6">
             <Wifi className="w-12 h-12 text-purple-400" />
@@ -166,7 +166,7 @@ export const BusinessBroadband = () => {
             alt="Network cables and data center"
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-950 pointer-events-none" />
         </div>
       </section>
 
@@ -220,11 +220,11 @@ export const BusinessTelecoms = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       <section className="relative py-20 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 via-transparent to-green-500/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 via-transparent to-green-500/5 pointer-events-none"></div>
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="container mx-auto max-w-6xl"
+          className="container mx-auto max-w-6xl relative z-10"
         >
           <div className="flex items-center gap-3 mb-6">
             <Phone className="w-12 h-12 text-green-400" />
@@ -268,7 +268,7 @@ export const BusinessTelecoms = () => {
             alt="Business professional using phone system"
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-950 pointer-events-none" />
         </div>
       </section>
 
@@ -303,11 +303,11 @@ export const LargeBusiness = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       <section className="relative py-20 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-amber-500/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-amber-500/5 pointer-events-none"></div>
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="container mx-auto max-w-6xl"
+          className="container mx-auto max-w-6xl relative z-10"
         >
           <div className="flex items-center gap-3 mb-6">
             <Building2 className="w-12 h-12 text-amber-400" />
@@ -426,7 +426,7 @@ export const ContactPage = () => {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="container mx-auto max-w-6xl"
+          className="container mx-auto max-w-6xl relative z-10"
         >
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Contact Us</h1>
           <p className="text-xl text-gray-300 mb-12 max-w-3xl">
@@ -536,7 +536,7 @@ export const CompanyPage = () => {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="container mx-auto max-w-6xl"
+          className="container mx-auto max-w-6xl relative z-10"
         >
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">About Watt Utilities</h1>
           <p className="text-xl text-gray-300 mb-12 max-w-3xl">
