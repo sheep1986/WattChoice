@@ -19,27 +19,7 @@ function processRequest(e) {
     // Open the spreadsheet
     const sheet = SpreadsheetApp.getActiveSheet();
     
-    // Check if headers exist, if not add them
-    if (sheet.getLastRow() === 0) {
-      const headers = [
-        'Timestamp',
-        'Form Type',
-        'Business Name',
-        'Contact Name',
-        'Email',
-        'Phone',
-        'Postcode',
-        'Address',
-        'Business Type',
-        'Business Size',
-        'Trading Years',
-        'Position',
-        'Current Supplier',
-        'Additional Notes'
-      ];
-      sheet.appendRow(headers);
-      sheet.getRange(1, 1, 1, headers.length).setFontWeight('bold');
-    }
+    // Headers already exist in the sheet, don't add them
     
     // Get the data from the request
     let formData = {};
@@ -68,23 +48,43 @@ function processRequest(e) {
     // Log what we received
     console.log('Received data:', JSON.stringify(formData));
     
-    // If we have data, add it to the sheet
+    // If we have data, add it to the sheet - MATCH YOUR EXACT COLUMNS
     if (Object.keys(formData).length > 0) {
+      // Create a row with 33 columns to match your sheet exactly
       const row = [
-        new Date().toISOString(),
-        formData.formType || 'Web Form',
-        formData.businessName || '',
-        formData.contactName || '',
-        formData.email || '',
-        formData.phone || '',
-        formData.postcode || '',
-        formData.address || '',  // Address column
-        formData.businessType || '',
-        formData.businessSize || '',
-        formData.tradingYears || '',
-        formData.position || '',
-        formData.currentSupplier || '',
-        formData.additionalNotes || formData.notes || formData.message || ''  // Now in correct column
+        new Date().toISOString(),                                          // A: Timestamp
+        formData.formType || 'Web Form',                                   // B: Form Type
+        formData.businessName || '',                                       // C: Business Name
+        formData.contactName || '',                                        // D: Contact Name
+        formData.email || '',                                             // E: Email
+        formData.phone || '',                                             // F: Phone
+        formData.postcode || '',                                          // G: Postcode
+        formData.address || formData.businessAddress || '',               // H: Address
+        formData.businessType || '',                                      // I: Business Type
+        formData.businessSize || '',                                      // J: Business Size
+        formData.tradingYears || '',                                      // K: Trading Years
+        formData.position || '',                                          // L: Position
+        formData.currentSupplier || '',                                   // M: Current Supplier
+        formData.currentGasSupplier || '',                                // N: Current Gas Supplier
+        formData.currentElectricSupplier || '',                           // O: Current Electric Supplier
+        formData.contractEndDate || '',                                   // P: Contract End Date
+        formData.gasContractEndDate || '',                                // Q: Gas Contract End Date
+        formData.electricContractEndDate || '',                           // R: Electric Contract End Date
+        formData.annualSpend || '',                                       // S: Annual Spend
+        formData.annualUsage || '',                                       // T: Annual Usage
+        formData.monthlySpend || '',                                      // U: Monthly Spend
+        formData.meterType || '',                                         // V: Meter Type
+        formData.utilityType || '',                                       // W: Utility Type
+        formData.greenEnergy || '',                                       // X: Green Energy
+        formData.multiSite || '',                                         // Y: Multi Site
+        formData.numberOfSites || '',                                     // Z: Number of Sites
+        formData.currentProvider || '',                                   // AA: Current Provider
+        formData.serviceType || '',                                       // AB: Service Type
+        formData.preferredContactTime || '',                              // AC: Preferred Contact Time
+        formData.howDidYouHear || '',                                     // AD: How Did You Hear
+        formData.additionalNotes || formData.notes || formData.message || '', // AE: Additional Notes (Column 31)
+        formData.pageUrl || '',                                           // AF: Page URL
+        formData.userAgent || ''                                          // AG: User Agent
       ];
       
       sheet.appendRow(row);
@@ -113,29 +113,48 @@ function processRequest(e) {
 
 // Test function - RUN THIS FIRST
 function testDirectly() {
-  // This will add a test row to your sheet
+  // This will add a test row to your sheet with all 33 columns
   const sheet = SpreadsheetApp.getActiveSheet();
   
   const testRow = [
-    new Date().toISOString(),
-    'DIRECT TEST',
-    'Test Company',          // Business Name
-    'Test Person',           // Contact Name
-    'test@email.com',        // Email
-    '123456789',             // Phone
-    'TEST123',               // Postcode
-    '123 Test Street',       // Address
-    'Technology',            // Business Type
-    'Small',                 // Business Size
-    '5 years',               // Trading Years
-    'Manager',               // Position
-    'Current Provider',      // Current Supplier
-    'This is a direct test - if you see this, the script works!'  // Additional Notes
+    new Date().toISOString(),  // A: Timestamp
+    'DIRECT TEST',              // B: Form Type
+    'Test Company',             // C: Business Name
+    'Test Person',              // D: Contact Name
+    'test@email.com',           // E: Email
+    '123456789',                // F: Phone
+    'TEST123',                  // G: Postcode
+    '123 Test Street',          // H: Address
+    'Technology',               // I: Business Type
+    'Small',                    // J: Business Size
+    '5 years',                  // K: Trading Years
+    'Manager',                  // L: Position
+    'Current Provider',         // M: Current Supplier
+    '',                         // N: Current Gas Supplier
+    '',                         // O: Current Electric Supplier
+    '',                         // P: Contract End Date
+    '',                         // Q: Gas Contract End Date
+    '',                         // R: Electric Contract End Date
+    '',                         // S: Annual Spend
+    '',                         // T: Annual Usage
+    '',                         // U: Monthly Spend
+    '',                         // V: Meter Type
+    '',                         // W: Utility Type
+    '',                         // X: Green Energy
+    '',                         // Y: Multi Site
+    '',                         // Z: Number of Sites
+    '',                         // AA: Current Provider
+    '',                         // AB: Service Type
+    '',                         // AC: Preferred Contact Time
+    '',                         // AD: How Did You Hear
+    'TEST MESSAGE - This should appear in Additional Notes column AE!',  // AE: Additional Notes
+    '',                         // AF: Page URL
+    ''                          // AG: User Agent
   ];
   
   sheet.appendRow(testRow);
   
-  return 'Test row added - check your sheet!';
+  return 'Test row added with 33 columns - check column AE for the test message!';
 }
 
 // Function to test with simulated web request
