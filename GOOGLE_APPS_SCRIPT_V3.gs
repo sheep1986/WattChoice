@@ -9,11 +9,32 @@ const SHEET_NAME = 'Form Submissions';
 // Handle GET requests (primary method for form submissions)
 function doGet(e) {
   try {
+    // Check if e exists and has parameters
+    if (!e) {
+      console.log('No event object received');
+      return ContentService
+        .createTextOutput(JSON.stringify({
+          'result': 'success',
+          'message': 'Script is working but no data received'
+        }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+    
     // Extract parameters from the GET request
-    const data = e.parameter || {};
+    const data = (e && e.parameter) ? e.parameter : {};
     
     // Log what we received
-    console.log('GET request received with parameters:', data);
+    console.log('GET request received with parameters:', JSON.stringify(data));
+    
+    // If no data, return test response
+    if (Object.keys(data).length === 0) {
+      return ContentService
+        .createTextOutput(JSON.stringify({
+          'result': 'success',
+          'message': 'Script is working! Send data as URL parameters to submit forms.'
+        }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
     
     // Process the form submission
     const result = processFormSubmission(data);
@@ -29,6 +50,7 @@ function doGet(e) {
       
   } catch (error) {
     console.error('Error in doGet:', error.toString());
+    console.error('Stack:', error.stack);
     
     return ContentService
       .createTextOutput(JSON.stringify({
@@ -44,22 +66,28 @@ function doPost(e) {
   try {
     let data = {};
     
-    // Try to get data from various sources
-    if (e && e.parameter) {
-      // URL parameters
-      data = e.parameter;
-    } else if (e && e.postData && e.postData.contents) {
-      try {
-        // JSON body
-        data = JSON.parse(e.postData.contents);
-      } catch (parseError) {
-        // Form data as string
-        console.log('Could not parse JSON, using parameters');
-        data = e.parameter || {};
+    // Check if e exists
+    if (!e) {
+      console.log('No event object received in POST');
+      data = {};
+    } else {
+      // Try to get data from various sources
+      if (e.parameter) {
+        // URL parameters
+        data = e.parameter;
+      } else if (e.postData && e.postData.contents) {
+        try {
+          // JSON body
+          data = JSON.parse(e.postData.contents);
+        } catch (parseError) {
+          // Form data as string
+          console.log('Could not parse JSON, using parameters');
+          data = e.parameter || {};
+        }
       }
     }
     
-    console.log('POST request received with data:', data);
+    console.log('POST request received with data:', JSON.stringify(data));
     
     // Process the form submission
     const result = processFormSubmission(data);
@@ -74,6 +102,7 @@ function doPost(e) {
       
   } catch (error) {
     console.error('Error in doPost:', error.toString());
+    console.error('Stack:', error.stack);
     
     return ContentService
       .createTextOutput(JSON.stringify({
