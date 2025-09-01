@@ -3,7 +3,7 @@
  * Uses basic form submission that works reliably
  */
 
-const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwy0jYubq0MFPJQSwT40pM3oWeI3DavMA4jE2t1oah30x_abQA1Dy3X2Z3DBGuzSZ5Cbg/exec';
+const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbym0tckE5vCEDnF4GfDfBh3LG_Mv0SAJEhGOCdqXevV1x7Jh7OQH0PXTw8rWRLTNWaAXQ/exec';
 
 /**
  * Submit to Google Sheets using a hidden form
