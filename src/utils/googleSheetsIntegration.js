@@ -75,12 +75,11 @@ export const submitToGoogleSheets = async (formData, formType) => {
     });
 
     // Send to Google Sheets
+    // Note: We use 'no-cors' mode which means we can't read the response
+    // but it allows cross-origin requests to Google Apps Script
     const response = await fetch(GOOGLE_SHEETS_URL, {
       method: 'POST',
       mode: 'no-cors', // Important for Google Apps Script
-      headers: {
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify(submissionData)
     });
 
