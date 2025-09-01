@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Sun, ArrowRight, CheckCircle, Battery, Zap, Car, PoundSterling, Leaf, Shield, TrendingUp } from 'lucide-react';
+import BusinessQuoteForm from '../components/BusinessQuoteForm';
 
 const SolarEnergy = () => {
+  const [showQuoteForm, setShowQuoteForm] = useState(false);
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       {/* Hero Section */}
@@ -35,24 +37,22 @@ const SolarEnergy = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-4 mb-12">
-            <motion.a
-              href="https://www.app.watt.co.uk"
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.button
+              onClick={() => setShowQuoteForm(true)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
             >
               Get Solar Assessment <ArrowRight className="w-5 h-5" />
-            </motion.a>
-            <motion.a
+            </motion.button>
+            <motion.button
               href="tel:01618338661"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2 border border-slate-700"
             >
               Speak to Solar Expert
-            </motion.a>
+            </motion.button>
           </div>
 
           {/* Trust Indicators */}
@@ -297,24 +297,22 @@ const SolarEnergy = () => {
           </p>
           
           <div className="flex flex-wrap justify-center gap-4">
-            <motion.a
-              href="https://www.app.watt.co.uk"
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.button
+              onClick={() => setShowQuoteForm(true)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center gap-2"
             >
               Get Free Solar Assessment <ArrowRight className="w-6 h-6" />
-            </motion.a>
-            <motion.a
+            </motion.button>
+            <motion.button
               href="tel:01618338661"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-white hover:bg-gray-100 text-slate-900 font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center gap-2"
             >
               Call: 0161 833 8661
-            </motion.a>
+            </motion.button>
           </div>
           
           <p className="mt-6 text-sm text-gray-400">
@@ -323,6 +321,10 @@ const SolarEnergy = () => {
         </div>
       </section>
 
+      {/* Quote Form Modal */}
+      {showQuoteForm && (
+        <BusinessQuoteForm onClose={() => setShowQuoteForm(false)} />
+      )}
     </div>
   );
 };
