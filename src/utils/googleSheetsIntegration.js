@@ -48,7 +48,7 @@
  */
 
 // IMPORTANT: Replace this with your actual Google Apps Script Web App URL
-const GOOGLE_SHEETS_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyWXRrNElgdkWcfh2VnoZ3Q2NjYsEapJsKhYMp7jOg73I1Xn7MVvPv5PieTpuZ1Dl48/exec';
 
 /**
  * Submit form data to Google Sheets
