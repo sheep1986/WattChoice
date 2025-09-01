@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { submitToGoogleSheets, normalizeFormData } from '../utils/googleSheetsIntegration';
+import { submitToGoogleSheetsIframe, normalizeFormData } from '../utils/googleSheetsIntegrationV2';
 import { X, Phone, Mail, Building2, MapPin, User, CheckCircle, Droplet, Wifi } from 'lucide-react';
 
 const SimpleQuoteForm = ({ onClose, serviceType = 'water' }) => {
@@ -31,10 +31,10 @@ const SimpleQuoteForm = ({ onClose, serviceType = 'water' }) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Submit to Google Sheets
+    // Submit to Google Sheets using iframe method
     try {
       const normalizedData = normalizeFormData(formData, `simple-${serviceType}-quote`);
-      await submitToGoogleSheets(normalizedData, `simple-${serviceType}-quote`);
+      await submitToGoogleSheetsIframe(normalizedData, `simple-${serviceType}-quote`);
       console.log('Successfully submitted to Google Sheets');
     } catch (error) {
       console.error('Error submitting to Google Sheets:', error);
