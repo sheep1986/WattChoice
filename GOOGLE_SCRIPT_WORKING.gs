@@ -29,6 +29,12 @@ function processRequest(e) {
         'Email',
         'Phone',
         'Postcode',
+        'Address',
+        'Business Type',
+        'Business Size',
+        'Trading Years',
+        'Position',
+        'Current Supplier',
         'Additional Notes'
       ];
       sheet.appendRow(headers);
@@ -72,7 +78,13 @@ function processRequest(e) {
         formData.email || '',
         formData.phone || '',
         formData.postcode || '',
-        formData.additionalNotes || formData.notes || formData.message || ''
+        formData.address || '',  // Address column
+        formData.businessType || '',
+        formData.businessSize || '',
+        formData.tradingYears || '',
+        formData.position || '',
+        formData.currentSupplier || '',
+        formData.additionalNotes || formData.notes || formData.message || ''  // Now in correct column
       ];
       
       sheet.appendRow(row);
@@ -107,12 +119,18 @@ function testDirectly() {
   const testRow = [
     new Date().toISOString(),
     'DIRECT TEST',
-    'Test Company',
-    'Test Person',
-    'test@email.com',
-    '123456789',
-    'TEST123',
-    'This is a direct test - if you see this, the script works!'
+    'Test Company',          // Business Name
+    'Test Person',           // Contact Name
+    'test@email.com',        // Email
+    '123456789',             // Phone
+    'TEST123',               // Postcode
+    '123 Test Street',       // Address
+    'Technology',            // Business Type
+    'Small',                 // Business Size
+    '5 years',               // Trading Years
+    'Manager',               // Position
+    'Current Provider',      // Current Supplier
+    'This is a direct test - if you see this, the script works!'  // Additional Notes
   ];
   
   sheet.appendRow(testRow);
