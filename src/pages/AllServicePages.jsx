@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Droplet, Wifi, Phone, Building2, FileText, Users, Mail, MapPin, ArrowRight, CheckCircle, Shield, Clock, PoundSterling, Award } from 'lucide-react';
 import SimpleQuoteForm from '../components/SimpleQuoteForm';
 import BusinessQuoteForm from '../components/BusinessQuoteForm';
+import { submitToGoogleSheets, normalizeFormData } from '../utils/googleSheetsIntegration';
 
 // Business Water Page
 export const BusinessWater = () => {
@@ -402,9 +403,24 @@ export const ContactPage = () => {
     message: ''
   });
   
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // For now, just show an alert. In production, this would send to a backend
+    
+    // Submit to Google Sheets
+    try {
+      const dataToSubmit = {
+        contactName: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        additionalNotes: formData.message
+      };
+      const normalizedData = normalizeFormData(dataToSubmit, 'contact-form');
+      await submitToGoogleSheets(normalizedData, 'contact-form');
+      console.log('Successfully submitted to Google Sheets');
+    } catch (error) {
+      console.error('Error submitting to Google Sheets:', error);
+    }
+    
     alert('Thank you for your enquiry! We will contact you within 24 hours.');
     setFormData({ name: '', email: '', phone: '', message: '' });
   };

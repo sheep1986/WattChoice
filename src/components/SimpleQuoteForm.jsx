@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { submitToGoogleSheets, normalizeFormData } from '../utils/googleSheetsIntegration';
 import { X, Phone, Mail, Building2, MapPin, User, CheckCircle, Droplet, Wifi } from 'lucide-react';
 
 const SimpleQuoteForm = ({ onClose, serviceType = 'water' }) => {
@@ -30,7 +31,17 @@ const SimpleQuoteForm = ({ onClose, serviceType = 'water' }) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate submission delay
+    // Submit to Google Sheets
+    try {
+      const normalizedData = normalizeFormData(formData, `simple-${serviceType}-quote`);
+      await submitToGoogleSheets(normalizedData, `simple-${serviceType}-quote`);
+      console.log('Successfully submitted to Google Sheets');
+    } catch (error) {
+      console.error('Error submitting to Google Sheets:', error);
+      // Don't block the user experience if Google Sheets fails
+    }
+    
+    // Simulate submission delay for better UX
     await new Promise(resolve => setTimeout(resolve, 1500));
     
     setIsSubmitting(false);

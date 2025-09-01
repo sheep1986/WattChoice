@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { submitToGoogleSheets, normalizeFormData } from '../utils/googleSheetsIntegration';
 import { 
   ArrowRight, 
   ArrowLeft, 
@@ -245,9 +246,20 @@ const BusinessQuoteForm = ({ onClose }) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
+    
+    // Submit to Google Sheets
+    try {
+      const normalizedData = normalizeFormData(formData, 'business-energy-quote');
+      await submitToGoogleSheets(normalizedData, 'business-energy-quote');
+      console.log('Successfully submitted to Google Sheets');
+    } catch (error) {
+      console.error('Error submitting to Google Sheets:', error);
+      // Don't block the user experience if Google Sheets fails
+    }
+    
     setCurrentStep('success');
   };
 
