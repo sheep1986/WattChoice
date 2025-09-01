@@ -67,12 +67,16 @@ export const submitToGoogleSheets = async (formData, formType) => {
       userAgent: navigator.userAgent
     };
 
-    // Remove any undefined or null values
+    // Remove any undefined or null values and convert booleans to strings
     Object.keys(submissionData).forEach(key => {
       if (submissionData[key] === undefined || submissionData[key] === null) {
         submissionData[key] = '';
+      } else if (typeof submissionData[key] === 'boolean') {
+        submissionData[key] = submissionData[key] ? 'Yes' : 'No';
       }
     });
+
+    console.log('Submitting to Google Sheets:', submissionData);
 
     // Send to Google Sheets
     // Note: We use 'no-cors' mode which means we can't read the response
@@ -80,12 +84,16 @@ export const submitToGoogleSheets = async (formData, formType) => {
     const response = await fetch(GOOGLE_SHEETS_URL, {
       method: 'POST',
       mode: 'no-cors', // Important for Google Apps Script
+      headers: {
+        'Content-Type': 'text/plain;charset=utf-8'
+      },
       body: JSON.stringify(submissionData)
     });
 
     // Since we're using no-cors, we can't read the response
     // We'll assume success if no error was thrown
     console.log('Form submitted to Google Sheets successfully');
+    console.log('Check your Google Sheet for:', submissionData.businessName || submissionData.contactName);
     return true;
   } catch (error) {
     console.error('Error submitting to Google Sheets:', error);
