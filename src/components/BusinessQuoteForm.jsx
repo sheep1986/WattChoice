@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { submitToGoogleSheets, normalizeFormData } from '../utils/googleSheetsIntegrationV3';
+import { submitToGoogleSheets } from '../utils/googleSheetsSimple';
 import { 
   ArrowRight, 
   ArrowLeft, 

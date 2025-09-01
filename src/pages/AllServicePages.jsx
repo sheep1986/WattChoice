@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Droplet, Wifi, Phone, Building2, FileText, Users, Mail, MapPin, ArrowRight, CheckCircle, Shield, Clock, PoundSterling, Award } from 'lucide-react';
 import SimpleQuoteForm from '../components/SimpleQuoteForm';
 import BusinessQuoteForm from '../components/BusinessQuoteForm';
-import { submitToGoogleSheets } from '../utils/googleSheetsIntegrationV3';
+import { submitToGoogleSheets } from '../utils/googleSheetsSimple';
 
 // Business Water Page
 export const BusinessWater = () => {

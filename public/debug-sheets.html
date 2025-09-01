@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Google Sheets Integration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .test-section {
+            background: #f7f9fc;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid #e2e8f0;
+        }
+        .test-title {
+            font-size: 1.2em;
+            color: #4a5568;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        button {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 5px;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+        button:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .result {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            white-space: pre-wrap;
+            word-break: break-all;
+            display: none;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        .info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        .url-display {
+            background: #2d3748;
+            color: #48bb78;
+            padding: 10px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 12px;
+            word-break: break-all;
+            margin: 10px 0;
+        }
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #10b981;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Google Sheets Debug Tool</h1>
+        <p class="subtitle">Test your Google Sheets integration step by step</p>
+        
+        <div class="url-display">
+            Script URL: https://script.google.com/macros/s/AKfycbyWXRrNElgdkWcfh2VnoZ3Q2NjYsEapJsKhYMp7jOg73I1Xn7MVvPv5PieTpuZ1Dl48/exec
+        </div>
+
+        <!-- Test 1: Basic Connectivity -->
+        <div class="test-section">
+            <h3 class="test-title">Test 1: Check Script Connectivity</h3>
+            <p>This tests if your Google Apps Script is accessible.</p>
+            <button onclick="testConnectivity()">Test Connection</button>
+            <div id="result1" class="result"></div>
+        </div>
+
+        <!-- Test 2: Simple Form Submission -->
+        <div class="test-section">
+            <h3 class="test-title">Test 2: Simple Form Submission</h3>
+            <p>Submit a test form using the same method as your website.</p>
+            <form id="testForm" onsubmit="submitTestForm(event)">
+                <input type="text" class="form-input" name="businessName" placeholder="Business Name" value="Test Company">
+                <input type="text" class="form-input" name="contactName" placeholder="Contact Name" value="Test User">
+                <input type="email" class="form-input" name="email" placeholder="Email" value="test@example.com">
+                <input type="tel" class="form-input" name="phone" placeholder="Phone" value="01234567890">
+                <button type="submit">Submit Test Form</button>
+            </form>
+            <div id="result2" class="result"></div>
+        </div>
+
+        <!-- Test 3: Direct POST -->
+        <div class="test-section">
+            <h3 class="test-title">Test 3: Direct POST Request</h3>
+            <p>Send data directly using a POST request.</p>
+            <button onclick="testDirectPost()">Send Direct POST</button>
+            <div id="result3" class="result"></div>
+        </div>
+
+        <!-- Test 4: GET with Parameters -->
+        <div class="test-section">
+            <h3 class="test-title">Test 4: GET Request with Parameters</h3>
+            <p>Send data using GET parameters in the URL.</p>
+            <button onclick="testGetRequest()">Send GET Request</button>
+            <div id="result4" class="result"></div>
+        </div>
+    </div>
+
+    <script>
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyWXRrNElgdkWcfh2VnoZ3Q2NjYsEapJsKhYMp7jOg73I1Xn7MVvPv5PieTpuZ1Dl48/exec';
+        
+        function showResult(elementId, message, type = 'info') {
+            const elem = document.getElementById(elementId);
+            elem.className = 'result ' + type;
+            elem.textContent = message;
+            elem.style.display = 'block';
+        }
+        
+        // Test 1: Basic connectivity
+        async function testConnectivity() {
+            showResult('result1', 'Testing connection...', 'info');
+            
+            try {
+                // Try with fetch
+                const response = await fetch(SCRIPT_URL);
+                const text = await response.text();
+                showResult('result1', `✅ Connected successfully!\nResponse: ${text.substring(0, 200)}...`, 'success');
+            } catch (error) {
+                // CORS error is expected, but it means the script is reachable
+                if (error.message.includes('CORS') || error.message.includes('Failed to fetch')) {
+                    showResult('result1', '✅ Script is reachable (CORS block is normal)\nThe script exists and can receive data.', 'success');
+                } else {
+                    showResult('result1', `❌ Connection failed: ${error.message}`, 'error');
+                }
+            }
+        }
+        
+        // Test 2: Form submission
+        function submitTestForm(event) {
+            event.preventDefault();
+            showResult('result2', 'Submitting form...', 'info');
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            data.formType = 'TEST-FORM';
+            data.timestamp = new Date().toISOString();
+            
+            // Method 1: Hidden form submission
+            const form = document.createElement('form');
+            form.style.display = 'none';
+            form.method = 'POST';
+            form.action = SCRIPT_URL;
+            form.target = 'hidden-frame';
+            
+            Object.keys(data).forEach(key => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = data[key];
+                form.appendChild(input);
+            });
+            
+            // Create hidden iframe
+            let iframe = document.getElementById('hidden-frame');
+            if (!iframe) {
+                iframe = document.createElement('iframe');
+                iframe.id = 'hidden-frame';
+                iframe.name = 'hidden-frame';
+                iframe.style.display = 'none';
+                document.body.appendChild(iframe);
+            }
+            
+            document.body.appendChild(form);
+            form.submit();
+            
+            setTimeout(() => {
+                document.body.removeChild(form);
+                showResult('result2', 
+                    `✅ Form submitted!\n` +
+                    `Check your Google Sheet for:\n` +
+                    `Business: ${data.businessName}\n` +
+                    `Contact: ${data.contactName}\n` +
+                    `Time: ${data.timestamp}`, 
+                    'success'
+                );
+            }, 1000);
+        }
+        
+        // Test 3: Direct POST
+        async function testDirectPost() {
+            showResult('result3', 'Sending POST request...', 'info');
+            
+            const testData = {
+                formType: 'DIRECT-POST',
+                businessName: 'Direct Post Test',
+                contactName: 'POST Tester',
+                email: 'post@test.com',
+                timestamp: new Date().toISOString()
+            };
+            
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(testData)
+                });
+                
+                showResult('result3', 
+                    `✅ POST request sent!\n` +
+                    `Data: ${JSON.stringify(testData, null, 2)}\n` +
+                    `Note: Check your Google Sheet for the data.`,
+                    'success'
+                );
+            } catch (error) {
+                showResult('result3', `❌ Error: ${error.message}`, 'error');
+            }
+        }
+        
+        // Test 4: GET request
+        function testGetRequest() {
+            showResult('result4', 'Sending GET request...', 'info');
+            
+            const params = new URLSearchParams({
+                formType: 'GET-TEST',
+                businessName: 'GET Test Company',
+                contactName: 'GET Tester',
+                email: 'get@test.com',
+                phone: '09876543210',
+                timestamp: new Date().toISOString()
+            });
+            
+            const url = `${SCRIPT_URL}?${params.toString()}`;
+            
+            // Method 1: Image
+            const img = new Image();
+            img.src = url;
+            
+            // Method 2: Hidden iframe
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = url;
+            document.body.appendChild(iframe);
+            
+            setTimeout(() => {
+                document.body.removeChild(iframe);
+                showResult('result4', 
+                    `✅ GET request sent!\n` +
+                    `URL: ${url.substring(0, 100)}...\n` +
+                    `Check your Google Sheet for "GET Test Company"`,
+                    'success'
+                );
+            }, 1000);
+        }
+        
+        // Initial message
+        console.log('%c🔧 Google Sheets Debug Tool Ready', 'color: #10b981; font-size: 16px; font-weight: bold');
+        console.log('Script URL:', SCRIPT_URL);
+    </script>
+</body>
+</html>
