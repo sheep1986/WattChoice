@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -9,10 +9,12 @@ import {
 } from 'lucide-react';
 import { SEOHead } from '../SEO';
 import { serviceContent } from '../content/ServiceContent';
+import BusinessQuoteForm from '../components/BusinessQuoteForm';
 // import { BreadcrumbLinks, RelatedServicesWidget, CTALinksSection } from '../components/InternalLinks';
 
 const BusinessGasPage = () => {
   const content = serviceContent.gas;
+  const [showQuoteForm, setShowQuoteForm] = useState(false);
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -133,12 +135,14 @@ const BusinessGasPage = () => {
                   Lock in rates now before expected summer maintenance price increases.
                 </p>
               </div>
-              <Link 
-                to="/get-a-quote" 
+              <motion.button 
+                onClick={() => setShowQuoteForm(true)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition-all"
               >
                 Get Your Gas Quote <ArrowRight />
-              </Link>
+              </motion.button>
             </motion.div>
             
             <motion.div
@@ -458,6 +462,7 @@ const BusinessGasPage = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <motion.button
+              onClick={() => setShowQuoteForm(true)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-white hover:bg-gray-100 text-orange-600 font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
@@ -475,6 +480,11 @@ const BusinessGasPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Quote Form Modal */}
+      {showQuoteForm && (
+        <BusinessQuoteForm onClose={() => setShowQuoteForm(false)} />
+      )}
     </>
   );
 };
