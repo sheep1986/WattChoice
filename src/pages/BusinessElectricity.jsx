@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -9,12 +9,10 @@ import {
 } from 'lucide-react';
 import { SEOHead, organizationSchema, serviceSchema } from '../SEO';
 import { serviceContent } from '../content/ServiceContent';
-import BusinessQuoteForm from '../components/BusinessQuoteForm';
 // import { BreadcrumbLinks, RelatedServicesWidget, CTALinksSection } from '../components/InternalLinks';
 
 const BusinessElectricityPage = () => {
   const content = serviceContent.electricity;
-  const [showQuoteForm, setShowQuoteForm] = useState(false);
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -86,14 +84,16 @@ const BusinessElectricityPage = () => {
             </p>
             
             <div className="flex flex-wrap gap-4 mb-12">
-              <motion.button
-                onClick={() => setShowQuoteForm(true)}
+              <motion.a
+                href="https://www.app.watt.co.uk"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
+                className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2 inline-flex"
               >
                 Get Free Quote <ArrowRight />
-              </motion.button>
+              </motion.a>
               <motion.a
                 href="tel:01618338661"
                 whileHover={{ scale: 1.05 }}
@@ -464,14 +464,16 @@ const BusinessElectricityPage = () => {
             Join thousands of businesses saving millions on their energy bills
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <motion.button
-              onClick={() => setShowQuoteForm(true)}
+            <motion.a
+              href="https://www.app.watt.co.uk"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-black hover:bg-gray-800 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
+              className="bg-black hover:bg-gray-800 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2 inline-flex"
             >
               Get Your Free Quote <ArrowRight />
-            </motion.button>
+            </motion.a>
             <motion.a
               href="tel:01618338661"
               whileHover={{ scale: 1.05 }}
@@ -483,11 +485,6 @@ const BusinessElectricityPage = () => {
           </div>
         </div>
       </section>
-
-      {/* Quote Form Modal */}
-      {showQuoteForm && (
-        <BusinessQuoteForm onClose={() => setShowQuoteForm(false)} />
-      )}
     </>
   );
 };

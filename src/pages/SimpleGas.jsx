@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Flame, ArrowRight, CheckCircle, Phone, TrendingUp, Shield, Clock, Building2, PoundSterling, Award, BarChart3 } from 'lucide-react';
-import BusinessQuoteForm from '../components/BusinessQuoteForm';
 
 const SimpleGas = () => {
-  const [showQuoteForm, setShowQuoteForm] = useState(false);
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       {/* Hero Section */}
@@ -30,14 +28,16 @@ const SimpleGas = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-4 mb-12">
-            <motion.button
-              onClick={() => setShowQuoteForm(true)}
+            <motion.a
+              href="https://www.app.watt.co.uk"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
             >
               Compare Gas Prices <ArrowRight className="w-5 h-5" />
-            </motion.button>
+            </motion.a>
             <motion.a
               href="tel:01618338661"
               whileHover={{ scale: 1.05 }}
@@ -165,14 +165,16 @@ const SimpleGas = () => {
           </p>
           
           <div className="flex flex-wrap justify-center gap-4">
-            <motion.button
-              onClick={() => setShowQuoteForm(true)}
+            <motion.a
+              href="https://www.app.watt.co.uk"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg shadow-lg text-lg"
             >
               Get Your Free Gas Quote <ArrowRight className="inline ml-2" />
-            </motion.button>
+            </motion.a>
             <motion.a
               href="tel:01618338661"
               whileHover={{ scale: 1.05 }}
@@ -185,10 +187,6 @@ const SimpleGas = () => {
         </div>
       </section>
 
-      {/* Quote Form Modal */}
-      {showQuoteForm && (
-        <BusinessQuoteForm onClose={() => setShowQuoteForm(false)} />
-      )}
     </div>
   );
 };

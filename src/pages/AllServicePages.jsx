@@ -7,7 +7,6 @@ import BusinessQuoteForm from '../components/BusinessQuoteForm';
 
 // Business Water Page
 export const BusinessWater = () => {
-  const [showQuoteForm, setShowQuoteForm] = useState(false);
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       <section className="relative py-20 px-4 overflow-hidden">
@@ -27,14 +26,16 @@ export const BusinessWater = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 mb-12">
-            <motion.button 
-              onClick={() => setShowQuoteForm(true)}
+            <motion.a 
+              href="https://www.app.watt.co.uk"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
+              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2 inline-flex"
             >
               Compare Water Rates <ArrowRight className="w-5 h-5" />
-            </motion.button>
+            </motion.a>
             <a href="tel:01618338661" className="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-8 rounded-lg border border-slate-700">
               <Phone className="inline mr-2" /> 0161 833 8661
             </a>
@@ -77,22 +78,19 @@ export const BusinessWater = () => {
           <h2 className="text-4xl font-bold text-white mb-6">Ready to Switch Water Supplier?</h2>
           <p className="text-xl text-gray-300 mb-8">Free switching service • No interruption to supply</p>
           <div className="flex justify-center">
-            <motion.button 
-            onClick={() => setShowQuoteForm(true)} 
+            <motion.a 
+            href="https://www.app.watt.co.uk"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center justify-center gap-2"
+            className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center justify-center gap-2 inline-flex"
           >
             Get Free Water Quote <ArrowRight className="w-6 h-6" />
-            </motion.button>
+            </motion.a>
           </div>
         </div>
       </section>
-
-      {/* Quote Form Modal - Simpler form for water */}
-      {showQuoteForm && (
-        <SimpleQuoteForm onClose={() => setShowQuoteForm(false)} serviceType="water" />
-      )}
     </div>
   );
 };
@@ -299,7 +297,6 @@ export const BusinessTelecoms = () => {
 
 // Large Business Page
 export const LargeBusiness = () => {
-  const [showQuoteForm, setShowQuoteForm] = useState(false);
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       <section className="relative py-20 px-4 overflow-hidden">
@@ -319,14 +316,16 @@ export const LargeBusiness = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 mb-12">
-            <motion.button 
-              onClick={() => setShowQuoteForm(true)}
+            <motion.a 
+              href="https://www.app.watt.co.uk"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
+              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2 inline-flex"
             >
               Schedule Consultation <ArrowRight className="w-5 h-5" />
-            </motion.button>
+            </motion.a>
             <a href="tel:01618338661" className="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-8 rounded-lg border border-slate-700">
               <Phone className="inline mr-2" /> Corporate Team
             </a>
@@ -377,22 +376,19 @@ export const LargeBusiness = () => {
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Enterprise Energy Management</h2>
           <div className="flex justify-center">
-            <motion.button 
-            onClick={() => setShowQuoteForm(true)}
+            <motion.a 
+            href="https://www.app.watt.co.uk"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center justify-center gap-2"
+            className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 rounded-lg shadow-lg text-lg flex items-center justify-center gap-2 inline-flex"
           >
             Book Strategic Review <ArrowRight className="w-6 h-6" />
-            </motion.button>
+            </motion.a>
           </div>
         </div>
       </section>
-
-      {/* Quote Form Modal */}
-      {showQuoteForm && (
-        <BusinessQuoteForm onClose={() => setShowQuoteForm(false)} />
-      )}
     </div>
   );
 };
