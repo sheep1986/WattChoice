@@ -4,7 +4,7 @@
  */
 
 // IMPORTANT: Change this to match your sheet name
-const SHEET_NAME = 'Sheet1'; // Or 'Form Submissions' if you've renamed it
+const SHEET_NAME = 'www.wattutilities.co.uk';
 
 function doGet(e) {
   return processRequest(e);

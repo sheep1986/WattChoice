@@ -4,7 +4,7 @@
  */
 
 // The name of your Google Sheet tab
-const SHEET_NAME = 'Form Submissions';
+const SHEET_NAME = 'www.wattutilities.co.uk';
 
 // Main entry point for both GET and POST
 function doGet(e) {
