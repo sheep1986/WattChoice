@@ -4,7 +4,7 @@
  */
 
 // IMPORTANT: Your Google Apps Script Web App URL
-const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyWXRrNElgdkWcfh2VnoZ3Q2NjYsEapJsKhYMp7jOg73I1Xn7MVvPv5PieTpuZ1Dl48/exec';
+const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbw-aQdI05kYULvX6wO03WnmBDtjuuFpibLIC-f1A8mC1ui9ssd54JHVfhK8PnJOqNDEFA/exec';
 
 /**
  * Submit form data to Google Sheets using GET request with URL parameters
