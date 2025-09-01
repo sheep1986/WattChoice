@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { submitToGoogleSheetsIframe, normalizeFormData } from '../utils/googleSheetsIntegrationV2';
+import { submitToGoogleSheets, normalizeFormData } from '../utils/googleSheetsIntegrationV3';
 import { 
   ArrowRight, 
   ArrowLeft, 
@@ -250,10 +250,9 @@ const BusinessQuoteForm = ({ onClose }) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     
-    // Submit to Google Sheets using iframe method
+    // Submit to Google Sheets using GET method
     try {
-      const normalizedData = normalizeFormData(formData, 'business-energy-quote');
-      await submitToGoogleSheetsIframe(normalizedData, 'business-energy-quote');
+      await submitToGoogleSheets(formData, 'business-energy-quote');
       console.log('Successfully submitted to Google Sheets');
     } catch (error) {
       console.error('Error submitting to Google Sheets:', error);

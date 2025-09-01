@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Droplet, Wifi, Phone, Building2, FileText, Users, Mail, MapPin, ArrowRight, CheckCircle, Shield, Clock, PoundSterling, Award } from 'lucide-react';
 import SimpleQuoteForm from '../components/SimpleQuoteForm';
 import BusinessQuoteForm from '../components/BusinessQuoteForm';
-import { submitToGoogleSheetsIframe, normalizeFormData } from '../utils/googleSheetsIntegrationV2';
+import { submitToGoogleSheets } from '../utils/googleSheetsIntegrationV3';
 
 // Business Water Page
 export const BusinessWater = () => {
@@ -414,8 +414,7 @@ export const ContactPage = () => {
         phone: formData.phone,
         additionalNotes: formData.message
       };
-      const normalizedData = normalizeFormData(dataToSubmit, 'contact-form');
-      await submitToGoogleSheetsIframe(normalizedData, 'contact-form');
+      await submitToGoogleSheets(dataToSubmit, 'contact-form');
       console.log('Successfully submitted to Google Sheets');
     } catch (error) {
       console.error('Error submitting to Google Sheets:', error);
