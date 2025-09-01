@@ -313,11 +313,9 @@ const AboutPage = () => {
             >
               Get Your Free Quote <ArrowRight className="w-5 h-5" />
             </motion.button>
-            <a href="tel:01618338661">
-              <button className="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-8 rounded-lg border border-slate-700 flex items-center gap-2">
-                <Phone className="w-5 h-5" />
-                Call 0161 833 8661
-              </button>
+            <a href="tel:01618338661" className="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-8 rounded-lg border border-slate-700 flex items-center gap-2 inline-flex">
+              <Phone className="w-5 h-5" />
+              Call 0161 833 8661
             </a>
           </div>
         </div>
