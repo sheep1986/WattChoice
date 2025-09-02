@@ -1132,11 +1132,11 @@ function HomePage(){
               Join 900,000+ businesses saving millions on utilities
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/get-quote">
+              <a href="https://www.app.watt.co.uk" target="_blank" rel="noopener noreferrer">
                 <Button className="h-12 rounded-xl bg-white px-8 text-base font-semibold text-slate-950 hover:bg-gray-100">
                   Get Free Quotes Now
                 </Button>
-              </Link>
+              </a>
               <a href="tel:01618338661">
                 <Button variant="outline" className="h-12 rounded-xl border-slate-700 bg-slate-900/40 px-8 text-base text-slate-200 hover:bg-slate-800">
                   <Phone className="mr-2 h-5 w-5" />

@@ -572,7 +572,7 @@ const CaseStudies = () => {
             </p>
             
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/get-quote">
+              <a href="https://www.app.watt.co.uk" target="_blank" rel="noopener noreferrer">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -581,7 +581,7 @@ const CaseStudies = () => {
                   Get Your Free Quote
                   <ArrowRight className="w-5 h-5" />
                 </motion.button>
-              </Link>
+              </a>
               <motion.a
                 href="tel:01618338661"
                 whileHover={{ scale: 1.05 }}
