@@ -14,13 +14,18 @@ export default defineConfig({
           mkdirSync('dist', { recursive: true })
         }
         
-        // Copy favicon files
+        // Copy static files
         const filesToCopy = [
           'favicon.ico',
           'favicon.png', 
           'apple-touch-icon.png',
           'logo192.png',
-          'manifest.json'
+          'manifest.json',
+          '_redirects',
+          'sitemap.xml',
+          'sitemap-pages.xml',
+          'sitemap-services.xml',
+          'robots.txt'
         ]
         
         filesToCopy.forEach(file => {
@@ -36,7 +41,8 @@ export default defineConfig({
   ],
   server: {
     port: 3000,
-    open: true
+    open: true,
+    historyApiFallback: true
   },
   build: {
     outDir: 'dist',

@@ -1,5 +1,5 @@
 import React, { useMemo, useState, useEffect, lazy, Suspense } from "react";
-import { HashRouter as Router, Routes, Route, NavLink, useLocation, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, NavLink, useLocation, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { HelmetProvider } from "react-helmet-async";
 import { SEOHead, organizationSchema, localBusinessSchema, faqSchema } from "./SEO";

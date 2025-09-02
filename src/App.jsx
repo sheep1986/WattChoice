@@ -1,5 +1,5 @@
 import React, { useMemo, useState, useEffect, useRef } from "react";
-import { HashRouter as Router, Routes, Route, NavLink, useLocation, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, NavLink, useLocation, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import CaseStudies from './pages/CaseStudies';
 import BusinessEnergyGuides from './pages/BusinessEnergyGuides';
