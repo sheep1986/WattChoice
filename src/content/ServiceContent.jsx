@@ -213,7 +213,30 @@ export const serviceContent = {
             description: "Public sector frameworks and budget-aligned procurement"
           }
         ]
-      }
+      },
+      
+      faqs: [
+        {
+          question: "How much can I save on business gas?",
+          answer: "Most businesses save 20-45% on gas costs through our procurement service. Savings depend on current rates, consumption patterns, and market timing."
+        },
+        {
+          question: "What's the difference between fixed and flexible gas contracts?",
+          answer: "Fixed contracts lock in rates for budget certainty, while flexible contracts allow you to buy gas in blocks to capture market lows. We help choose the best strategy for your risk appetite."
+        },
+        {
+          question: "Can you manage multiple gas meters across different sites?",
+          answer: "Yes, we offer basket contracts that aggregate all your sites for better rates and provide consolidated billing for simplified administration."
+        },
+        {
+          question: "When should I start looking for a new gas contract?",
+          answer: "Ideally 6-9 months before your current contract ends. This allows time to monitor markets and secure optimal rates without risking out-of-contract charges."
+        },
+        {
+          question: "Do you charge for gas procurement services?",
+          answer: "No, our service is free to businesses. We receive transparent commission from suppliers which we're happy to disclose."
+        }
+      ]
     }
   },
   

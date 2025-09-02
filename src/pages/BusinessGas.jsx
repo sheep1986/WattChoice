@@ -30,6 +30,23 @@ const BusinessGasPage = () => {
     "areaServed": "United Kingdom"
   };
 
+  // FAQ Schema for rich snippets
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": content.mainContent.faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
+  // Combine schemas
+  const combinedSchema = [structuredData, faqSchema];
+
   return (
     <>
       <SEOHead 
@@ -37,7 +54,7 @@ const BusinessGasPage = () => {
         description={content.metaDescription}
         keywords={content.keywords}
         canonical="https://www.wattutilities.co.uk/business-gas"
-        structuredData={structuredData}
+        structuredData={combinedSchema}
       />
 
       {/* Hero Section */}

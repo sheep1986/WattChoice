@@ -42,6 +42,23 @@ const BusinessElectricityPage = () => {
     }
   };
 
+  // FAQ Schema for rich snippets in search results
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": content.mainContent.faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
+  // Combine both schemas for SEO
+  const combinedSchema = [structuredData, faqSchema];
+
   return (
     <>
       <SEOHead 
@@ -49,7 +66,7 @@ const BusinessElectricityPage = () => {
         description={content.metaDescription}
         keywords={content.keywords}
         canonical="https://www.wattutilities.co.uk/business-electricity"
-        structuredData={structuredData}
+        structuredData={combinedSchema}
       />
 
       {/* Hero Section with Background Image */}
