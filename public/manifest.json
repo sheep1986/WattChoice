@@ -3,17 +3,17 @@
   "name": "Watt Utilities - Business Energy Solutions",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "https://i.ibb.co/Qvm30X7N/watt-utilities-favicon.png",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "type": "image/png"
     },
     {
-      "src": "logo192.png",
+      "src": "https://i.ibb.co/Qvm30X7N/watt-utilities-favicon.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "favicon.png",
+      "src": "https://i.ibb.co/Qvm30X7N/watt-utilities-favicon.png",
       "type": "image/png",
       "sizes": "180x180"
     }
