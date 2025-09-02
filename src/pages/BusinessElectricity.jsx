@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import { SEOHead, organizationSchema, serviceSchema } from '../SEO';
 import { serviceContent } from '../content/ServiceContent';
-// import { BreadcrumbLinks, RelatedServicesWidget, CTALinksSection } from '../components/InternalLinks';
+import { BreadcrumbLinks, RelatedServicesWidget, CTALinksSection } from '../components/InternalLinks';
 
 const BusinessElectricityPage = () => {
   const content = serviceContent.electricity;
@@ -75,13 +75,13 @@ const BusinessElectricityPage = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent pointer-events-none"></div>
         
         <div className="relative container mx-auto px-4 py-20 z-10">
-          {/* <BreadcrumbLinks 
+          <BreadcrumbLinks 
             items={[
               { name: 'Services', href: '/services' },
               { name: 'Business Electricity' }
             ]}
             className="mb-8"
-          /> */}
+          />
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -465,11 +465,11 @@ const BusinessElectricityPage = () => {
       </section>
 
       {/* Related Services */}
-      {/* <section className="py-16 px-4 bg-slate-900">
+      <section className="py-16 px-4 bg-slate-900">
         <div className="container mx-auto max-w-6xl">
           <RelatedServicesWidget currentPage="/business-electricity" />
         </div>
-      </section> */}
+      </section>
 
       {/* CTA Section */}
       <section className="py-16 px-4 bg-gradient-to-r from-yellow-500 to-orange-500">

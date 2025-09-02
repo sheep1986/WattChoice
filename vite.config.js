@@ -47,13 +47,23 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     emptyOutDir: true,
-    minify: false, // TEMPORARILY DISABLE MINIFICATION
+    minify: 'esbuild', // Enable minification for production
+    sourcemap: false, // Disable sourcemaps for smaller bundle
+    reportCompressedSize: true,
+    chunkSizeWarningLimit: 1500, // Warn for large chunks
     rollupOptions: {
       output: {
         // VERSION 9 - Force new file names
-        entryFileNames: 'v9-[name]-[hash].js',
-        chunkFileNames: 'v9-[name]-[hash].js',
-        assetFileNames: 'v9-[name]-[hash].[ext]'
+        entryFileNames: 'assets/js/[name]-[hash].js',
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
+        // Manual chunking for better caching
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          animations: ['framer-motion'],
+          charts: ['recharts'],
+          icons: ['lucide-react']
+        }
       }
     }
   }

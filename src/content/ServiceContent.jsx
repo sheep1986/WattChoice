@@ -104,6 +104,38 @@ export const serviceContent = {
         {
           question: "What about green electricity options?",
           answer: "We offer REGO-backed 100% renewable electricity from multiple suppliers at competitive rates."
+        },
+        {
+          question: "How long does the switching process take?",
+          answer: "The entire process typically takes 4-6 weeks from quote acceptance to supply start date. We handle all the paperwork and coordination."
+        },
+        {
+          question: "Will my electricity supply be interrupted during the switch?",
+          answer: "No, there's absolutely no interruption to your electricity supply. The switch happens seamlessly behind the scenes."
+        },
+        {
+          question: "What's the difference between fixed and variable rate contracts?",
+          answer: "Fixed rate contracts lock in your unit prices for the contract duration, providing budget certainty. Variable rates fluctuate with the market but can offer savings when prices fall."
+        },
+        {
+          question: "Can I switch if I'm still in contract?",
+          answer: "You can secure a new contract up to 12 months before your current one ends. We'll ensure the new contract starts exactly when your current one finishes."
+        },
+        {
+          question: "What size businesses do you work with?",
+          answer: "We work with all business sizes, from small shops using 5,000 kWh annually to large industrials consuming over 100 GWh per year."
+        },
+        {
+          question: "How do you get paid if the service is free?",
+          answer: "We receive commission from energy suppliers when you switch. This doesn't affect your rates - in fact, we often negotiate better prices than going direct."
+        },
+        {
+          question: "What happens after I sign a new contract?",
+          answer: "We manage the entire process including meter readings, supplier notifications, and contract validation. You'll receive regular updates until your new supply starts."
+        },
+        {
+          question: "Can you help reduce my consumption as well as my rates?",
+          answer: "Yes, we provide energy efficiency advice and can arrange energy audits to identify ways to reduce your consumption by 10-30%."
         }
       ]
     }
@@ -235,6 +267,34 @@ export const serviceContent = {
         {
           question: "Do you charge for gas procurement services?",
           answer: "No, our service is free to businesses. We receive transparent commission from suppliers which we're happy to disclose."
+        },
+        {
+          question: "What happens if gas prices fall after I sign a fixed contract?",
+          answer: "With a fixed contract, you're protected from price rises but can't benefit from falls. We can discuss blend-and-extend options or flexible contracts if you prefer market exposure."
+        },
+        {
+          question: "Can I switch gas supplier if I rent my premises?",
+          answer: "Yes, as long as you're responsible for paying the gas bills, you have the right to choose your supplier regardless of whether you own or rent."
+        },
+        {
+          question: "What is a deemed contract and why is it expensive?",
+          answer: "A deemed contract applies when you move into premises without agreeing a gas contract. Rates are typically 50-80% higher than negotiated contracts, so switching quickly is essential."
+        },
+        {
+          question: "How do you monitor the gas markets?",
+          answer: "We track wholesale gas markets daily, monitoring NBP prices, weather patterns, storage levels, and geopolitical factors to identify optimal purchasing windows."
+        },
+        {
+          question: "What's included in my gas unit rate?",
+          answer: "Your rate includes the wholesale gas cost, supplier margin, transportation charges, and various levies. We provide full transparency on all components."
+        },
+        {
+          question: "Can you help with temporary gas supply for events or construction?",
+          answer: "Yes, we arrange temporary gas supplies for construction sites, events, and short-term projects with flexible contract terms."
+        },
+        {
+          question: "What gas suppliers do you work with?",
+          answer: "We work with all major UK suppliers including British Gas, Total Energies, Corona Energy, SEFE, Crown Gas & Power, and many more, ensuring competitive tension for better rates."
         }
       ]
     }

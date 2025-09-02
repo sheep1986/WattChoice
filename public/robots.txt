@@ -15,7 +15,9 @@ Allow: /*?service=
 Crawl-delay: 1
 
 # Sitemap locations
-Sitemap: https://wattutilities001.netlify.app/sitemap.xml
+Sitemap: https://www.wattutilities.co.uk/sitemap.xml
+Sitemap: https://www.wattutilities.co.uk/sitemap-services.xml
+Sitemap: https://www.wattutilities.co.uk/sitemap-pages.xml
 
 # Google - Priority access
 User-agent: Googlebot
