@@ -220,11 +220,11 @@ const ServicesPage = () => {
             Get competitive quotes from 30+ suppliers in minutes
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/get-quote">
+            <a href="https://www.app.watt.co.uk" target="_blank" rel="noopener noreferrer">
               <button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2 transition-colors">
                 Get Free Quotes <ArrowRight className="w-5 h-5" />
               </button>
-            </Link>
+            </a>
             <a href="tel:01618338661" className="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-8 rounded-lg border border-slate-700 flex items-center gap-2 transition-colors inline-flex">
               <Phone className="w-5 h-5" />
               Call 0161 833 8661
