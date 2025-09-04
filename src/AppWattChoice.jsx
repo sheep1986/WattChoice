@@ -628,15 +628,17 @@ function HeroSection() {
                       { icon: Wifi, label: 'Broadband', color: 'purple' }
                     ].map((service, i) => (
                       <label key={i} className="relative cursor-pointer">
-                        <input type="checkbox" className="sr-only peer" defaultChecked={i < 2} />
-                        <div className="p-3 border-2 border-gray-200 rounded-lg peer-checked:border-green-500 peer-checked:bg-green-50 transition-all">
-                          <div className="flex items-center gap-2">
-                            <service.icon className="h-5 w-5 text-gray-600 peer-checked:text-green-600" />
-                            <span className="font-medium text-gray-700">{service.label}</span>
+                        <input type="checkbox" className="sr-only peer" />
+                        <div className="p-4 border-2 border-gray-200 rounded-lg peer-checked:border-green-500 peer-checked:bg-green-50 transition-all">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <service.icon className="h-5 w-5 text-gray-600 peer-checked:text-green-600" />
+                              <span className="font-medium text-gray-700">{service.label}</span>
+                            </div>
+                            <div className="opacity-0 peer-checked:opacity-100 transition-opacity">
+                              <Check className="h-5 w-5 text-green-600" />
+                            </div>
                           </div>
-                        </div>
-                        <div className="absolute top-2 right-2 opacity-0 peer-checked:opacity-100 transition-opacity">
-                          <Check className="h-4 w-4 text-green-600" />
                         </div>
                       </label>
                     ))}
