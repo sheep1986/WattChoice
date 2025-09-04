@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, NavLink, useLocation, Link, use
 import { motion, AnimatePresence, useScroll, useTransform, useSpring, useInView } from "framer-motion";
 
 // Import Service Pages
-import BusinessElectricityPage from './pages/BusinessElectricity';
+import BusinessElectricityEnhanced from './pages/BusinessElectricityEnhanced';
 import BusinessGasPage from './pages/BusinessGas';
 import { BusinessWater, BusinessBroadband, BusinessTelecoms, LargeBusiness, ContactPage as ContactPageImport, CompanyPage as CompanyPageImport } from './pages/AllServicePages';
 import { PassThroughPage, SuppliersPage, HowPaidPage, LOAPage, GlossaryPage, CompanyPage, CareersPage, CompliancePage, ContactPage } from './pages/ServicePages';
@@ -1787,8 +1787,8 @@ export default function WattChoiceApp() {
           } />
           
           {/* Service Pages */}
-          <Route path="/business-energy" element={<BusinessElectricityPage />} />
-          <Route path="/business-electricity" element={<BusinessElectricityPage />} />
+          <Route path="/business-energy" element={<BusinessElectricityEnhanced />} />
+          <Route path="/business-electricity" element={<BusinessElectricityEnhanced />} />
           <Route path="/business-gas" element={<BusinessGasPage />} />
           <Route path="/business-water" element={<BusinessWater />} />
           <Route path="/business-broadband" element={<BusinessBroadband />} />
