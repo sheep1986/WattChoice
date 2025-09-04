@@ -134,7 +134,9 @@ function AnimatedCounter({ value, duration = 2000, prefix = "", suffix = "" }) {
   useEffect(() => {
     if (inView) {
       let start = 0;
-      const end = parseInt(value);
+      // Remove any non-numeric characters except decimal points
+      const cleanValue = String(value).replace(/[^0-9.]/g, '');
+      const end = parseFloat(cleanValue) || 0;
       const increment = end / (duration / 16);
       const timer = setInterval(() => {
         start += increment;
@@ -1131,7 +1133,7 @@ function TrustSection() {
                       <AnimatedCounter 
                         value={benefit.value} 
                         duration={2000}
-                        prefix={benefit.value.includes("£") ? "£" : ""}
+                        prefix={String(benefit.value).includes("£") ? "£" : ""}
                       />
                     </span>
                     <span className="text-xl font-bold text-gray-500">{benefit.suffix}</span>
