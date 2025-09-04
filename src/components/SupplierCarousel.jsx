@@ -36,7 +36,7 @@ const SupplierCarousel = () => {
   const duplicatedSuppliers = [...suppliersWithLogos, ...suppliersWithLogos];
 
   return (
-    <section className="py-16 bg-gray-50 overflow-hidden">
+    <section className="py-16 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-12"
@@ -55,8 +55,8 @@ const SupplierCarousel = () => {
         {/* Carousel Container */}
         <div className="relative">
           {/* Gradient Overlays for edge fading effect */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
           
           {/* Scrolling Container */}
           <div className="overflow-hidden">
@@ -84,7 +84,7 @@ const SupplierCarousel = () => {
                     <img
                       src={supplier.logo}
                       alt={supplier.name}
-                      className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                      className="max-w-full max-h-full object-contain transition-all duration-300 hover:scale-110"
                       style={{ maxHeight: '60px' }}
                       onError={(e) => {
                         e.target.style.display = 'none';
