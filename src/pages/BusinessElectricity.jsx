@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+// import { Helmet } from 'react-helmet-async';
 import { 
   Zap, ArrowRight, CheckCircle, TrendingUp, Shield, Leaf, 
   Building2, PoundSterling, Clock, Award, Users, Phone,
@@ -106,7 +106,7 @@ const BusinessElectricityPage = () => {
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Business Electricity Services",
-      "itemListElement": content.contractTypes.types.map(type => ({
+      "itemListElement": content.mainContent.contractTypes.types.map(type => ({
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
@@ -136,12 +136,14 @@ const BusinessElectricityPage = () => {
 
   return (
     <>
+      {/* SEO Meta tags - commented out as Helmet is not installed
       <Helmet>
         <title>{content.title}</title>
         <meta name="description" content={content.metaDescription} />
         <meta name="keywords" content={content.keywords} />
         <link rel="canonical" href="https://www.wattchoice.co.uk/business-electricity" />
       </Helmet>
+      */}
 
       {/* Hero Section with Background Image */}
       <section className="relative min-h-[600px] bg-gradient-to-br from-green-50 to-blue-50 overflow-hidden">
