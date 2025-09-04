@@ -8,6 +8,7 @@ import BusinessGasPage from './pages/BusinessGas';
 import { BusinessWater, BusinessBroadband, BusinessTelecoms, LargeBusiness, ContactPage as ContactPageImport, CompanyPage as CompanyPageImport } from './pages/AllServicePages';
 import { PassThroughPage, SuppliersPage, HowPaidPage, LOAPage, GlossaryPage, CompanyPage, CareersPage, CompliancePage, ContactPage } from './pages/ServicePages';
 import SupplierCarousel from './components/SupplierCarousel';
+import TrustpilotSection from './components/TrustpilotSection';
 import {
   CheckCircle,
   ShieldCheck,
@@ -1786,6 +1787,7 @@ export default function WattChoiceApp() {
               <HeroSection />
               <ServicesSection />
               <SupplierCarousel />
+              <TrustpilotSection />
               <HowItWorksSection />
               <TrustSection />
               <CTASection />
