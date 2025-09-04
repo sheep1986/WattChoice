@@ -70,9 +70,9 @@ const BusinessElectricityPage = () => {
       />
 
       {/* Hero Section with Background Image */}
-      <section className="relative min-h-[600px] bg-gradient-to-br from-blue-900 via-slate-800 to-blue-900 overflow-hidden">
+      <section className="relative min-h-[600px] bg-gradient-to-br from-green-50 to-blue-50 overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1920')] bg-cover bg-center opacity-20 pointer-events-none"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-white/90 to-transparent pointer-events-none"></div>
         
         <div className="relative container mx-auto px-4 py-20 z-10">
           <BreadcrumbLinks 
@@ -96,7 +96,7 @@ const BusinessElectricityPage = () => {
               </h1>
             </div>
             
-            <p className="text-xl text-gray-200 mb-8">
+            <p className="text-xl text-gray-700 mb-8">
               {content.heroSubtitle}
             </p>
             
@@ -107,7 +107,7 @@ const BusinessElectricityPage = () => {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2 inline-flex"
+                className="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2 inline-flex"
               >
                 Get Free Quote <ArrowRight />
               </motion.a>
@@ -115,7 +115,7 @@ const BusinessElectricityPage = () => {
                 href="tel:01618338661"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white hover:bg-gray-100 text-slate-900 font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
+                className="bg-white hover:bg-gray-100 text-gray-900 font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2 border border-gray-300"
               >
                 <Phone /> Speak to Expert
               </motion.a>
@@ -123,20 +123,20 @@ const BusinessElectricityPage = () => {
             
             {/* Trust Indicators */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              <div className="bg-white/10 backdrop-blur rounded-lg p-4 text-center">
-                <div className="text-3xl font-bold text-yellow-400">45%</div>
+              <div className="bg-white backdrop-blur rounded-lg p-4 text-center shadow-md">
+                <div className="text-3xl font-bold text-green-600">45%</div>
                 <div className="text-sm text-gray-700">Average Savings</div>
               </div>
-              <div className="bg-white/10 backdrop-blur rounded-lg p-4 text-center">
-                <div className="text-3xl font-bold text-yellow-400">30+</div>
+              <div className="bg-white backdrop-blur rounded-lg p-4 text-center shadow-md">
+                <div className="text-3xl font-bold text-green-600">30+</div>
                 <div className="text-sm text-gray-700">UK Suppliers</div>
               </div>
-              <div className="bg-white/10 backdrop-blur rounded-lg p-4 text-center">
-                <div className="text-3xl font-bold text-yellow-400">£58k</div>
+              <div className="bg-white backdrop-blur rounded-lg p-4 text-center shadow-md">
+                <div className="text-3xl font-bold text-green-600">£58k</div>
                 <div className="text-sm text-gray-700">Record Saving</div>
               </div>
-              <div className="bg-white/10 backdrop-blur rounded-lg p-4 text-center">
-                <div className="text-3xl font-bold text-yellow-400">5min</div>
+              <div className="bg-white backdrop-blur rounded-lg p-4 text-center shadow-md">
+                <div className="text-3xl font-bold text-green-600">5min</div>
                 <div className="text-sm text-gray-700">Quick Quote</div>
               </div>
             </div>
@@ -229,7 +229,7 @@ const BusinessElectricityPage = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-slate-900 to-blue-900">
+      <section className="py-16 px-4 bg-gradient-to-br from-green-50 to-blue-50">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-4xl font-bold text-gray-900 text-center mb-12">
             Our Simple 4-Step Process
@@ -245,7 +245,7 @@ const BusinessElectricityPage = () => {
                 className="relative"
               >
                 <div className="bg-white rounded-lg p-6 hover:shadow-xl transition-all">
-                  <div className="absolute -top-4 left-6 bg-yellow-500 text-black w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">
+                  <div className="absolute -top-4 left-6 bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">
                     {step.step}
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2 mt-4">
@@ -342,33 +342,33 @@ const BusinessElectricityPage = () => {
       </section>
 
       {/* Market Insight Section */}
-      <section className="py-16 px-4 bg-gradient-to-r from-blue-900 to-slate-900">
+      <section className="py-16 px-4 bg-gradient-to-r from-gray-100 to-gray-50">
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-gray-900 mb-6">
                 Current Electricity Market Insights
               </h2>
-              <p className="text-gray-200 mb-6">
+              <p className="text-gray-700 mb-6">
                 The UK electricity market is experiencing significant changes with the transition to renewable energy. 
                 Our experts monitor daily market movements to secure optimal rates for your business.
               </p>
               <div className="space-y-4">
-                <div className="bg-white/10 backdrop-blur rounded-lg p-4">
+                <div className="bg-white backdrop-blur rounded-lg p-4 shadow-md">
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-gray-900 font-semibold">Average Business Rate</span>
-                    <span className="text-yellow-400 font-bold">24.5p/kWh</span>
+                    <span className="text-green-600 font-bold">24.5p/kWh</span>
                   </div>
-                  <div className="w-full bg-white/20 rounded-full h-2">
-                    <div className="bg-yellow-400 h-2 rounded-full" style={{width: '65%'}}></div>
+                  <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div className="bg-green-600 h-2 rounded-full" style={{width: '65%'}}></div>
                   </div>
                 </div>
-                <div className="bg-white/10 backdrop-blur rounded-lg p-4">
+                <div className="bg-white backdrop-blur rounded-lg p-4 shadow-md">
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-gray-900 font-semibold">Green Energy Adoption</span>
                     <span className="text-green-400 font-bold">42%</span>
                   </div>
-                  <div className="w-full bg-white/20 rounded-full h-2">
+                  <div className="w-full bg-gray-200 rounded-full h-2">
                     <div className="bg-green-400 h-2 rounded-full" style={{width: '42%'}}></div>
                   </div>
                 </div>
@@ -472,12 +472,12 @@ const BusinessElectricityPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-gradient-to-r from-yellow-500 to-orange-500">
+      <section className="py-16 px-4 bg-gradient-to-r from-green-600 to-emerald-600">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-4xl font-bold text-black mb-6">
+          <h2 className="text-4xl font-bold text-white mb-6">
             Ready to Cut Your Electricity Costs?
           </h2>
-          <p className="text-xl text-black/80 mb-8">
+          <p className="text-xl text-white/90 mb-8">
             Join thousands of businesses saving millions on their energy bills
           </p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -487,7 +487,7 @@ const BusinessElectricityPage = () => {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-black hover:bg-gray-800 text-gray-900 font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2 inline-flex"
+              className="bg-white hover:bg-gray-100 text-green-600 font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2 inline-flex"
             >
               Get Your Free Quote <ArrowRight />
             </motion.a>
@@ -495,7 +495,7 @@ const BusinessElectricityPage = () => {
               href="tel:01618338661"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white hover:bg-gray-100 text-black font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
+              className="bg-green-500 hover:bg-green-400 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
             >
               <Phone /> 0161 833 8661
             </motion.a>

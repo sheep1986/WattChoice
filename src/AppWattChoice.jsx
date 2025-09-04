@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route, NavLink, useLocation, Link, use
 import { motion, AnimatePresence, useScroll, useTransform, useSpring, useInView } from "framer-motion";
 
 // Import Service Pages
+import BusinessElectricityPage from './pages/BusinessElectricity';
+import BusinessGasPage from './pages/BusinessGas';
 import { BusinessWater, BusinessBroadband, BusinessTelecoms, LargeBusiness, ContactPage as ContactPageImport, CompanyPage as CompanyPageImport } from './pages/AllServicePages';
 import { PassThroughPage, SuppliersPage, HowPaidPage, LOAPage, GlossaryPage, CompanyPage, CareersPage, CompliancePage, ContactPage } from './pages/ServicePages';
 import {
@@ -1785,9 +1787,9 @@ export default function WattChoiceApp() {
           } />
           
           {/* Service Pages */}
-          <Route path="/business-energy" element={<PagePlaceholder title="Business Energy Comparison" description="Compare electricity and gas prices from 30+ suppliers" />} />
-          <Route path="/business-electricity" element={<PagePlaceholder title="Business Electricity" description="Find the best electricity deals for your business" />} />
-          <Route path="/business-gas" element={<PagePlaceholder title="Business Gas" description="Compare business gas prices and save" />} />
+          <Route path="/business-energy" element={<BusinessElectricityPage />} />
+          <Route path="/business-electricity" element={<BusinessElectricityPage />} />
+          <Route path="/business-gas" element={<BusinessGasPage />} />
           <Route path="/business-water" element={<BusinessWater />} />
           <Route path="/business-broadband" element={<BusinessBroadband />} />
           <Route path="/business-phone" element={<PagePlaceholder title="Business Phone Systems" description="Modern phone solutions for businesses" />} />
