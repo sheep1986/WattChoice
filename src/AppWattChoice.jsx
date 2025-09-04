@@ -242,48 +242,6 @@ function FloatingActionButton() {
   );
 }
 
-// Notification Toast Component
-function NotificationToast() {
-  const [notifications, setNotifications] = useState([]);
-  
-  useEffect(() => {
-    // Simulate notifications
-    const timer = setTimeout(() => {
-      setNotifications([{
-        id: Date.now(),
-        message: "💡 Energy prices updated! Check latest rates",
-        type: "info"
-      }]);
-    }, 5000);
-    
-    return () => clearTimeout(timer);
-  }, []);
-  
-  return (
-    <div className="fixed top-20 right-4 z-50 space-y-2">
-      <AnimatePresence>
-        {notifications.map((notification) => (
-          <motion.div
-            key={notification.id}
-            initial={{ x: 300, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: 300, opacity: 0 }}
-            className="bg-white rounded-lg shadow-xl p-4 flex items-center gap-3 min-w-[300px]"
-          >
-            <Bell className="h-5 w-5 text-green-600" />
-            <p className="text-sm text-gray-700">{notification.message}</p>
-            <button
-              onClick={() => setNotifications(prev => prev.filter(n => n.id !== notification.id))}
-              className="ml-auto"
-            >
-              <X className="h-4 w-4 text-gray-400" />
-            </button>
-          </motion.div>
-        ))}
-      </AnimatePresence>
-    </div>
-  );
-}
 
 // Modern Form Components
 function Input({ className = "", ...props }) {
@@ -1810,9 +1768,6 @@ export default function WattChoiceApp() {
     <Router>
       <ScrollToTop />
       <div className="min-h-screen bg-white">
-        {/* Notification Toasts */}
-        <NotificationToast />
-        
         {/* Navigation */}
         <Navbar />
         
