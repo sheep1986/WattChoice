@@ -24,7 +24,7 @@ const BusinessElectricityPage = () => {
     "name": "Business Electricity Switching & Procurement",
     "provider": {
       "@type": "Organization",
-      "name": "Watt Utilities UK Ltd"
+      "name": "Watt Choice UK Ltd"
     },
     "description": content.metaDescription,
     "areaServed": "United Kingdom",
@@ -65,7 +65,7 @@ const BusinessElectricityPage = () => {
         title={content.title}
         description={content.metaDescription}
         keywords={content.keywords}
-        canonical="https://www.wattutilities.co.uk/business-electricity"
+        canonical="https://www.wattchoice.co.uk/business-electricity"
         structuredData={combinedSchema}
       />
 
@@ -91,7 +91,7 @@ const BusinessElectricityPage = () => {
           >
             <div className="flex items-center gap-3 mb-6">
               <Zap className="w-12 h-12 text-yellow-400" />
-              <h1 className="text-5xl md:text-6xl font-bold text-white">
+              <h1 className="text-5xl md:text-6xl font-bold text-gray-900">
                 {content.heroTitle}
               </h1>
             </div>
@@ -125,19 +125,19 @@ const BusinessElectricityPage = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="bg-white/10 backdrop-blur rounded-lg p-4 text-center">
                 <div className="text-3xl font-bold text-yellow-400">45%</div>
-                <div className="text-sm text-gray-300">Average Savings</div>
+                <div className="text-sm text-gray-700">Average Savings</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-lg p-4 text-center">
                 <div className="text-3xl font-bold text-yellow-400">30+</div>
-                <div className="text-sm text-gray-300">UK Suppliers</div>
+                <div className="text-sm text-gray-700">UK Suppliers</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-lg p-4 text-center">
                 <div className="text-3xl font-bold text-yellow-400">£58k</div>
-                <div className="text-sm text-gray-300">Record Saving</div>
+                <div className="text-sm text-gray-700">Record Saving</div>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-lg p-4 text-center">
                 <div className="text-3xl font-bold text-yellow-400">5min</div>
-                <div className="text-sm text-gray-300">Quick Quote</div>
+                <div className="text-sm text-gray-700">Quick Quote</div>
               </div>
             </div>
           </motion.div>
@@ -154,7 +154,7 @@ const BusinessElectricityPage = () => {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-4xl font-bold text-slate-900 mb-6">
-                Why Choose Watt Utilities for Business Electricity?
+                Why Choose Watt Choice for Business Electricity?
               </h2>
               <p className="text-lg text-slate-700 mb-6">
                 {content.mainContent.introduction}
@@ -231,7 +231,7 @@ const BusinessElectricityPage = () => {
       {/* Process Section */}
       <section className="py-16 px-4 bg-gradient-to-br from-slate-900 to-blue-900">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl font-bold text-white text-center mb-12">
+          <h2 className="text-4xl font-bold text-gray-900 text-center mb-12">
             Our Simple 4-Step Process
           </h2>
           
@@ -346,7 +346,7 @@ const BusinessElectricityPage = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-white mb-6">
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">
                 Current Electricity Market Insights
               </h2>
               <p className="text-gray-200 mb-6">
@@ -356,7 +356,7 @@ const BusinessElectricityPage = () => {
               <div className="space-y-4">
                 <div className="bg-white/10 backdrop-blur rounded-lg p-4">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-white font-semibold">Average Business Rate</span>
+                    <span className="text-gray-900 font-semibold">Average Business Rate</span>
                     <span className="text-yellow-400 font-bold">24.5p/kWh</span>
                   </div>
                   <div className="w-full bg-white/20 rounded-full h-2">
@@ -365,7 +365,7 @@ const BusinessElectricityPage = () => {
                 </div>
                 <div className="bg-white/10 backdrop-blur rounded-lg p-4">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-white font-semibold">Green Energy Adoption</span>
+                    <span className="text-gray-900 font-semibold">Green Energy Adoption</span>
                     <span className="text-green-400 font-bold">42%</span>
                   </div>
                   <div className="w-full bg-white/20 rounded-full h-2">
@@ -447,7 +447,7 @@ const BusinessElectricityPage = () => {
                 </div>
                 <Link 
                   to="/case-studies" 
-                  className="inline-flex items-center gap-2 bg-black text-white py-3 px-6 rounded-lg hover:bg-gray-800 transition-all"
+                  className="inline-flex items-center gap-2 bg-black text-gray-900 py-3 px-6 rounded-lg hover:bg-gray-800 transition-all"
                 >
                   Read More Case Studies <ArrowRight />
                 </Link>
@@ -465,7 +465,7 @@ const BusinessElectricityPage = () => {
       </section>
 
       {/* Related Services */}
-      <section className="py-16 px-4 bg-slate-900">
+      <section className="py-16 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
           <RelatedServicesWidget currentPage="/business-electricity" />
         </div>
@@ -487,7 +487,7 @@ const BusinessElectricityPage = () => {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-black hover:bg-gray-800 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2 inline-flex"
+              className="bg-black hover:bg-gray-800 text-gray-900 font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2 inline-flex"
             >
               Get Your Free Quote <ArrowRight />
             </motion.a>

@@ -66,27 +66,27 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-white">
       <Helmet>
-        <title>About Watt Utilities | Family-Run Energy Consultants Since 2000</title>
-        <meta name="description" content="Learn about Watt Utilities - Manchester's trusted business energy consultants since 2000. 900,000+ businesses served, £150M saved. Investors in People certified." />
+        <title>About Watt Choice | Family-Run Energy Consultants Since 2000</title>
+        <meta name="description" content="Learn about Watt Choice - Manchester's trusted business energy consultants since 2000. 900,000+ businesses served, £150M saved. Investors in People certified." />
         <meta name="keywords" content="about watt utilities, business energy consultants manchester, family-run energy broker, utility management company UK" />
-        <link rel="canonical" href="https://www.wattutilities.co.uk/company" />
+        <link rel="canonical" href="https://www.wattchoice.co.uk/company" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="About Watt Utilities | Your Trusted Energy Partner Since 2000" />
+        <meta property="og:title" content="About Watt Choice | Your Trusted Energy Partner Since 2000" />
         <meta property="og:description" content="Family-run business energy consultancy helping 900,000+ UK businesses save £150M on utilities. Platinum standard broker." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.wattutilities.co.uk/company" />
+        <meta property="og:url" content="https://www.wattchoice.co.uk/company" />
         
         {/* Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "Watt Utilities",
-            "url": "https://www.wattutilities.co.uk",
-            "logo": "https://www.wattutilities.co.uk/logo.png",
+            "name": "Watt Choice",
+            "url": "https://www.wattchoice.co.uk",
+            "logo": "https://www.wattchoice.co.uk/logo.png",
             "foundingDate": "2000",
             "founders": [{
               "@type": "Person",
@@ -131,10 +131,10 @@ const AboutPage = () => {
           className="container mx-auto max-w-6xl"
         >
           <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
               Your Energy Partner Since 2000
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               We're a family-run Manchester business with a simple mission: to save our customers money 
               while building a company our employees are proud to work for.
             </p>
@@ -148,32 +148,32 @@ const AboutPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-slate-800/50 border border-slate-700 rounded-lg p-6 text-center"
+                className="bg-gray-100/50 border border-gray-200 rounded-lg p-6 text-center"
               >
-                <achievement.icon className="w-8 h-8 text-emerald-400 mx-auto mb-3" />
-                <div className="text-3xl font-bold text-white mb-1">{achievement.number}</div>
-                <div className="text-sm text-gray-400">{achievement.label}</div>
+                <achievement.icon className="w-8 h-8 text-green-600 mx-auto mb-3" />
+                <div className="text-3xl font-bold text-gray-900 mb-1">{achievement.number}</div>
+                <div className="text-sm text-gray-600">{achievement.label}</div>
               </motion.div>
             ))}
           </div>
 
           {/* Director Quote */}
-          <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-8 border border-slate-700 mb-12">
+          <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-8 border border-gray-200 mb-12">
             <div className="flex items-start gap-4">
-              <div className="text-6xl text-emerald-400 leading-none">"</div>
+              <div className="text-6xl text-green-600 leading-none">"</div>
               <div>
-                <p className="text-lg text-gray-300 italic mb-4">
+                <p className="text-lg text-gray-700 italic mb-4">
                   It's part of everyday human nature to source the best deals. At Watt, we've made it our 
                   business to do this for you - leveraging our market knowledge and buying power to secure 
                   the best utility contracts for businesses across the UK.
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center text-white font-bold">
+                  <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-gray-900 font-bold">
                     PH
                   </div>
                   <div>
-                    <p className="text-white font-semibold">Peter Hunter</p>
-                    <p className="text-sm text-gray-400">Director & Founder</p>
+                    <p className="text-gray-900 font-semibold">Peter Hunter</p>
+                    <p className="text-sm text-gray-600">Director & Founder</p>
                   </div>
                 </div>
               </div>
@@ -183,11 +183,11 @@ const AboutPage = () => {
       </section>
 
       {/* Our Story Timeline */}
-      <section className="py-20 px-4 bg-slate-900/50">
+      <section className="py-20 px-4 bg-white/50">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl font-bold text-white text-center mb-12">Our Journey</h2>
+          <h2 className="text-4xl font-bold text-gray-900 text-center mb-12">Our Journey</h2>
           <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-emerald-500/30"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-green-500/30"></div>
             {timeline.map((item, index) => (
               <motion.div
                 key={index}
@@ -199,15 +199,15 @@ const AboutPage = () => {
                 }`}
               >
                 <div className="flex-1">
-                  <div className={`bg-slate-800 border border-slate-700 rounded-lg p-6 ${
+                  <div className={`bg-gray-100 border border-gray-200 rounded-lg p-6 ${
                     index % 2 === 0 ? 'md:mr-8' : 'md:ml-8'
                   }`}>
-                    <div className="text-emerald-400 font-bold mb-2">{item.year}</div>
-                    <h3 className="text-xl font-bold text-white mb-2">{item.event}</h3>
-                    <p className="text-gray-400">{item.description}</p>
+                    <div className="text-green-600 font-bold mb-2">{item.year}</div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{item.event}</h3>
+                    <p className="text-gray-600">{item.description}</p>
                   </div>
                 </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-emerald-500 rounded-full border-4 border-slate-900"></div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full border-4 border-slate-900"></div>
                 <div className="flex-1"></div>
               </motion.div>
             ))}
@@ -218,7 +218,7 @@ const AboutPage = () => {
       {/* Values Section */}
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl font-bold text-white text-center mb-12">Our Values</h2>
+          <h2 className="text-4xl font-bold text-gray-900 text-center mb-12">Our Values</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
               <motion.div
@@ -227,11 +227,11 @@ const AboutPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-6 border border-slate-700"
+                className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-6 border border-gray-200"
               >
-                <value.icon className="w-10 h-10 text-emerald-400 mb-4" />
-                <h3 className="text-xl font-bold text-white mb-2">{value.title}</h3>
-                <p className="text-gray-400">{value.description}</p>
+                <value.icon className="w-10 h-10 text-green-600 mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{value.title}</h3>
+                <p className="text-gray-600">{value.description}</p>
               </motion.div>
             ))}
           </div>
@@ -241,30 +241,30 @@ const AboutPage = () => {
       {/* Certifications */}
       <section className="py-20 px-4 bg-gradient-to-br from-emerald-900/10 to-transparent">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl font-bold text-white text-center mb-12">Accreditations & Awards</h2>
+          <h2 className="text-4xl font-bold text-gray-900 text-center mb-12">Accreditations & Awards</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6 text-center">
-              <Award className="w-12 h-12 text-emerald-400 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">Investors in People</h3>
-              <p className="text-gray-400">Certified for our commitment to employee development</p>
+            <div className="bg-gray-100/50 border border-gray-200 rounded-lg p-6 text-center">
+              <Award className="w-12 h-12 text-green-600 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Investors in People</h3>
+              <p className="text-gray-600">Certified for our commitment to employee development</p>
             </div>
-            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6 text-center">
-              <Shield className="w-12 h-12 text-emerald-400 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">ICO Registered</h3>
-              <p className="text-gray-400">Fully compliant with data protection regulations</p>
+            <div className="bg-gray-100/50 border border-gray-200 rounded-lg p-6 text-center">
+              <Shield className="w-12 h-12 text-green-600 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">ICO Registered</h3>
+              <p className="text-gray-600">Fully compliant with data protection regulations</p>
             </div>
-            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6 text-center">
-              <Star className="w-12 h-12 text-emerald-400 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">TPI Code Compliant</h3>
-              <p className="text-gray-400">Adhering to industry best practices</p>
+            <div className="bg-gray-100/50 border border-gray-200 rounded-lg p-6 text-center">
+              <Star className="w-12 h-12 text-green-600 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">TPI Code Compliant</h3>
+              <p className="text-gray-600">Adhering to industry best practices</p>
             </div>
           </div>
 
           <div className="mt-12 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 rounded-lg p-8 border border-emerald-500/30 text-center">
-            <h3 className="text-2xl font-bold text-white mb-4">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
               🏆 2023 Industry Excellence Awards Winner
             </h3>
-            <p className="text-gray-300">
+            <p className="text-gray-700">
               Recently awarded two prestigious industry awards for outstanding service and innovation in energy consulting
             </p>
           </div>
@@ -274,22 +274,22 @@ const AboutPage = () => {
       {/* Why Choose Us */}
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl font-bold text-white text-center mb-12">Why 900,000+ Businesses Trust Us</h2>
+          <h2 className="text-4xl font-bold text-gray-900 text-center mb-12">Why 900,000+ Businesses Trust Us</h2>
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
-              <Zap className="w-8 h-8 text-emerald-400 mb-3" />
-              <h3 className="text-xl font-bold text-white mb-2">Extensive Market Knowledge</h3>
-              <p className="text-gray-400">24+ years navigating the UK energy market with deep supplier relationships</p>
+            <div className="bg-gray-100/50 border border-gray-200 rounded-lg p-6">
+              <Zap className="w-8 h-8 text-green-600 mb-3" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Extensive Market Knowledge</h3>
+              <p className="text-gray-600">24+ years navigating the UK energy market with deep supplier relationships</p>
             </div>
-            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
-              <Briefcase className="w-8 h-8 text-emerald-400 mb-3" />
-              <h3 className="text-xl font-bold text-white mb-2">Virtual Buying Power</h3>
-              <p className="text-gray-400">Leverage collective negotiation strength of 900,000+ businesses</p>
+            <div className="bg-gray-100/50 border border-gray-200 rounded-lg p-6">
+              <Briefcase className="w-8 h-8 text-green-600 mb-3" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Virtual Buying Power</h3>
+              <p className="text-gray-600">Leverage collective negotiation strength of 900,000+ businesses</p>
             </div>
-            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
-              <CheckCircle className="w-8 h-8 text-emerald-400 mb-3" />
-              <h3 className="text-xl font-bold text-white mb-2">Platinum Standard Service</h3>
-              <p className="text-gray-400">Recognized as platinum broker by leading UK energy suppliers</p>
+            <div className="bg-gray-100/50 border border-gray-200 rounded-lg p-6">
+              <CheckCircle className="w-8 h-8 text-green-600 mb-3" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Platinum Standard Service</h3>
+              <p className="text-gray-600">Recognized as platinum broker by leading UK energy suppliers</p>
             </div>
           </div>
         </div>
@@ -298,10 +298,10 @@ const AboutPage = () => {
       {/* Contact CTA */}
       <section className="py-20 px-4 bg-gradient-to-t from-emerald-900/20 to-transparent">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">
             Join the Watt Family
           </h2>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl text-gray-700 mb-8">
             Experience the difference of working with a family business that truly cares about your success
           </p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -309,11 +309,11 @@ const AboutPage = () => {
               onClick={() => setShowQuoteForm(true)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
+              className="bg-green-500 hover:bg-emerald-600 text-gray-900 font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
             >
               Get Your Free Quote <ArrowRight className="w-5 h-5" />
             </motion.button>
-            <a href="tel:01618338661" className="bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 px-8 rounded-lg border border-slate-700 flex items-center gap-2 inline-flex">
+            <a href="tel:01618338661" className="bg-gray-100 hover:bg-gray-200 text-gray-900 font-bold py-4 px-8 rounded-lg border border-gray-200 flex items-center gap-2 inline-flex">
               <Phone className="w-5 h-5" />
               Call 0161 833 8661
             </a>

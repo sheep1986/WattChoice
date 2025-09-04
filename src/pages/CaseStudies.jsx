@@ -38,14 +38,14 @@ const CaseStudies = () => {
       industry: 'Community Services',
       employees: '10-50',
       challenge: 'Managing energy costs for a community facility with variable usage patterns and tight budget constraints.',
-      solution: 'Watt Utilities negotiated long-term contracts with flexible pricing structures tailored to seasonal usage variations.',
+      solution: 'Watt Choice negotiated long-term contracts with flexible pricing structures tailored to seasonal usage variations.',
       results: [
         'Consistent savings for 8 consecutive years',
         'Reduced energy costs by 35% annually',
         'Freed up budget for community programs',
         'Simplified billing and management'
       ],
-      testimonial: 'We have used Watt Utilities to negotiate the energy supplies for our village hall for the past 8 years, with good savings. Their understanding of community facilities and budget constraints has been invaluable.',
+      testimonial: 'We have used Watt Choice to negotiate the energy supplies for our village hall for the past 8 years, with good savings. Their understanding of community facilities and budget constraints has been invaluable.',
       savings: '£12,000/year',
       image: '/api/placeholder/600/400'
     },
@@ -61,14 +61,14 @@ const CaseStudies = () => {
       industry: 'Retail',
       employees: '50-100',
       challenge: 'Rising energy costs threatening profit margins in competitive retail environment.',
-      solution: 'David Williams at Watt Utilities analyzed usage patterns and secured a deal with existing provider at half the previous rate.',
+      solution: 'David Williams at Watt Choice analyzed usage patterns and secured a deal with existing provider at half the previous rate.',
       results: [
         'Reduced energy costs by 50%',
         'Saved £25,000 annually',
         'No service disruption during switch',
         'Improved cash flow for business growth'
       ],
-      testimonial: 'David Williams at Watt Utilities was absolutely brilliant. He himself was outstanding in helping me get the best deal for our small business. The savings have been transformative for our bottom line.',
+      testimonial: 'David Williams at Watt Choice was absolutely brilliant. He himself was outstanding in helping me get the best deal for our small business. The savings have been transformative for our bottom line.',
       savings: '£25,000/year',
       image: '/api/placeholder/600/400'
     },
@@ -225,10 +225,10 @@ const CaseStudies = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-white">
       <SEOHead
         title="Case Studies & Success Stories | Real Business Savings"
-        description="Discover how UK businesses save thousands on energy bills with Watt Utilities. Read real case studies and success stories from verified Trustpilot reviews."
+        description="Discover how UK businesses save thousands on energy bills with Watt Choice. Read real case studies and success stories from verified Trustpilot reviews."
         keywords="case studies, success stories, energy savings, business testimonials, trustpilot reviews"
         canonical="https://wattutilities001.netlify.app/case-studies"
       />
@@ -245,7 +245,7 @@ const CaseStudies = () => {
               rotate: [0, 180, 360]
             }}
             transition={{ duration: 20, repeat: Infinity }}
-            className="absolute -top-20 -right-20 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl"
+            className="absolute -top-20 -right-20 w-96 h-96 bg-green-500/5 rounded-full blur-3xl"
           />
           <motion.div
             animate={{ 
@@ -274,24 +274,24 @@ const CaseStudies = () => {
                 <Star key={star} className="w-6 h-6 text-yellow-400 fill-current" />
               ))}
             </div>
-            <span className="text-gray-300">4.6/5 on Trustpilot</span>
-            <span className="text-emerald-400 font-bold">709+ Reviews</span>
+            <span className="text-gray-700">4.6/5 on Trustpilot</span>
+            <span className="text-green-600 font-bold">709+ Reviews</span>
           </motion.div>
 
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-5xl md:text-6xl font-bold text-white mb-6"
+            className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
           >
-            Real Businesses. <span className="text-emerald-400">Real Savings.</span>
+            Real Businesses. <span className="text-green-600">Real Savings.</span>
           </motion.h1>
           
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto"
+            className="text-xl text-gray-700 mb-12 max-w-3xl mx-auto"
           >
             Discover how UK businesses are saving thousands on their energy bills. 
             Every story below is from a verified Trustpilot review.
@@ -304,32 +304,32 @@ const CaseStudies = () => {
             transition={{ delay: 0.5 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
           >
-            <div className="bg-gradient-to-br from-slate-900 to-slate-950 border border-emerald-500/30 rounded-lg p-6">
-              <Sparkles className="w-8 h-8 text-emerald-400 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-2">£{(totalSavings / 1000).toFixed(0)}k+</div>
-              <div className="text-sm text-gray-400">Annual Savings Shown</div>
+            <div className="bg-gradient-to-br from-slate-900 to-white border border-emerald-500/30 rounded-lg p-6">
+              <Sparkles className="w-8 h-8 text-green-600 mx-auto mb-3" />
+              <div className="text-3xl font-bold text-gray-900 mb-2">£{(totalSavings / 1000).toFixed(0)}k+</div>
+              <div className="text-sm text-gray-600">Annual Savings Shown</div>
             </div>
-            <div className="bg-gradient-to-br from-slate-900 to-slate-950 border border-cyan-500/30 rounded-lg p-6">
+            <div className="bg-gradient-to-br from-slate-900 to-white border border-cyan-500/30 rounded-lg p-6">
               <Target className="w-8 h-8 text-cyan-400 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-2">35%</div>
-              <div className="text-sm text-gray-400">Average Cost Reduction</div>
+              <div className="text-3xl font-bold text-gray-900 mb-2">35%</div>
+              <div className="text-sm text-gray-600">Average Cost Reduction</div>
             </div>
-            <div className="bg-gradient-to-br from-slate-900 to-slate-950 border border-emerald-500/30 rounded-lg p-6">
-              <Building2 className="w-8 h-8 text-emerald-400 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-2">900k+</div>
-              <div className="text-sm text-gray-400">Businesses Helped</div>
+            <div className="bg-gradient-to-br from-slate-900 to-white border border-emerald-500/30 rounded-lg p-6">
+              <Building2 className="w-8 h-8 text-green-600 mx-auto mb-3" />
+              <div className="text-3xl font-bold text-gray-900 mb-2">900k+</div>
+              <div className="text-sm text-gray-600">Businesses Helped</div>
             </div>
-            <div className="bg-gradient-to-br from-slate-900 to-slate-950 border border-cyan-500/30 rounded-lg p-6">
+            <div className="bg-gradient-to-br from-slate-900 to-white border border-cyan-500/30 rounded-lg p-6">
               <Award className="w-8 h-8 text-cyan-400 mx-auto mb-3" />
-              <div className="text-3xl font-bold text-white mb-2">24+ Years</div>
-              <div className="text-sm text-gray-400">Industry Experience</div>
+              <div className="text-3xl font-bold text-gray-900 mb-2">24+ Years</div>
+              <div className="text-sm text-gray-600">Industry Experience</div>
             </div>
           </motion.div>
         </motion.div>
       </section>
 
       {/* Quick Testimonials Carousel */}
-      <section className="py-12 px-4 bg-gradient-to-r from-emerald-900/20 via-slate-900/50 to-cyan-900/20">
+      <section className="py-12 px-4 bg-gradient-to-r from-emerald-900/20 via-gray-100/50 to-cyan-900/20">
         <div className="container mx-auto max-w-4xl">
           <div className="relative">
             <AnimatePresence mode="wait">
@@ -340,8 +340,8 @@ const CaseStudies = () => {
                 exit={{ opacity: 0, x: -50 }}
                 className="text-center py-8"
               >
-                <MessageSquareQuote className="w-12 h-12 text-emerald-400/30 mx-auto mb-4" />
-                <p className="text-xl text-gray-300 italic mb-6">
+                <MessageSquareQuote className="w-12 h-12 text-green-600/30 mx-auto mb-4" />
+                <p className="text-xl text-gray-700 italic mb-6">
                   "{quickTestimonials[currentTestimonialIndex].text}"
                 </p>
                 <div className="flex justify-center gap-1 mb-3">
@@ -349,10 +349,10 @@ const CaseStudies = () => {
                     <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-white font-semibold">
+                <p className="text-gray-900 font-semibold">
                   {quickTestimonials[currentTestimonialIndex].author}
                 </p>
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-gray-600">
                   {quickTestimonials[currentTestimonialIndex].date}
                 </p>
               </motion.div>
@@ -361,13 +361,13 @@ const CaseStudies = () => {
             {/* Navigation Buttons */}
             <button
               onClick={prevTestimonial}
-              className="absolute left-0 top-1/2 -translate-y-1/2 bg-slate-800/50 hover:bg-slate-700/50 text-white p-2 rounded-full transition-colors"
+              className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-100/50 hover:bg-gray-200/50 text-gray-900 p-2 rounded-full transition-colors"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
             <button
               onClick={nextTestimonial}
-              className="absolute right-0 top-1/2 -translate-y-1/2 bg-slate-800/50 hover:bg-slate-700/50 text-white p-2 rounded-full transition-colors"
+              className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-100/50 hover:bg-gray-200/50 text-gray-900 p-2 rounded-full transition-colors"
             >
               <ChevronRight className="w-6 h-6" />
             </button>
@@ -387,8 +387,8 @@ const CaseStudies = () => {
                 whileTap={{ scale: 0.95 }}
                 className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
                   selectedCategory === cat.id
-                    ? 'bg-emerald-500 text-white shadow-lg'
-                    : 'bg-slate-800/50 text-gray-300 hover:bg-slate-700/50'
+                    ? 'bg-green-500 text-gray-900 shadow-lg'
+                    : 'bg-gray-100/50 text-gray-700 hover:bg-gray-200/50'
                 }`}
               >
                 <cat.icon className="w-5 h-5" />
@@ -415,14 +415,14 @@ const CaseStudies = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ delay: index * 0.1 }}
-                  className="group bg-gradient-to-br from-slate-900 to-slate-950 rounded-2xl overflow-hidden border border-slate-800 hover:border-emerald-500/50 transition-all duration-300"
+                  className="group bg-gradient-to-br from-slate-900 to-white rounded-2xl overflow-hidden border border-slate-800 hover:border-emerald-500/50 transition-all duration-300"
                 >
                   {/* Header with Gradient */}
                   <div className="relative h-48 bg-gradient-to-br from-emerald-600/20 to-cyan-600/20 p-8">
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60" />
                     <div className="relative z-10">
                       <div className="flex justify-between items-start mb-4">
-                        <span className="inline-block px-3 py-1 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-xs text-emerald-400 font-semibold">
+                        <span className="inline-block px-3 py-1 bg-green-500/20 border border-emerald-500/30 rounded-full text-xs text-green-600 font-semibold">
                           {study.industry}
                         </span>
                         <div className="flex gap-1">
@@ -431,13 +431,13 @@ const CaseStudies = () => {
                           ))}
                         </div>
                       </div>
-                      <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-green-600 transition-colors">
                         {study.title}
                       </h3>
                       <div className="flex items-center gap-4">
-                        <PiggyBank className="w-5 h-5 text-emerald-400" />
-                        <span className="text-2xl font-bold text-emerald-400">{study.savings}</span>
-                        <span className="text-gray-400">saved annually</span>
+                        <PiggyBank className="w-5 h-5 text-green-600" />
+                        <span className="text-2xl font-bold text-green-600">{study.savings}</span>
+                        <span className="text-gray-600">saved annually</span>
                       </div>
                     </div>
                   </div>
@@ -446,41 +446,41 @@ const CaseStudies = () => {
                   <div className="p-8">
                     {/* Challenge */}
                     <div className="mb-6">
-                      <h4 className="text-sm font-semibold text-gray-400 mb-2">THE CHALLENGE</h4>
-                      <p className="text-gray-300">{study.challenge}</p>
+                      <h4 className="text-sm font-semibold text-gray-600 mb-2">THE CHALLENGE</h4>
+                      <p className="text-gray-700">{study.challenge}</p>
                     </div>
 
                     {/* Solution */}
                     <div className="mb-6">
-                      <h4 className="text-sm font-semibold text-gray-400 mb-2">OUR SOLUTION</h4>
-                      <p className="text-gray-300">{study.solution}</p>
+                      <h4 className="text-sm font-semibold text-gray-600 mb-2">OUR SOLUTION</h4>
+                      <p className="text-gray-700">{study.solution}</p>
                     </div>
 
                     {/* Key Results */}
                     <div className="mb-6">
-                      <h4 className="text-sm font-semibold text-gray-400 mb-3">KEY RESULTS</h4>
+                      <h4 className="text-sm font-semibold text-gray-600 mb-3">KEY RESULTS</h4>
                       <div className="space-y-2">
                         {study.results.map((result, idx) => (
                           <div key={idx} className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-300 text-sm">{result}</span>
+                            <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                            <span className="text-gray-700 text-sm">{result}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
                     {/* Testimonial Quote */}
-                    <div className="bg-slate-800/30 rounded-lg p-6 mb-6">
-                      <MessageSquareQuote className="w-8 h-8 text-emerald-400/30 mb-3" />
-                      <p className="text-gray-300 italic mb-4">"{study.testimonial}"</p>
+                    <div className="bg-gray-100/30 rounded-lg p-6 mb-6">
+                      <MessageSquareQuote className="w-8 h-8 text-green-600/30 mb-3" />
+                      <p className="text-gray-700 italic mb-4">"{study.testimonial}"</p>
                       <div>
-                        <p className="text-white font-semibold">{study.customer}</p>
-                        <p className="text-sm text-gray-400">{study.position}, {study.company}</p>
+                        <p className="text-gray-900 font-semibold">{study.customer}</p>
+                        <p className="text-sm text-gray-600">{study.position}, {study.company}</p>
                       </div>
                     </div>
 
                     {/* Company Info */}
-                    <div className="flex items-center justify-between text-sm text-gray-400">
+                    <div className="flex items-center justify-between text-sm text-gray-600">
                       <span className="flex items-center gap-2">
                         <Users className="w-4 h-4" />
                         {study.employees} employees
@@ -502,16 +502,16 @@ const CaseStudies = () => {
               animate={{ opacity: 1 }}
               className="text-center py-20"
             >
-              <p className="text-gray-400 text-lg">No case studies found for this category.</p>
+              <p className="text-gray-600 text-lg">No case studies found for this category.</p>
             </motion.div>
           )}
         </div>
       </section>
 
       {/* Success Metrics */}
-      <section className="py-16 px-4 bg-gradient-to-br from-emerald-900/10 via-slate-900 to-cyan-900/10">
+      <section className="py-16 px-4 bg-gradient-to-br from-emerald-900/10 via-gray-100 to-cyan-900/10">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
             Proven Results Across Industries
           </h2>
           
@@ -522,10 +522,10 @@ const CaseStudies = () => {
               className="text-center"
             >
               <div className="bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 rounded-full w-32 h-32 mx-auto mb-6 flex items-center justify-center">
-                <TrendingUp className="w-16 h-16 text-emerald-400" />
+                <TrendingUp className="w-16 h-16 text-green-600" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-2">35% Average Savings</h3>
-              <p className="text-gray-400">Businesses typically save over a third on their energy bills</p>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">35% Average Savings</h3>
+              <p className="text-gray-600">Businesses typically save over a third on their energy bills</p>
             </motion.div>
 
             <motion.div
@@ -537,8 +537,8 @@ const CaseStudies = () => {
               <div className="bg-gradient-to-br from-cyan-500/20 to-cyan-600/10 rounded-full w-32 h-32 mx-auto mb-6 flex items-center justify-center">
                 <Clock className="w-16 h-16 text-cyan-400" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-2">24 Hour Turnaround</h3>
-              <p className="text-gray-400">Quick quotes and seamless switching process</p>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">24 Hour Turnaround</h3>
+              <p className="text-gray-600">Quick quotes and seamless switching process</p>
             </motion.div>
 
             <motion.div
@@ -548,10 +548,10 @@ const CaseStudies = () => {
               className="text-center"
             >
               <div className="bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 rounded-full w-32 h-32 mx-auto mb-6 flex items-center justify-center">
-                <Award className="w-16 h-16 text-emerald-400" />
+                <Award className="w-16 h-16 text-green-600" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-2">98% Satisfaction</h3>
-              <p className="text-gray-400">Nearly all customers would recommend our service</p>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">98% Satisfaction</h3>
+              <p className="text-gray-600">Nearly all customers would recommend our service</p>
             </motion.div>
           </div>
         </div>
@@ -564,10 +564,10 @@ const CaseStudies = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Start Your Success Story Today
             </h2>
-            <p className="text-xl text-gray-300 mb-8">
+            <p className="text-xl text-gray-700 mb-8">
               Join thousands of UK businesses saving on their energy bills
             </p>
             
@@ -576,7 +576,7 @@ const CaseStudies = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
+                  className="bg-green-500 hover:bg-emerald-600 text-gray-900 font-bold py-4 px-8 rounded-lg shadow-lg flex items-center gap-2"
                 >
                   Get Your Free Quote
                   <ArrowRight className="w-5 h-5" />
@@ -597,7 +597,7 @@ const CaseStudies = () => {
                 href="https://www.trustpilot.com/review/watt.co.uk"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors"
+                className="flex items-center gap-2 text-green-600 hover:text-green-700 transition-colors"
               >
                 <Star className="w-5 h-5 fill-current" />
                 <span>View all 709+ reviews on Trustpilot</span>

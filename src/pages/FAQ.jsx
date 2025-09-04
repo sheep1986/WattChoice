@@ -49,7 +49,7 @@ const FAQ = () => {
       category: "Services & Coverage",
       questions: [
         {
-          q: "Which utilities can Watt Utilities help with?",
+          q: "Which utilities can Watt Choice help with?",
           a: "We provide comprehensive utility management including business electricity, gas, water, broadband, telecoms, and merchant services. We're your one-stop shop for all business utilities."
         },
         {
@@ -90,10 +90,10 @@ const FAQ = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-white">
       <SEOHead
         title="Frequently Asked Questions"
-        description="Get answers to common questions about business energy switching, savings, and our services. Learn how Watt Utilities can help reduce your utility costs."
+        description="Get answers to common questions about business energy switching, savings, and our services. Learn how Watt Choice can help reduce your utility costs."
         keywords="energy switching FAQ, business utilities questions, energy broker FAQ"
         canonical="https://wattutilities001.netlify.app/faq"
         structuredData={faqSchema}
@@ -107,11 +107,11 @@ const FAQ = () => {
           animate={{ opacity: 1, y: 0 }}
           className="container mx-auto max-w-4xl text-center"
         >
-          <HelpCircle className="w-16 h-16 text-emerald-400 mx-auto mb-6" />
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <HelpCircle className="w-16 h-16 text-green-600 mx-auto mb-6" />
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Frequently Asked Questions
           </h1>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl text-gray-700 mb-8">
             Everything you need to know about switching business utilities
           </p>
         </motion.div>
@@ -128,7 +128,7 @@ const FAQ = () => {
               transition={{ delay: categoryIndex * 0.1 }}
               className="mb-12"
             >
-              <h2 className="text-2xl font-bold text-white mb-6 pb-3 border-b border-slate-800">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b border-slate-800">
                 {category.category}
               </h2>
               <div className="space-y-4">
@@ -140,18 +140,18 @@ const FAQ = () => {
                     <motion.div
                       key={index}
                       initial={false}
-                      className="bg-slate-900/50 border border-slate-800 rounded-lg overflow-hidden"
+                      className="bg-white/50 border border-slate-800 rounded-lg overflow-hidden"
                     >
                       <button
                         onClick={() => toggleQuestion(globalIndex)}
-                        className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-slate-800/50 transition-colors"
+                        className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-100/50 transition-colors"
                       >
-                        <span className="text-lg font-medium text-white pr-4">{faq.q}</span>
+                        <span className="text-lg font-medium text-gray-900 pr-4">{faq.q}</span>
                         <motion.div
                           animate={{ rotate: isOpen ? 180 : 0 }}
                           transition={{ duration: 0.2 }}
                         >
-                          <ChevronDown className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+                          <ChevronDown className="w-5 h-5 text-green-600 flex-shrink-0" />
                         </motion.div>
                       </button>
                       <AnimatePresence>
@@ -163,7 +163,7 @@ const FAQ = () => {
                             transition={{ duration: 0.3 }}
                             className="overflow-hidden"
                           >
-                            <div className="px-6 pb-4 text-gray-300">
+                            <div className="px-6 pb-4 text-gray-700">
                               {faq.a}
                             </div>
                           </motion.div>
@@ -179,12 +179,12 @@ const FAQ = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 px-4 bg-slate-900/50">
+      <section className="py-16 px-4 bg-white/50">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">
             Still Have Questions?
           </h2>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl text-gray-700 mb-8">
             Our energy experts are here to help
           </p>
           
@@ -192,30 +192,30 @@ const FAQ = () => {
             <motion.a
               href="tel:01618338661"
               whileHover={{ scale: 1.05 }}
-              className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-6 border border-slate-700 hover:border-emerald-500/50 transition-all"
+              className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-6 border border-gray-200 hover:border-emerald-500/50 transition-all"
             >
-              <Phone className="w-10 h-10 text-emerald-400 mx-auto mb-4" />
-              <h3 className="text-white font-semibold mb-2">Call Us</h3>
-              <p className="text-emerald-400">0161 833 8661</p>
+              <Phone className="w-10 h-10 text-green-600 mx-auto mb-4" />
+              <h3 className="text-gray-900 font-semibold mb-2">Call Us</h3>
+              <p className="text-green-600">0161 833 8661</p>
             </motion.a>
             
             <motion.a
               href="mailto:info@wattutilities.co.uk"
               whileHover={{ scale: 1.05 }}
-              className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-6 border border-slate-700 hover:border-emerald-500/50 transition-all"
+              className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-6 border border-gray-200 hover:border-emerald-500/50 transition-all"
             >
-              <Mail className="w-10 h-10 text-emerald-400 mx-auto mb-4" />
-              <h3 className="text-white font-semibold mb-2">Email Us</h3>
-              <p className="text-emerald-400">info@wattutilities.co.uk</p>
+              <Mail className="w-10 h-10 text-green-600 mx-auto mb-4" />
+              <h3 className="text-gray-900 font-semibold mb-2">Email Us</h3>
+              <p className="text-green-600">info@wattutilities.co.uk</p>
             </motion.a>
             
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-6 border border-slate-700 hover:border-emerald-500/50 transition-all cursor-pointer"
+              className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg p-6 border border-gray-200 hover:border-emerald-500/50 transition-all cursor-pointer"
             >
-              <MessageCircle className="w-10 h-10 text-emerald-400 mx-auto mb-4" />
-              <h3 className="text-white font-semibold mb-2">Live Chat</h3>
-              <p className="text-emerald-400">Available 9am-6pm</p>
+              <MessageCircle className="w-10 h-10 text-green-600 mx-auto mb-4" />
+              <h3 className="text-gray-900 font-semibold mb-2">Live Chat</h3>
+              <p className="text-green-600">Available 9am-6pm</p>
             </motion.div>
           </div>
         </div>

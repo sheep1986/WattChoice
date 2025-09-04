@@ -6,10 +6,10 @@ import { SEOHead } from '../SEO';
 
 const TrustpilotReviews = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-white">
       <SEOHead
         title="Customer Reviews on Trustpilot"
-        description="Read real customer reviews on Trustpilot. Watt Utilities has a 4.6 star rating from over 700 verified business reviews."
+        description="Read real customer reviews on Trustpilot. Watt Choice has a 4.6 star rating from over 700 verified business reviews."
         keywords="trustpilot reviews, customer testimonials, watt utilities reviews"
         canonical="https://wattutilities001.netlify.app/reviews"
       />
@@ -32,15 +32,15 @@ const TrustpilotReviews = () => {
             ))}
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Rated 4.6/5 on Trustpilot
           </h1>
           
-          <p className="text-xl text-gray-300 mb-2">
-            Based on <span className="text-emerald-400 font-bold">709 reviews</span> from verified businesses
+          <p className="text-xl text-gray-700 mb-2">
+            Based on <span className="text-green-600 font-bold">709 reviews</span> from verified businesses
           </p>
 
-          <p className="text-sm text-gray-400 mb-8">
+          <p className="text-sm text-gray-600 mb-8">
             89% of our customers rate us 5 stars
           </p>
 
@@ -50,37 +50,37 @@ const TrustpilotReviews = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.1 }}
-              className="bg-slate-900/60 border border-slate-800 rounded-lg p-6"
+              className="bg-white/60 border border-slate-800 rounded-lg p-6"
             >
-              <div className="text-3xl font-bold text-emerald-400 mb-2">709</div>
-              <div className="text-sm text-gray-400">Total Reviews</div>
+              <div className="text-3xl font-bold text-green-600 mb-2">709</div>
+              <div className="text-sm text-gray-600">Total Reviews</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="bg-slate-900/60 border border-slate-800 rounded-lg p-6"
+              className="bg-white/60 border border-slate-800 rounded-lg p-6"
             >
-              <div className="text-3xl font-bold text-emerald-400 mb-2">4.6</div>
-              <div className="text-sm text-gray-400">Average Rating</div>
+              <div className="text-3xl font-bold text-green-600 mb-2">4.6</div>
+              <div className="text-sm text-gray-600">Average Rating</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3 }}
-              className="bg-slate-900/60 border border-slate-800 rounded-lg p-6"
+              className="bg-white/60 border border-slate-800 rounded-lg p-6"
             >
-              <div className="text-3xl font-bold text-emerald-400 mb-2">89%</div>
-              <div className="text-sm text-gray-400">5-Star Reviews</div>
+              <div className="text-3xl font-bold text-green-600 mb-2">89%</div>
+              <div className="text-sm text-gray-600">5-Star Reviews</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4 }}
-              className="bg-slate-900/60 border border-slate-800 rounded-lg p-6"
+              className="bg-white/60 border border-slate-800 rounded-lg p-6"
             >
-              <div className="text-3xl font-bold text-emerald-400 mb-2">Excellent</div>
-              <div className="text-sm text-gray-400">TrustScore</div>
+              <div className="text-3xl font-bold text-green-600 mb-2">Excellent</div>
+              <div className="text-sm text-gray-600">TrustScore</div>
             </motion.div>
           </div>
 
@@ -92,14 +92,14 @@ const TrustpilotReviews = () => {
       </section>
 
       {/* Carousel Reviews Section */}
-      <section className="py-16 px-4 bg-slate-900/50">
+      <section className="py-16 px-4 bg-white/50">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
             Latest Customer Reviews
           </h2>
           
           {/* Trustpilot Carousel Widget */}
-          <div className="bg-slate-900/60 border border-slate-800 rounded-lg p-8">
+          <div className="bg-white/60 border border-slate-800 rounded-lg p-8">
             <TrustpilotWidget type="carousel" />
           </div>
         </div>
@@ -108,12 +108,12 @@ const TrustpilotReviews = () => {
       {/* All Reviews Grid */}
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
             What Our Customers Say
           </h2>
           
           {/* Trustpilot Grid Widget */}
-          <div className="bg-slate-900/60 border border-slate-800 rounded-lg p-8">
+          <div className="bg-white/60 border border-slate-800 rounded-lg p-8">
             <TrustpilotWidget type="grid" />
           </div>
 
@@ -123,7 +123,7 @@ const TrustpilotReviews = () => {
               href="https://www.trustpilot.com/review/watt.co.uk"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+              className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-gray-900 font-bold py-3 px-6 rounded-lg transition-colors"
             >
               View All Reviews on Trustpilot
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -136,9 +136,9 @@ const TrustpilotReviews = () => {
       </section>
 
       {/* Why Trust Us */}
-      <section className="py-16 px-4 bg-slate-900/50">
+      <section className="py-16 px-4 bg-white/50">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
             Why Businesses Trust Us
           </h2>
           
@@ -149,9 +149,9 @@ const TrustpilotReviews = () => {
               transition={{ delay: 0.1 }}
               className="text-center"
             >
-              <Shield className="w-12 h-12 text-emerald-400 mx-auto mb-4" />
-              <h3 className="text-white font-semibold mb-2">Verified Reviews</h3>
-              <p className="text-sm text-gray-400">All reviews are from real customers verified by Trustpilot</p>
+              <Shield className="w-12 h-12 text-green-600 mx-auto mb-4" />
+              <h3 className="text-gray-900 font-semibold mb-2">Verified Reviews</h3>
+              <p className="text-sm text-gray-600">All reviews are from real customers verified by Trustpilot</p>
             </motion.div>
             
             <motion.div
@@ -160,9 +160,9 @@ const TrustpilotReviews = () => {
               transition={{ delay: 0.2 }}
               className="text-center"
             >
-              <TrendingUp className="w-12 h-12 text-emerald-400 mx-auto mb-4" />
-              <h3 className="text-white font-semibold mb-2">Consistent Excellence</h3>
-              <p className="text-sm text-gray-400">Maintaining 4.6+ rating across 700+ reviews</p>
+              <TrendingUp className="w-12 h-12 text-green-600 mx-auto mb-4" />
+              <h3 className="text-gray-900 font-semibold mb-2">Consistent Excellence</h3>
+              <p className="text-sm text-gray-600">Maintaining 4.6+ rating across 700+ reviews</p>
             </motion.div>
             
             <motion.div
@@ -171,9 +171,9 @@ const TrustpilotReviews = () => {
               transition={{ delay: 0.3 }}
               className="text-center"
             >
-              <Users className="w-12 h-12 text-emerald-400 mx-auto mb-4" />
-              <h3 className="text-white font-semibold mb-2">900k+ Served</h3>
-              <p className="text-sm text-gray-400">Trusted by businesses across the UK</p>
+              <Users className="w-12 h-12 text-green-600 mx-auto mb-4" />
+              <h3 className="text-gray-900 font-semibold mb-2">900k+ Served</h3>
+              <p className="text-sm text-gray-600">Trusted by businesses across the UK</p>
             </motion.div>
             
             <motion.div
@@ -182,9 +182,9 @@ const TrustpilotReviews = () => {
               transition={{ delay: 0.4 }}
               className="text-center"
             >
-              <Award className="w-12 h-12 text-emerald-400 mx-auto mb-4" />
-              <h3 className="text-white font-semibold mb-2">Industry Leaders</h3>
-              <p className="text-sm text-gray-400">Award-winning service since 2000</p>
+              <Award className="w-12 h-12 text-green-600 mx-auto mb-4" />
+              <h3 className="text-gray-900 font-semibold mb-2">Industry Leaders</h3>
+              <p className="text-sm text-gray-600">Award-winning service since 2000</p>
             </motion.div>
           </div>
         </div>
@@ -193,19 +193,21 @@ const TrustpilotReviews = () => {
       {/* CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-t from-emerald-900/20 to-transparent">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">
             Join Our Happy Customers
           </h2>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl text-gray-700 mb-8">
             See why 89% of our customers give us 5 stars
           </p>
           
           <div className="flex flex-wrap justify-center gap-4">
             <motion.a
-              href="/get-quote"
+              href="https://app.watt.co.uk"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg"
+              className="bg-green-500 hover:bg-emerald-600 text-gray-900 font-bold py-4 px-8 rounded-lg shadow-lg"
             >
               Get Your Free Quote
             </motion.a>
