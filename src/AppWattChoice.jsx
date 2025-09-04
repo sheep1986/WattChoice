@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { BrowserRouter as Router, Routes, Route, NavLink, useLocation, Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence, useScroll, useTransform, useSpring, useInView } from "framer-motion";
+
+// Import Service Pages
+import { BusinessWater, BusinessBroadband, BusinessTelecoms, LargeBusiness, ContactPage as ContactPageImport, CompanyPage as CompanyPageImport } from './pages/AllServicePages';
+import { PassThroughPage, SuppliersPage, HowPaidPage, LOAPage, GlossaryPage, CompanyPage, CareersPage, CompliancePage, ContactPage } from './pages/ServicePages';
 import {
   CheckCircle,
   ShieldCheck,
@@ -1829,15 +1833,25 @@ export default function WattChoiceApp() {
           <Route path="/business-energy" element={<PagePlaceholder title="Business Energy Comparison" description="Compare electricity and gas prices from 30+ suppliers" />} />
           <Route path="/business-electricity" element={<PagePlaceholder title="Business Electricity" description="Find the best electricity deals for your business" />} />
           <Route path="/business-gas" element={<PagePlaceholder title="Business Gas" description="Compare business gas prices and save" />} />
-          <Route path="/business-water" element={<PagePlaceholder title="Business Water" description="Switch and save on business water rates" />} />
-          <Route path="/business-broadband" element={<PagePlaceholder title="Business Broadband" description="Fast, reliable broadband for your business" />} />
+          <Route path="/business-water" element={<BusinessWater />} />
+          <Route path="/business-broadband" element={<BusinessBroadband />} />
           <Route path="/business-phone" element={<PagePlaceholder title="Business Phone Systems" description="Modern phone solutions for businesses" />} />
+          <Route path="/business-telecoms" element={<BusinessTelecoms />} />
           <Route path="/business-insurance" element={<PagePlaceholder title="Business Insurance" description="Comprehensive coverage at competitive rates" />} />
           <Route path="/multi-site-energy" element={<PagePlaceholder title="Multi-Site Energy Management" description="Streamlined energy management for multiple locations" />} />
+          <Route path="/large-business" element={<LargeBusiness />} />
+          <Route path="/pass-through-fixed" element={<PassThroughPage />} />
           
           {/* Information Pages */}
           <Route path="/how-it-works" element={<PagePlaceholder title="How Watt Choice Works" description="Our simple 4-step process explained" />} />
           <Route path="/about" element={<PagePlaceholder title="About Watt Choice" description="Your trusted business utility partner since 2000" />} />
+          <Route path="/suppliers" element={<SuppliersPage />} />
+          <Route path="/how-we-get-paid" element={<HowPaidPage />} />
+          <Route path="/loa" element={<LOAPage />} />
+          <Route path="/glossary" element={<GlossaryPage />} />
+          <Route path="/company" element={<CompanyPage />} />
+          <Route path="/careers" element={<CareersPage />} />
+          <Route path="/compliance" element={<CompliancePage />} />
           <Route path="/case-studies" element={<PagePlaceholder title="Success Stories" description="See how we've helped businesses save" />} />
           <Route path="/business-guides" element={<PagePlaceholder title="Business Energy Guides" description="Expert guides to help you make informed decisions" />} />
           <Route path="/energy-saving-tips" element={<PagePlaceholder title="Energy Saving Tips" description="Practical ways to reduce your energy consumption" />} />
@@ -1849,7 +1863,8 @@ export default function WattChoiceApp() {
           
           {/* Quote and Contact */}
           <Route path="/get-quote" element={<QuoteFormPage />} />
-          <Route path="/contact" element={<PagePlaceholder title="Contact Us" description="Get in touch with our expert team" />} />
+          <Route path="/get-a-quote" element={<QuoteFormPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           
           {/* Legal Pages */}
           <Route path="/privacy" element={<PagePlaceholder title="Privacy Policy" description="How we protect your data" />} />
