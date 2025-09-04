@@ -1322,7 +1322,7 @@ function TrustSection() {
 // CTA Section
 function CTASection() {
   return (
-    <section className="py-20 bg-gradient-to-r from-green-600 to-green-500">
+    <section className="py-20 bg-gradient-to-r from-green-600 to-emerald-600">
       <div className="container mx-auto px-4 lg:px-6 text-center">
         <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
           Ready to Start Saving?
@@ -1337,10 +1337,10 @@ function CTASection() {
               <ArrowRight className="h-5 w-5 ml-2" />
             </Button>
           </a>
-          <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-green-600">
+          <a href="tel:01618338661" className="px-8 py-4 text-lg inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white text-green-600 hover:bg-gray-100 shadow-lg hover:shadow-xl">
             <Phone className="h-5 w-5 mr-2" />
-            Call 0161 123 4567
-          </Button>
+            Call 0161 833 8661
+          </a>
         </div>
         <div className="mt-8 flex flex-wrap justify-center gap-6 text-white">
           <div className="flex items-center gap-2">
