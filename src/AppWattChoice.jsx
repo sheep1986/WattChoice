@@ -15,6 +15,7 @@ import ComplaintsPage from './pages/ComplaintsPage';
 import AboutPage from './pages/AboutPage';
 import CaseStudies from './pages/CaseStudies';
 import TPICodePage from './pages/TPICodePage';
+import MultiSiteEnergy from './pages/MultiSiteEnergy';
 import {
   CheckCircle,
   ShieldCheck,
@@ -1702,7 +1703,7 @@ export default function WattChoiceApp() {
           <Route path="/business-phone" element={<PagePlaceholder title="Business Phone Systems" description="Modern phone solutions for businesses" />} />
           <Route path="/business-telecoms" element={<BusinessTelecoms />} />
           <Route path="/business-insurance" element={<PagePlaceholder title="Business Insurance" description="Comprehensive coverage at competitive rates" />} />
-          <Route path="/multi-site-energy" element={<PagePlaceholder title="Multi-Site Energy Management" description="Streamlined energy management for multiple locations" />} />
+          <Route path="/multi-site-energy" element={<MultiSiteEnergy />} />
           <Route path="/large-business" element={<LargeBusiness />} />
           <Route path="/pass-through-fixed" element={<PassThroughPage />} />
           
