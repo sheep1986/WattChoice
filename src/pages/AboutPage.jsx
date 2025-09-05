@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+// import { Helmet } from 'react-helmet-async';
 import { 
   Building2, 
   Users, 
@@ -67,60 +67,14 @@ const AboutPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-white">
+      {/* Helmet SEO tags commented out - can be re-enabled when HelmetProvider is configured
       <Helmet>
         <title>About Watt Choice | Family-Run Energy Consultants Since 2000</title>
         <meta name="description" content="Learn about Watt Choice - Manchester's trusted business energy consultants since 2000. 900,000+ businesses served, £150M saved. Investors in People certified." />
         <meta name="keywords" content="about watt utilities, business energy consultants manchester, family-run energy broker, utility management company UK" />
         <link rel="canonical" href="https://www.wattchoice.co.uk/company" />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content="About Watt Choice | Your Trusted Energy Partner Since 2000" />
-        <meta property="og:description" content="Family-run business energy consultancy helping 900,000+ UK businesses save £150M on utilities. Platinum standard broker." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.wattchoice.co.uk/company" />
-        
-        {/* Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Watt Choice",
-            "url": "https://www.wattchoice.co.uk",
-            "logo": "https://www.wattchoice.co.uk/logo.png",
-            "foundingDate": "2000",
-            "founders": [{
-              "@type": "Person",
-              "name": "Peter Hunter",
-              "jobTitle": "Director"
-            }],
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "St Ann's House, 5th Floor, St Ann's Square",
-              "addressLocality": "Manchester",
-              "postalCode": "M2 7LP",
-              "addressCountry": "GB"
-            },
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "+44-161-833-8661",
-              "contactType": "customer service",
-              "email": "hello@watt.co.uk"
-            },
-            "numberOfEmployees": {
-              "@type": "QuantitativeValue",
-              "value": 50
-            },
-            "description": "Family-run commercial energy consultancy helping UK businesses save on utilities since 2000",
-            "award": "Industry Excellence Awards 2023",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.6",
-              "reviewCount": "709",
-              "bestRating": "5"
-            }
-          })}
-        </script>
       </Helmet>
+      */}
 
       {/* Hero Section */}
       <section className="relative py-20 px-4 overflow-hidden">
