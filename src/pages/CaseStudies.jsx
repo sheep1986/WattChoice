@@ -234,7 +234,7 @@ const CaseStudies = () => {
         canonical="https://wattutilities001.netlify.app/case-studies"
       />
       */}
-
+      
       {/* Hero Section with Animation */}
       <section className="relative py-20 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-cyan-500/10" />
