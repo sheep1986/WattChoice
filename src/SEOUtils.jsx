@@ -169,7 +169,7 @@ export const seoConfig = {
   twitterHandle: '@wattutilities',
   socialLinks: {
     twitter: 'https://twitter.com/wattutilities',
-    facebook: 'https://www.facebook.com/wattutilitiesuk',
+    facebook: 'https://www.facebook.com/profile.php?id=61580022617531',
     linkedin: 'https://www.linkedin.com/company/watt-utilities-uk-ltd'
   }
 };

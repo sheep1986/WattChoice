@@ -98,7 +98,7 @@ export const organizationSchema = {
   "areaServed": "United Kingdom",
   "sameAs": [
     "https://twitter.com/wattutilities",
-    "https://www.facebook.com/wattutilitiesuk",
+    "https://www.facebook.com/profile.php?id=61580022617531",
     "https://www.linkedin.com/company/watt-utilities-uk-ltd"
   ],
   "contactPoint": {
