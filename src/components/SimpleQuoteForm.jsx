@@ -132,12 +132,7 @@ const SimpleQuoteForm = ({ onClose, serviceType = 'water' }) => {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className={`bg-gradient-to-r ${
-          serviceDetails.color === 'green' ? 'from-green-500 to-emerald-600' :
-          serviceDetails.color === 'blue' ? 'from-blue-500 to-cyan-600' :
-          serviceDetails.color === 'purple' ? 'from-purple-500 to-indigo-600' :
-          'from-emerald-500 to-green-600'
-        } p-6 rounded-t-2xl`}>
+        <div className="bg-gradient-to-r from-emerald-500 to-green-600 p-6 rounded-t-2xl">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="bg-white/20 p-2 rounded-lg backdrop-blur-sm">
