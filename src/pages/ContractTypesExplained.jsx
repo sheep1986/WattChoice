@@ -33,7 +33,6 @@ const ContractTypesExplained = () => {
       id: 'fixed',
       name: 'Fixed Rate Contract',
       icon: Lock,
-      color: 'from-blue-500 to-indigo-600',
       bestFor: 'Budget certainty & risk-averse businesses',
       duration: '1-5 years',
       priceVolatility: 'None',
@@ -72,27 +71,12 @@ const ContractTypesExplained = () => {
         scenario: 'Birmingham restaurant chain',
         savings: 'Avoided 35% price increase in 2022',
         details: 'Fixed at 18p/kWh before market spike to 25p/kWh'
-      },
-      marketConditions: {
-        whenToChoose: [
-          'Market prices are low or stable',
-          'Expecting future price increases',
-          'Need budget certainty for planning',
-          'Limited risk appetite'
-        ],
-        whenToAvoid: [
-          'Market prices are historically high',
-          'Expecting significant price drops',
-          'Business has flexible budgets',
-          'Can actively manage energy risk'
-        ]
       }
     },
     {
       id: 'variable',
       name: 'Variable/Flexible Contract',
       icon: TrendingUp,
-      color: 'from-emerald-500 to-teal-600',
       bestFor: 'Market-savvy businesses seeking opportunities',
       duration: 'Month-to-month or quarterly',
       priceVolatility: 'High',
@@ -131,27 +115,12 @@ const ContractTypesExplained = () => {
         scenario: 'Manchester data center',
         savings: 'Saved £45,000 in Q3 2023',
         details: 'Benefited from 30% market drop vs fixed rates'
-      },
-      marketConditions: {
-        whenToChoose: [
-          'Market prices are falling',
-          'High market volatility expected',
-          'Have risk management capability',
-          'Flexible budget available'
-        ],
-        whenToAvoid: [
-          'Rising market trend',
-          'Need budget certainty',
-          'Limited risk tolerance',
-          'No market monitoring capability'
-        ]
       }
     },
     {
       id: 'pass-through',
       name: 'Pass-Through Contract',
       icon: Layers,
-      color: 'from-purple-500 to-pink-600',
       bestFor: 'Large users wanting transparency',
       duration: '1-3 years typical',
       priceVolatility: 'Medium',
@@ -190,27 +159,12 @@ const ContractTypesExplained = () => {
         scenario: 'Leeds manufacturing group',
         savings: '18% reduction vs previous fixed',
         details: 'Transparent pricing revealed hidden margins'
-      },
-      marketConditions: {
-        whenToChoose: [
-          'Large consumption volumes',
-          'Want pricing transparency',
-          'Have energy management capability',
-          'Stable but flexible budget'
-        ],
-        whenToAvoid: [
-          'Small energy usage',
-          'Need simple billing',
-          'No internal expertise',
-          'Require fixed costs'
-        ]
       }
     },
     {
       id: 'deemed',
       name: 'Deemed/Out of Contract',
       icon: AlertCircle,
-      color: 'from-red-500 to-orange-600',
       bestFor: 'Nobody - Avoid at all costs!',
       duration: 'Rolling monthly',
       priceVolatility: 'None (but expensive)',
@@ -245,25 +199,12 @@ const ContractTypesExplained = () => {
         scenario: 'Bristol retailer oversight',
         savings: 'Lost £8,400 in 3 months',
         details: 'Paid 28p/kWh vs market rate of 19p/kWh'
-      },
-      marketConditions: {
-        whenToChoose: [
-          'Never intentionally',
-          'Only during transition',
-          'Emergency situations'
-        ],
-        whenToAvoid: [
-          'Always avoid',
-          'Plan renewals 6 months ahead',
-          'Set renewal reminders'
-        ]
       }
     },
     {
       id: 'green-fixed',
       name: 'Green/Renewable Fixed',
       icon: Zap,
-      color: 'from-green-500 to-emerald-600',
       bestFor: 'Sustainability-focused businesses',
       duration: '1-5 years',
       priceVolatility: 'None',
@@ -302,26 +243,12 @@ const ContractTypesExplained = () => {
         scenario: 'London hotel group',
         savings: 'Only 2% premium for green',
         details: 'Enhanced brand value worth the cost'
-      },
-      marketConditions: {
-        whenToChoose: [
-          'ESG commitments',
-          'Stakeholder pressure',
-          'Brand positioning',
-          'Tender requirements'
-        ],
-        whenToAvoid: [
-          'Extreme cost sensitivity',
-          'No sustainability focus',
-          'Very small usage'
-        ]
       }
     },
     {
       id: 'basket',
       name: 'Basket/Portfolio Contract',
       icon: Building2,
-      color: 'from-indigo-500 to-purple-600',
       bestFor: 'Multi-site businesses',
       duration: '2-5 years typical',
       priceVolatility: 'Low-Medium',
@@ -360,29 +287,8 @@ const ContractTypesExplained = () => {
         scenario: 'National retail chain (45 sites)',
         savings: '22% through aggregation',
         details: 'Saved £125,000/year vs individual contracts'
-      },
-      marketConditions: {
-        whenToChoose: [
-          'Multiple sites (5+)',
-          'Similar usage patterns',
-          'Central procurement',
-          'Expansion plans'
-        ],
-        whenToAvoid: [
-          'Very different site needs',
-          'Separate P&L centers',
-          'Site closure risks'
-        ]
       }
     }
-  ];
-
-  const comparisonFactors = [
-    { factor: 'Price Certainty', weight: 'Critical for most SMEs' },
-    { factor: 'Flexibility', weight: 'Important for growing businesses' },
-    { factor: 'Risk Level', weight: 'Key consideration for all' },
-    { factor: 'Management Overhead', weight: 'Resource consideration' },
-    { factor: 'Potential Savings', weight: 'Opportunity vs certainty' }
   ];
 
   const handleComparisonToggle = (contractId) => {
@@ -847,39 +753,6 @@ const ContractTypesExplained = () => {
                   <p className="text-gray-300">
                     {selectedContract.realExample.details}
                   </p>
-                </div>
-
-                {/* Market Conditions */}
-                <div className="grid md:grid-cols-2 gap-8 mb-8">
-                  <div>
-                    <h4 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-                      <CheckCircle className="w-5 h-5 text-green-400" />
-                      When to Choose
-                    </h4>
-                    <ul className="space-y-2">
-                      {selectedContract.marketConditions.whenToChoose.map((condition, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0" />
-                          <span className="text-gray-300 text-sm">{condition}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-                      <XCircle className="w-5 h-5 text-red-400" />
-                      When to Avoid
-                    </h4>
-                    <ul className="space-y-2">
-                      {selectedContract.marketConditions.whenToAvoid.map((condition, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0" />
-                          <span className="text-gray-300 text-sm">{condition}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
                 </div>
 
                 {/* CTA */}

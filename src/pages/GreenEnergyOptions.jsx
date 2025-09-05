@@ -20,7 +20,8 @@ import {
   Calculator,
   ChevronRight,
   Info,
-  Building2
+  Building2,
+  Clock
 } from 'lucide-react';
 import { SEOHead } from '../SEO';
 
@@ -36,7 +37,6 @@ const GreenEnergyOptions = () => {
       id: 'rego',
       name: 'REGO-Backed Green Tariffs',
       icon: Leaf,
-      color: 'from-green-500 to-emerald-600',
       premium: '0-5%',
       carbonReduction: '100%',
       availability: 'Immediate',
@@ -77,7 +77,6 @@ const GreenEnergyOptions = () => {
       id: 'solar',
       name: 'On-Site Solar Generation',
       icon: Sun,
-      color: 'from-yellow-500 to-orange-600',
       premium: '-20 to -40%',
       carbonReduction: '30-60%',
       availability: '3-6 months',
@@ -119,7 +118,6 @@ const GreenEnergyOptions = () => {
       id: 'ppa',
       name: 'Power Purchase Agreements',
       icon: Wind,
-      color: 'from-blue-500 to-cyan-600',
       premium: '-10 to -25%',
       carbonReduction: '100%',
       availability: '6-12 months',
@@ -161,7 +159,6 @@ const GreenEnergyOptions = () => {
       id: 'funded-solar',
       name: 'Fully-Funded Solar',
       icon: Battery,
-      color: 'from-purple-500 to-pink-600',
       premium: '-15 to -30%',
       carbonReduction: '30-60%',
       availability: '2-4 months',
@@ -202,7 +199,6 @@ const GreenEnergyOptions = () => {
       id: 'carbon-offset',
       name: 'Carbon Offsetting Programs',
       icon: TreePine,
-      color: 'from-teal-500 to-green-600',
       premium: '2-8%',
       carbonReduction: '100% (offset)',
       availability: 'Immediate',
@@ -243,7 +239,6 @@ const GreenEnergyOptions = () => {
       id: 'biomass',
       name: 'Biomass & Alternative Fuels',
       icon: Globe2,
-      color: 'from-orange-500 to-red-600',
       premium: 'Varies',
       carbonReduction: '60-90%',
       availability: '6-12 months',

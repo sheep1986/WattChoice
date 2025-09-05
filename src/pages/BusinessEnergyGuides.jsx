@@ -8,7 +8,6 @@ import {
   Building2,
   ArrowRight,
   CheckCircle,
-  Info,
   FileText,
   Calculator,
   Shield,
@@ -16,7 +15,7 @@ import {
   Award,
   ChevronRight,
   Download,
-  ExternalLink
+  Info
 } from 'lucide-react';
 import { SEOHead } from '../SEO';
 
@@ -30,7 +29,6 @@ const BusinessEnergyGuides = () => {
       category: 'Fundamentals',
       readTime: '8 min read',
       icon: FileText,
-      color: 'from-blue-500 to-indigo-600',
       description: 'Decode complex energy bills and identify savings opportunities',
       content: {
         sections: [
@@ -53,16 +51,6 @@ const BusinessEnergyGuides = () => {
               'Meter operation charges',
               'Settlement costs'
             ]
-          },
-          {
-            title: 'How to Spot Overcharging',
-            points: [
-              'Comparing unit rates to market averages',
-              'Identifying billing errors',
-              'Checking meter readings accuracy',
-              'Validating contract rates',
-              'Reviewing historical consumption patterns'
-            ]
           }
         ],
         savings: 'Average savings: £2,400/year from bill validation',
@@ -80,7 +68,6 @@ const BusinessEnergyGuides = () => {
       category: 'Strategy',
       readTime: '10 min read',
       icon: Clock,
-      color: 'from-emerald-500 to-teal-600',
       description: 'Master the art of timing your energy contract renewals',
       content: {
         sections: [
@@ -103,16 +90,6 @@ const BusinessEnergyGuides = () => {
               'Consider multi-year deals in low markets',
               'Factor in business growth projections'
             ]
-          },
-          {
-            title: 'Risk Management Strategies',
-            points: [
-              'Fixed vs flexible contract timing',
-              'Basket contracts for multiple sites',
-              'Blended rate strategies',
-              'Forward purchasing options',
-              'Price cap mechanisms'
-            ]
           }
         ],
         savings: 'Strategic timing can save 15-25% on energy costs',
@@ -130,7 +107,6 @@ const BusinessEnergyGuides = () => {
       category: 'Efficiency',
       readTime: '12 min read',
       icon: TrendingUp,
-      color: 'from-purple-500 to-pink-600',
       description: 'Reduce consumption and shift usage to cheaper periods',
       content: {
         sections: [
@@ -153,16 +129,6 @@ const BusinessEnergyGuides = () => {
               'Real-time monitoring platforms',
               'Predictive analytics tools'
             ]
-          },
-          {
-            title: 'Quick Wins for Any Business',
-            points: [
-              'LED lighting upgrades (40% savings)',
-              'HVAC optimization (20% savings)',
-              'Insulation improvements (15% savings)',
-              'Variable speed drives (30% on motors)',
-              'Behavioral change programs (5-10% savings)'
-            ]
           }
         ],
         savings: 'Typical reduction: 20-30% in overall consumption',
@@ -180,7 +146,6 @@ const BusinessEnergyGuides = () => {
       category: 'Procurement',
       readTime: '7 min read',
       icon: Shield,
-      color: 'from-orange-500 to-red-600',
       description: 'Leverage tactics for securing the best energy deals',
       content: {
         sections: [
@@ -203,16 +168,6 @@ const BusinessEnergyGuides = () => {
               'Push for transparent pricing',
               'Secure favorable payment terms'
             ]
-          },
-          {
-            title: 'Contract Terms to Negotiate',
-            points: [
-              'Removal of automatic rollover clauses',
-              'Flexible volume tolerances',
-              'Transparent pass-through costs',
-              'Shorter notice periods',
-              'Green energy options at no premium'
-            ]
           }
         ],
         savings: 'Expert negotiation saves 10-35% on contracts',
@@ -230,7 +185,6 @@ const BusinessEnergyGuides = () => {
       category: 'Sustainability',
       readTime: '9 min read',
       icon: Zap,
-      color: 'from-green-500 to-emerald-600',
       description: 'Navigate the shift to green energy without breaking the budget',
       content: {
         sections: [
@@ -253,16 +207,6 @@ const BusinessEnergyGuides = () => {
               'ROI on renewable installations',
               'Financing options available'
             ]
-          },
-          {
-            title: 'Implementation Roadmap',
-            points: [
-              'Energy audit and baseline setting',
-              'Feasibility studies for on-site generation',
-              'Phased transition approach',
-              'Monitoring and reporting setup',
-              'Stakeholder communication strategy'
-            ]
           }
         ],
         savings: 'Long-term savings: 15-40% with renewable solutions',
@@ -280,7 +224,6 @@ const BusinessEnergyGuides = () => {
       category: 'Enterprise',
       readTime: '11 min read',
       icon: Building2,
-      color: 'from-indigo-500 to-purple-600',
       description: 'Strategies for managing energy across multiple locations',
       content: {
         sections: [
@@ -302,16 +245,6 @@ const BusinessEnergyGuides = () => {
               'Flexible portfolio agreements',
               'Site addition/removal clauses',
               'Volume tolerance management'
-            ]
-          },
-          {
-            title: 'Performance Monitoring',
-            points: [
-              'Cross-site benchmarking',
-              'KPI dashboard creation',
-              'Anomaly detection systems',
-              'Best practice sharing',
-              'Regular performance reviews'
             ]
           }
         ],
