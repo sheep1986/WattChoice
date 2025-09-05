@@ -113,26 +113,37 @@ const TrustpilotSection = () => {
             See what our customers say about their experience with Watt Choice
           </p>
           
-          {/* Trustpilot Stats */}
+          {/* Trustpilot Stats with Logo */}
           <div className="flex flex-wrap items-center justify-center gap-8 mb-8">
-            <div className="flex items-center gap-2">
-              <div className="flex items-center">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star 
-                    key={star} 
-                    className={`w-6 h-6 ${star <= Math.round(trustpilotData.score) ? 'text-green-500 fill-green-500' : 'text-gray-300'}`}
-                  />
-                ))}
+            {/* Trustpilot Logo and Rating */}
+            <div className="flex items-center gap-3">
+              <a 
+                href={trustpilotData.businessUrl}
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block hover:opacity-80 transition-opacity"
+              >
+                <img 
+                  src="https://cdn.trustpilot.net/brand-assets/4.1.0/logo-black.svg" 
+                  alt="Trustpilot" 
+                  className="h-8"
+                />
+              </a>
+              <div className="border-l border-gray-300 pl-3">
+                <div className="flex items-center gap-1">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <Star 
+                      key={star} 
+                      className={`w-6 h-6 ${star <= Math.round(trustpilotData.score) ? 'text-[#00b67a] fill-[#00b67a]' : 'text-gray-300'}`}
+                    />
+                  ))}
+                  <span className="ml-2 text-lg font-semibold text-gray-900">Excellent {trustpilotData.score} out of 5</span>
+                </div>
+                <div className="flex items-center gap-2 mt-1">
+                  <span className="text-sm text-gray-600">Based on</span>
+                  <span className="text-sm font-bold text-gray-900">{trustpilotData.totalReviews} reviews</span>
+                </div>
               </div>
-              <span className="text-2xl font-bold text-gray-900">{trustpilotData.score}</span>
-              <span className="text-gray-600">out of 5</span>
-            </div>
-            
-            <div className="h-8 w-px bg-gray-300" />
-            
-            <div className="text-center">
-              <div className="text-2xl font-bold text-gray-900">{trustpilotData.totalReviews}</div>
-              <div className="text-sm text-gray-600">Reviews</div>
             </div>
             
             <div className="h-8 w-px bg-gray-300" />
