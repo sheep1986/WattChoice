@@ -58,7 +58,7 @@ function AnimatedCounter({ value, duration = 2000, prefix = "", suffix = "" }) {
   );
 }
 
-// Floating Elements for Hero
+// Floating Elements for Hero - More subtle
 function FloatingElements() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -72,9 +72,9 @@ function FloatingElements() {
           repeat: Infinity,
           ease: "easeInOut"
         }}
-        className="absolute top-20 left-10 opacity-20"
+        className="absolute top-20 left-10 opacity-10"
       >
-        <Flame className="w-24 h-24 text-orange-500" />
+        <Flame className="w-24 h-24 text-gray-400" />
       </motion.div>
       
       <motion.div
@@ -87,15 +87,15 @@ function FloatingElements() {
           repeat: Infinity,
           ease: "easeInOut"
         }}
-        className="absolute bottom-20 right-10 opacity-20"
+        className="absolute bottom-20 right-10 opacity-10"
       >
-        <Thermometer className="w-32 h-32 text-red-500" />
+        <Thermometer className="w-32 h-32 text-gray-400" />
       </motion.div>
       
       <motion.div
         animate={{ 
           scale: [1, 1.2, 1],
-          opacity: [0.2, 0.4, 0.2]
+          opacity: [0.1, 0.2, 0.1]
         }}
         transition={{ 
           duration: 4,
@@ -104,7 +104,7 @@ function FloatingElements() {
         }}
         className="absolute top-1/2 left-1/3 transform -translate-x-1/2 -translate-y-1/2"
       >
-        <div className="w-96 h-96 bg-gradient-to-r from-orange-500 to-red-500 rounded-full blur-3xl" />
+        <div className="w-96 h-96 bg-gradient-to-r from-gray-200 to-gray-300 rounded-full blur-3xl" />
       </motion.div>
     </div>
   );
@@ -127,31 +127,31 @@ const BusinessGasPage = () => {
     supplierPartners: 25
   };
 
-  // Service features with gradients
+  // Service features with gradients - more subtle colors
   const serviceFeatures = [
     {
       icon: Target,
       title: "Tailored Gas Solutions",
       description: "Customized procurement strategies for your business size and consumption patterns",
-      gradient: "from-orange-500 to-red-500"
+      gradient: "from-gray-600 to-gray-700"
     },
     {
       icon: Shield,
       title: "Contract Protection",
       description: "Expert review of terms and conditions to avoid hidden charges and unfair clauses",
-      gradient: "from-red-500 to-pink-500"
+      gradient: "from-green-600 to-green-700"
     },
     {
       icon: TrendingUp,
       title: "Market Intelligence",
       description: "Real-time gas market analysis to secure optimal timing for your renewal",
-      gradient: "from-amber-500 to-orange-500"
+      gradient: "from-blue-600 to-blue-700"
     },
     {
       icon: HeadphonesIcon,
       title: "Dedicated Support",
       description: "Personal account manager throughout your contract journey",
-      gradient: "from-rose-500 to-red-500"
+      gradient: "from-purple-600 to-purple-700"
     }
   ];
 
@@ -183,7 +183,7 @@ const BusinessGasPage = () => {
       title: "Trusted Service",
       description: "4.6/5 Trustpilot rating from real businesses",
       stat: "4.6★",
-      color: "text-orange-600"
+      color: "text-green-600"
     }
   ];
 
@@ -243,8 +243,8 @@ const BusinessGasPage = () => {
       />
       */}
 
-      {/* Enhanced Hero Section */}
-      <section className="relative min-h-[700px] bg-gradient-to-br from-orange-50 via-white to-red-50 overflow-hidden">
+      {/* Enhanced Hero Section - Cleaner, less orange */}
+      <section className="relative min-h-[700px] bg-gradient-to-br from-gray-50 via-white to-gray-50 overflow-hidden">
         <FloatingElements />
         
         <div className="relative container mx-auto px-4 pt-32 pb-20 z-10">
@@ -259,7 +259,7 @@ const BusinessGasPage = () => {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 100 }}
-              className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 px-4 py-2 rounded-full text-sm font-semibold mb-6"
+              className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-semibold mb-6"
             >
               <Sparkles className="w-4 h-4" />
               UK's #1 Business Gas Switching Service
@@ -268,7 +268,7 @@ const BusinessGasPage = () => {
             
             <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
               Business Gas Made{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600">
                 Simple
               </span>
             </h1>
@@ -284,7 +284,7 @@ const BusinessGasPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => window.location.href = 'https://app.watt.co.uk'}
-                className="bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold py-4 px-8 rounded-full shadow-lg flex items-center gap-2"
+                className="bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold py-4 px-8 rounded-full shadow-lg flex items-center gap-2"
               >
                 Get Instant Gas Quote <ArrowRight className="w-5 h-5" />
               </motion.button>
@@ -304,9 +304,9 @@ const BusinessGasPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="bg-white rounded-xl p-4 shadow-lg border border-orange-100"
+                className="bg-white rounded-xl p-4 shadow-lg border border-gray-100"
               >
-                <Flame className="w-8 h-8 text-orange-600 mx-auto mb-2" />
+                <Flame className="w-8 h-8 text-green-600 mx-auto mb-2" />
                 <div className="text-3xl font-bold text-gray-900">
                   <AnimatedCounter value={marketStats.averageSaving} suffix="%" />
                 </div>
@@ -317,9 +317,9 @@ const BusinessGasPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="bg-white rounded-xl p-4 shadow-lg border border-red-100"
+                className="bg-white rounded-xl p-4 shadow-lg border border-gray-100"
               >
-                <Building2 className="w-8 h-8 text-red-600 mx-auto mb-2" />
+                <Building2 className="w-8 h-8 text-blue-600 mx-auto mb-2" />
                 <div className="text-3xl font-bold text-gray-900">
                   <AnimatedCounter value={900} suffix="K+" />
                 </div>
@@ -330,7 +330,7 @@ const BusinessGasPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="bg-white rounded-xl p-4 shadow-lg border border-orange-100"
+                className="bg-white rounded-xl p-4 shadow-lg border border-gray-100"
               >
                 <PoundSterling className="w-8 h-8 text-green-600 mx-auto mb-2" />
                 <div className="text-3xl font-bold text-gray-900">
@@ -343,7 +343,7 @@ const BusinessGasPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="bg-white rounded-xl p-4 shadow-lg border border-red-100"
+                className="bg-white rounded-xl p-4 shadow-lg border border-gray-100"
               >
                 <Award className="w-8 h-8 text-purple-600 mx-auto mb-2" />
                 <div className="text-3xl font-bold text-gray-900">4.6★</div>
@@ -355,7 +355,7 @@ const BusinessGasPage = () => {
       </section>
 
       {/* Service Features Grid */}
-      <section className="py-20 px-4 bg-gradient-to-b from-white to-orange-50">
+      <section className="py-20 px-4 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0 }}
@@ -365,7 +365,7 @@ const BusinessGasPage = () => {
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Why Choose Us for{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600">
                 Business Gas
               </span>
             </h2>
@@ -385,12 +385,7 @@ const BusinessGasPage = () => {
                 whileHover={{ y: -10, scale: 1.02 }}
                 className="relative group"
               >
-                <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"
-                  style={{
-                    backgroundImage: `linear-gradient(to bottom right, ${feature.gradient.split(' ')[1]}, ${feature.gradient.split(' ')[3]})`
-                  }}
-                />
-                <div className="relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all h-full">
+                <div className="relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all h-full border border-gray-100">
                   <div className={`inline-flex p-3 rounded-lg bg-gradient-to-r ${feature.gradient} mb-4`}>
                     <feature.icon className="w-6 h-6 text-white" />
                   </div>
@@ -448,29 +443,29 @@ const BusinessGasPage = () => {
               </div>
             </motion.div>
 
-            {/* Interactive Card */}
+            {/* Interactive Card - Cleaner design */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="bg-gradient-to-br from-orange-600 to-red-600 rounded-3xl p-8 text-white shadow-2xl">
+              <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl p-8 text-white shadow-2xl">
                 <h3 className="text-3xl font-bold mb-6">Quick Gas Quote</h3>
                 <div className="space-y-4">
-                  <div className="bg-white/20 backdrop-blur rounded-xl p-4">
+                  <div className="bg-white/10 backdrop-blur rounded-xl p-4">
                     <label className="text-white/80 text-sm">Monthly Gas Spend</label>
                     <div className="text-2xl font-bold">£2,500 - £10,000</div>
                   </div>
-                  <div className="bg-white/20 backdrop-blur rounded-xl p-4">
+                  <div className="bg-white/10 backdrop-blur rounded-xl p-4">
                     <label className="text-white/80 text-sm">Potential Annual Saving</label>
-                    <div className="text-3xl font-bold text-yellow-300">£11,400</div>
+                    <div className="text-3xl font-bold text-green-400">£11,400</div>
                   </div>
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => window.location.href = 'https://app.watt.co.uk'}
-                    className="w-full bg-white text-orange-600 font-bold py-4 rounded-xl hover:shadow-lg transition-all"
+                    className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-xl shadow-lg transition-all"
                   >
                     Get Your Accurate Quote <ArrowRight className="inline ml-2" />
                   </motion.button>
@@ -505,7 +500,7 @@ const BusinessGasPage = () => {
 
           <div className="relative">
             {/* Connection line */}
-            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-orange-200 via-orange-400 to-red-200 hidden lg:block" />
+            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-gray-200 via-green-400 to-gray-200 hidden lg:block" />
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
               {processSteps.map((step, index) => (
@@ -518,12 +513,12 @@ const BusinessGasPage = () => {
                   className="relative"
                 >
                   <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all">
-                    <div className="absolute -top-4 left-6 bg-gradient-to-r from-orange-600 to-red-600 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg">
+                    <div className="absolute -top-4 left-6 bg-gradient-to-r from-green-600 to-emerald-600 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg">
                       {step.number}
                     </div>
                     
                     <div className="mt-6">
-                      <step.icon className="w-10 h-10 text-orange-600 mb-4" />
+                      <step.icon className="w-10 h-10 text-green-600 mb-4" />
                       <h3 className="text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
                       <p className="text-gray-600 mb-3">{step.description}</p>
                       <div className="flex items-center gap-2 text-sm">
@@ -540,7 +535,7 @@ const BusinessGasPage = () => {
       </section>
 
       {/* Suppliers Section */}
-      <section className="py-20 px-4 bg-orange-50">
+      <section className="py-20 px-4 bg-gray-50">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0 }}
@@ -636,7 +631,7 @@ const BusinessGasPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-orange-600 to-red-600">
+      <section className="py-20 px-4 bg-gradient-to-r from-green-600 to-emerald-600">
         <div className="container mx-auto max-w-4xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -646,7 +641,7 @@ const BusinessGasPage = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Ready to Cut Your Gas Costs?
             </h2>
-            <p className="text-xl text-orange-50 mb-8">
+            <p className="text-xl text-green-50 mb-8">
               Join 900,000+ businesses already saving with Watt Choice
             </p>
             
@@ -655,7 +650,7 @@ const BusinessGasPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => window.location.href = 'https://app.watt.co.uk'}
-                className="bg-white text-orange-600 font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-2xl transition-all flex items-center gap-2"
+                className="bg-white text-green-600 font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-2xl transition-all flex items-center gap-2"
               >
                 Start Saving Now <ArrowRight className="w-5 h-5" />
               </motion.button>
@@ -663,7 +658,7 @@ const BusinessGasPage = () => {
                 href="tel:01618338661"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-orange-700 hover:bg-orange-800 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all flex items-center gap-2"
+                className="bg-green-700 hover:bg-green-800 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all flex items-center gap-2"
               >
                 <Phone className="w-5 h-5" />
                 0161 833 8661

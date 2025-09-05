@@ -69,7 +69,8 @@ import {
   Battery,
   Gauge,
   Briefcase,
-  ChevronUp
+  ChevronUp,
+  Flame
 } from "lucide-react";
 
 // Modern Card Components with clean design
@@ -303,12 +304,12 @@ function Navbar() {
   }, [location]);
 
   const services = [
-    { icon: Zap, title: "Business Energy", desc: "Compare electricity & gas", link: "/business-energy" },
-    { icon: Droplet, title: "Business Water", desc: "Switch & save on water", link: "/business-water" },
-    { icon: Wifi, title: "Business Broadband", desc: "Fast, reliable internet", link: "/business-broadband" },
-    { icon: PhoneCall, title: "Business Phone", desc: "VoIP & phone systems", link: "/business-phone" },
-    { icon: Shield, title: "Business Insurance", desc: "Protect your business", link: "/business-insurance" },
-    { icon: Building2, title: "Multi-Site", desc: "Portfolio management", link: "/multi-site" }
+    { icon: Zap, title: "Business Electricity", desc: "Save up to 45% on rates", link: "/business-electricity" },
+    { icon: Flame, title: "Business Gas", desc: "Fixed & flexible contracts", link: "/business-gas" },
+    { icon: Droplet, title: "Business Water", desc: "20% average savings", link: "/business-water" },
+    { icon: PhoneCall, title: "Telecoms", desc: "VoIP & unified comms", link: "/business-telecoms" },
+    { icon: Wifi, title: "Broadband", desc: "Fibre & leased lines", link: "/business-broadband" },
+    { icon: Building2, title: "Multi-site", desc: "Portfolio management", link: "/multi-site" }
   ];
 
   return (
@@ -749,15 +750,15 @@ function ServicesSection() {
       features: ["Cloud-based", "Free calls", "Mobile apps"]
     },
     {
-      icon: Shield,
-      title: "Business Insurance",
-      description: "Comprehensive coverage for your business",
-      savings: "5",
-      savingsText: "Min to compare",
-      gradient: "from-red-400 to-rose-500",
-      bgPattern: "bg-gradient-to-br from-red-50 to-rose-50",
-      iconBg: "bg-gradient-to-br from-red-400 to-rose-400",
-      features: ["All covers", "Top insurers", "Best prices"]
+      icon: Flame,
+      title: "Business Gas",
+      description: "Fixed and flexible gas contracts for businesses",
+      savings: "38%",
+      savingsText: "Average Savings",
+      gradient: "from-orange-400 to-red-500",
+      bgPattern: "bg-gradient-to-br from-orange-50 to-red-50",
+      iconBg: "bg-gradient-to-br from-orange-400 to-red-400",
+      features: ["25+ Suppliers", "Expert advice", "Quick switch"]
     },
     {
       icon: Building2,
@@ -1702,7 +1703,6 @@ export default function WattChoiceApp() {
           <Route path="/business-broadband" element={<BusinessBroadband />} />
           <Route path="/business-phone" element={<PagePlaceholder title="Business Phone Systems" description="Modern phone solutions for businesses" />} />
           <Route path="/business-telecoms" element={<BusinessTelecoms />} />
-          <Route path="/business-insurance" element={<PagePlaceholder title="Business Insurance" description="Comprehensive coverage at competitive rates" />} />
           <Route path="/multi-site-energy" element={<MultiSiteEnergy />} />
           <Route path="/large-business" element={<LargeBusiness />} />
           <Route path="/pass-through-fixed" element={<PassThroughPage />} />
