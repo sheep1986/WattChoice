@@ -12,7 +12,7 @@ import {
   Waves, Filter, Gauge, Activity, Server, Cloud, Lock,
   AlertCircle, CheckCircle2, Lightbulb, Rocket, Crown,
   Gift, Bell, HelpCircle, Eye, DollarSign, Factory,
-  Store, Heart, Building, MessageSquareQuote, ChevronLeft,
+  Store, Heart, Building, MessageSquareQuote, MessageSquare, ChevronLeft,
   Calendar, ThumbsUp, ExternalLink, Flame
 } from 'lucide-react';
 
@@ -62,7 +62,7 @@ function AnimatedCounter({ value, duration = 2000, prefix = "", suffix = "" }) {
 }
 
 // Floating Elements for Hero sections
-function FloatingElements({ color = "blue" }) {
+function FloatingElements({ color = "blue", icon1: Icon1 = Droplet, icon2: Icon2 = Waves }) {
   const colors = {
     blue: { primary: "text-blue-400", bg: "from-blue-200 to-cyan-300" },
     purple: { primary: "text-purple-400", bg: "from-purple-200 to-pink-300" },
@@ -86,7 +86,7 @@ function FloatingElements({ color = "blue" }) {
         }}
         className="absolute top-20 left-10 opacity-10"
       >
-        <Droplet className={`w-24 h-24 ${selectedColor.primary}`} />
+        <Icon1 className={`w-24 h-24 ${selectedColor.primary}`} />
       </motion.div>
       
       <motion.div
@@ -101,7 +101,7 @@ function FloatingElements({ color = "blue" }) {
         }}
         className="absolute bottom-20 right-10 opacity-10"
       >
-        <Waves className={`w-32 h-32 ${selectedColor.primary}`} />
+        <Icon2 className={`w-32 h-32 ${selectedColor.primary}`} />
       </motion.div>
       
       <motion.div
@@ -682,7 +682,7 @@ export const BusinessBroadband = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative min-h-[700px] bg-gradient-to-br from-purple-50 via-white to-pink-50 overflow-hidden">
-        <FloatingElements color="purple" />
+        <FloatingElements color="purple" icon1={Wifi} icon2={Globe} />
         
         <div className="relative container mx-auto px-4 pt-32 pb-20 z-10">
           <motion.div
@@ -1096,7 +1096,7 @@ export const BusinessTelecoms = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative min-h-[700px] bg-gradient-to-br from-green-50 via-white to-emerald-50 overflow-hidden">
-        <FloatingElements color="green" />
+        <FloatingElements color="green" icon1={Phone} icon2={MessageSquare} />
         
         <div className="relative container mx-auto px-4 pt-32 pb-20 z-10">
           <motion.div

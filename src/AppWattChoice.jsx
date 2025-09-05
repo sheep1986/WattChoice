@@ -8,7 +8,8 @@ import BusinessGasPage from './pages/BusinessGas';
 import { BusinessWater, BusinessBroadband, BusinessTelecoms } from './pages/AllServicePagesEnhanced';
 import { ContactPage as ContactPageImport, CompanyPage as CompanyPageImport } from './pages/AllServicePages';
 import LargeBusinessEnhanced from './pages/LargeBusinessEnhanced';
-import { PassThroughPage, SuppliersPage, HowPaidPage, LOAPage, GlossaryPage, CompanyPage, CareersPage, CompliancePage, ContactPage } from './pages/ServicePages';
+import { PassThroughPage, SuppliersPage, HowPaidPage, GlossaryPage, CompanyPage, CareersPage, CompliancePage, ContactPage } from './pages/ServicePages';
+import LOAPageEnhanced from './pages/LOAPageEnhanced';
 import SupplierCarousel from './components/SupplierCarousel';
 import TrustpilotSection from './components/TrustpilotSection';
 import PrivacyPage from './pages/PrivacyPage';
@@ -373,6 +374,9 @@ function Navbar() {
             <Link to="/how-it-works" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
               How It Works
             </Link>
+            <Link to="/loa" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
+              LOA
+            </Link>
             <Link to="/business-guides" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
               Business Guides
             </Link>
@@ -428,6 +432,23 @@ function Navbar() {
                     <span className="font-medium text-gray-700">{service.title}</span>
                   </Link>
                 ))}
+                <div className="border-t border-gray-100 pt-3 space-y-2">
+                  <Link to="/how-it-works" onClick={() => setIsOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-gray-50 font-medium">
+                    How It Works
+                  </Link>
+                  <Link to="/loa" onClick={() => setIsOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-gray-50 font-medium">
+                    LOA
+                  </Link>
+                  <Link to="/business-guides" onClick={() => setIsOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-gray-50 font-medium">
+                    Business Guides
+                  </Link>
+                  <Link to="/about" onClick={() => setIsOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-gray-50 font-medium">
+                    About Us
+                  </Link>
+                  <Link to="/contact" onClick={() => setIsOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-gray-50 font-medium">
+                    Contact
+                  </Link>
+                </div>
                 <div className="border-t border-gray-100 pt-3 px-4 space-y-3">
                   <a href="https://app.watt.co.uk" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
                     <Button size="md" className="w-full">Compare Prices</Button>
@@ -1714,7 +1735,7 @@ export default function WattChoiceApp() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/suppliers" element={<SuppliersPage />} />
           <Route path="/how-we-get-paid" element={<HowPaidPage />} />
-          <Route path="/loa" element={<LOAPage />} />
+          <Route path="/loa" element={<LOAPageEnhanced />} />
           <Route path="/glossary" element={<GlossaryPage />} />
           <Route path="/company" element={<CompanyPage />} />
           <Route path="/careers" element={<CareersPage />} />
