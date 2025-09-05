@@ -408,25 +408,11 @@ const BusinessEnergyGuides = () => {
                   onClick={() => setActiveGuide(guide)}
                 >
                   {/* Category Badge */}
-                  <div className={`h-2 bg-gradient-to-r ${
-                    guide.id === 'understanding-bills' ? 'from-blue-500 to-indigo-600' :
-                    guide.id === 'market-timing' ? 'from-emerald-500 to-teal-600' :
-                    guide.id === 'consumption-optimization' ? 'from-purple-500 to-pink-600' :
-                    guide.id === 'contract-negotiation' ? 'from-orange-500 to-red-600' :
-                    guide.id === 'green-transition' ? 'from-green-500 to-emerald-600' :
-                    'from-cyan-500 to-blue-600'
-                  }`} />
+                  <div className="h-2 bg-gradient-to-r from-emerald-500 to-green-600" />
                   
                   <div className="p-8">
                     <div className="flex items-start justify-between mb-4">
-                      <div className={`p-3 rounded-lg bg-gradient-to-r ${
-                        guide.id === 'understanding-bills' ? 'from-blue-500/20 to-indigo-600/20' :
-                        guide.id === 'market-timing' ? 'from-emerald-500/20 to-teal-600/20' :
-                        guide.id === 'consumption-optimization' ? 'from-purple-500/20 to-pink-600/20' :
-                        guide.id === 'contract-negotiation' ? 'from-orange-500/20 to-red-600/20' :
-                        guide.id === 'green-transition' ? 'from-green-500/20 to-emerald-600/20' :
-                        'from-cyan-500/20 to-blue-600/20'
-                      }`}>
+                      <div className="p-3 rounded-lg bg-gradient-to-r from-emerald-500/20 to-green-600/20">
                         <guide.icon className="w-8 h-8 text-white" />
                       </div>
                       <span className="text-xs text-gray-400 bg-slate-800 px-3 py-1 rounded-full">
@@ -475,14 +461,7 @@ const BusinessEnergyGuides = () => {
               className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-2xl max-w-4xl max-h-[90vh] overflow-y-auto border border-slate-800"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className={`h-3 bg-gradient-to-r ${
-                activeGuide.id === 'understanding-bills' ? 'from-blue-500 to-indigo-600' :
-                activeGuide.id === 'market-timing' ? 'from-emerald-500 to-teal-600' :
-                activeGuide.id === 'consumption-optimization' ? 'from-purple-500 to-pink-600' :
-                activeGuide.id === 'contract-negotiation' ? 'from-orange-500 to-red-600' :
-                activeGuide.id === 'green-transition' ? 'from-green-500 to-emerald-600' :
-                'from-cyan-500 to-blue-600'
-              }`} />
+              <div className="h-3 bg-gradient-to-r from-emerald-500 to-green-600" />
               
               <div className="p-8">
                 <div className="flex items-start justify-between mb-6">
