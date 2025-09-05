@@ -663,15 +663,21 @@ function HomePage(){
               <CardHeader><CardTitle className="flex items-center gap-2 text-white"><LineChartIcon className="h-5 w-5 text-emerald-400"/> Live market snapshot</CardTitle></CardHeader>
               <CardContent>
                 <div className="h-48 w-full">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <ReLineChart data={trendData} margin={{ top:10, right:10, left:0, bottom:0 }}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#0f172a" />
-                      <XAxis dataKey="name" stroke="#94a3b8" tickLine={false} axisLine={false} />
-                      <YAxis stroke="#94a3b8" tickLine={false} axisLine={false} />
-                      <Tooltip contentStyle={{ background: "#0f172a", border: "1px solid #1f2937", color: "#e2e8f0" }} />
-                      <Line type="monotone" dataKey="price" stroke="#10b981" strokeWidth={2} dot={false} />
-                    </ReLineChart>
-                  </ResponsiveContainer>
+                  {typeof window !== 'undefined' && trendData && trendData.length > 0 ? (
+                    <ResponsiveContainer width="100%" height="100%">
+                      <ReLineChart data={trendData} margin={{ top:10, right:10, left:0, bottom:0 }}>
+                        <CartesianGrid strokeDasharray="3 3" stroke="#0f172a" />
+                        <XAxis dataKey="name" stroke="#94a3b8" tickLine={false} axisLine={false} />
+                        <YAxis stroke="#94a3b8" tickLine={false} axisLine={false} />
+                        <Tooltip contentStyle={{ background: "#0f172a", border: "1px solid #1f2937", color: "#e2e8f0" }} />
+                        <Line type="monotone" dataKey="price" stroke="#10b981" strokeWidth={2} dot={false} />
+                      </ReLineChart>
+                    </ResponsiveContainer>
+                  ) : (
+                    <div className="flex items-center justify-center h-full bg-slate-800/50 rounded-lg">
+                      <div className="text-slate-400 text-sm">Loading chart...</div>
+                    </div>
+                  )}
                 </div>
                 <p className="mt-3 text-sm text-slate-400">Prices are illustrative. We constantly track market movements to time your switch.</p>
               </CardContent>
