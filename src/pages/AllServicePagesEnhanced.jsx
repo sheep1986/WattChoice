@@ -198,10 +198,16 @@ export const BusinessWater = () => {
   const waterSuppliers = [
     { name: 'Water Plus', logo: 'https://i.ibb.co/WbBgQ38/Master-Water-Plus-Logo-on-white-strap-SPOT-e1543417320424-1.png' },
     { name: 'Everflow', logo: 'https://i.ibb.co/3YkhDbFN/Everflow-Logo-Magenta-2-1.webp' },
-    { name: 'Wave', logo: 'https://i.ibb.co/placeholder/wave.png' },
-    { name: 'Castle Water', logo: 'https://i.ibb.co/placeholder/castle.png' },
-    { name: 'Clear Business Water', logo: 'https://i.ibb.co/placeholder/clear.png' },
-    { name: 'SES Business Water', logo: 'https://i.ibb.co/placeholder/ses.png' }
+    { name: 'Wave', logo: null },
+    { name: 'Castle Water', logo: null },
+    { name: 'Clear Business', logo: null },
+    { name: 'SES Business', logo: null },
+    { name: 'Thames Water', logo: null },
+    { name: 'Yorkshire Water', logo: null },
+    { name: 'Anglian Water', logo: null },
+    { name: 'Severn Trent', logo: null },
+    { name: 'South West Water', logo: null },
+    { name: 'United Utilities', logo: null }
   ];
 
   const faqs = [
@@ -462,7 +468,7 @@ export const BusinessWater = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all flex items-center justify-center min-h-[100px]"
+                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all flex items-center justify-center min-h-[100px] border border-gray-100 hover:border-blue-300"
               >
                 {supplier.logo ? (
                   <img
@@ -471,11 +477,19 @@ export const BusinessWater = () => {
                     className="max-w-full max-h-[50px] object-contain"
                     onError={(e) => {
                       e.target.style.display = 'none';
-                      e.target.parentElement.innerHTML = `<span class="text-gray-700 font-semibold text-sm">${supplier.name}</span>`;
+                      e.target.parentElement.innerHTML = `<div class="text-center"><div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-2"><svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" opacity="0.3"/><path d="M14.12 8L12 10.12L9.88 8L8 9.88L10.12 12L8 14.12L9.88 16L12 13.88L14.12 16L16 14.12L13.88 12L16 9.88L14.12 8Z"/></svg></div><span class="text-gray-700 font-semibold text-sm">${supplier.name}</span></div>`;
                     }}
                   />
                 ) : (
-                  <span className="text-gray-700 font-semibold text-sm">{supplier.name}</span>
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                        <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm3 7h-2v2h-2v-2H9v-2h2V9h2v2h2v2z"/>
+                      </svg>
+                    </div>
+                    <span className="text-gray-700 font-semibold text-sm">{supplier.name}</span>
+                  </div>
                 )}
               </motion.div>
             ))}
