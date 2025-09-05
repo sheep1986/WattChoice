@@ -55,19 +55,19 @@ const SupplierCarousel = () => {
         {/* Carousel Container */}
         <div className="relative">
           {/* Gradient Overlays for edge fading effect */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
           
           {/* Scrolling Container */}
           <div className="overflow-hidden">
             <motion.div
-              className="flex items-center gap-12"
+              className="flex items-center gap-4 md:gap-12"
               animate={{
                 x: [0, -50 * suppliersWithLogos.length],
               }}
               transition={{
                 x: {
-                  duration: suppliersWithLogos.length * 3,
+                  duration: suppliersWithLogos.length * 1.5, // Faster animation (was 3)
                   repeat: Infinity,
                   ease: "linear",
                 },
@@ -77,18 +77,18 @@ const SupplierCarousel = () => {
               {duplicatedSuppliers.map((supplier, index) => (
                 <div
                   key={`${supplier.name}-${index}`}
-                  className="flex-shrink-0 bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow"
-                  style={{ width: '200px', height: '100px' }}
+                  className="flex-shrink-0 bg-white rounded-lg p-3 md:p-6 shadow-sm hover:shadow-md transition-shadow"
+                  style={{ width: '150px', height: '80px' }}
                 >
                   <div className="w-full h-full flex items-center justify-center">
                     <img
                       src={supplier.logo}
                       alt={supplier.name}
                       className="max-w-full max-h-full object-contain transition-all duration-300 hover:scale-110"
-                      style={{ maxHeight: '60px' }}
+                      style={{ maxHeight: '50px' }}
                       onError={(e) => {
                         e.target.style.display = 'none';
-                        e.target.parentElement.innerHTML = `<span class="text-gray-400 text-sm">${supplier.name}</span>`;
+                        e.target.parentElement.innerHTML = `<span class="text-gray-400 text-xs md:text-sm">${supplier.name}</span>`;
                       }}
                     />
                   </div>

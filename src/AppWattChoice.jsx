@@ -5,7 +5,9 @@ import { motion, AnimatePresence, useScroll, useTransform, useSpring, useInView 
 // Import Service Pages
 import BusinessElectricityEnhanced from './pages/BusinessElectricityEnhanced';
 import BusinessGasPage from './pages/BusinessGas';
-import { BusinessWater, BusinessBroadband, BusinessTelecoms, LargeBusiness, ContactPage as ContactPageImport, CompanyPage as CompanyPageImport } from './pages/AllServicePages';
+import { BusinessWater, BusinessBroadband, BusinessTelecoms } from './pages/AllServicePagesEnhanced';
+import { ContactPage as ContactPageImport, CompanyPage as CompanyPageImport } from './pages/AllServicePages';
+import LargeBusinessEnhanced from './pages/LargeBusinessEnhanced';
 import { PassThroughPage, SuppliersPage, HowPaidPage, LOAPage, GlossaryPage, CompanyPage, CareersPage, CompliancePage, ContactPage } from './pages/ServicePages';
 import SupplierCarousel from './components/SupplierCarousel';
 import TrustpilotSection from './components/TrustpilotSection';
@@ -15,7 +17,7 @@ import ComplaintsPage from './pages/ComplaintsPage';
 import AboutPage from './pages/AboutPage';
 import CaseStudies from './pages/CaseStudies';
 import TPICodePage from './pages/TPICodePage';
-import MultiSiteEnergy from './pages/MultiSiteEnergy';
+import MultiSiteEnergy from './pages/MultiSiteEnergyEnhanced';
 import {
   CheckCircle,
   ShieldCheck,
@@ -1704,7 +1706,7 @@ export default function WattChoiceApp() {
           <Route path="/business-phone" element={<PagePlaceholder title="Business Phone Systems" description="Modern phone solutions for businesses" />} />
           <Route path="/business-telecoms" element={<BusinessTelecoms />} />
           <Route path="/multi-site-energy" element={<MultiSiteEnergy />} />
-          <Route path="/large-business" element={<LargeBusiness />} />
+          <Route path="/large-business" element={<LargeBusinessEnhanced />} />
           <Route path="/pass-through-fixed" element={<PassThroughPage />} />
           
           {/* Information Pages */}
@@ -1747,7 +1749,7 @@ export default function WattChoiceApp() {
         
         {/* Enhanced Features */}
         <MobileCTA />
-        <FloatingActionButton />
+        {/* <FloatingActionButton /> - Removed as it blocks CTA buttons on mobile */}
         <CookieConsent />
         
         {/* Back to Top Progress Indicator */}
