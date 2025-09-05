@@ -13,6 +13,8 @@ import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 import ComplaintsPage from './pages/ComplaintsPage';
 import AboutPage from './pages/AboutPage';
+import CaseStudies from './pages/CaseStudies';
+import TPICodePage from './pages/TPICodePage';
 import {
   CheckCircle,
   ShieldCheck,
@@ -1368,31 +1370,16 @@ function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 lg:px-6 py-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
-          {/* Logo & Description */}
-          <div className="lg:col-span-2">
-            <img 
-              src="https://i.ibb.co/Txrgyp2R/Watt-choice-logo-1.png" 
-              alt="Watt Choice" 
-              className="h-10 w-auto mb-4 bg-white p-2 rounded"
-            />
-            <p className="text-gray-400 mb-4">
-              Watt Choice is the UK's trusted business utility comparison service. 
-              We help businesses save money on energy, water, broadband, and more.
-            </p>
-            <div className="flex gap-4">
-              {/* Social Icons would go here */}
-            </div>
-          </div>
-
-          {/* Quick Links */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Services */}
           <div>
             <h3 className="font-semibold text-lg mb-4">Services</h3>
             <ul className="space-y-2">
-              <li><Link to="/business-energy" className="text-gray-400 hover:text-white transition">Business Energy</Link></li>
-              <li><Link to="/business-water" className="text-gray-400 hover:text-white transition">Business Water</Link></li>
-              <li><Link to="/business-broadband" className="text-gray-400 hover:text-white transition">Business Broadband</Link></li>
-              <li><Link to="/business-phone" className="text-gray-400 hover:text-white transition">Business Phone</Link></li>
+              <li><Link to="/business-electricity" className="text-gray-400 hover:text-white transition">Electricity</Link></li>
+              <li><Link to="/business-gas" className="text-gray-400 hover:text-white transition">Gas</Link></li>
+              <li><Link to="/business-water" className="text-gray-400 hover:text-white transition">Water</Link></li>
+              <li><Link to="/business-broadband" className="text-gray-400 hover:text-white transition">Broadband</Link></li>
+              <li><Link to="/multi-site-energy" className="text-gray-400 hover:text-white transition">Multi-site</Link></li>
             </ul>
           </div>
 
@@ -1401,41 +1388,67 @@ function Footer() {
             <h3 className="font-semibold text-lg mb-4">Company</h3>
             <ul className="space-y-2">
               <li><Link to="/about" className="text-gray-400 hover:text-white transition">About Us</Link></li>
-              <li><Link to="/how-it-works" className="text-gray-400 hover:text-white transition">How It Works</Link></li>
+              <li><Link to="/case-studies" className="text-gray-400 hover:text-white transition">Case Studies</Link></li>
+              <li><Link to="/careers" className="text-gray-400 hover:text-white transition">Careers</Link></li>
               <li><Link to="/contact" className="text-gray-400 hover:text-white transition">Contact</Link></li>
-              <li><Link to="/faqs" className="text-gray-400 hover:text-white transition">FAQs</Link></li>
+              <li><Link to="/complaints" className="text-gray-400 hover:text-white transition">Complaints</Link></li>
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Legal */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Get in Touch</h3>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-green-500" />
-                <a href="tel:01618338661" className="text-gray-400 hover:text-white transition">0161 833 8661</a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-green-500" />
-                <span className="text-gray-400">hello@wattchoice.co.uk</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 text-green-500 mt-1" />
-                <span className="text-gray-400">Manchester, UK</span>
-              </li>
+            <h3 className="font-semibold text-lg mb-4">Legal</h3>
+            <ul className="space-y-2">
+              <li><Link to="/terms" className="text-gray-400 hover:text-white transition">Terms</Link></li>
+              <li><Link to="/privacy" className="text-gray-400 hover:text-white transition">Privacy</Link></li>
+              <li><Link to="/compliance" className="text-gray-400 hover:text-white transition">Compliance</Link></li>
+              <li><Link to="/tpi-code" className="text-gray-400 hover:text-white transition">TPI Code</Link></li>
+              <li><Link to="/how-we-get-paid" className="text-gray-400 hover:text-white transition">Commission</Link></li>
             </ul>
+          </div>
+
+          {/* Logo & Description */}
+          <div>
+            <img 
+              src="https://i.ibb.co/Txrgyp2R/Watt-choice-logo-1.png" 
+              alt="Watt Choice" 
+              className="h-10 w-auto mb-4 bg-white p-2 rounded"
+            />
+            <p className="text-gray-400 text-sm mb-4">
+              Trusted business energy consultants since 2000. 900,000+ businesses saved £150M.
+            </p>
+            {/* Social Icons */}
+            <div className="flex gap-4">
+              <a href="#" className="text-gray-400 hover:text-white">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+                </svg>
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Watt Choice. All rights reserved.
+              © {new Date().getFullYear()} WATT CHOICE LIMITED - Company number 06702949. All rights reserved.
             </div>
-            <div className="flex gap-6 text-sm">
-              <Link to="/privacy" className="text-gray-400 hover:text-white transition">Privacy Policy</Link>
-              <Link to="/terms" className="text-gray-400 hover:text-white transition">Terms & Conditions</Link>
-              <Link to="/complaints" className="text-gray-400 hover:text-white transition">Complaints</Link>
+            <div className="flex items-center gap-6">
+              <span className="text-gray-400 text-sm">TPI Code of Practice</span>
+              <div className="flex items-center gap-2">
+                <img src="https://cdn.trustpilot.net/brand-assets/4.1.0/logo-white.svg" alt="Trustpilot" className="h-4" />
+                <span className="text-gray-400 text-sm">4.6★</span>
+              </div>
             </div>
           </div>
         </div>
@@ -1703,7 +1716,8 @@ export default function WattChoiceApp() {
           <Route path="/company" element={<CompanyPage />} />
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/compliance" element={<CompliancePage />} />
-          <Route path="/case-studies" element={<PagePlaceholder title="Success Stories" description="See how we've helped businesses save" />} />
+          <Route path="/case-studies" element={<CaseStudies />} />
+          <Route path="/tpi-code" element={<TPICodePage />} />
           <Route path="/business-guides" element={<PagePlaceholder title="Business Energy Guides" description="Expert guides to help you make informed decisions" />} />
           <Route path="/energy-saving-tips" element={<PagePlaceholder title="Energy Saving Tips" description="Practical ways to reduce your energy consumption" />} />
           <Route path="/contract-types" element={<PagePlaceholder title="Energy Contract Types Explained" description="Understanding different contract options" />} />
