@@ -116,7 +116,7 @@ function FloatingElements({ color = "blue", icon1: Icon1 = Droplet, icon2: Icon2
         }}
         className="absolute top-1/2 left-1/3 transform -translate-x-1/2 -translate-y-1/2"
       >
-        <div className={`w-96 h-96 bg-gradient-to-r ${selectedColor.bg} rounded-full blur-3xl opacity-20`} />
+        <div className={`w-96 h-96 rounded-full blur-3xl opacity-20 ${color === 'blue' ? 'bg-gradient-to-r from-blue-200 to-cyan-300' : color === 'purple' ? 'bg-gradient-to-r from-purple-200 to-pink-300' : color === 'green' ? 'bg-gradient-to-r from-green-200 to-emerald-300' : color === 'amber' ? 'bg-gradient-to-r from-amber-200 to-orange-300' : 'bg-gradient-to-r from-blue-200 to-cyan-300'}`} />
       </motion.div>
     </div>
   );
@@ -367,7 +367,12 @@ export const BusinessWater = () => {
                 className="relative group"
               >
                 <div className="relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all h-full border border-gray-100">
-                  <div className={`inline-flex p-3 rounded-lg bg-gradient-to-r ${feature.gradient} mb-4`}>
+                  <div className={`inline-flex p-3 rounded-lg mb-4 bg-gradient-to-r ${
+                    index === 0 ? 'from-blue-600 to-cyan-700' :
+                    index === 1 ? 'from-green-600 to-emerald-700' :
+                    index === 2 ? 'from-purple-600 to-indigo-700' :
+                    'from-amber-600 to-orange-700'
+                  }`}>
                     <feature.icon className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
@@ -887,7 +892,12 @@ export const BusinessBroadband = () => {
                 className="relative group"
               >
                 <div className="relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all h-full border border-gray-100">
-                  <div className={`inline-flex p-3 rounded-lg bg-gradient-to-r ${feature.gradient} mb-4`}>
+                  <div className={`inline-flex p-3 rounded-lg mb-4 bg-gradient-to-r ${
+                    index === 0 ? 'from-purple-600 to-pink-700' :
+                    index === 1 ? 'from-green-600 to-emerald-700' :
+                    index === 2 ? 'from-blue-600 to-cyan-700' :
+                    'from-amber-600 to-orange-700'
+                  }`}>
                     <feature.icon className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>

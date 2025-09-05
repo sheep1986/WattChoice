@@ -573,7 +573,12 @@ const MultiSiteEnergyEnhanced = () => {
                 className="relative group"
               >
                 <div className="relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all h-full border border-gray-100">
-                  <div className={`inline-flex p-3 rounded-lg bg-gradient-to-r ${feature.gradient} mb-4`}>
+                  <div className={`inline-flex p-3 rounded-lg bg-gradient-to-r mb-4 ${
+                    index === 0 ? 'from-indigo-600 to-purple-700' :
+                    index === 1 ? 'from-blue-600 to-cyan-700' :
+                    index === 2 ? 'from-green-600 to-emerald-700' :
+                    'from-amber-600 to-orange-700'
+                  }`}>
                     <feature.icon className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>

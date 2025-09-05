@@ -407,10 +407,20 @@ const LargeBusinessEnhanced = () => {
                 whileHover={{ y: -5 }}
                 className="bg-white rounded-2xl shadow-lg overflow-hidden"
               >
-                <div className={`h-2 bg-gradient-to-r ${service.gradient}`} />
+                <div className={`h-2 bg-gradient-to-r ${
+                  index === 0 ? 'from-amber-600 to-orange-700' :
+                  index === 1 ? 'from-orange-600 to-red-700' :
+                  index === 2 ? 'from-amber-600 to-yellow-700' :
+                  'from-green-600 to-emerald-700'
+                }`} />
                 <div className="p-8">
                   <div className="flex items-start justify-between mb-4">
-                    <div className={`inline-flex p-3 rounded-lg bg-gradient-to-r ${service.gradient}`}>
+                    <div className={`inline-flex p-3 rounded-lg bg-gradient-to-r ${
+                      index === 0 ? 'from-amber-600 to-orange-700' :
+                      index === 1 ? 'from-orange-600 to-red-700' :
+                      index === 2 ? 'from-amber-600 to-yellow-700' :
+                      'from-green-600 to-emerald-700'
+                    }`}>
                       <service.icon className="w-8 h-8 text-white" />
                     </div>
                   </div>
