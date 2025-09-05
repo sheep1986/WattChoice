@@ -219,10 +219,16 @@ const BusinessGasPage = () => {
     }
   ];
 
-  // Supplier logos
-  const suppliers = [
-    "British Gas", "Total Energies", "Crown Gas", "SEFE Energy",
-    "Gazprom", "Yu Energy", "Pozitive Energy", "Valda Energy"
+  // Gas supplier logos - using same logos from SupplierCarousel
+  const gasSuppliers = [
+    { name: 'British Gas', logo: 'https://i.ibb.co/SXn7gsSy/british-gas.png' },
+    { name: 'Total Energies', logo: 'https://i.ibb.co/0RJ8d5g1/tgpl-1.png' },
+    { name: 'Crown Gas & Power', logo: 'https://i.ibb.co/9Fw40dv/Crown.png' },
+    { name: 'SEFE Energy', logo: 'https://i.ibb.co/MkFMq6ZQ/sefe-1-1.png' },
+    { name: 'Yu Energy', logo: 'https://i.ibb.co/SDJszV18/yu-1-1.png' },
+    { name: 'Pozitive Energy', logo: 'https://i.ibb.co/jZjD8jjG/proz-1-1.png' },
+    { name: 'Valda Energy', logo: 'https://i.ibb.co/xtWgKWXq/valda.png' },
+    { name: 'Scottish Power', logo: 'https://i.ibb.co/SXYPL7KG/sp-1-1.png' }
   ];
 
   return (
@@ -551,16 +557,24 @@ const BusinessGasPage = () => {
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {suppliers.map((supplier, index) => (
+            {gasSuppliers.map((supplier, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all flex items-center justify-center"
+                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all flex items-center justify-center min-h-[120px]"
               >
-                <span className="text-gray-700 font-semibold">{supplier}</span>
+                <img
+                  src={supplier.logo}
+                  alt={supplier.name}
+                  className="max-w-full max-h-[60px] object-contain"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.parentElement.innerHTML = `<span class="text-gray-700 font-semibold">${supplier.name}</span>`;
+                  }}
+                />
               </motion.div>
             ))}
           </div>
