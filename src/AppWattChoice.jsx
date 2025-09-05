@@ -9,6 +9,10 @@ import { BusinessWater, BusinessBroadband, BusinessTelecoms, LargeBusiness, Cont
 import { PassThroughPage, SuppliersPage, HowPaidPage, LOAPage, GlossaryPage, CompanyPage, CareersPage, CompliancePage, ContactPage } from './pages/ServicePages';
 import SupplierCarousel from './components/SupplierCarousel';
 import TrustpilotSection from './components/TrustpilotSection';
+import PrivacyPage from './pages/PrivacyPage';
+import TermsPage from './pages/TermsPage';
+import ComplaintsPage from './pages/ComplaintsPage';
+import AboutPage from './pages/AboutPage';
 import {
   CheckCircle,
   ShieldCheck,
@@ -57,8 +61,6 @@ import {
   Bell,
   Settings,
   HelpCircle,
-  MessageSquare,
-  Send,
   Eye,
   DollarSign,
   Battery,
@@ -191,9 +193,8 @@ function FloatingActionButton() {
   }, []);
   
   const actions = [
-    { icon: Phone, label: "Call Us", action: () => window.location.href = "tel:01611234567" },
-    { icon: MessageSquare, label: "Live Chat", action: () => console.log("Open chat") },
-    { icon: Calculator, label: "Quick Quote", action: () => window.location.href = "/get-quote" },
+    { icon: Phone, label: "Call Us", action: () => window.location.href = "tel:01618338661" },
+    { icon: Calculator, label: "Quick Quote", action: () => window.location.href = "https://app.watt.co.uk" },
     { icon: ChevronUp, label: "Back to Top", action: () => window.scrollTo({ top: 0, behavior: 'smooth' }) }
   ];
   
@@ -1412,7 +1413,7 @@ function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-green-500" />
-                <span className="text-gray-400">0161 123 4567</span>
+                <a href="tel:01618338661" className="text-gray-400 hover:text-white transition">0161 833 8661</a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-green-500" />
@@ -1557,121 +1558,6 @@ function PagePlaceholder({ title, description }) {
   );
 }
 
-// Live Chat Widget Component
-function LiveChatWidget() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState([
-    { id: 1, text: "Hi! How can I help you save on utilities today?", sender: "agent" }
-  ]);
-  const [inputMessage, setInputMessage] = useState("");
-  
-  const sendMessage = () => {
-    if (inputMessage.trim()) {
-      setMessages(prev => [...prev, { 
-        id: Date.now(), 
-        text: inputMessage, 
-        sender: "user" 
-      }]);
-      setInputMessage("");
-      
-      // Simulate agent response
-      setTimeout(() => {
-        setMessages(prev => [...prev, { 
-          id: Date.now() + 1, 
-          text: "Thanks for your message! An advisor will be with you shortly.", 
-          sender: "agent" 
-        }]);
-      }, 1000);
-    }
-  };
-  
-  return (
-    <>
-      {/* Chat Button */}
-      <motion.button
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ delay: 2 }}
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 left-6 z-40 bg-gradient-to-r from-green-600 to-emerald-600 text-white p-4 rounded-full shadow-2xl hidden lg:flex items-center gap-2"
-      >
-        <MessageSquare className="h-6 w-6" />
-        {!isOpen && (
-          <motion.span
-            initial={{ width: 0, opacity: 0 }}
-            animate={{ width: "auto", opacity: 1 }}
-            transition={{ delay: 2.5 }}
-            className="overflow-hidden whitespace-nowrap pr-2"
-          >
-            Chat with us
-          </motion.span>
-        )}
-      </motion.button>
-      
-      {/* Chat Window */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-24 left-6 z-40 w-96 bg-white rounded-2xl shadow-2xl overflow-hidden hidden lg:block"
-          >
-            {/* Header */}
-            <div className="bg-gradient-to-r from-green-600 to-emerald-600 text-white p-4 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="font-semibold">Live Support</span>
-              </div>
-              <button onClick={() => setIsOpen(false)}>
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-            
-            {/* Messages */}
-            <div className="h-80 overflow-y-auto p-4 space-y-3">
-              {messages.map((message) => (
-                <motion.div
-                  key={message.id}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
-                >
-                  <div className={`max-w-[80%] p-3 rounded-lg ${
-                    message.sender === 'user' 
-                      ? 'bg-green-600 text-white' 
-                      : 'bg-gray-100 text-gray-800'
-                  }`}>
-                    {message.text}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-            
-            {/* Input */}
-            <div className="p-4 border-t flex gap-2">
-              <input
-                type="text"
-                value={inputMessage}
-                onChange={(e) => setInputMessage(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
-                placeholder="Type your message..."
-                className="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-              />
-              <button
-                onClick={sendMessage}
-                className="bg-green-600 text-white p-2 rounded-lg hover:bg-green-700"
-              >
-                <Send className="h-5 w-5" />
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
-  );
-}
-
 // Scroll Progress Indicator
 function ScrollProgressIndicator() {
   const { scrollYProgress } = useScroll();
@@ -1808,8 +1694,8 @@ export default function WattChoiceApp() {
           <Route path="/pass-through-fixed" element={<PassThroughPage />} />
           
           {/* Information Pages */}
-          <Route path="/how-it-works" element={<PagePlaceholder title="How Watt Choice Works" description="Our simple 4-step process explained" />} />
-          <Route path="/about" element={<PagePlaceholder title="About Watt Choice" description="Your trusted business utility partner since 2000" />} />
+          <Route path="/how-it-works" element={<HowPaidPage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/suppliers" element={<SuppliersPage />} />
           <Route path="/how-we-get-paid" element={<HowPaidPage />} />
           <Route path="/loa" element={<LOAPage />} />
@@ -1832,10 +1718,10 @@ export default function WattChoiceApp() {
           <Route path="/contact" element={<ContactPage />} />
           
           {/* Legal Pages */}
-          <Route path="/privacy" element={<PagePlaceholder title="Privacy Policy" description="How we protect your data" />} />
-          <Route path="/terms" element={<PagePlaceholder title="Terms & Conditions" description="Terms of service for Watt Choice" />} />
-          <Route path="/complaints" element={<PagePlaceholder title="Complaints Procedure" description="How we handle complaints" />} />
-          <Route path="/faqs" element={<PagePlaceholder title="Frequently Asked Questions" description="Answers to common questions" />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/complaints" element={<ComplaintsPage />} />
+          <Route path="/faqs" element={<GlossaryPage />} />
           
           {/* 404 Page */}
           <Route path="*" element={<NotFoundPage />} />
@@ -1847,7 +1733,6 @@ export default function WattChoiceApp() {
         {/* Enhanced Features */}
         <MobileCTA />
         <FloatingActionButton />
-        <LiveChatWidget />
         <CookieConsent />
         
         {/* Back to Top Progress Indicator */}
