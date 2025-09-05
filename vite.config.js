@@ -48,7 +48,7 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
     minify: 'esbuild', // Enable minification for production
-    sourcemap: false, // Disable sourcemaps for smaller bundle
+    sourcemap: true, // Enable sourcemaps for debugging
     reportCompressedSize: true,
     chunkSizeWarningLimit: 1500, // Warn for large chunks
     rollupOptions: {

@@ -9,10 +9,20 @@ const TrustpilotWidget = ({ type = 'carousel' }) => {
     script.async = true;
     document.body.appendChild(script);
 
-    // Refresh widgets when script loads
+    // Refresh widgets when script loads with defensive guards
     script.onload = () => {
-      if (window.Trustpilot) {
-        window.Trustpilot.loadFromElement();
+      if (window.Trustpilot && typeof window.Trustpilot.loadFromElement === 'function') {
+        // Wait for next tick to ensure DOM elements are ready
+        setTimeout(() => {
+          try {
+            const widgets = document.querySelectorAll('.trustpilot-widget');
+            if (widgets.length > 0) {
+              window.Trustpilot.loadFromElement();
+            }
+          } catch (error) {
+            console.warn('Trustpilot widget loading failed:', error);
+          }
+        }, 100);
       }
     };
 
