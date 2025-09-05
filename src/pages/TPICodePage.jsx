@@ -13,7 +13,6 @@ const TPICodePage = () => {
         <meta name="keywords" content="TPI code of conduct, third party intermediary, energy standards, regulatory compliance, ethical practices, customer protection" />
         <link rel="canonical" href="https://www.wattchoice.co.uk/tpi-code" />
         
-        {/* Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

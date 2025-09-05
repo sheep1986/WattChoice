@@ -13,7 +13,6 @@ const TermsPage = () => {
         <meta name="keywords" content="terms and conditions, service terms, liability, commission structure, legal information, Watt Choice terms" />
         <link rel="canonical" href="https://www.wattchoice.co.uk/terms" />
         
-        {/* Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

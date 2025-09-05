@@ -13,7 +13,6 @@ const ComplaintsPage = () => {
         <meta name="keywords" content="complaints procedure, customer service, dispute resolution, ombudsman, escalation process, Watt Choice complaints" />
         <link rel="canonical" href="https://www.wattchoice.co.uk/complaints" />
         
-        {/* Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

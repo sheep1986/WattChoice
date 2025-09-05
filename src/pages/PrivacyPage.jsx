@@ -14,7 +14,6 @@ const PrivacyPage = () => {
         <meta name="keywords" content="privacy policy, data protection, GDPR, personal data, Watt Choice privacy" />
         <link rel="canonical" href="https://www.wattchoice.co.uk/privacy" />
         
-        {/* Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
