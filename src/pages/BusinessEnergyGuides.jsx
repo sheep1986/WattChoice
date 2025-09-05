@@ -419,13 +419,13 @@ const BusinessEnergyGuides = () => {
                   
                   <div className="p-8">
                     <div className="flex items-start justify-between mb-4">
-                      <div className={`p-3 rounded-lg bg-gradient-to-r bg-opacity-10 ${
-                        guide.id === 'understanding-bills' ? 'from-blue-500 to-indigo-600' :
-                        guide.id === 'market-timing' ? 'from-emerald-500 to-teal-600' :
-                        guide.id === 'consumption-optimization' ? 'from-purple-500 to-pink-600' :
-                        guide.id === 'contract-negotiation' ? 'from-orange-500 to-red-600' :
-                        guide.id === 'green-transition' ? 'from-green-500 to-emerald-600' :
-                        'from-cyan-500 to-blue-600'
+                      <div className={`p-3 rounded-lg bg-gradient-to-r ${
+                        guide.id === 'understanding-bills' ? 'from-blue-500/20 to-indigo-600/20' :
+                        guide.id === 'market-timing' ? 'from-emerald-500/20 to-teal-600/20' :
+                        guide.id === 'consumption-optimization' ? 'from-purple-500/20 to-pink-600/20' :
+                        guide.id === 'contract-negotiation' ? 'from-orange-500/20 to-red-600/20' :
+                        guide.id === 'green-transition' ? 'from-green-500/20 to-emerald-600/20' :
+                        'from-cyan-500/20 to-blue-600/20'
                       }`}>
                         <guide.icon className="w-8 h-8 text-white" />
                       </div>

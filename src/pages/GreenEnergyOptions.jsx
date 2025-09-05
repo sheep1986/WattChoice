@@ -509,14 +509,14 @@ const GreenEnergyOptions = () => {
                   
                   <div className="p-6">
                     <div className="flex items-start justify-between mb-4">
-                      <div className={`p-3 rounded-lg bg-gradient-to-r bg-opacity-10 ${
-                        option.id === 'rego' ? 'from-green-500 to-emerald-600' :
-                        option.id === 'solar' ? 'from-amber-500 to-yellow-600' :
-                        option.id === 'ppa' ? 'from-blue-500 to-cyan-600' :
-                        option.id === 'funded-solar' ? 'from-purple-500 to-indigo-600' :
-                        option.id === 'carbon-offset' ? 'from-teal-500 to-green-600' :
-                        option.id === 'biomass' ? 'from-orange-500 to-red-600' :
-                        'from-gray-500 to-gray-600'
+                      <div className={`p-3 rounded-lg bg-gradient-to-r ${
+                        option.id === 'rego' ? 'from-green-500/20 to-emerald-600/20' :
+                        option.id === 'solar' ? 'from-amber-500/20 to-yellow-600/20' :
+                        option.id === 'ppa' ? 'from-blue-500/20 to-cyan-600/20' :
+                        option.id === 'funded-solar' ? 'from-purple-500/20 to-indigo-600/20' :
+                        option.id === 'carbon-offset' ? 'from-teal-500/20 to-green-600/20' :
+                        option.id === 'biomass' ? 'from-orange-500/20 to-red-600/20' :
+                        'from-gray-500/20 to-gray-600/20'
                       }`}>
                         <option.icon className="w-8 h-8 text-white" />
                       </div>
@@ -587,14 +587,14 @@ const GreenEnergyOptions = () => {
               {/* Header */}
               <div className="flex items-start justify-between mb-6">
                 <div className="flex items-center gap-4">
-                  <div className={`p-3 rounded-lg bg-gradient-to-r bg-opacity-20 ${
-                    selectedOption.id === 'rego' ? 'from-green-500 to-emerald-600' :
-                    selectedOption.id === 'solar' ? 'from-amber-500 to-yellow-600' :
-                    selectedOption.id === 'ppa' ? 'from-blue-500 to-cyan-600' :
-                    selectedOption.id === 'funded-solar' ? 'from-purple-500 to-indigo-600' :
-                    selectedOption.id === 'carbon-offset' ? 'from-teal-500 to-green-600' :
-                    selectedOption.id === 'biomass' ? 'from-orange-500 to-red-600' :
-                    'from-gray-500 to-gray-600'
+                  <div className={`p-3 rounded-lg bg-gradient-to-r ${
+                    selectedOption.id === 'rego' ? 'from-green-500/30 to-emerald-600/30' :
+                    selectedOption.id === 'solar' ? 'from-amber-500/30 to-yellow-600/30' :
+                    selectedOption.id === 'ppa' ? 'from-blue-500/30 to-cyan-600/30' :
+                    selectedOption.id === 'funded-solar' ? 'from-purple-500/30 to-indigo-600/30' :
+                    selectedOption.id === 'carbon-offset' ? 'from-teal-500/30 to-green-600/30' :
+                    selectedOption.id === 'biomass' ? 'from-orange-500/30 to-red-600/30' :
+                    'from-gray-500/30 to-gray-600/30'
                   }`}>
                     <selectedOption.icon className="w-10 h-10 text-white" />
                   </div>

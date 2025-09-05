@@ -561,14 +561,14 @@ const ContractTypesExplained = () => {
                   
                   <div className="p-6">
                     <div className="flex items-start justify-between mb-4">
-                      <div className={`p-3 rounded-lg bg-gradient-to-r bg-opacity-10 ${
-                        contract.id === 'fixed' ? 'from-blue-500 to-indigo-600' :
-                        contract.id === 'variable' ? 'from-amber-500 to-orange-600' :
-                        contract.id === 'pass-through' ? 'from-purple-500 to-pink-600' :
-                        contract.id === 'deemed' ? 'from-red-500 to-rose-600' :
-                        contract.id === 'green-fixed' ? 'from-green-500 to-emerald-600' :
-                        contract.id === 'basket' ? 'from-cyan-500 to-blue-600' :
-                        'from-gray-500 to-gray-600'
+                      <div className={`p-3 rounded-lg bg-gradient-to-r ${
+                        contract.id === 'fixed' ? 'from-blue-500/20 to-indigo-600/20' :
+                        contract.id === 'variable' ? 'from-amber-500/20 to-orange-600/20' :
+                        contract.id === 'pass-through' ? 'from-purple-500/20 to-pink-600/20' :
+                        contract.id === 'deemed' ? 'from-red-500/20 to-rose-600/20' :
+                        contract.id === 'green-fixed' ? 'from-green-500/20 to-emerald-600/20' :
+                        contract.id === 'basket' ? 'from-cyan-500/20 to-blue-600/20' :
+                        'from-gray-500/20 to-gray-600/20'
                       }`}>
                         <contract.icon className="w-8 h-8 text-white" />
                       </div>
@@ -743,14 +743,14 @@ const ContractTypesExplained = () => {
                 <div className="flex items-start justify-between mb-6">
                   <div>
                     <div className="flex items-center gap-4 mb-3">
-                      <div className={`p-3 rounded-lg bg-gradient-to-r bg-opacity-20 ${
-                        selectedContract.id === 'fixed' ? 'from-blue-500 to-indigo-600' :
-                        selectedContract.id === 'variable' ? 'from-amber-500 to-orange-600' :
-                        selectedContract.id === 'pass-through' ? 'from-purple-500 to-pink-600' :
-                        selectedContract.id === 'deemed' ? 'from-red-500 to-rose-600' :
-                        selectedContract.id === 'green-fixed' ? 'from-green-500 to-emerald-600' :
-                        selectedContract.id === 'basket' ? 'from-cyan-500 to-blue-600' :
-                        'from-gray-500 to-gray-600'
+                      <div className={`p-3 rounded-lg bg-gradient-to-r ${
+                        selectedContract.id === 'fixed' ? 'from-blue-500/30 to-indigo-600/30' :
+                        selectedContract.id === 'variable' ? 'from-amber-500/30 to-orange-600/30' :
+                        selectedContract.id === 'pass-through' ? 'from-purple-500/30 to-pink-600/30' :
+                        selectedContract.id === 'deemed' ? 'from-red-500/30 to-rose-600/30' :
+                        selectedContract.id === 'green-fixed' ? 'from-green-500/30 to-emerald-600/30' :
+                        selectedContract.id === 'basket' ? 'from-cyan-500/30 to-blue-600/30' :
+                        'from-gray-500/30 to-gray-600/30'
                       }`}>
                         <selectedContract.icon className="w-10 h-10 text-white" />
                       </div>
