@@ -19,10 +19,6 @@ import AboutPage from './pages/AboutPage';
 import CaseStudies from './pages/CaseStudies';
 import TPICodePage from './pages/TPICodePage';
 import MultiSiteEnergy from './pages/MultiSiteEnergyEnhanced';
-import EnergySavingTips from './pages/EnergySavingTips';
-import SwitchingProcess from './pages/SwitchingProcess';
-import EnergyMarketInsights from './pages/EnergyMarketInsights';
-import BillValidation from './pages/BillValidation';
 import {
   CheckCircle,
   ShieldCheck,
@@ -295,7 +291,6 @@ function Textarea({ className = "", ...props }) {
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const [benefitsOpen, setBenefitsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
@@ -320,16 +315,6 @@ function Navbar() {
     { icon: Building2, title: "Large Business", desc: "Enterprise solutions", link: "/large-business", color: "indigo" }
   ];
 
-  const businessBenefits = [
-    { title: "Energy Guides", desc: "Expert advice & strategies", link: "/business-energy-guides" },
-    { title: "Energy Saving Tips", desc: "Reduce consumption 20-45%", link: "/energy-saving-tips" },
-    { title: "Contract Types", desc: "Fixed vs flexible explained", link: "/contract-types" },
-    { title: "Switching Process", desc: "7-step guide", link: "/switching-process" },
-    { title: "Green Energy", desc: "Renewable options", link: "/green-energy" },
-    { title: "Multi-Site Energy", desc: "Portfolio management", link: "/multi-site-energy" },
-    { title: "Market Insights", desc: "Trends & analysis", link: "/market-insights" },
-    { title: "Bill Validation", desc: "Error recovery service", link: "/bill-validation" }
-  ];
 
   return (
     <nav className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${scrolled ? 'shadow-md' : 'border-b border-gray-100'}`}>
@@ -405,50 +390,6 @@ function Navbar() {
               </AnimatePresence>
             </div>
 
-            {/* Business Benefits Dropdown */}
-            <div className="relative">
-              <button
-                onClick={() => setBenefitsOpen(!benefitsOpen)}
-                className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-[15px] font-medium transition-all ${
-                  benefitsOpen 
-                    ? 'bg-emerald-50 text-emerald-700' 
-                    : 'text-gray-700 hover:text-emerald-600'
-                }`}
-              >
-                Business Benefits
-                <ChevronDown className={`h-3.5 w-3.5 transition-transform ${benefitsOpen ? 'rotate-180' : ''}`} />
-              </button>
-              
-              <AnimatePresence>
-                {benefitsOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 mt-1 w-[480px] bg-white rounded-lg shadow-xl border border-gray-200 py-3"
-                  >
-                    <div className="grid grid-cols-2 gap-0">
-                      {businessBenefits.map((item, idx) => (
-                        <Link
-                          key={idx}
-                          to={item.link}
-                          onClick={() => setBenefitsOpen(false)}
-                          className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-gray-50 transition-all group"
-                        >
-                          <div className="p-1.5 rounded-md bg-emerald-100 transition-all">
-                            <Sparkles className="h-4 w-4 text-emerald-600" />
-                          </div>
-                          <div>
-                            <div className="font-medium text-[14px] text-gray-900 group-hover:text-emerald-600">{item.title}</div>
-                            <div className="text-xs text-gray-500">{item.desc}</div>
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
 
             <Link to="/case-studies" className="text-gray-700 hover:text-emerald-600 text-[15px] font-medium transition-all">
               Case Studies
@@ -524,19 +465,6 @@ function Navbar() {
                     <span className="text-[14px] font-medium text-gray-700 group-hover:text-emerald-600">{service.title}</span>
                   </Link>
                 ))}
-                <div className="border-t border-gray-100 pt-2 space-y-1">
-                  <div className="px-4 py-1.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">Business Benefits</div>
-                  {businessBenefits.map((item, idx) => (
-                    <Link 
-                      key={idx}
-                      to={item.link} 
-                      onClick={() => setIsOpen(false)} 
-                      className="block px-4 py-2 text-[14px] text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-all"
-                    >
-                      {item.title}
-                    </Link>
-                  ))}
-                </div>
                 <div className="border-t border-gray-100 pt-2 space-y-1">
                   <Link to="/case-studies" onClick={() => setIsOpen(false)} className="block px-4 py-2.5 text-[14px] text-gray-700 hover:bg-gray-50 hover:text-emerald-600 font-medium transition-all">
                     Case Studies
@@ -1514,17 +1442,6 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Business Benefits */}
-          <div>
-            <h3 className="font-bold text-base mb-4">Business Benefits</h3>
-            <ul className="space-y-2.5">
-              <li><Link to="/business-energy-guides" className="text-gray-400 hover:text-white transition text-sm">Energy Guides</Link></li>
-              <li><Link to="/energy-saving-tips" className="text-gray-400 hover:text-white transition text-sm">Saving Tips</Link></li>
-              <li><Link to="/contract-types" className="text-gray-400 hover:text-white transition text-sm">Contract Types</Link></li>
-              <li><Link to="/switching-process" className="text-gray-400 hover:text-white transition text-sm">Switching Process</Link></li>
-              <li><Link to="/market-insights" className="text-gray-400 hover:text-white transition text-sm">Market Insights</Link></li>
-            </ul>
-          </div>
 
           {/* Company */}
           <div>
@@ -1868,11 +1785,6 @@ export default function WattChoiceApp() {
           <Route path="/compliance" element={<CompliancePage />} />
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/tpi-code" element={<TPICodePage />} />
-          {/* Business Benefits Pages */}
-          <Route path="/energy-saving-tips" element={<EnergySavingTips />} />
-          <Route path="/switching-process" element={<SwitchingProcess />} />
-          <Route path="/market-insights" element={<EnergyMarketInsights />} />
-          <Route path="/bill-validation" element={<BillValidation />} />
           
           {/* Quote and Contact */}
           <Route path="/get-quote" element={<QuoteFormPage />} />
