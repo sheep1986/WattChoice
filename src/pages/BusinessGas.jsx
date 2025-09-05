@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+// import { Helmet } from 'react-helmet-async';
 import { 
   Flame, ArrowRight, CheckCircle, TrendingUp, Shield, Building2,
   PoundSterling, Clock, Award, Users, Phone, FileText, BarChart3,
   Target, AlertCircle, Gauge, Factory
 } from 'lucide-react';
-import { SEOHead } from '../SEO';
+// import { SEOHead } from '../SEO';
 import { serviceContent } from '../content/ServiceContent';
 // import { BreadcrumbLinks, RelatedServicesWidget, CTALinksSection } from '../components/InternalLinks';
 
@@ -49,6 +49,7 @@ const BusinessGasPage = () => {
 
   return (
     <>
+      {/* SEOHead commented out - can be re-enabled when configured
       <SEOHead 
         title={content.title}
         description={content.metaDescription}
@@ -56,6 +57,7 @@ const BusinessGasPage = () => {
         canonical="https://www.wattchoice.co.uk/business-gas"
         structuredData={combinedSchema}
       />
+      */}
 
       {/* Hero Section */}
       <section className="relative min-h-[600px] bg-gradient-to-br from-orange-900 via-slate-800 to-red-900 overflow-hidden">
