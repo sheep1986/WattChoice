@@ -154,14 +154,16 @@ const LOAPageEnhanced = () => {
             
             <div className="flex flex-wrap justify-center gap-4">
               <motion.a
-                href="https://app.watt.co.uk"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#loa-form"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-gradient-to-r from-emerald-600 to-green-600 text-white font-bold py-4 px-8 rounded-full shadow-lg flex items-center gap-2"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('loa-form')?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
-                Complete LOA Online <ArrowRight className="w-5 h-5" />
+                Complete LOA Now <ArrowRight className="w-5 h-5" />
               </motion.a>
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -464,6 +466,108 @@ const LOAPageEnhanced = () => {
         </div>
       </section>
 
+      {/* Embedded Form Section */}
+      <section id="loa-form" className="py-20 px-4 bg-gradient-to-b from-white to-gray-50">
+        <div className="container mx-auto max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Complete Your Letter of Authority
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Fill out the form below to authorize us to work on your behalf
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-2xl shadow-2xl overflow-hidden"
+          >
+            <div className="bg-gradient-to-r from-emerald-600 to-green-600 p-6 text-white">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-2xl font-bold mb-2">Official LOA Form 2025</h3>
+                  <p className="text-emerald-50">Secure form powered by Signable - UK's trusted e-signature platform</p>
+                </div>
+                <Shield className="w-12 h-12 text-white/80" />
+              </div>
+            </div>
+            
+            <div className="p-4 bg-gray-50">
+              <div className="relative w-full overflow-hidden rounded-lg" style={{ height: '100vh', minHeight: '800px' }}>
+                <iframe
+                  src="https://app.signable.co.uk/widget/url/MzAhAFky4F?company=&amp;name=&amp;address="
+                  title="Letter of Authority Form"
+                  className="w-full h-full"
+                  style={{ 
+                    border: '0',
+                    width: '100%',
+                    height: '100%',
+                    minHeight: '800px'
+                  }}
+                  frameBorder="0"
+                  scrolling="yes"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <div className="bg-emerald-50 border-t-4 border-emerald-500 p-6">
+              <div className="flex items-start gap-3">
+                <Info className="w-6 h-6 text-emerald-600 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="font-bold text-gray-900 mb-2">Form Security & Privacy</h4>
+                  <p className="text-gray-700 text-sm">
+                    This form is hosted securely by Signable and meets all UK GDPR requirements. 
+                    Your data is encrypted and will only be used to obtain energy quotes on your behalf.
+                    You can revoke this authorization at any time.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* What Happens Next */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-12 bg-white rounded-2xl shadow-lg p-8"
+          >
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">What Happens Next?</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-emerald-600 font-bold">1</span>
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">We Receive Your LOA</h4>
+                <p className="text-gray-600 text-sm">Instantly processed and assigned to your dedicated account manager</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-emerald-600 font-bold">2</span>
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">Market Analysis</h4>
+                <p className="text-gray-600 text-sm">We contact suppliers and negotiate the best rates for your business</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-emerald-600 font-bold">3</span>
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">Quote Presentation</h4>
+                <p className="text-gray-600 text-sm">Receive your personalized quotes within 24-48 hours</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-r from-emerald-600 to-green-600">
         <div className="container mx-auto max-w-4xl text-center">
@@ -473,31 +577,30 @@ const LOAPageEnhanced = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Start Saving?
+              Need Help Completing the Form?
             </h2>
             <p className="text-xl text-emerald-50 mb-8">
-              Complete your Letter of Authority in just 2 minutes and let us find you better energy deals.
+              Our team is here to assist you with the LOA process
             </p>
             
             <div className="flex flex-wrap justify-center gap-4">
               <motion.a
-                href="https://app.watt.co.uk"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="tel:01618338661"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white text-emerald-600 font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-2xl transition-all flex items-center gap-2"
               >
-                Complete LOA Online <ArrowRight className="w-5 h-5" />
+                <Phone className="w-5 h-5" />
+                Call: 0161 833 8661
               </motion.a>
               <motion.a
-                href="tel:01618338661"
+                href="mailto:info@wattchoice.co.uk"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all flex items-center gap-2"
               >
-                <Phone className="w-5 h-5" />
-                Call for Help: 0161 833 8661
+                <Mail className="w-5 h-5" />
+                Email Support
               </motion.a>
             </div>
             

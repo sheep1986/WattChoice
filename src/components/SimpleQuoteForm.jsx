@@ -95,11 +95,15 @@ const SimpleQuoteForm = ({ onClose, serviceType = 'water' }) => {
 
   if (isSubmitted) {
     return (
-      <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+      <div 
+        className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        onClick={onClose}
+      >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl"
+          onClick={(e) => e.stopPropagation()}
         >
           <div className="text-center">
             <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -116,12 +120,16 @@ const SimpleQuoteForm = ({ onClose, serviceType = 'water' }) => {
   }
 
   return (
-    <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div 
+      className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+      onClick={onClose}
+    >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 20 }}
         className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+        onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div className={`bg-gradient-to-r ${

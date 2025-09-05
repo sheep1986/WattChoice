@@ -19,6 +19,13 @@ import AboutPage from './pages/AboutPage';
 import CaseStudies from './pages/CaseStudies';
 import TPICodePage from './pages/TPICodePage';
 import MultiSiteEnergy from './pages/MultiSiteEnergyEnhanced';
+import BusinessEnergyGuides from './pages/BusinessEnergyGuides';
+import EnergySavingTips from './pages/EnergySavingTips';
+import ContractTypesExplained from './pages/ContractTypesExplained';
+import SwitchingProcess from './pages/SwitchingProcess';
+import GreenEnergyOptions from './pages/GreenEnergyOptions';
+import EnergyMarketInsights from './pages/EnergyMarketInsights';
+import BillValidation from './pages/BillValidation';
 import {
   CheckCircle,
   ShieldCheck,
@@ -291,6 +298,7 @@ function Textarea({ className = "", ...props }) {
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [benefitsOpen, setBenefitsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
@@ -307,24 +315,35 @@ function Navbar() {
   }, [location]);
 
   const services = [
-    { icon: Zap, title: "Business Electricity", desc: "Save up to 45% on rates", link: "/business-electricity" },
-    { icon: Flame, title: "Business Gas", desc: "Fixed & flexible contracts", link: "/business-gas" },
-    { icon: Droplet, title: "Business Water", desc: "20% average savings", link: "/business-water" },
-    { icon: PhoneCall, title: "Telecoms", desc: "VoIP & unified comms", link: "/business-telecoms" },
-    { icon: Wifi, title: "Broadband", desc: "Fibre & leased lines", link: "/business-broadband" },
-    { icon: Building2, title: "Multi-site", desc: "Portfolio management", link: "/multi-site" }
+    { icon: Zap, title: "Business Electricity", desc: "Save up to 45% on rates", link: "/business-electricity", color: "amber" },
+    { icon: Flame, title: "Business Gas", desc: "Fixed & flexible contracts", link: "/business-gas", color: "orange" },
+    { icon: Droplet, title: "Business Water", desc: "20% average savings", link: "/business-water", color: "blue" },
+    { icon: Wifi, title: "Business Broadband", desc: "Fibre & leased lines", link: "/business-broadband", color: "purple" },
+    { icon: PhoneCall, title: "Business Telecoms", desc: "VoIP & unified comms", link: "/business-telecoms", color: "green" },
+    { icon: Building2, title: "Large Business", desc: "Enterprise solutions", link: "/large-business", color: "indigo" }
+  ];
+
+  const businessBenefits = [
+    { title: "Energy Guides", desc: "Expert advice & strategies", link: "/business-energy-guides" },
+    { title: "Energy Saving Tips", desc: "Reduce consumption 20-45%", link: "/energy-saving-tips" },
+    { title: "Contract Types", desc: "Fixed vs flexible explained", link: "/contract-types" },
+    { title: "Switching Process", desc: "7-step guide", link: "/switching-process" },
+    { title: "Green Energy", desc: "Renewable options", link: "/green-energy" },
+    { title: "Multi-Site Energy", desc: "Portfolio management", link: "/multi-site-energy" },
+    { title: "Market Insights", desc: "Trends & analysis", link: "/market-insights" },
+    { title: "Bill Validation", desc: "Error recovery service", link: "/bill-validation" }
   ];
 
   return (
     <nav className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${scrolled ? 'shadow-lg' : 'border-b border-gray-100'}`}>
       <div className="container mx-auto px-4 lg:px-6">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24 md:h-28">
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
               src="https://i.ibb.co/Txrgyp2R/Watt-choice-logo-1.png" 
               alt="Watt Choice" 
-              className="h-16 w-auto"
+              className="h-20 md:h-24 w-auto"
             />
           </Link>
 
@@ -334,7 +353,11 @@ function Navbar() {
             <div className="relative">
               <button
                 onClick={() => setServicesOpen(!servicesOpen)}
-                className="flex items-center gap-1 text-gray-700 hover:text-green-600 font-medium transition-colors"
+                className={`flex items-center gap-1 px-3 py-2 rounded-lg font-medium transition-all ${
+                  servicesOpen 
+                    ? 'bg-gray-100 text-gray-900' 
+                    : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
+                }`}
               >
                 Our Services
                 <ChevronDown className={`h-4 w-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
@@ -354,13 +377,27 @@ function Navbar() {
                           key={idx}
                           to={service.link}
                           onClick={() => setServicesOpen(false)}
-                          className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                          className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-all group"
                         >
-                          <div className="p-2 bg-green-100 rounded-lg">
-                            <service.icon className="h-5 w-5 text-green-600" />
+                          <div className={`p-2 rounded-lg transition-all ${
+                            service.color === 'amber' ? 'bg-amber-100 group-hover:bg-amber-200' :
+                            service.color === 'orange' ? 'bg-orange-100 group-hover:bg-orange-200' :
+                            service.color === 'blue' ? 'bg-blue-100 group-hover:bg-blue-200' :
+                            service.color === 'green' ? 'bg-green-100 group-hover:bg-green-200' :
+                            service.color === 'purple' ? 'bg-purple-100 group-hover:bg-purple-200' :
+                            'bg-indigo-100 group-hover:bg-indigo-200'
+                          }`}>
+                            <service.icon className={`h-5 w-5 ${
+                              service.color === 'amber' ? 'text-amber-600' :
+                              service.color === 'orange' ? 'text-orange-600' :
+                              service.color === 'blue' ? 'text-blue-600' :
+                              service.color === 'green' ? 'text-green-600' :
+                              service.color === 'purple' ? 'text-purple-600' :
+                              'text-indigo-600'
+                            }`} />
                           </div>
                           <div>
-                            <div className="font-semibold text-gray-900">{service.title}</div>
+                            <div className="font-semibold text-gray-900 group-hover:text-gray-800">{service.title}</div>
                             <div className="text-sm text-gray-600">{service.desc}</div>
                           </div>
                         </Link>
@@ -371,31 +408,73 @@ function Navbar() {
               </AnimatePresence>
             </div>
 
-            <Link to="/how-it-works" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
-              How It Works
+            {/* Business Benefits Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setBenefitsOpen(!benefitsOpen)}
+                className={`flex items-center gap-1 px-3 py-2 rounded-lg font-medium transition-all ${
+                  benefitsOpen 
+                    ? 'bg-gray-100 text-gray-900' 
+                    : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
+                }`}
+              >
+                Business Benefits
+                <ChevronDown className={`h-4 w-4 transition-transform ${benefitsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              <AnimatePresence>
+                {benefitsOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    className="absolute top-full left-0 mt-2 w-[600px] bg-white rounded-xl shadow-2xl border border-gray-100 p-6"
+                  >
+                    <div className="grid grid-cols-2 gap-4">
+                      {businessBenefits.map((item, idx) => (
+                        <Link
+                          key={idx}
+                          to={item.link}
+                          onClick={() => setBenefitsOpen(false)}
+                          className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-all group"
+                        >
+                          <div className="w-10 h-10 bg-gradient-to-br from-emerald-100 to-green-100 rounded-lg flex items-center justify-center">
+                            <Sparkles className="h-5 w-5 text-emerald-600" />
+                          </div>
+                          <div>
+                            <div className="font-semibold text-gray-900 group-hover:text-emerald-600">{item.title}</div>
+                            <div className="text-sm text-gray-600">{item.desc}</div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <Link to="/case-studies" className="text-gray-700 hover:text-amber-600 font-medium transition-all hover:scale-105">
+              Case Studies
             </Link>
-            <Link to="/loa" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
+            <Link to="/loa" className="text-gray-700 hover:text-blue-600 font-medium transition-all hover:scale-105">
               LOA
             </Link>
-            <Link to="/business-guides" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
-              Business Guides
+            <Link to="/about" className="text-gray-700 hover:text-purple-600 font-medium transition-all hover:scale-105">
+              About
             </Link>
-            <Link to="/about" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
-              About Us
-            </Link>
-            <Link to="/contact" className="text-gray-700 hover:text-green-600 font-medium transition-colors">
+            <Link to="/contact" className="text-gray-700 hover:text-green-600 font-medium transition-all hover:scale-105">
               Contact
             </Link>
           </div>
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-4">
-            <Button variant="ghost" size="sm">
-              <Phone className="h-4 w-4 mr-2" />
+            <a href="tel:01611234567" className="flex items-center gap-2 text-gray-700 hover:text-green-600 font-medium transition-all">
+              <Phone className="h-4 w-4" />
               0161 123 4567
-            </Button>
+            </a>
             <a href="https://app.watt.co.uk" target="_blank" rel="noopener noreferrer">
-              <Button size="sm">
+              <Button className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold shadow-lg hover:shadow-xl transition-all">
                 Compare Prices
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
@@ -426,37 +505,66 @@ function Navbar() {
                     key={idx}
                     to={service.link}
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-3 px-4 py-2 hover:bg-gray-50 transition-colors"
+                    className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-all group"
                   >
-                    <service.icon className="h-5 w-5 text-green-600" />
-                    <span className="font-medium text-gray-700">{service.title}</span>
+                    <div className={`p-2 rounded-lg ${
+                      service.color === 'amber' ? 'bg-amber-100' :
+                      service.color === 'orange' ? 'bg-orange-100' :
+                      service.color === 'blue' ? 'bg-blue-100' :
+                      service.color === 'green' ? 'bg-green-100' :
+                      service.color === 'purple' ? 'bg-purple-100' :
+                      'bg-indigo-100'
+                    }`}>
+                      <service.icon className={`h-5 w-5 ${
+                        service.color === 'amber' ? 'text-amber-600' :
+                        service.color === 'orange' ? 'text-orange-600' :
+                        service.color === 'blue' ? 'text-blue-600' :
+                        service.color === 'green' ? 'text-green-600' :
+                        service.color === 'purple' ? 'text-purple-600' :
+                        'text-indigo-600'
+                      }`} />
+                    </div>
+                    <span className="font-medium text-gray-700 group-hover:text-gray-900">{service.title}</span>
                   </Link>
                 ))}
                 <div className="border-t border-gray-100 pt-3 space-y-2">
-                  <Link to="/how-it-works" onClick={() => setIsOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-gray-50 font-medium">
-                    How It Works
+                  <div className="px-4 py-2 text-sm font-semibold text-gray-500">Business Benefits</div>
+                  {businessBenefits.map((item, idx) => (
+                    <Link 
+                      key={idx}
+                      to={item.link} 
+                      onClick={() => setIsOpen(false)} 
+                      className="block px-4 py-2 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-all"
+                    >
+                      {item.title}
+                    </Link>
+                  ))}
+                </div>
+                <div className="border-t border-gray-100 pt-3 space-y-2">
+                  <Link to="/case-studies" onClick={() => setIsOpen(false)} className="block px-4 py-3 text-gray-700 hover:bg-amber-50 hover:text-amber-600 font-medium transition-all">
+                    Case Studies
                   </Link>
-                  <Link to="/loa" onClick={() => setIsOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-gray-50 font-medium">
+                  <Link to="/loa" onClick={() => setIsOpen(false)} className="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium transition-all">
                     LOA
                   </Link>
-                  <Link to="/business-guides" onClick={() => setIsOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-gray-50 font-medium">
-                    Business Guides
+                  <Link to="/about" onClick={() => setIsOpen(false)} className="block px-4 py-3 text-gray-700 hover:bg-purple-50 hover:text-purple-600 font-medium transition-all">
+                    About
                   </Link>
-                  <Link to="/about" onClick={() => setIsOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-gray-50 font-medium">
-                    About Us
-                  </Link>
-                  <Link to="/contact" onClick={() => setIsOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-gray-50 font-medium">
+                  <Link to="/contact" onClick={() => setIsOpen(false)} className="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 font-medium transition-all">
                     Contact
                   </Link>
                 </div>
                 <div className="border-t border-gray-100 pt-3 px-4 space-y-3">
-                  <a href="https://app.watt.co.uk" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
-                    <Button size="md" className="w-full">Compare Prices</Button>
+                  <a href="tel:01611234567" className="flex items-center justify-center gap-2 py-3 text-gray-700 hover:text-green-600 font-medium transition-all">
+                    <Phone className="h-4 w-4" />
+                    0161 123 4567
                   </a>
-                  <Button variant="outline" size="md" className="w-full">
-                    <Phone className="h-4 w-4 mr-2" />
-                    Call Us
-                  </Button>
+                  <a href="https://app.watt.co.uk" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+                    <Button className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold shadow-lg">
+                      Compare Prices
+                      <ArrowRight className="h-4 w-4 ml-2" />
+                    </Button>
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -1408,27 +1516,33 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Business Benefits */}
+          <div>
+            <h3 className="font-semibold text-lg mb-4">Business Benefits</h3>
+            <ul className="space-y-2">
+              <li><Link to="/business-energy-guides" className="text-gray-400 hover:text-white transition">Energy Guides</Link></li>
+              <li><Link to="/energy-saving-tips" className="text-gray-400 hover:text-white transition">Saving Tips</Link></li>
+              <li><Link to="/contract-types" className="text-gray-400 hover:text-white transition">Contract Types</Link></li>
+              <li><Link to="/switching-process" className="text-gray-400 hover:text-white transition">Switching Process</Link></li>
+              <li><Link to="/market-insights" className="text-gray-400 hover:text-white transition">Market Insights</Link></li>
+            </ul>
+          </div>
+
+          {/* Company & Legal */}
           <div>
             <h3 className="font-semibold text-lg mb-4">Company</h3>
             <ul className="space-y-2">
               <li><Link to="/about" className="text-gray-400 hover:text-white transition">About Us</Link></li>
               <li><Link to="/case-studies" className="text-gray-400 hover:text-white transition">Case Studies</Link></li>
-              <li><Link to="/careers" className="text-gray-400 hover:text-white transition">Careers</Link></li>
               <li><Link to="/contact" className="text-gray-400 hover:text-white transition">Contact</Link></li>
-              <li><Link to="/complaints" className="text-gray-400 hover:text-white transition">Complaints</Link></li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4">Legal</h3>
-            <ul className="space-y-2">
-              <li><Link to="/terms" className="text-gray-400 hover:text-white transition">Terms</Link></li>
-              <li><Link to="/privacy" className="text-gray-400 hover:text-white transition">Privacy</Link></li>
-              <li><Link to="/compliance" className="text-gray-400 hover:text-white transition">Compliance</Link></li>
-              <li><Link to="/tpi-code" className="text-gray-400 hover:text-white transition">TPI Code</Link></li>
-              <li><Link to="/how-we-get-paid" className="text-gray-400 hover:text-white transition">Commission</Link></li>
+              <li><Link to="/loa" className="text-gray-400 hover:text-white transition">LOA</Link></li>
+              <li><Link to="/suppliers" className="text-gray-400 hover:text-white transition">Suppliers</Link></li>
+              <li><Link to="/glossary" className="text-gray-400 hover:text-white transition">Glossary</Link></li>
+              <li className="pt-2 border-t border-gray-800">
+                <Link to="/terms" className="text-gray-400 hover:text-white transition text-xs">Terms</Link>
+              </li>
+              <li><Link to="/privacy" className="text-gray-400 hover:text-white transition text-xs">Privacy</Link></li>
+              <li><Link to="/complaints" className="text-gray-400 hover:text-white transition text-xs">Complaints</Link></li>
             </ul>
           </div>
 
@@ -1742,13 +1856,14 @@ export default function WattChoiceApp() {
           <Route path="/compliance" element={<CompliancePage />} />
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/tpi-code" element={<TPICodePage />} />
-          <Route path="/business-guides" element={<PagePlaceholder title="Business Energy Guides" description="Expert guides to help you make informed decisions" />} />
-          <Route path="/energy-saving-tips" element={<PagePlaceholder title="Energy Saving Tips" description="Practical ways to reduce your energy consumption" />} />
-          <Route path="/contract-types" element={<PagePlaceholder title="Energy Contract Types Explained" description="Understanding different contract options" />} />
-          <Route path="/switching-process" element={<PagePlaceholder title="The Switching Process" description="What happens when you switch suppliers" />} />
-          <Route path="/green-energy" element={<PagePlaceholder title="Green Energy Options" description="Sustainable energy solutions for your business" />} />
-          <Route path="/market-insights" element={<PagePlaceholder title="Energy Market Insights" description="Stay informed about energy market trends" />} />
-          <Route path="/bill-validation" element={<PagePlaceholder title="Bill Validation Service" description="Ensure you're being charged correctly" />} />
+          {/* Business Benefits Pages */}
+          <Route path="/business-energy-guides" element={<BusinessEnergyGuides />} />
+          <Route path="/energy-saving-tips" element={<EnergySavingTips />} />
+          <Route path="/contract-types" element={<ContractTypesExplained />} />
+          <Route path="/switching-process" element={<SwitchingProcess />} />
+          <Route path="/green-energy" element={<GreenEnergyOptions />} />
+          <Route path="/market-insights" element={<EnergyMarketInsights />} />
+          <Route path="/bill-validation" element={<BillValidation />} />
           
           {/* Quote and Contact */}
           <Route path="/get-quote" element={<QuoteFormPage />} />
