@@ -643,7 +643,7 @@ function Footer(){
             </p>
             
             <div className="flex gap-4 mt-4">
-              <a href="https://www.instagram.com/watt.utilities" aria-label="Instagram" className="text-slate-400 hover:text-white transition-colors">
+              <a href="https://instagram.com/watt_choice" aria-label="Instagram" className="text-slate-400 hover:text-white transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
               <a href="https://www.linkedin.com/company/watt-co-uk-ltd/" aria-label="LinkedIn" className="text-slate-400 hover:text-white transition-colors">

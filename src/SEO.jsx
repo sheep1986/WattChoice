@@ -99,6 +99,7 @@ export const organizationSchema = {
   "sameAs": [
     "https://twitter.com/wattutilities",
     "https://www.facebook.com/profile.php?id=61580022617531",
+    "https://instagram.com/watt_choice",
     "https://www.linkedin.com/company/watt-utilities-uk-ltd"
   ],
   "contactPoint": {
