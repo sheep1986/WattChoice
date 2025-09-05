@@ -2,11 +2,8 @@ import React, { useMemo, useState, useEffect, useRef } from "react";
 import { BrowserRouter as Router, Routes, Route, NavLink, useLocation, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import CaseStudies from './pages/CaseStudies';
-import BusinessEnergyGuides from './pages/BusinessEnergyGuides';
 import EnergySavingTips from './pages/EnergySavingTips';
-import ContractTypesExplained from './pages/ContractTypesExplained';
 import SwitchingProcess from './pages/SwitchingProcess';
-import GreenEnergyOptions from './pages/GreenEnergyOptions';
 import MultiSiteEnergy from './pages/MultiSiteEnergy';
 import EnergyMarketInsights from './pages/EnergyMarketInsights';
 import BillValidation from './pages/BillValidation';
@@ -1193,11 +1190,8 @@ export default function WattUtilitiesSite(){
           <Route path="/company" element={<CompanyPage/>} />
           <Route path="/careers" element={<CareersPage/>} />
           <Route path="/case-studies" element={<CaseStudiesPage/>} />
-          <Route path="/business-energy-guides" element={<BusinessEnergyGuides/>} />
           <Route path="/energy-saving-tips" element={<EnergySavingTips/>} />
-          <Route path="/contract-types" element={<ContractTypesExplained/>} />
           <Route path="/switching-process" element={<SwitchingProcess/>} />
-          <Route path="/green-energy" element={<GreenEnergyOptions/>} />
           <Route path="/multi-site-energy" element={<MultiSiteEnergy/>} />
           <Route path="/market-insights" element={<EnergyMarketInsights/>} />
           <Route path="/bill-validation" element={<BillValidation/>} />

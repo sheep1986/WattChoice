@@ -224,20 +224,20 @@ const TrustpilotSection = () => {
               </motion.div>
             </AnimatePresence>
 
-            {/* Navigation Buttons */}
+            {/* Navigation Buttons - Positioned outside text area */}
             <button
               onClick={prevReview}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-shadow"
+              className="absolute -left-16 top-1/2 -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all hover:scale-110"
               aria-label="Previous review"
             >
-              <ChevronLeft className="w-6 h-6 text-gray-700" />
+              <ChevronLeft className="w-5 h-5 text-gray-700" />
             </button>
             <button
               onClick={nextReview}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-shadow"
+              className="absolute -right-16 top-1/2 -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all hover:scale-110"
               aria-label="Next review"
             >
-              <ChevronRight className="w-6 h-6 text-gray-700" />
+              <ChevronRight className="w-5 h-5 text-gray-700" />
             </button>
           </div>
 

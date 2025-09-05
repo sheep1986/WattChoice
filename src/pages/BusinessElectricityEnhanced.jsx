@@ -7,7 +7,7 @@ import {
   FileText, BarChart3, Target, AlertCircle, ChevronRight,
   Battery, Cpu, Globe, Sparkles, CircleDollarSign,
   ShieldCheck, HeadphonesIcon, Star, TrendingDown,
-  FileSearch, Calculator, Settings, PlayCircle
+  FileSearch, Calculator, Settings
 } from 'lucide-react';
 
 // Animated Counter Component
@@ -603,15 +603,6 @@ const BusinessElectricityEnhanced = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 
-                {/* Play Button */}
-                <motion.div 
-                  className="absolute inset-0 flex items-center justify-center"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  <div className="bg-white rounded-full p-6 shadow-2xl">
-                    <PlayCircle className="w-12 h-12 text-green-600" />
-                  </div>
-                </motion.div>
                 
                 {/* Video Title Overlay */}
                 <div className="absolute bottom-6 left-6 text-white">

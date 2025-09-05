@@ -19,11 +19,8 @@ import AboutPage from './pages/AboutPage';
 import CaseStudies from './pages/CaseStudies';
 import TPICodePage from './pages/TPICodePage';
 import MultiSiteEnergy from './pages/MultiSiteEnergyEnhanced';
-import BusinessEnergyGuides from './pages/BusinessEnergyGuides';
 import EnergySavingTips from './pages/EnergySavingTips';
-import ContractTypesExplained from './pages/ContractTypesExplained';
 import SwitchingProcess from './pages/SwitchingProcess';
-import GreenEnergyOptions from './pages/GreenEnergyOptions';
 import EnergyMarketInsights from './pages/EnergyMarketInsights';
 import BillValidation from './pages/BillValidation';
 import {
@@ -1872,11 +1869,8 @@ export default function WattChoiceApp() {
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/tpi-code" element={<TPICodePage />} />
           {/* Business Benefits Pages */}
-          <Route path="/business-energy-guides" element={<BusinessEnergyGuides />} />
           <Route path="/energy-saving-tips" element={<EnergySavingTips />} />
-          <Route path="/contract-types" element={<ContractTypesExplained />} />
           <Route path="/switching-process" element={<SwitchingProcess />} />
-          <Route path="/green-energy" element={<GreenEnergyOptions />} />
           <Route path="/market-insights" element={<EnergyMarketInsights />} />
           <Route path="/bill-validation" element={<BillValidation />} />
           
