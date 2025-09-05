@@ -310,7 +310,12 @@ const LOAPageEnhanced = () => {
                       <div className="hidden md:block absolute top-12 left-full w-full h-0.5 bg-gray-300 -z-10"></div>
                     )}
                     <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all">
-                      <div className={`w-12 h-12 bg-gradient-to-r ${step.color} rounded-lg flex items-center justify-center mb-4`}>
+                      <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 ${
+                        index === 0 ? 'bg-gradient-to-r from-blue-500 to-cyan-500' :
+                        index === 1 ? 'bg-gradient-to-r from-green-500 to-emerald-500' :
+                        index === 2 ? 'bg-gradient-to-r from-purple-500 to-indigo-500' :
+                        'bg-gradient-to-r from-amber-500 to-orange-500'
+                      }`}>
                         <span className="text-white font-bold text-lg">{step.step}</span>
                       </div>
                       <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>

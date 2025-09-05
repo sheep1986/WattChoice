@@ -549,11 +549,27 @@ const ContractTypesExplained = () => {
                     : 'border-slate-800 hover:border-indigo-500/50'
                 }`}>
                   {/* Header Gradient */}
-                  <div className={`h-2 bg-gradient-to-r ${contract.color}`} />
+                  <div className={`h-2 bg-gradient-to-r ${
+                    contract.id === 'fixed' ? 'from-blue-500 to-indigo-600' :
+                    contract.id === 'variable' ? 'from-amber-500 to-orange-600' :
+                    contract.id === 'pass-through' ? 'from-purple-500 to-pink-600' :
+                    contract.id === 'deemed' ? 'from-red-500 to-rose-600' :
+                    contract.id === 'green-fixed' ? 'from-green-500 to-emerald-600' :
+                    contract.id === 'basket' ? 'from-cyan-500 to-blue-600' :
+                    'from-gray-500 to-gray-600'
+                  }`} />
                   
                   <div className="p-6">
                     <div className="flex items-start justify-between mb-4">
-                      <div className={`p-3 rounded-lg bg-gradient-to-r ${contract.color} bg-opacity-10`}>
+                      <div className={`p-3 rounded-lg bg-gradient-to-r bg-opacity-10 ${
+                        contract.id === 'fixed' ? 'from-blue-500 to-indigo-600' :
+                        contract.id === 'variable' ? 'from-amber-500 to-orange-600' :
+                        contract.id === 'pass-through' ? 'from-purple-500 to-pink-600' :
+                        contract.id === 'deemed' ? 'from-red-500 to-rose-600' :
+                        contract.id === 'green-fixed' ? 'from-green-500 to-emerald-600' :
+                        contract.id === 'basket' ? 'from-cyan-500 to-blue-600' :
+                        'from-gray-500 to-gray-600'
+                      }`}>
                         <contract.icon className="w-8 h-8 text-white" />
                       </div>
                       {comparisonMode && (
@@ -712,14 +728,30 @@ const ContractTypesExplained = () => {
               className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-2xl max-w-5xl max-h-[90vh] overflow-y-auto border border-slate-800"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className={`h-3 bg-gradient-to-r ${selectedContract.color}`} />
+              <div className={`h-3 bg-gradient-to-r ${
+                selectedContract.id === 'fixed' ? 'from-blue-500 to-indigo-600' :
+                selectedContract.id === 'variable' ? 'from-amber-500 to-orange-600' :
+                selectedContract.id === 'pass-through' ? 'from-purple-500 to-pink-600' :
+                selectedContract.id === 'deemed' ? 'from-red-500 to-rose-600' :
+                selectedContract.id === 'green-fixed' ? 'from-green-500 to-emerald-600' :
+                selectedContract.id === 'basket' ? 'from-cyan-500 to-blue-600' :
+                'from-gray-500 to-gray-600'
+              }`} />
               
               <div className="p-8">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-6">
                   <div>
                     <div className="flex items-center gap-4 mb-3">
-                      <div className={`p-3 rounded-lg bg-gradient-to-r ${selectedContract.color} bg-opacity-20`}>
+                      <div className={`p-3 rounded-lg bg-gradient-to-r bg-opacity-20 ${
+                        selectedContract.id === 'fixed' ? 'from-blue-500 to-indigo-600' :
+                        selectedContract.id === 'variable' ? 'from-amber-500 to-orange-600' :
+                        selectedContract.id === 'pass-through' ? 'from-purple-500 to-pink-600' :
+                        selectedContract.id === 'deemed' ? 'from-red-500 to-rose-600' :
+                        selectedContract.id === 'green-fixed' ? 'from-green-500 to-emerald-600' :
+                        selectedContract.id === 'basket' ? 'from-cyan-500 to-blue-600' :
+                        'from-gray-500 to-gray-600'
+                      }`}>
                         <selectedContract.icon className="w-10 h-10 text-white" />
                       </div>
                       <div>

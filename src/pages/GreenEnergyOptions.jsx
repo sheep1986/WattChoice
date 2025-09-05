@@ -497,11 +497,27 @@ const GreenEnergyOptions = () => {
                 onClick={() => setSelectedOption(option)}
               >
                 <div className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-2xl overflow-hidden border border-slate-800 hover:border-green-500/50 transition-all duration-300 h-full">
-                  <div className={`h-2 bg-gradient-to-r ${option.color}`} />
+                  <div className={`h-2 bg-gradient-to-r ${
+                    option.id === 'rego' ? 'from-green-500 to-emerald-600' :
+                    option.id === 'solar' ? 'from-amber-500 to-yellow-600' :
+                    option.id === 'ppa' ? 'from-blue-500 to-cyan-600' :
+                    option.id === 'funded-solar' ? 'from-purple-500 to-indigo-600' :
+                    option.id === 'carbon-offset' ? 'from-teal-500 to-green-600' :
+                    option.id === 'biomass' ? 'from-orange-500 to-red-600' :
+                    'from-gray-500 to-gray-600'
+                  }`} />
                   
                   <div className="p-6">
                     <div className="flex items-start justify-between mb-4">
-                      <div className={`p-3 rounded-lg bg-gradient-to-r ${option.color} bg-opacity-10`}>
+                      <div className={`p-3 rounded-lg bg-gradient-to-r bg-opacity-10 ${
+                        option.id === 'rego' ? 'from-green-500 to-emerald-600' :
+                        option.id === 'solar' ? 'from-amber-500 to-yellow-600' :
+                        option.id === 'ppa' ? 'from-blue-500 to-cyan-600' :
+                        option.id === 'funded-solar' ? 'from-purple-500 to-indigo-600' :
+                        option.id === 'carbon-offset' ? 'from-teal-500 to-green-600' :
+                        option.id === 'biomass' ? 'from-orange-500 to-red-600' :
+                        'from-gray-500 to-gray-600'
+                      }`}>
                         <option.icon className="w-8 h-8 text-white" />
                       </div>
                       <div className="text-right">
@@ -557,13 +573,29 @@ const GreenEnergyOptions = () => {
             className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-2xl max-w-4xl max-h-[90vh] overflow-y-auto border border-slate-800"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className={`h-3 bg-gradient-to-r ${selectedOption.color}`} />
+            <div className={`h-3 bg-gradient-to-r ${
+              selectedOption.id === 'rego' ? 'from-green-500 to-emerald-600' :
+              selectedOption.id === 'solar' ? 'from-amber-500 to-yellow-600' :
+              selectedOption.id === 'ppa' ? 'from-blue-500 to-cyan-600' :
+              selectedOption.id === 'funded-solar' ? 'from-purple-500 to-indigo-600' :
+              selectedOption.id === 'carbon-offset' ? 'from-teal-500 to-green-600' :
+              selectedOption.id === 'biomass' ? 'from-orange-500 to-red-600' :
+              'from-gray-500 to-gray-600'
+            }`} />
             
             <div className="p-8">
               {/* Header */}
               <div className="flex items-start justify-between mb-6">
                 <div className="flex items-center gap-4">
-                  <div className={`p-3 rounded-lg bg-gradient-to-r ${selectedOption.color} bg-opacity-20`}>
+                  <div className={`p-3 rounded-lg bg-gradient-to-r bg-opacity-20 ${
+                    selectedOption.id === 'rego' ? 'from-green-500 to-emerald-600' :
+                    selectedOption.id === 'solar' ? 'from-amber-500 to-yellow-600' :
+                    selectedOption.id === 'ppa' ? 'from-blue-500 to-cyan-600' :
+                    selectedOption.id === 'funded-solar' ? 'from-purple-500 to-indigo-600' :
+                    selectedOption.id === 'carbon-offset' ? 'from-teal-500 to-green-600' :
+                    selectedOption.id === 'biomass' ? 'from-orange-500 to-red-600' :
+                    'from-gray-500 to-gray-600'
+                  }`}>
                     <selectedOption.icon className="w-10 h-10 text-white" />
                   </div>
                   <div>
