@@ -602,7 +602,7 @@ const ContractTypesExplained = () => {
       )}
 
       {/* Detailed Contract Modal */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {selectedContract && !comparisonMode && (
           <motion.div
             initial={{ opacity: 0 }}

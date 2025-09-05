@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Leaf,
   Sun,
@@ -537,8 +537,9 @@ const GreenEnergyOptions = () => {
       </section>
 
       {/* Selected Option Detail Modal */}
-      {selectedOption && (
-        <motion.div
+      <AnimatePresence mode="wait">
+        {selectedOption && (
+          <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -699,7 +700,8 @@ const GreenEnergyOptions = () => {
             </div>
           </motion.div>
         </motion.div>
-      )}
+        )}
+      </AnimatePresence>
 
       {/* Certifications Section */}
       <section className="py-16 px-4 bg-slate-900/50">

@@ -378,7 +378,7 @@ const BusinessEnergyGuides = () => {
       </section>
 
       {/* Guide Modal */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {activeGuide && (
           <motion.div
             initial={{ opacity: 0 }}
