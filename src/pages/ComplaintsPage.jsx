@@ -1,11 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+// import { Helmet } from 'react-helmet-async';
 import { MessageCircle, Phone, Mail, Clock, Users, AlertCircle, CheckCircle, FileText, ArrowRight, MapPin, Shield } from 'lucide-react';
 
 const ComplaintsPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-white">
+      {/* Helmet SEO tags commented out - can be re-enabled when HelmetProvider is configured
       <Helmet>
         <title>Complaints Procedure | Watt Choice - Customer Service & Resolution</title>
         <meta name="description" content="Watt Choice complaints procedure. Learn how to raise concerns, our resolution process, escalation procedures, and ombudsman contact details." />
@@ -41,6 +42,7 @@ const ComplaintsPage = () => {
           })}
         </script>
       </Helmet>
+      */}
 
       {/* Hero Section */}
       <section className="relative py-20 px-4 overflow-hidden">

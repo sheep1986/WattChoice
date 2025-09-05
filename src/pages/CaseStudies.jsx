@@ -18,7 +18,7 @@ import {
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
-import { SEOHead } from '../SEO';
+// import { SEOHead } from '../SEO';
 
 const CaseStudies = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -226,12 +226,14 @@ const CaseStudies = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-white">
+      {/* SEOHead tags commented out - can be re-enabled when configured
       <SEOHead
         title="Case Studies & Success Stories | Real Business Savings"
         description="Discover how UK businesses save thousands on energy bills with Watt Choice. Read real case studies and success stories from verified Trustpilot reviews."
         keywords="case studies, success stories, energy savings, business testimonials, trustpilot reviews"
         canonical="https://wattutilities001.netlify.app/case-studies"
       />
+      */}
 
       {/* Hero Section with Animation */}
       <section className="relative py-20 px-4 overflow-hidden">

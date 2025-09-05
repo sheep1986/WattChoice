@@ -1,11 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+// import { Helmet } from 'react-helmet-async';
 import { Award, Shield, Users, BookOpen, CheckCircle, Target, Gavel, Phone, Mail, MapPin, FileText, UserCheck, ClipboardCheck, MessageCircle, Star, AlertCircle } from 'lucide-react';
 
 const TPICodePage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-white">
+      {/* Helmet SEO tags commented out - can be re-enabled when HelmetProvider is configured
       <Helmet>
         <title>TPI Code of Conduct | Watt Choice - Third Party Intermediary Standards</title>
         <meta name="description" content="Watt Choice TPI Code of Conduct. Our commitment to ethical standards, customer protection, and regulatory compliance as a Third Party Intermediary." />
@@ -34,6 +35,7 @@ const TPICodePage = () => {
           })}
         </script>
       </Helmet>
+      */}
 
       {/* Hero Section */}
       <section className="relative py-20 px-4 overflow-hidden">

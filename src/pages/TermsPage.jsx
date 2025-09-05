@@ -1,11 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+// import { Helmet } from 'react-helmet-async';
 import { FileText, Scale, DollarSign, Shield, AlertTriangle, Users, Gavel, CheckCircle, Phone, Mail, MapPin, Clock } from 'lucide-react';
 
 const TermsPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      {/* Helmet SEO tags commented out - can be re-enabled when HelmetProvider is configured
       <Helmet>
         <title>Terms and Conditions | Watt Choice - Service Terms & Legal Information</title>
         <meta name="description" content="Watt Choice Terms and Conditions. Read our service terms, commission structure, liability clauses, and legal information for business utility services." />
@@ -33,6 +34,7 @@ const TermsPage = () => {
           })}
         </script>
       </Helmet>
+      */}
 
       {/* Hero Section */}
       <section className="relative py-20 px-4 overflow-hidden">

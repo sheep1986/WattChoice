@@ -1,12 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+// import { Helmet } from 'react-helmet-async';
 import { Shield, Lock, Eye, Mail, Phone, MapPin, FileText, Users, AlertCircle, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const PrivacyPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-white">
+      {/* Helmet SEO tags commented out - can be re-enabled when HelmetProvider is configured
       <Helmet>
         <title>Privacy Policy | Watt Choice - Your Data Protection Rights</title>
         <meta name="description" content="Watt Choice Privacy Policy. Learn how we collect, use, and protect your personal data in compliance with UK data protection laws." />
@@ -29,6 +30,7 @@ const PrivacyPage = () => {
           })}
         </script>
       </Helmet>
+      */}
 
       {/* Hero Section */}
       <section className="relative py-20 px-4 overflow-hidden">
