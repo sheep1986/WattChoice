@@ -335,32 +335,32 @@ function Navbar() {
   ];
 
   return (
-    <nav className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${scrolled ? 'shadow-lg' : 'border-b border-gray-100'}`}>
+    <nav className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${scrolled ? 'shadow-md' : 'border-b border-gray-100'}`}>
       <div className="container mx-auto px-4 lg:px-6">
-        <div className="flex items-center justify-between h-24 md:h-28">
+        <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
               src="https://i.ibb.co/Txrgyp2R/Watt-choice-logo-1.png" 
               alt="Watt Choice" 
-              className="h-20 md:h-24 w-auto"
+              className="h-12 md:h-14 w-auto"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-4">
             {/* Services Dropdown */}
             <div className="relative">
               <button
                 onClick={() => setServicesOpen(!servicesOpen)}
-                className={`flex items-center gap-1 px-3 py-2 rounded-lg font-medium transition-all ${
+                className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-[15px] font-medium transition-all ${
                   servicesOpen 
-                    ? 'bg-gray-100 text-gray-900' 
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
+                    ? 'bg-emerald-50 text-emerald-700' 
+                    : 'text-gray-700 hover:text-emerald-600'
                 }`}
               >
                 Our Services
-                <ChevronDown className={`h-4 w-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`h-3.5 w-3.5 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
               </button>
               
               <AnimatePresence>
@@ -369,17 +369,17 @@ function Navbar() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 mt-2 w-[600px] bg-white rounded-xl shadow-2xl border border-gray-100 p-6"
+                    className="absolute top-full left-0 mt-1 w-[480px] bg-white rounded-lg shadow-xl border border-gray-200 py-3"
                   >
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-0">
                       {services.map((service, idx) => (
                         <Link
                           key={idx}
                           to={service.link}
                           onClick={() => setServicesOpen(false)}
-                          className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-all group"
+                          className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-gray-50 transition-all group"
                         >
-                          <div className={`p-2 rounded-lg transition-all ${
+                          <div className={`p-1.5 rounded-md transition-all ${
                             service.color === 'amber' ? 'bg-amber-100 group-hover:bg-amber-200' :
                             service.color === 'orange' ? 'bg-orange-100 group-hover:bg-orange-200' :
                             service.color === 'blue' ? 'bg-blue-100 group-hover:bg-blue-200' :
@@ -387,7 +387,7 @@ function Navbar() {
                             service.color === 'purple' ? 'bg-purple-100 group-hover:bg-purple-200' :
                             'bg-indigo-100 group-hover:bg-indigo-200'
                           }`}>
-                            <service.icon className={`h-5 w-5 ${
+                            <service.icon className={`h-4 w-4 ${
                               service.color === 'amber' ? 'text-amber-600' :
                               service.color === 'orange' ? 'text-orange-600' :
                               service.color === 'blue' ? 'text-blue-600' :
@@ -397,8 +397,8 @@ function Navbar() {
                             }`} />
                           </div>
                           <div>
-                            <div className="font-semibold text-gray-900 group-hover:text-gray-800">{service.title}</div>
-                            <div className="text-sm text-gray-600">{service.desc}</div>
+                            <div className="font-medium text-[14px] text-gray-900 group-hover:text-emerald-600">{service.title}</div>
+                            <div className="text-xs text-gray-500">{service.desc}</div>
                           </div>
                         </Link>
                       ))}
@@ -412,14 +412,14 @@ function Navbar() {
             <div className="relative">
               <button
                 onClick={() => setBenefitsOpen(!benefitsOpen)}
-                className={`flex items-center gap-1 px-3 py-2 rounded-lg font-medium transition-all ${
+                className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-[15px] font-medium transition-all ${
                   benefitsOpen 
-                    ? 'bg-gray-100 text-gray-900' 
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
+                    ? 'bg-emerald-50 text-emerald-700' 
+                    : 'text-gray-700 hover:text-emerald-600'
                 }`}
               >
                 Business Benefits
-                <ChevronDown className={`h-4 w-4 transition-transform ${benefitsOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`h-3.5 w-3.5 transition-transform ${benefitsOpen ? 'rotate-180' : ''}`} />
               </button>
               
               <AnimatePresence>
@@ -428,22 +428,22 @@ function Navbar() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full left-0 mt-2 w-[600px] bg-white rounded-xl shadow-2xl border border-gray-100 p-6"
+                    className="absolute top-full left-0 mt-1 w-[480px] bg-white rounded-lg shadow-xl border border-gray-200 py-3"
                   >
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-0">
                       {businessBenefits.map((item, idx) => (
                         <Link
                           key={idx}
                           to={item.link}
                           onClick={() => setBenefitsOpen(false)}
-                          className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-all group"
+                          className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-gray-50 transition-all group"
                         >
-                          <div className="w-10 h-10 bg-gradient-to-br from-emerald-100 to-green-100 rounded-lg flex items-center justify-center">
-                            <Sparkles className="h-5 w-5 text-emerald-600" />
+                          <div className="p-1.5 rounded-md bg-emerald-100 transition-all">
+                            <Sparkles className="h-4 w-4 text-emerald-600" />
                           </div>
                           <div>
-                            <div className="font-semibold text-gray-900 group-hover:text-emerald-600">{item.title}</div>
-                            <div className="text-sm text-gray-600">{item.desc}</div>
+                            <div className="font-medium text-[14px] text-gray-900 group-hover:text-emerald-600">{item.title}</div>
+                            <div className="text-xs text-gray-500">{item.desc}</div>
                           </div>
                         </Link>
                       ))}
@@ -453,31 +453,31 @@ function Navbar() {
               </AnimatePresence>
             </div>
 
-            <Link to="/case-studies" className="text-gray-700 hover:text-amber-600 font-medium transition-all hover:scale-105">
+            <Link to="/case-studies" className="text-gray-700 hover:text-emerald-600 text-[15px] font-medium transition-all">
               Case Studies
             </Link>
-            <Link to="/loa" className="text-gray-700 hover:text-blue-600 font-medium transition-all hover:scale-105">
+            <Link to="/loa" className="text-gray-700 hover:text-emerald-600 text-[15px] font-medium transition-all">
               LOA
             </Link>
-            <Link to="/about" className="text-gray-700 hover:text-purple-600 font-medium transition-all hover:scale-105">
+            <Link to="/about" className="text-gray-700 hover:text-emerald-600 text-[15px] font-medium transition-all">
               About
             </Link>
-            <Link to="/contact" className="text-gray-700 hover:text-green-600 font-medium transition-all hover:scale-105">
+            <Link to="/contact" className="text-gray-700 hover:text-emerald-600 text-[15px] font-medium transition-all">
               Contact
             </Link>
           </div>
 
           {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center gap-4">
-            <a href="tel:01611234567" className="flex items-center gap-2 text-gray-700 hover:text-green-600 font-medium transition-all">
-              <Phone className="h-4 w-4" />
+          <div className="hidden lg:flex items-center gap-3">
+            <a href="tel:01611234567" className="flex items-center gap-1.5 text-gray-700 hover:text-emerald-600 text-[15px] font-medium transition-all">
+              <Phone className="h-3.5 w-3.5" />
               0161 123 4567
             </a>
             <a href="https://app.watt.co.uk" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold shadow-lg hover:shadow-xl transition-all">
+              <button className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white text-[15px] font-bold px-5 py-2 rounded-md shadow-md hover:shadow-lg transition-all flex items-center gap-2">
                 Compare Prices
-                <ArrowRight className="h-4 w-4 ml-2" />
-              </Button>
+                <ArrowRight className="h-3.5 w-3.5" />
+              </button>
             </a>
           </div>
 
@@ -505,9 +505,9 @@ function Navbar() {
                     key={idx}
                     to={service.link}
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-all group"
+                    className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-gray-50 transition-all group"
                   >
-                    <div className={`p-2 rounded-lg ${
+                    <div className={`p-1.5 rounded-md ${
                       service.color === 'amber' ? 'bg-amber-100' :
                       service.color === 'orange' ? 'bg-orange-100' :
                       service.color === 'blue' ? 'bg-blue-100' :
@@ -515,7 +515,7 @@ function Navbar() {
                       service.color === 'purple' ? 'bg-purple-100' :
                       'bg-indigo-100'
                     }`}>
-                      <service.icon className={`h-5 w-5 ${
+                      <service.icon className={`h-4 w-4 ${
                         service.color === 'amber' ? 'text-amber-600' :
                         service.color === 'orange' ? 'text-orange-600' :
                         service.color === 'blue' ? 'text-blue-600' :
@@ -524,46 +524,46 @@ function Navbar() {
                         'text-indigo-600'
                       }`} />
                     </div>
-                    <span className="font-medium text-gray-700 group-hover:text-gray-900">{service.title}</span>
+                    <span className="text-[14px] font-medium text-gray-700 group-hover:text-emerald-600">{service.title}</span>
                   </Link>
                 ))}
-                <div className="border-t border-gray-100 pt-3 space-y-2">
-                  <div className="px-4 py-2 text-sm font-semibold text-gray-500">Business Benefits</div>
+                <div className="border-t border-gray-100 pt-2 space-y-1">
+                  <div className="px-4 py-1.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">Business Benefits</div>
                   {businessBenefits.map((item, idx) => (
                     <Link 
                       key={idx}
                       to={item.link} 
                       onClick={() => setIsOpen(false)} 
-                      className="block px-4 py-2 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-all"
+                      className="block px-4 py-2 text-[14px] text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-all"
                     >
                       {item.title}
                     </Link>
                   ))}
                 </div>
-                <div className="border-t border-gray-100 pt-3 space-y-2">
-                  <Link to="/case-studies" onClick={() => setIsOpen(false)} className="block px-4 py-3 text-gray-700 hover:bg-amber-50 hover:text-amber-600 font-medium transition-all">
+                <div className="border-t border-gray-100 pt-2 space-y-1">
+                  <Link to="/case-studies" onClick={() => setIsOpen(false)} className="block px-4 py-2.5 text-[14px] text-gray-700 hover:bg-gray-50 hover:text-emerald-600 font-medium transition-all">
                     Case Studies
                   </Link>
-                  <Link to="/loa" onClick={() => setIsOpen(false)} className="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 font-medium transition-all">
+                  <Link to="/loa" onClick={() => setIsOpen(false)} className="block px-4 py-2.5 text-[14px] text-gray-700 hover:bg-gray-50 hover:text-emerald-600 font-medium transition-all">
                     LOA
                   </Link>
-                  <Link to="/about" onClick={() => setIsOpen(false)} className="block px-4 py-3 text-gray-700 hover:bg-purple-50 hover:text-purple-600 font-medium transition-all">
+                  <Link to="/about" onClick={() => setIsOpen(false)} className="block px-4 py-2.5 text-[14px] text-gray-700 hover:bg-gray-50 hover:text-emerald-600 font-medium transition-all">
                     About
                   </Link>
-                  <Link to="/contact" onClick={() => setIsOpen(false)} className="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 font-medium transition-all">
+                  <Link to="/contact" onClick={() => setIsOpen(false)} className="block px-4 py-2.5 text-[14px] text-gray-700 hover:bg-gray-50 hover:text-emerald-600 font-medium transition-all">
                     Contact
                   </Link>
                 </div>
-                <div className="border-t border-gray-100 pt-3 px-4 space-y-3">
-                  <a href="tel:01611234567" className="flex items-center justify-center gap-2 py-3 text-gray-700 hover:text-green-600 font-medium transition-all">
-                    <Phone className="h-4 w-4" />
+                <div className="border-t border-gray-100 pt-2 px-4 space-y-2">
+                  <a href="tel:01611234567" className="flex items-center justify-center gap-1.5 py-2 text-[14px] text-gray-700 hover:text-emerald-600 font-medium transition-all">
+                    <Phone className="h-3.5 w-3.5" />
                     0161 123 4567
                   </a>
                   <a href="https://app.watt.co.uk" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
-                    <Button className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold shadow-lg">
+                    <button className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white text-[14px] font-bold py-2.5 rounded-md shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
                       Compare Prices
-                      <ArrowRight className="h-4 w-4 ml-2" />
-                    </Button>
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </button>
                   </a>
                 </div>
               </div>
@@ -1501,75 +1501,78 @@ function CTASection() {
 // Footer
 function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 lg:px-6 py-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="bg-[#1a1f2e] text-white">
+      <div className="bg-emerald-600 h-1"></div>
+      <div className="container mx-auto px-4 lg:px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Services */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Services</h3>
-            <ul className="space-y-2">
-              <li><Link to="/business-electricity" className="text-gray-400 hover:text-white transition">Electricity</Link></li>
-              <li><Link to="/business-gas" className="text-gray-400 hover:text-white transition">Gas</Link></li>
-              <li><Link to="/business-water" className="text-gray-400 hover:text-white transition">Water</Link></li>
-              <li><Link to="/business-broadband" className="text-gray-400 hover:text-white transition">Broadband</Link></li>
-              <li><Link to="/multi-site-energy" className="text-gray-400 hover:text-white transition">Multi-site</Link></li>
+            <h3 className="font-bold text-base mb-4">Services</h3>
+            <ul className="space-y-2.5">
+              <li><Link to="/business-electricity" className="text-gray-400 hover:text-white transition text-sm">Electricity</Link></li>
+              <li><Link to="/business-gas" className="text-gray-400 hover:text-white transition text-sm">Gas</Link></li>
+              <li><Link to="/business-water" className="text-gray-400 hover:text-white transition text-sm">Water</Link></li>
+              <li><Link to="/business-broadband" className="text-gray-400 hover:text-white transition text-sm">Broadband</Link></li>
+              <li><Link to="/multi-site-energy" className="text-gray-400 hover:text-white transition text-sm">Multi-site</Link></li>
             </ul>
           </div>
 
           {/* Business Benefits */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Business Benefits</h3>
-            <ul className="space-y-2">
-              <li><Link to="/business-energy-guides" className="text-gray-400 hover:text-white transition">Energy Guides</Link></li>
-              <li><Link to="/energy-saving-tips" className="text-gray-400 hover:text-white transition">Saving Tips</Link></li>
-              <li><Link to="/contract-types" className="text-gray-400 hover:text-white transition">Contract Types</Link></li>
-              <li><Link to="/switching-process" className="text-gray-400 hover:text-white transition">Switching Process</Link></li>
-              <li><Link to="/market-insights" className="text-gray-400 hover:text-white transition">Market Insights</Link></li>
+            <h3 className="font-bold text-base mb-4">Business Benefits</h3>
+            <ul className="space-y-2.5">
+              <li><Link to="/business-energy-guides" className="text-gray-400 hover:text-white transition text-sm">Energy Guides</Link></li>
+              <li><Link to="/energy-saving-tips" className="text-gray-400 hover:text-white transition text-sm">Saving Tips</Link></li>
+              <li><Link to="/contract-types" className="text-gray-400 hover:text-white transition text-sm">Contract Types</Link></li>
+              <li><Link to="/switching-process" className="text-gray-400 hover:text-white transition text-sm">Switching Process</Link></li>
+              <li><Link to="/market-insights" className="text-gray-400 hover:text-white transition text-sm">Market Insights</Link></li>
             </ul>
           </div>
 
-          {/* Company & Legal */}
+          {/* Company */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Company</h3>
-            <ul className="space-y-2">
-              <li><Link to="/about" className="text-gray-400 hover:text-white transition">About Us</Link></li>
-              <li><Link to="/case-studies" className="text-gray-400 hover:text-white transition">Case Studies</Link></li>
-              <li><Link to="/contact" className="text-gray-400 hover:text-white transition">Contact</Link></li>
-              <li><Link to="/loa" className="text-gray-400 hover:text-white transition">LOA</Link></li>
-              <li><Link to="/suppliers" className="text-gray-400 hover:text-white transition">Suppliers</Link></li>
-              <li><Link to="/glossary" className="text-gray-400 hover:text-white transition">Glossary</Link></li>
-              <li className="pt-2 border-t border-gray-800">
-                <Link to="/terms" className="text-gray-400 hover:text-white transition text-xs">Terms</Link>
-              </li>
-              <li><Link to="/privacy" className="text-gray-400 hover:text-white transition text-xs">Privacy</Link></li>
-              <li><Link to="/complaints" className="text-gray-400 hover:text-white transition text-xs">Complaints</Link></li>
+            <h3 className="font-bold text-base mb-4">Company</h3>
+            <ul className="space-y-2.5">
+              <li><Link to="/about" className="text-gray-400 hover:text-white transition text-sm">About Us</Link></li>
+              <li><Link to="/case-studies" className="text-gray-400 hover:text-white transition text-sm">Case Studies</Link></li>
+              <li><Link to="/contact" className="text-gray-400 hover:text-white transition text-sm">Contact</Link></li>
+              <li><Link to="/loa" className="text-gray-400 hover:text-white transition text-sm">LOA</Link></li>
+              <li><Link to="/suppliers" className="text-gray-400 hover:text-white transition text-sm">Suppliers</Link></li>
+              <li><Link to="/glossary" className="text-gray-400 hover:text-white transition text-sm">Glossary</Link></li>
             </ul>
+            <div className="mt-6">
+              <ul className="space-y-2.5">
+                <li><Link to="/terms" className="text-gray-400 hover:text-white transition text-sm">Terms</Link></li>
+                <li><Link to="/privacy" className="text-gray-400 hover:text-white transition text-sm">Privacy</Link></li>
+                <li><Link to="/complaints" className="text-gray-400 hover:text-white transition text-sm">Complaints</Link></li>
+              </ul>
+            </div>
           </div>
 
           {/* Logo & Description */}
-          <div>
+          <div className="lg:col-span-2">
             <img 
               src="https://i.ibb.co/Txrgyp2R/Watt-choice-logo-1.png" 
               alt="Watt Choice" 
-              className="h-10 w-auto mb-4 bg-white p-2 rounded"
+              className="h-12 w-auto mb-4 bg-white p-2 rounded"
             />
-            <p className="text-gray-400 text-sm mb-4">
+            <p className="text-gray-400 text-sm mb-6 leading-relaxed">
               Trusted business energy consultants since 2000. 900,000+ businesses saved £150M.
             </p>
             {/* Social Icons */}
             <div className="flex gap-4">
-              <a href="#" className="text-gray-400 hover:text-white">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
                 </svg>
               </a>
-              <a href="#" className="text-gray-400 hover:text-white">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                 </svg>
               </a>
-              <a href="#" className="text-gray-400 hover:text-white">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <a href="https://www.pinterest.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/>
                 </svg>
               </a>
@@ -1577,16 +1580,28 @@ function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-gray-400 text-sm">
+        <div className="border-t border-gray-700 mt-12 pt-8">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
+            <div className="text-gray-500 text-xs order-2 lg:order-1">
               © {new Date().getFullYear()} WATT CHOICE LIMITED - Company number 06702949. All rights reserved.
             </div>
-            <div className="flex items-center gap-6">
-              <span className="text-gray-400 text-sm">TPI Code of Practice</span>
+            <div className="flex flex-wrap items-center justify-center gap-8 order-1 lg:order-2">
+              <a href="/tpi-code" className="text-gray-400 hover:text-white transition text-xs">TPI Code of Practice</a>
               <div className="flex items-center gap-2">
-                <img src="https://cdn.trustpilot.net/brand-assets/4.1.0/logo-white.svg" alt="Trustpilot" className="h-4" />
-                <span className="text-gray-400 text-sm">4.6★</span>
+                <img src="https://cdn.trustpilot.net/brand-assets/4.1.0/logo-white.svg" alt="Trustpilot" className="h-5" />
+                <span className="text-gray-300 text-sm font-semibold">4.6★</span>
+              </div>
+              <div className="flex items-center gap-6">
+                <img 
+                  src="https://i.ibb.co/DgDXHDm1/investors-people-watt-001.png" 
+                  alt="Investors in People" 
+                  className="h-10 brightness-0 invert opacity-80 hover:opacity-100 transition"
+                />
+                <img 
+                  src="https://i.ibb.co/4nzmkKMY/ICO-001-Watt.png" 
+                  alt="ICO Registered" 
+                  className="h-10 brightness-0 invert opacity-80 hover:opacity-100 transition"
+                />
               </div>
             </div>
           </div>
