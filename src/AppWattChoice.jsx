@@ -1436,7 +1436,7 @@ function Footer() {
     <footer className="bg-[#1a1f2e] text-white">
       <div className="bg-emerald-600 h-1"></div>
       <div className="container mx-auto px-4 lg:px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Services */}
           <div>
             <h3 className="font-bold text-base mb-4">Services</h3>
@@ -1448,7 +1448,6 @@ function Footer() {
               <li><Link to="/multi-site-energy" className="text-gray-400 hover:text-white transition text-sm">Multi-site</Link></li>
             </ul>
           </div>
-
 
           {/* Company */}
           <div>
@@ -1462,17 +1461,21 @@ function Footer() {
               <li><Link to="/suppliers" className="text-gray-400 hover:text-white transition text-sm">Suppliers</Link></li>
               <li><Link to="/glossary" className="text-gray-400 hover:text-white transition text-sm">Glossary</Link></li>
             </ul>
-            <div className="mt-6">
-              <ul className="space-y-2.5">
-                <li><Link to="/terms" className="text-gray-400 hover:text-white transition text-sm">Terms</Link></li>
-                <li><Link to="/privacy" className="text-gray-400 hover:text-white transition text-sm">Privacy</Link></li>
-                <li><Link to="/complaints" className="text-gray-400 hover:text-white transition text-sm">Complaints</Link></li>
-              </ul>
-            </div>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h3 className="font-bold text-base mb-4">Legal</h3>
+            <ul className="space-y-2.5">
+              <li><Link to="/terms" className="text-gray-400 hover:text-white transition text-sm">Terms</Link></li>
+              <li><Link to="/privacy" className="text-gray-400 hover:text-white transition text-sm">Privacy</Link></li>
+              <li><Link to="/complaints" className="text-gray-400 hover:text-white transition text-sm">Complaints</Link></li>
+              <li><Link to="/tpi-code" className="text-gray-400 hover:text-white transition text-sm">TPI Code of Practice</Link></li>
+            </ul>
           </div>
 
           {/* Logo & Description */}
-          <div className="lg:col-span-2">
+          <div>
             <img 
               src="https://i.ibb.co/Txrgyp2R/Watt-choice-logo-1.png" 
               alt="Watt Choice" 
@@ -1504,27 +1507,24 @@ function Footer() {
 
         <div className="border-t border-gray-700 mt-12 pt-8">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
-            <div className="text-gray-500 text-xs order-2 lg:order-1">
+            <div className="text-gray-500 text-xs">
               © {new Date().getFullYear()} WATT CHOICE LIMITED - Company number 06702949. All rights reserved.
             </div>
-            <div className="flex flex-wrap items-center justify-center gap-8 order-1 lg:order-2">
-              <a href="/tpi-code" className="text-gray-400 hover:text-white transition text-xs">TPI Code of Practice</a>
+            <div className="flex flex-wrap items-center gap-6">
               <div className="flex items-center gap-2">
                 <img src="https://cdn.trustpilot.net/brand-assets/4.1.0/logo-white.svg" alt="Trustpilot" className="h-5" />
                 <span className="text-gray-300 text-sm font-semibold">4.6★</span>
               </div>
-              <div className="flex items-center gap-6">
-                <img 
-                  src="https://i.ibb.co/DgDXHDm1/investors-people-watt-001.png" 
-                  alt="Investors in People" 
-                  className="h-10 brightness-0 invert opacity-80 hover:opacity-100 transition"
-                />
-                <img 
-                  src="https://i.ibb.co/4nzmkKMY/ICO-001-Watt.png" 
-                  alt="ICO Registered" 
-                  className="h-10 brightness-0 invert opacity-80 hover:opacity-100 transition"
-                />
-              </div>
+              <img 
+                src="https://i.ibb.co/DgDXHDm1/investors-people-watt-001.png" 
+                alt="Investors in People" 
+                className="h-8 brightness-0 invert opacity-80 hover:opacity-100 transition"
+              />
+              <img 
+                src="https://i.ibb.co/4nzmkKMY/ICO-001-Watt.png" 
+                alt="ICO Registered" 
+                className="h-8 brightness-0 invert opacity-80 hover:opacity-100 transition"
+              />
             </div>
           </div>
         </div>
