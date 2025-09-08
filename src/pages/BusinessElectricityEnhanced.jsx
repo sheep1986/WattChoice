@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import ContractTypeCard from '../components/ContractTypeCard';
 import { 
   Zap, ArrowRight, CheckCircle, TrendingUp, Shield, Leaf, 
   Building2, PoundSterling, Clock, Award, Users, Phone,
@@ -509,63 +510,18 @@ const BusinessElectricityEnhanced = () => {
             ))}
           </div>
           
-          {/* Tab Content */}
+          {/* Tab Content - Using New Contract Card Component */}
           <AnimatePresence mode="wait">
-            {Object.entries(content.mainContent.contractTypes).map(([key, type]) => {
-              if (key !== activeTab) return null;
-              
-              return (
-                <motion.div
-                  key={key}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
-                  className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-8 md:p-12"
-                >
-                  <div className="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
-                      <type.icon className="w-16 h-16 text-green-600 mb-4" />
-                      <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                        {type.name} Contract
-                      </h3>
-                      <p className="text-lg text-gray-700 mb-6">
-                        {type.description}
-                      </p>
-                      <div className="space-y-3 mb-6">
-                        {type.benefits.map((benefit, i) => (
-                          <motion.div 
-                            key={i} 
-                            className="flex items-center gap-3"
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: i * 0.1 }}
-                          >
-                            <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                            <span className="text-gray-700">{benefit}</span>
-                          </motion.div>
-                        ))}
-                      </div>
-                      <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full">
-                        <Star className="w-5 h-5 text-yellow-500" />
-                        <span className="font-semibold text-gray-900">{type.best}</span>
-                      </div>
-                    </div>
-                    
-                    <motion.div 
-                      className="relative h-64 md:h-96"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-400 rounded-2xl opacity-20 blur-xl" />
-                      <div className="relative h-full bg-white rounded-2xl shadow-xl flex items-center justify-center">
-                        <type.icon className="w-32 h-32 text-green-600 opacity-20" />
-                      </div>
-                    </motion.div>
-                  </div>
-                </motion.div>
-              );
-            })}
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="max-w-6xl mx-auto"
+            >
+              <ContractTypeCard type={activeTab} />
+            </motion.div>
           </AnimatePresence>
         </div>
       </section>

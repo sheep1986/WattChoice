@@ -86,26 +86,45 @@ export default function ContractTypeCard({ type = 'fixed' }) {
         {/* Right Image */}
         <div className="relative h-full min-h-[300px] lg:min-h-[400px]">
           <div className="absolute inset-0 bg-white rounded-2xl shadow-xl overflow-hidden">
-            {/* Placeholder for actual image - using gradient for now */}
-            <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 relative">
-              {/* Image overlay with icon */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center space-y-4">
-                  <div className={`inline-flex p-6 rounded-full bg-white/90 shadow-lg`}>
-                    <Icon className={`h-16 w-16 ${contract.iconColor} opacity-50`} />
-                  </div>
-                  <p className="text-gray-500 text-sm font-medium px-4">
-                    Professional business environment
-                  </p>
-                </div>
-              </div>
+            {/* Professional business image with gradient overlay */}
+            <div className="w-full h-full relative">
+              {/* Image Background */}
+              <div 
+                className="absolute inset-0 bg-cover bg-center"
+                style={{
+                  backgroundImage: type === 'fixed' 
+                    ? 'url(https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=800&q=80)'
+                    : type === 'variable'
+                    ? 'url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80)'
+                    : 'url(https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80)'
+                }}
+              />
               
-              {/* Decorative elements */}
-              <div className="absolute top-4 right-4">
-                <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${contract.bgColor} opacity-60`}></div>
-              </div>
-              <div className="absolute bottom-4 left-4">
-                <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${contract.bgColor} opacity-60`}></div>
+              {/* Gradient Overlay */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${contract.bgColor} opacity-40`} />
+              
+              {/* Content Overlay */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center space-y-4 p-6">
+                  <div className={`inline-flex p-5 rounded-full bg-white/95 shadow-2xl`}>
+                    <Icon className={`h-14 w-14 ${contract.iconColor}`} />
+                  </div>
+                  {type === 'fixed' && (
+                    <p className="text-white text-lg font-bold bg-black/40 backdrop-blur px-4 py-2 rounded-lg">
+                      Stable & Predictable
+                    </p>
+                  )}
+                  {type === 'variable' && (
+                    <p className="text-white text-lg font-bold bg-black/40 backdrop-blur px-4 py-2 rounded-lg">
+                      Flexible & Adaptive
+                    </p>
+                  )}
+                  {type === 'green' && (
+                    <p className="text-white text-lg font-bold bg-black/40 backdrop-blur px-4 py-2 rounded-lg">
+                      Sustainable Future
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
           </div>
