@@ -4,7 +4,7 @@ TIME: Current
 STATUS: Testing Netlify deployment from GitHub
 
 If you can access this file at:
-https://wattutilities001.netlify.app/VERSION.txt
+https://wattchoice.netlify.app/VERSION.txt
 
 Then Netlify IS deploying from GitHub.
 

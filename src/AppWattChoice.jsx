@@ -19,6 +19,7 @@ import AboutPage from './pages/AboutPage';
 import CaseStudies from './pages/CaseStudies';
 import TPICodePage from './pages/TPICodePage';
 import MultiSiteEnergy from './pages/MultiSiteEnergyEnhanced';
+import BusinessBenefits from './pages/BusinessBenefits';
 import {
   CheckCircle,
   ShieldCheck,
@@ -391,6 +392,9 @@ function Navbar() {
             </div>
 
 
+            <Link to="/business-benefits" className="text-gray-700 hover:text-emerald-600 text-[15px] font-medium transition-all">
+              Business Benefits
+            </Link>
             <Link to="/case-studies" className="text-gray-700 hover:text-emerald-600 text-[15px] font-medium transition-all">
               Case Studies
             </Link>
@@ -466,6 +470,9 @@ function Navbar() {
                   </Link>
                 ))}
                 <div className="border-t border-gray-100 pt-2 space-y-1">
+                  <Link to="/business-benefits" onClick={() => setIsOpen(false)} className="block px-4 py-2.5 text-[14px] text-gray-700 hover:bg-gray-50 hover:text-emerald-600 font-medium transition-all">
+                    Business Benefits
+                  </Link>
                   <Link to="/case-studies" onClick={() => setIsOpen(false)} className="block px-4 py-2.5 text-[14px] text-gray-700 hover:bg-gray-50 hover:text-emerald-600 font-medium transition-all">
                     Case Studies
                   </Link>
@@ -1448,6 +1455,7 @@ function Footer() {
             <h3 className="font-bold text-base mb-4">Company</h3>
             <ul className="space-y-2.5">
               <li><Link to="/about" className="text-gray-400 hover:text-white transition text-sm">About Us</Link></li>
+              <li><Link to="/business-benefits" className="text-gray-400 hover:text-white transition text-sm">Business Benefits</Link></li>
               <li><Link to="/case-studies" className="text-gray-400 hover:text-white transition text-sm">Case Studies</Link></li>
               <li><Link to="/contact" className="text-gray-400 hover:text-white transition text-sm">Contact</Link></li>
               <li><Link to="/loa" className="text-gray-400 hover:text-white transition text-sm">LOA</Link></li>
@@ -1774,6 +1782,7 @@ export default function WattChoiceApp() {
           <Route path="/pass-through-fixed" element={<PassThroughPage />} />
           
           {/* Information Pages */}
+          <Route path="/business-benefits" element={<BusinessBenefits />} />
           <Route path="/how-it-works" element={<HowPaidPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/suppliers" element={<SuppliersPage />} />
