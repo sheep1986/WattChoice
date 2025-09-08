@@ -20,6 +20,7 @@ import CaseStudies from './pages/CaseStudies';
 import TPICodePage from './pages/TPICodePage';
 import MultiSiteEnergy from './pages/MultiSiteEnergyEnhanced';
 import BusinessBenefits from './pages/BusinessBenefits';
+import ContractTypes from './pages/ContractTypes';
 import {
   CheckCircle,
   ShieldCheck,
@@ -1783,6 +1784,7 @@ export default function WattChoiceApp() {
           
           {/* Information Pages */}
           <Route path="/business-benefits" element={<BusinessBenefits />} />
+          <Route path="/contract-types" element={<ContractTypes />} />
           <Route path="/how-it-works" element={<HowPaidPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/suppliers" element={<SuppliersPage />} />
