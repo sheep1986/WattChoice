@@ -6,45 +6,45 @@
   
   <!-- Primary Pages - Highest Priority -->
   <url>
-    <loc>https://www.wattutilities.co.uk/</loc>
-    <lastmod>2025-09-02</lastmod>
+    <loc>https://wattchoice.netlify.app/</loc>
+    <lastmod>2025-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/contact</loc>
-    <lastmod>2025-09-02</lastmod>
+    <loc>https://wattchoice.netlify.app/contact</loc>
+    <lastmod>2025-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   
   <!-- Core Service Pages - High Priority -->
   <url>
-    <loc>https://www.wattutilities.co.uk/business-electricity</loc>
+    <loc>https://wattchoice.netlify.app/business-electricity</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/business-gas</loc>
+    <loc>https://wattchoice.netlify.app/business-gas</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/business-water</loc>
+    <loc>https://wattchoice.netlify.app/business-water</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/large-business</loc>
+    <loc>https://wattchoice.netlify.app/large-business</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/multi-site-energy</loc>
+    <loc>https://wattchoice.netlify.app/multi-site-energy</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -52,43 +52,49 @@
   
   <!-- NEW Business Benefits Pages - High Priority for SEO -->
   <url>
-    <loc>https://www.wattutilities.co.uk/business-energy-guides</loc>
+    <loc>https://wattchoice.netlify.app/business-benefits</loc>
+    <lastmod>2025-09-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://wattchoice.netlify.app/business-energy-guides</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/energy-saving-tips</loc>
+    <loc>https://wattchoice.netlify.app/energy-saving-tips</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/contract-types</loc>
+    <loc>https://wattchoice.netlify.app/contract-types</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/switching-process</loc>
+    <loc>https://wattchoice.netlify.app/switching-process</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/green-energy</loc>
+    <loc>https://wattchoice.netlify.app/green-energy</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/market-insights</loc>
+    <loc>https://wattchoice.netlify.app/market-insights</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/bill-validation</loc>
+    <loc>https://wattchoice.netlify.app/bill-validation</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
@@ -96,7 +102,7 @@
   
   <!-- Case Studies - Important for Trust -->
   <url>
-    <loc>https://www.wattutilities.co.uk/case-studies</loc>
+    <loc>https://wattchoice.netlify.app/case-studies</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
@@ -104,19 +110,19 @@
   
   <!-- Secondary Service Pages -->
   <url>
-    <loc>https://www.wattutilities.co.uk/business-broadband</loc>
+    <loc>https://wattchoice.netlify.app/business-broadband</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/business-telecoms</loc>
+    <loc>https://wattchoice.netlify.app/business-telecoms</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/solar-energy</loc>
+    <loc>https://wattchoice.netlify.app/solar-energy</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -124,19 +130,19 @@
   
   <!-- Company Information -->
   <url>
-    <loc>https://www.wattutilities.co.uk/company</loc>
+    <loc>https://wattchoice.netlify.app/company</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/careers</loc>
+    <loc>https://wattchoice.netlify.app/careers</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/testimonials</loc>
+    <loc>https://wattchoice.netlify.app/testimonials</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -144,37 +150,37 @@
   
   <!-- Support Pages -->
   <url>
-    <loc>https://www.wattutilities.co.uk/faqs</loc>
+    <loc>https://wattchoice.netlify.app/faqs</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/how-we-get-paid</loc>
+    <loc>https://wattchoice.netlify.app/how-we-get-paid</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/suppliers</loc>
+    <loc>https://wattchoice.netlify.app/suppliers</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/pass-through-fixed</loc>
+    <loc>https://wattchoice.netlify.app/pass-through-fixed</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/loa</loc>
+    <loc>https://wattchoice.netlify.app/loa</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/glossary</loc>
+    <loc>https://wattchoice.netlify.app/glossary</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -182,31 +188,31 @@
   
   <!-- Legal Pages - Lower Priority -->
   <url>
-    <loc>https://www.wattutilities.co.uk/privacy</loc>
+    <loc>https://wattchoice.netlify.app/privacy</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/terms</loc>
+    <loc>https://wattchoice.netlify.app/terms</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/complaints</loc>
+    <loc>https://wattchoice.netlify.app/complaints</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/compliance</loc>
+    <loc>https://wattchoice.netlify.app/compliance</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://www.wattutilities.co.uk/tpi-code</loc>
+    <loc>https://wattchoice.netlify.app/tpi-code</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
