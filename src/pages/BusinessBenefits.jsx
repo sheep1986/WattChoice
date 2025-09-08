@@ -75,7 +75,7 @@ function BenefitsHero() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://app.watt.co.uk" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.watt.co.uk" target="_blank" rel="noopener noreferrer">
               <button className="px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-2">
                 Start Saving Today
                 <ArrowRight className="h-5 w-5" />
@@ -620,7 +620,7 @@ function BenefitsCTA() {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://app.watt.co.uk" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.watt.co.uk" target="_blank" rel="noopener noreferrer">
               <button className="px-8 py-4 bg-white text-green-600 font-bold rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-2">
                 Get Your Free Comparison
                 <ArrowRight className="h-5 w-5" />
