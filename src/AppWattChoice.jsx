@@ -202,7 +202,7 @@ function FloatingActionButton() {
   
   const actions = [
     { icon: Phone, label: "Call Us", action: () => window.location.href = "tel:01618338661" },
-    { icon: Calculator, label: "Quick Quote", action: () => window.location.href = "https://www.watt.co.uk" },
+    { icon: Calculator, label: "Quick Quote", action: () => window.location.href = "https://app.watt.co.uk" },
     { icon: ChevronUp, label: "Back to Top", action: () => window.scrollTo({ top: 0, behavior: 'smooth' }) }
   ];
   
@@ -415,7 +415,7 @@ function Navbar() {
               <Phone className="h-3.5 w-3.5" />
               0161 123 4567
             </a>
-            <a href="https://www.watt.co.uk" target="_blank" rel="noopener noreferrer">
+            <a href="https://app.watt.co.uk" target="_blank" rel="noopener noreferrer">
               <button className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white text-[15px] font-bold px-5 py-2 rounded-md shadow-md hover:shadow-lg transition-all flex items-center gap-2">
                 Compare Prices
                 <ArrowRight className="h-3.5 w-3.5" />
@@ -491,7 +491,7 @@ function Navbar() {
                     <Phone className="h-3.5 w-3.5" />
                     0161 123 4567
                   </a>
-                  <a href="https://www.watt.co.uk" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+                  <a href="https://app.watt.co.uk" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
                     <button className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white text-[14px] font-bold py-2.5 rounded-md shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
                       Compare Prices
                       <ArrowRight className="h-3.5 w-3.5" />
@@ -730,7 +730,7 @@ function HeroSection() {
               </div>
 
               {/* CTA Button */}
-              <a href="https://www.watt.co.uk" target="_blank" rel="noopener noreferrer">
+              <a href="https://app.watt.co.uk" target="_blank" rel="noopener noreferrer">
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -1019,7 +1019,7 @@ function HowItWorksSection() {
         </div>
 
         <div className="text-center mt-12">
-          <a href="https://www.watt.co.uk" target="_blank" rel="noopener noreferrer">
+          <a href="https://app.watt.co.uk" target="_blank" rel="noopener noreferrer">
             <Button size="lg">
               Start Comparing Now
               <ArrowRight className="h-5 w-5 ml-2" />
@@ -1388,80 +1388,6 @@ function TrustSection() {
   );
 }
 
-// Platform Promotion Section - NEW
-function PlatformPromotion() {
-  return (
-    <section className="py-16 bg-gradient-to-r from-emerald-50 to-green-50">
-      <div className="container mx-auto px-4 lg:px-6">
-        <div className="bg-white rounded-3xl shadow-2xl p-8 lg:p-12 border border-green-200">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-green-100 text-green-800 px-4 py-2 rounded-full mb-4">
-                <Sparkles className="h-4 w-4" />
-                <span className="text-sm font-bold">Instant Online Comparison</span>
-              </div>
-              <h2 className="text-3xl lg:text-4xl font-black text-gray-900 mb-4">
-                Compare Energy Prices in Real-Time on 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600"> Watt.co.uk</span>
-              </h2>
-              <p className="text-lg text-gray-600 mb-6">
-                Access our advanced comparison platform for instant quotes from 30+ suppliers. 
-                No waiting, no callbacks - just immediate results tailored to your business needs.
-              </p>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="text-gray-700">Live pricing from all major suppliers</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="text-gray-700">Secure online switching process</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="text-gray-700">Track your application status 24/7</span>
-                </li>
-              </ul>
-              <a href="https://www.watt.co.uk" target="_blank" rel="noopener noreferrer" className="inline-block">
-                <button className="bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-3 text-lg">
-                  Visit Watt.co.uk Platform
-                  <ArrowRight className="h-5 w-5" />
-                </button>
-              </a>
-            </div>
-            <div className="relative">
-              <div className="bg-gradient-to-br from-green-100 to-emerald-100 rounded-2xl p-8">
-                <div className="bg-white rounded-xl shadow-xl p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-2xl font-bold text-gray-900">Watt.co.uk</span>
-                    <div className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
-                      LIVE
-                    </div>
-                  </div>
-                  <div className="space-y-3">
-                    <div className="bg-gray-50 rounded-lg p-3">
-                      <div className="text-sm text-gray-500">Average Savings</div>
-                      <div className="text-2xl font-bold text-green-600">£4,250/year</div>
-                    </div>
-                    <div className="bg-gray-50 rounded-lg p-3">
-                      <div className="text-sm text-gray-500">Quote Time</div>
-                      <div className="text-2xl font-bold text-gray-900">60 seconds</div>
-                    </div>
-                    <div className="bg-gray-50 rounded-lg p-3">
-                      <div className="text-sm text-gray-500">Suppliers</div>
-                      <div className="text-2xl font-bold text-gray-900">30+</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 // CTA Section
 function CTASection() {
   return (
@@ -1474,7 +1400,7 @@ function CTASection() {
           Get your free comparison in under 60 seconds. No obligation, no hidden fees.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://www.watt.co.uk" target="_blank" rel="noopener noreferrer">
+          <a href="https://app.watt.co.uk" target="_blank" rel="noopener noreferrer">
             <Button variant="secondary" size="lg">
               Compare Prices Now
               <ArrowRight className="h-5 w-5 ml-2" />
@@ -1555,15 +1481,9 @@ function Footer() {
               alt="Watt Choice" 
               className="h-12 w-auto mb-4 bg-white p-2 rounded"
             />
-            <p className="text-gray-400 text-sm mb-4 leading-relaxed">
+            <p className="text-gray-400 text-sm mb-6 leading-relaxed">
               Trusted business energy consultants since 2000. 900,000+ businesses saved £150M.
             </p>
-            {/* Platform Link */}
-            <a href="https://www.watt.co.uk" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-green-600/20 hover:bg-green-600/30 text-green-400 px-4 py-2 rounded-lg transition-all mb-6">
-              <Globe className="h-4 w-4" />
-              <span className="text-sm font-semibold">Visit Watt.co.uk Platform</span>
-              <ArrowRight className="h-3.5 w-3.5" />
-            </a>
             {/* Social Icons */}
             <div className="flex gap-4">
               <a href="https://www.facebook.com/profile.php?id=61580022617531" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
@@ -1618,7 +1538,7 @@ function MobileCTA() {
   return (
     <div className="fixed inset-x-0 bottom-3 z-40 mx-auto flex max-w-xl items-center justify-center px-4 md:hidden">
       <div className="w-full rounded-2xl border border-green-500/30 bg-white shadow-2xl">
-        <a href="https://www.watt.co.uk" target="_blank" rel="noopener noreferrer" className="flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-green-600 to-emerald-600 px-4 py-3 text-sm font-semibold text-white hover:from-green-700 hover:to-emerald-700">
+        <a href="https://app.watt.co.uk" target="_blank" rel="noopener noreferrer" className="flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-green-600 to-emerald-600 px-4 py-3 text-sm font-semibold text-white hover:from-green-700 hover:to-emerald-700">
           Compare Prices Now <ArrowRight className="ml-2 h-4 w-4"/>
         </a>
       </div>
@@ -1694,7 +1614,7 @@ function NotFoundPage() {
                 <Home className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <a href="https://www.watt.co.uk" target="_blank" rel="noopener noreferrer">
+            <a href="https://app.watt.co.uk" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="lg">
                 Get a Quote
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -1715,7 +1635,7 @@ function PagePlaceholder({ title, description }) {
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">{title}</h1>
           <p className="text-xl text-gray-600 mb-8">{description}</p>
-          <a href="https://www.watt.co.uk" target="_blank" rel="noopener noreferrer">
+          <a href="https://app.watt.co.uk" target="_blank" rel="noopener noreferrer">
             <Button size="lg">
               Get Your Quote
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -1842,7 +1762,6 @@ export default function WattChoiceApp() {
               <HeroSection />
               <ServicesSection />
               <SupplierCarousel />
-              <PlatformPromotion />
               <TrustpilotSection />
               <HowItWorksSection />
               <TrustSection />
