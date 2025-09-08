@@ -1508,7 +1508,7 @@ function Footer() {
         <div className="border-t border-gray-700 mt-12 pt-8">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
             <div className="text-gray-500 text-xs">
-              © {new Date().getFullYear()} WATT CHOICE LIMITED - Company number 06702949. All rights reserved.
+              © {new Date().getFullYear()} <a href="https://www.watt.co.uk" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors underline">WATT CHOICE LIMITED</a> - Company number 06702949. All rights reserved.
             </div>
             <div className="flex flex-wrap items-center gap-6">
               <div className="flex items-center gap-2">
